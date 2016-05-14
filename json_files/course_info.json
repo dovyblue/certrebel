@@ -1,0 +1,98 @@
+{
+    "rrpi": [
+        {
+            "course_address": "175 Varick Street, New York, NY 10014",
+            "course_highlight": "As contractors, we play an important role in helping to prevent lead poisoning. Sign up now for a custom training course to obtain your lead certification.",
+            "course_hour_length": "8",
+            "course_id": "rrpi",
+            "course_long_title": "Lead Renovator (RRP) Initial Certification",
+            "course_meeting_date": "February 5, 2016",
+            "course_meeting_time": "11:00 AM",
+            "course_picture": "image.png",
+            "course_price": "240",
+            "course_short_detail": "For individuals in need of a lead certification to comply with the EPA's Renovation, Repair, and Painting (RRP) Rule, take this 8-hour, one day course to learn about the importance of containment and using lead-safe work practices. This course is intended for all contractors and professionals responsible for projects performed on pre-1978 residential properties or child-occupied facilities such as daycares, elementary schools, and pre-schools.",
+            "course_short_title": "Lead Renovator (RRP)",
+            "course_tagline": "Initial Certification Course"
+        }
+    ],
+    "rrpr": [
+        {
+            "course_address": "175 Varick Street, New York, NY 10014",
+            "course_highlight": "As contractors, we play an important role in helping to prevent lead poisoning. Sign up now for a custom training course to obtain your lead certification.",
+            "course_hour_length": "4",
+            "course_id": "rrpr",
+            "course_long_title": "Lead Renovator (RRP) Refresher Certification",
+            "course_meeting_date": "February 5, 2016",
+            "course_meeting_time": "11:00 AM",
+            "course_picture": "lead2.jpg",
+            "course_price": "150",
+            "course_short_detail": "For individuals who want to renew their lead certification to comply with the EPA's Renovation, Repair, and Painting (RRP) Rule, take this 4-hour, half day course to review how to test for lead-based paint, how to perform clearance testing through the Cleaning Verification Procedure, and how to keep the required records needed to stay in compliance with this federal lead regulation.",
+            "course_short_title": "Lead Renovator (RRP)",
+            "course_tagline": "Refresher Certification Course"
+        }
+    ],
+    "hazi": [
+        {
+            "course_address": "175 Varick Street, New York, NY 10014",
+            "course_highlight": "HAZWOPER 40-Hour, 24-Hour and 8-Hour Annual Refresher courses are available whether you are an individual or have a large group.",
+            "course_hour_length": "40",
+            "course_id": "hazi",
+            "course_long_title": "HAZWOPER Initial Certification",
+            "course_meeting_date": "February 5, 2016",
+            "course_meeting_time": "11:00 AM",
+            "course_picture": "osha.png",
+            "course_price": "600",
+            "course_short_detail": "This 5-day, 40-hour course is specifically designed for workers who are involved in clean-up operations, voluntary clean-up operations, emergency response operations, and storage, disposal, or treatment of hazardous substances or uncontrolled hazardous waste sites. This course covers regulations in 29 CFR 1910.120. Topics include protection against hazardous chemicals, elimination of hazardous chemicals, safety of workers, the environment, and OSHA regulations.",
+            "course_short_title": "Hazardous Materials",
+            "course_tagline": "HAZWOPER / HAZMAT"
+        }
+    ],
+    "hazr": [
+        {
+            "course_address": "175 Varick Street, New York, NY 10014",
+            "course_highlight": "HAZWOPER 40-Hour, 24-Hour and 8-Hour Annual Refresher courses are available whether you are an individual or have a large group.",
+            "course_hour_length": "8",
+            "course_id": "hazr",
+            "course_long_title": "HAZWOPER Refresher Certification",
+            "course_meeting_date": "February 5, 2016",
+            "course_meeting_time": "11:00 AM",
+            "course_picture": "hazwoper.jpg",
+            "course_price": "150",
+            "course_short_detail": "This 8-hour course meets the requirements outlined in OSHA 29 CFR 1910.120 for 8 (eight) hours of annual refresher training for workers at hazardous waste sites. This course is designed for general site workers who remove hazardous waste or who are exposed or potentially exposed to hazardous substances or health hazards. Topics include HAZWOPER regulations, from site characterization, and hazard recognition to decontamination and emergency procedures.",
+            "course_short_title": "Hazardous Materials",
+            "course_tagline": "HAZWOPER / HAZMAT"
+        }
+    ],
+    "osha10": [
+        {
+            "course_address": "175 Varick Street, New York, NY 10014",
+            "course_highlight": "No one should have to sacrifice their life for their livelihood. We offer a wide selection of training courses to help foster worker and employer safety.",
+            "course_hour_length": "10",
+            "course_id": "osha10",
+            "course_long_title": "OSHA Construction Safety",
+            "course_meeting_date": "February 5, 2016",
+            "course_meeting_time": "11:00 AM",
+            "course_picture": "osha10.jpg",
+            "course_price": "TBA",
+            "course_short_detail": "CertRebel offers a wide selection of training courses and educational programs to help broaden worker and employer knowledge on the recognition, avoidance, and prevention of safety and health hazards in their workplaces. From Confined Space to Bloodborne Pathogen training, our OSHA safety courses and educational materials help businesses train their workers to comply with the Occupational Safety and Health Act.",
+            "course_short_title": "OSHA Construction Safety",
+            "course_tagline": "10-Hour Certification Courses"
+        }
+    ],
+    "osha30": [
+        {
+            "course_address": "175 Varick Street, New York, NY 10014",
+            "course_highlight": "No one should have to sacrifice their life for their livelihood. We offer a wide selection of training courses to help foster worker and employer safety.",
+            "course_hour_length": "30",
+            "course_id": "osha30",
+            "course_long_title": "OSHA Construction Safety",
+            "course_meeting_date": "February 5, 2016",
+            "course_meeting_time": "11:00 AM",
+            "course_picture": "safety.jpg",
+            "course_price": "500",
+            "course_short_detail": "CertRebel offers a wide selection of training courses and educational programs to help broaden worker and employer knowledge on the recognition, avoidance, and prevention of safety and health hazards in their workplaces. From Confined Space to Bloodborne Pathogen training, our OSHA safety courses and educational materials help businesses train their workers to comply with the Occupational Safety and Health Act.",
+            "course_short_title": "OSHA Construction Safety",
+            "course_tagline": "30-Hour Certification Courses"
+        }
+    ]
+}

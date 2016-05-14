@@ -1,0 +1,317 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+#getQuote #feedback-page{
+	text-align:center;
+}
+
+#getQuote #form-main{
+	width:100%;
+	float:left;
+	padding-top:0px;
+}
+
+#getQuote #form-div {
+	background-color:rgba(72,72,72,0.4);
+	padding-left:35px;
+	padding-right:35px;
+	padding-top:35px;
+	padding-bottom:50px;
+	width: 450px;
+	float: left;
+	left: 50%;
+	position: absolute;
+  margin-top:30px;
+	margin-left: -260px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
+
+#getQuote .feedback-input {
+	color:#3c3c3c;
+	font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+	font-size: 18px;
+	border-radius: 0;
+	line-height: 22px;
+	background-color: #fbfbfb;
+	padding: 13px 13px 13px 54px;
+	margin-bottom: 10px;
+	width:100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+  border: 3px solid rgba(0,0,0,0);
+}
+
+#getQuote .feedback-input:focus{
+	background: #fff;
+	box-shadow: 0;
+	border: 3px solid #3498db;
+	color: #3498db;
+	outline: none;
+  padding: 13px 13px 13px 54px;
+}
+
+#getQuote .focused{
+	color:#30aed6;
+	border:#30aed6 solid 3px;
+}
+
+/* Icons ---------------------------------- */
+#getQuote #name{
+	background-image: url(../images/name.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+#getQuote #name:focus{
+	background-image: url(../images/name.svg);
+	background-size: 30px 30px;
+	background-position: 8px 5px;
+  background-position: 11px 8px;
+	background-repeat: no-repeat;
+	border-right: 0px;
+	color: #7B7D82;
+	border-color: #A9A9AE;
+}
+
+#getQuote #last_name{
+	/*background-image: url(../images/name.svg);*/
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+#getQuote #last_name:focus{
+	/*background-image: url(../images/name.svg);*/
+	background-size: 30px 30px;
+	background-position: 8px 5px;
+  background-position: 11px 8px;
+	background-repeat: no-repeat;
+	color: #7B7D82;
+	border-color: #A9A9AE;
+}
+
+#getQuote #company{
+	background-image: url(../images/company.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+#getQuote #company:focus{
+	background-image: url(../images/company.svg);
+	background-size: 30px 30px;
+	background-position: 8px 5px;
+  background-position: 11px 8px;
+	background-repeat: no-repeat;
+	color: #7B7D82;
+	border-color: #A9A9AE;
+}
+
+#getQuote #phone{
+	background-image: url(../images/phone.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+#getQuote #phone:focus{
+	background-image: url(../images/phone.svg);
+	background-size: 30px 30px;
+	background-position: 8px 5px;
+  background-position: 11px 8px;
+	background-repeat: no-repeat;
+	color: #7B7D82;
+	border-color: #A9A9AE;
+}
+
+#getQuote #question{
+	background-image: url(../images/question.svg);
+	background-size: 30px 30px;
+	background-position: 11px 18px;
+	background-repeat: no-repeat;
+	margin-bottom: 20px;
+}
+#getQuote #question:focus{
+	background-image: url(../images/question.svg);
+	background-size: 30px 30px;
+	background-position: 8px 5px;
+  background-position: 11px 8px;
+	background-repeat: no-repeat;
+	margin-bottom: 20px;
+	color: #7B7D82;
+	border-color: #A9A9AE;
+}
+#getQuote i.fa.fa-angle-down {
+	background-color: #7B7D82;
+}
+
+#getQuote .mc-select select {
+	z-index: 10;
+	cursor:pointer;
+	font-size: 18px;
+	position: relative;
+	background-color: #fff;
+	border: 0; 
+	width: 100%; 
+	height: 40px; 
+	line-height: 40px;
+	padding: 0 13px;
+	font-family: 'Lato', sans-serif;
+	color: #BABBBE;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+#getQuote .mc-select span.select {
+	font-size: 18px;
+
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	white-space: nowrap;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background-color: #fff;
+	padding: 0 13px;
+	font-family: 'Lato', sans-serif;
+	font-size: 14px;
+	/* color: #013450; */
+	color: #7a7c82 !important;
+	cursor: default;
+	z-index: 1;
+}
+
+#getQuote #email{
+	background-image: url(../images/email.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+#getQuote #email:focus{
+	background-image: url(../images/email.svg);
+	background-size: 30px 30px;
+  background-position: 11px 8px;
+	background-repeat: no-repeat;
+	color: #7B7D82;
+	border-color: #A9A9AE;
+}
+
+#getQuote #comment{
+	background-image: url(../images/comment.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+#getQuote #comment:focus{
+	background-image: url(../images/comment.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+	color: #7B7D82;
+	border-color: #A9A9AE;
+}
+
+#getQuote button#sendForm {
+	background-color: white !important;
+	color: #666 !important;
+	border-color: #df4a43 !important;
+	display: inline-block;
+	border: 0;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-family: 'Lato', sans-serif;
+	height: 40px;
+	line-height: 40px !important;
+	padding: 0 20px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	text-align: center;
+	text-transform: capitalize;
+	-webkit-transition: all 0.3s linear 0s;
+	-moz-transition: all 0.3s linear 0s;
+	-ms-transition: all 0.3s linear 0s;
+	-o-transition: all 0.3s linear 0s;
+	transition: all 0.3s linear 0s;
+	outline: none;
+	overflow: visible;
+	margin: 0;
+	font: inherit;
+}
+#getQuote button#sendForm:hover {
+	background-color: white !important;
+	color: #df4a43 !important;
+}
+
+#getQuote textarea {
+    width: 100%;
+    height: 150px;
+    line-height: 150%;
+    resize:vertical;
+}
+
+#getQuote input:hover, #getQuote textarea:hover,
+#getQuote input:focus, #getQuote textarea:focus {
+	background-color:white;
+}
+
+#getQuote #button-blue{
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	float:left;
+	width: 100%;
+	border: #fbfbfb solid 4px;
+	cursor:pointer;
+	background-color: #3498db;
+	color:white;
+	font-size:24px;
+	padding-top:22px;
+	padding-bottom:22px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+}
+
+#getQuote #button-blue:hover{
+	background-color: rgba(0,0,0,0);
+	color: #0493bd;
+}
+	
+#getQuote .submit:hover {
+	color: #3498db;
+}
+	
+#getQuote .ease {
+	width: 0px;
+	height: 74px;
+	background-color: #fbfbfb;
+	-webkit-transition: .3s ease;
+	-moz-transition: .3s ease;
+	-o-transition: .3s ease;
+	-ms-transition: .3s ease;
+	transition: .3s ease;
+}
+
+#getQuote .submit:hover .ease{
+  width:100%;
+  background-color:white;
+}
+
+@media only screen and (max-width: 580px) {
+	#getQuote #form-div{
+		left: 3%;
+		margin-right: 3%;
+		width: 88%;
+		margin-left: 0;
+		padding-left: 3%;
+		padding-right: 3%;
+	}
+}
