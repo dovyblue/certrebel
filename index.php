@@ -18,7 +18,7 @@
 	<meta name="author" content="">
 	<meta name="keywords" content="">
 
-	<title>CertRebel|Test</title>
+	<title>CertRebel</title>
 
 	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
