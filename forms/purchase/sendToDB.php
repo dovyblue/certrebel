@@ -7,9 +7,8 @@ require_once($stripe);
 require_once('../../functions.php');
 require_once('../../sendmail.php');
 date_default_timezone_set('America/New_york');
-$current_url = $_SERVER['HTTP_REFERER'];
-$error_url 	 = "http://".$_SERVER['SERVER_NAME']."/error"; 
 $return	     = array();
+
 if ( empty($_POST['buyer_first_name'])||
 		 empty($_POST['buyer_last_name'])	||
 		 empty($_POST['buyer_email']) 		||
@@ -77,8 +76,8 @@ if ( empty($_POST['buyer_first_name'])||
    * Set your secret key: remember to change this to your live secret key in production
 	 * See your keys here https://dashboard.stripe.com/account/apikeys
 	 */
-	\Stripe\Stripe::setApiKey("sk_test_V2Voa4gzopov2DNk2IS93ntv");
-	//\Stripe\Stripe::setApiKey("sk_live_lEDDhnLG7h2vNeR08dW14oat");
+	//\Stripe\Stripe::setApiKey("sk_test_V2Voa4gzopov2DNk2IS93ntv");
+	\Stripe\Stripe::setApiKey("sk_live_lEDDhnLG7h2vNeR08dW14oat");
 
 	/**
 	 * Get the credit card details submitted by the form
@@ -193,8 +192,8 @@ if ( empty($_POST['buyer_first_name'])||
 											 VALUES".implode(', ',$sql_fill_table);
 		$checkUserStmt = $dbConnection->prepare($checkUserQuery);
 		$checkUserStmt->execute();
-		//sendmail($info['buyer_email'], $default_subject, $default_message);
-		//sendmail("support@certrebel.com", $default_subject, $default_message);
+		sendmail($info['buyer_email'], $default_subject, $default_message);
+		sendmail("support@certrebel.com", $default_subject, $default_message);
 		$_SESSION['__sdjh'] = sha1($info['buyer_email']);
 	} catch (PDOException $e) {
 		die("Error: Cannot satisfy your request at this time. Please try again later");
