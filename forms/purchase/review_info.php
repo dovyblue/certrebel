@@ -157,6 +157,7 @@
 		quantity 			   = "<?php echo $quantity; ?>";
 		var $cost 			 = "<?php echo $total; ?>";
 		var $cost 			 = parseFloat($cost)*100;
+		var $quantity 	 = "<?php echo $quantity; ?>";
 		var $buyer_email = localStorage.getItem("buyer_email");
 
 			//key: 'pk_live_uJKTW3qOpa71wHf6DeVXft8K',
@@ -167,16 +168,24 @@
 			locale: 'auto',
 			token: function(token) {
 				orderData.stripe_token = token;
+				orderData.cost				 = $cost;
+				orderData.quantity		 = $quantity;
         $.ajax({  
           url: 'forms/purchase/sendToDB',
           async: false,
           data: orderData,
           type: 'POST',
           dataType: 'json',
-          success: function(response) {
+          success: function(data) {
+						if (data.status == "success")
+						  window.location.replace('/thank_you');
+						else if(data.status == "error" && data.error == "error")
+						  window.location.replace('/index');
+						else 
+						  window.location.replace('/error');
           }
         });
-				window.location.replace('/thank_you');
+				//window.location.replace('/thank_you');
 				// Use the token to create the charge with a server-side script.
 				// You can access the token ID with `token.id`
 				//console.log(token);
@@ -186,7 +195,7 @@
 		$('#payButton').on('click', function(e) {
 			// Open Checkout with further options
 			handler.open({
-				name:    'CertRebel',
+				name:    'CertRebel, LLC',
 				amount:   $cost,
 				email:    $buyer_email,
 				zipCode: 'false'

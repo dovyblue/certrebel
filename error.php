@@ -1,8 +1,10 @@
-<!-- List all the courses offered -->
-
 <?php
 	session_start();
-	require_once('functions.php');
+	if (!isset($_SESSION['payment_error']))
+		header("location: index");
+
+	unset($_SESSION['payment_error']);
+	require_once('sendmail.php');
 	include_once('version_number.inc');
 ?>
 <!DOCTYPE html>
@@ -10,6 +12,7 @@
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,14 +37,26 @@
 	<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css?ver=<?php echo $version;?>">
 	<link rel="stylesheet" type="text/css" href="css/style.css?ver=<?php echo $version;?>">
 	<link rel="stylesheet" type="text/css" href="css/quote.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="css/onsite.css?ver=<?php echo $version;?>">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="libraries/bootstrap-select/dist/css/bootstrap-select.css?ver=<?php echo $version;?>">
+
 
 	<!-- COLORS -->
 	<link rel="stylesheet" type="text/css" href="css/custom.css?ver=<?php echo $version;?>">
 
 	<!-- RS SLIDER -->
-	<link rel="stylesheet" type="text/css" href="libraries/rs-plugin/css/settings.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="libraries/rs-plugin/css/settings.css?ver=<?php echo $version;?>" media="screen" />
 
 	<style>
+		div#middle-box {
+			background: white;
+			margin-top: 5%;
+			width: 90%;
+			margin-left: 5%;
+			padding-top: 2%;
+			padding-bottom: 5%;
+		}
 		#keep-position-fixed {
 			width: 100%;
 			top: 0;
@@ -49,11 +64,14 @@
 			padding: 0;
 			margin: 0;
 			position: fixed;
-			/*border-bottom: 1px solid #ececec;*/
+			border-bottom: 1px solid #ececec;
 			z-index: 9999;
 			-webkit-transition: all 0.8s;
 			-moz-transition: all 0.8s;
 			transition: all 0.8s;
+		}
+		.navbar-nav li {
+			border-bottom: 2px solid #ffffff;	
 		}
 		.modal-header, #myModal h4, #myModal .close {
 				background-color: #df4a43 !important;
@@ -65,7 +83,6 @@
 				background-color: #f9f9f9;
 		}
 	</style>
-
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -74,8 +91,22 @@
 
 	<?php include_once('js_scripts.php'); ?>
 
+	<!-- Google Code for Registration Conversion Page -->
+	<script type="text/javascript">
+	/* <![CDATA[ */
+	/*
+	var google_conversion_id = 934308555;
+	var google_conversion_language = "en";
+	var google_conversion_format = "3";
+	var google_conversion_color = "ffffff";
+	var google_conversion_label = "iqOgCJm0yGYQy9XBvQM";
+	var google_conversion_value = 1.00;
+	var google_conversion_currency = "USD";
+	var google_remarketing_only = false;
+	*/
+	/* ]]> */
+	</script>
 </head>
-
 <body>
 
 	<div id="loader">
@@ -89,9 +120,10 @@
 			</div>
 		</div>
 	</div>
-    
+
 	<div id="wrapper">
-		<header id="keep-position-fixed" style="background:linear-gradient(to bottom, #fdfdfd 0%,#f7f7f7 100%) ;" class="header clearfix">
+
+		<header id="keep-position-fixed" style="background:linear-gradient(to bottom, #fdfdfd 0%,#ffffff 100%) ;" class="header clearfix">
 			<div class="topbar clearfix" style="">
 				<div class="container">
 					<div class="clearfix">
@@ -111,25 +143,22 @@
 					</div><!-- end row -->
 				</div><!-- end container -->
 			</div><!-- end topbar -->
-
 			<div class="container">
-				<nav class="yamm navbar navbar-default">
-		      <div class="navbar-header">
+				<nav style="background:linear-gradient(to bottom, #fdfdfd 0%,#ffffff 100%) ;" class="yamm navbar navbar-default">
+					<div class="navbar-header">
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 										 <span class="sr-only">Toggle navigation</span>
 										 <span class="icon-bar"></span>
 										 <span class="icon-bar"></span>
 										 <span class="icon-bar"></span>
 						</button>
-		        <a class="navbar-brand" href="index"><img src="images/cert_logo.png" alt="" style="margin-top: -12px; margin-right: 0px;"></a>
-		      </div>
+						<a class="navbar-brand" href="index"><img src="images/cert_logo.png" alt="" style="margin-top: -12px; margin-right: 0px;"></a>
+					</div>
 					<div id="navbar" class="navbar-collapse collapse">
 			      <ul class="nav navbar-nav navbar-right">
-							<li class="dropdown megamenu"><a href="index">Home</a>
-							</li>
-       							<li><a href="about">About</a></li>
-							<li class="dropdown active megamenu"><a href="courses">Courses</a>
-							</li>
+							<li class="dropdown megamenu"><a href="index">Home</a></li>
+       				<li><a href="about">About</a></li>
+							<li class="dropdown megamenu"><a href="courses">Courses</a>
 							<li><a id="contactBtn" href="#" data-toggle="modal" data-target="#myModal">Contact</a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
@@ -137,63 +166,25 @@
 			</div><!-- end container -->
 		</header><!-- end header -->
 
-		<section class="section-white" style="padding-top: 140px;">
+		<section style="background-color: #f7f7f7;" class="section-white">
 			<div class="container">
-				<div class="row courses-list">
-					<?php
-						$course_info = course_info();
-						if ($course_info) {
-							foreach ($course_info as $info) {
-								$id 		= $info[0]['course_id'];
-								$pic 		= $info[0]['course_picture'];
-								$hr 		= $info[0]['course_hour_length'];
-								$title 	= $info[0]['course_long_title'];
-								$detail = $info[0]['course_short_detail'];
-								$price  = $info[0]['course_price'];
-						?>
-								<div class="col-md-12 col-sm-12 col-xs-12">
-									<div class="course-item row wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-										<div class="col-md-4">
-										<div class="owl-image">
-											<a href="course-single?course=<?php echo $id; ?>" 
-												 title=""><img src="images/<?php echo $pic; ?>" alt="" class="img-responsive"></a>
-										</div><!-- end image -->
-										</div>
-										<div class="col-md-8">
-										<div class="course-desc noborder">
-											<span class="meta"><?php echo $hr; ?>-Hour Course</span>
-											<h5><a href="course-single?course=<?php echo $id; ?>" title=""><?php echo $title;?></a></h5>
-											<p><?php echo $detail;?></p>
-											<div class="course-big-meta clearfix">
-												<div class="pull-left">
-													<a href="course-single?course=<?php echo $id; ?>" class="owl-button">Details</a>
-												</div><!-- end left -->
-												<div class="pull-right">
-													<p>$<?php echo $price; ?></p>
-												</div><!-- end right -->
-											</div><!-- end course-big-meta -->
-										</div><!-- end desc -->
-										</div>
-									</div><!-- end item -->
+				<div class="row">
+					<div id="middle-box" class="col-md-12 col-sm-12 col-xs-12">
+						<div class="widget-title">
+							<h1 style="text-align:center; font-size:30px;">Oops! <i class="fa fa-frown-o"></i></h1>
+						</div>
+						<h3 style="text-align:center; font-size:20px; color:#7a7c82;">Your order could not be processed.</h3>
+						<div id="buyer_info" class="form-horizontal" style="margin-left:17%; margin-right:17%;">
+							<div class="row" style="margin-top:0%; padding-left:1.5%; padding-right:1.5%;">
+								<div class="col-md-6 col-md-offset-3">
+									<h3 style="font-size:20px; color:#7a7c82;"><i class="fa fa-phone"> Call us: (646) 470-7119</i></h3>
+									<h3 style="font-size:20px; color:#7a7c82;"><i class="fa fa-envelope-o"> Email us: info@certrebel.com</i></h3>
+									<h3 style="font-size:20px; color:#7a7c82;"><i class="fa fa-refresh"> Try again</i></h3>
 								</div>
-						<?php 
-							}
-						}
-						?>
+							</div>
+						</div>
+					</div><!-- end col -->
 				</div><!-- end row -->
-
-				<nav class="text-center hidden ">
-				  <ul class="pagination">
-				    <li><a href="#">1</a></li>
-				    <li><a href="#">2</a></li>
-				    <li>
-				      <a href="#" aria-label="Next">
-				        <span aria-hidden="true">&raquo;</span>
-				      </a>
-				    </li>
-				  </ul>
-				</nav>
-
 			</div><!-- end container -->
 		</section><!-- end section-white -->
 
@@ -255,8 +246,11 @@
 	<script src="js/jquery.prettyPhoto.js"></script>
 	<script src="js/custom.js?ver=<?php echo $version;?>"></script>
 	<script src="js/clear.js?ver=<?php echo $version;?>"></script>
+	<script src="https://checkout.stripe.com/checkout.js"></script>
 	<script type="text/javascript" src="libraries/swal/dist/sweetalert.min.js"></script>
-	<script src="js/maskedinput.js" type="text/javascript"></script>
+	<script src="js/maskedinput.js?ver=<?php echo $version;?>" type="text/javascript"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="libraries/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 
 	<script>
 		$("#contactBtn").click(function(){
@@ -312,8 +306,7 @@
 			?>
 	});
 	</script>
-
-  	<!-- SLIDER REV -->
+  <!-- SLIDER REV -->
 	<script src="libraries/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
   <script src="libraries/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
   <script>
@@ -378,11 +371,5 @@
 	</script>
 
 	<script src="js/jquery.fitvids.js"></script>
-	<script>
-	  $(document).ready(function(){
-	    $(".blog-media").fitVids();
-	  });
-	</script>
-
 </body>
 </html>
