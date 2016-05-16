@@ -8,9 +8,13 @@
 	session_start();
 	require_once('functions.php');
 	include_once('version_number.inc');
-	if (!isset($_GET['course'])) {
+	$course  		 = htmlentities($_GET['course']);
+	$course_info = course_info();
+	$title 			 = $course_info[$course][0]['course_long_title'];
+	$pic 				 = $course_info[$course][0]['course_picture'];
+	$id 				 = $course_info[$course][0]['course_id'];
+	if (!isset($_GET['course']) || $_GET['course'] == "" || !isset($id))
 		header("Location: courses");
-	}
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
@@ -26,7 +30,7 @@
 	<meta name="author" content="">
 	<meta name="keywords" content="">
 
-	<title>CertRebel | Learning, Course HTML Template</title>
+	<title>CertRebel</title>
 
 	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -151,13 +155,6 @@
 				<div class="row">
 					<div id="content" class="col-md-12 col-sm-12" style="margin-bottom: 2%;">
 						<div class="course-long-desc section-container row">
-							<?php
-								$course  		 = htmlentities($_GET['course']);
-								$course_info = course_info();
-								$title 			 = $course_info[$course][0]['course_long_title'];
-								$pic 				 = $course_info[$course][0]['course_picture'];
-								$id 				 = $course_info[$course][0]['course_id'];
-							?>
 							<div class="col-md-4" style="margin-top: 9%;">
 							  <div class="owl-image">
 								  <a href="course-single?course=<?php echo $id;?>" title=""><img src="images/<?php echo $pic; ?>" alt="" class="img-responsive"></a>
