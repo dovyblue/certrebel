@@ -76,8 +76,8 @@ if ( empty($_POST['buyer_first_name'])||
    * Set your secret key: remember to change this to your live secret key in production
 	 * See your keys here https://dashboard.stripe.com/account/apikeys
 	 */
-	//\Stripe\Stripe::setApiKey("sk_test_V2Voa4gzopov2DNk2IS93ntv");
-	\Stripe\Stripe::setApiKey("sk_live_lEDDhnLG7h2vNeR08dW14oat");
+	\Stripe\Stripe::setApiKey("sk_test_V2Voa4gzopov2DNk2IS93ntv");
+	//\Stripe\Stripe::setApiKey("sk_live_lEDDhnLG7h2vNeR08dW14oat");
 
 	/**
 	 * Get the credit card details submitted by the form
