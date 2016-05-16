@@ -192,8 +192,8 @@ if ( empty($_POST['buyer_first_name'])||
 											 VALUES".implode(', ',$sql_fill_table);
 		$checkUserStmt = $dbConnection->prepare($checkUserQuery);
 		$checkUserStmt->execute();
-		sendmail($info['buyer_email'], $default_subject, $default_message);
-		sendmail("support@certrebel.com", $default_subject, $default_message);
+		//sendmail($info['buyer_email'], $default_subject, $default_message);
+		//sendmail("support@certrebel.com", $default_subject, $default_message);
 		$_SESSION['__sdjh'] = sha1($info['buyer_email']);
 	} catch (PDOException $e) {
 		die("Error: Cannot satisfy your request at this time. Please try again later");
