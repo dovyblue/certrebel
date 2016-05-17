@@ -135,7 +135,7 @@
 <div class="" style="margin-bottom: 3%; margin-left:2%;">
   <div class="checkbox" style="margin-bottom:3%;">
     <label>
-      <input type="checkbox"> I agree to the Terms of Service
+      <input type="checkbox"> I agree to the <a>Terms of Service</a></input>
     </label>
   </div>
 	<p>
@@ -218,8 +218,30 @@
 	</div>
 </div>
 
+<!-- Modal Terms of Service Form -->
+<div id="myModal" class=" modal fade"  tabindex="-1">
+	<div class="modal-dialog form-div">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:#750909 !important">&times;</button>
+				<h4><span class="glyphicon glyphicon-plus" style="margin-right:10px;"></span>Terms of Service</h4>
+			</div>    
+			<div class="modal-body">
+			</div>
+			<div class="modal-footer">                                                                                                                                          
+				<button id="sendForm" name="sendForm" type="submit" class="mc-btn btn-style-4">
+					<i class="fa fa-paper-plane" style="margin-right:15px;"></i>ADD
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <script>
 	$(document).ready(function(){
+		$("#terms").click(function(){                                                                                                                                       
+			$("#myModal").modal({keyboard: true});
+		});
 		$('button#payButton').prop('disabled',true)
 		$('input[type="checkbox"]').on('click', function() {
 			if ($('input[type="checkbox"]').is(":checked")) {
