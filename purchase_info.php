@@ -40,6 +40,8 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css?ver=<?php echo $version;?>">
 	<link rel="stylesheet" type="text/css" href="css/quote.css?ver=<?php echo $version;?>">
 	<link rel="stylesheet" type="text/css" href="css/onsite.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="css/terms_of_service.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css?ver=<?php echo $version;?>">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="libraries/bootstrap-select/dist/css/bootstrap-select.css?ver=<?php echo $version;?>">
 
@@ -399,6 +401,7 @@
 	<!-- End Modal Contact Form -->
 
 	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-1.12.3.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/retina.js"></script>
 	<script src="js/wow.js"></script>
@@ -412,6 +415,8 @@
 	<script src="js/maskedinput.js?ver=<?php echo $version;?>" type="text/javascript"></script>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="libraries/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="libraries/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
+	<script src="js/terms_of_service.js?ver=<?php echo $version;?>" type="text/javascript"></script>
 
 	<script>
 		$("#contactBtn").click(function(){
