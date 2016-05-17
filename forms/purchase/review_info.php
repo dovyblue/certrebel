@@ -134,9 +134,12 @@
 <hr style="width:98%; margin-top:3px;">
 <div class="" style="margin-bottom: 3%; margin-left:2%;">
   <div class="checkbox" style="margin-bottom:3%;">
-    <label>
-      <input type="checkbox"> I agree to the <a>Terms of Service</a></input>
+    <label style="cursor:default; float:left;">
+      <input type="checkbox"> I agree to the </input>
     </label>
+		<span id="inline-popups" style="cursor: pointer; padding-left:5px;;" class="links"> 
+		  <a href="#test-popup" data-effect="mfp-zoom-in">Terms of Service</a>
+		</span>
   </div>
 	<p>
 	<strong>Changes and Cancellations to Your Registration for In-Person Courses:</strong><br>
@@ -185,10 +188,6 @@
 						  window.location.replace('/error');
           }
         });
-				//window.location.replace('/thank_you');
-				// Use the token to create the charge with a server-side script.
-				// You can access the token ID with `token.id`
-				//console.log(token);
 			},
 		});
 
@@ -218,38 +217,116 @@
 	</div>
 </div>
 
-<!-- Modal Terms of Service Form -->
-<div id="myModal" class=" modal fade"  tabindex="-1">
-	<div class="modal-dialog form-div">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:#750909 !important">&times;</button>
-				<h4><span class="glyphicon glyphicon-plus" style="margin-right:10px;"></span>Terms of Service</h4>
-			</div>    
-			<div class="modal-body">
-			</div>
-			<div class="modal-footer">                                                                                                                                          
-				<button id="sendForm" name="sendForm" type="submit" class="mc-btn btn-style-4">
-					<i class="fa fa-paper-plane" style="margin-right:15px;"></i>ADD
-				</button>
-			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+<!-- Terms of Service Popup -->
+<div id="test-popup" class="white-popup mfp-with-anim mfp-hide">
+  <header style="text-align:center;">
+		<span class="start">Terms of Service</span>
+	</header>
+  <div class="popup-scroll">
+		<p style="padding-bottom:0;">
+			This privacy policy discloses the privacy practices for <a href="http://certrebel.com" target="_blank">www.certrebel.com</a>.
+			This privacy policy applies solely to information collected by this web site. It will notify you of the following:
+			<ol>
+				<li>What personally identifiable information is collected from you through the web site, how it is used and with whom it may be shared.</li>
+				<li>What choices are available to you regarding the use of your data.</li>
+				<li>The security procedures in place to protect the misuse of your information.</li>
+				<li>How you can correct any inaccuracies in the information.</li>
+			</ol>
+		</p>
+		<p>
+			<strong>Information Collection, Use, and Sharing</strong><br>
+			We are the sole owners of the information collected on this site. 
+			We only have access to/collect information that you voluntarily give us via email or other direct contact from you. 
+			We will not sell or rent this information to anyone.
+			<br>
+			<br>
+			We will use your information to respond to you, regarding the reason you contacted us. 
+			We will not share your information with any third party outside of our organization, other than as necessary to fulfill your request, i.e. to ship an order.
+			<br>
+			<br>
+			Unless you ask us not to, we may contact you via email in the future to tell you about specials, new products or services, or changes to this privacy policy.
+		</p>	
+		<p style="padding-bottom:0;">
+			<strong>Your Access to and Control Over Information</strong><br>
+			You may opt out of any future contacts from us at any time. 
+			You can do the following at any time by contacting us via the email address or phone number given on our website:
+			<ul>
+				<li>See what data we have about you, if any.</li>
+				<li>Change/correct any data we have about you.</li>
+				<li>Have us delete any data we have about you.</li>
+				<li>Express any concern you have about our use of your data.</li>
+			</ul>
+		</p>	
+		<p>
+			<strong>Security</strong><br>
+			We take precautions to protect your information. 
+			When you submit sensitive information via the website, your information is protected both online and offline.
+			To read more about our web security, visit Stripe at: <a href="https://stripe.com/us/features#seamless-security" target="_blank">https://stripe.com/us/features#seamless-security</a>.
+			<br>
+			<br>
+			Wherever we collect sensitive information (such as credit card data), that information is encrypted and transmitted to us in a secure way.
+			You can verify this by looking for a closed lock icon at the bottom of your web browser, or looking for "https" at the beginning of the address of the web page.
+			<br>
+			<br>
+			While we use encryption to protect sensitive information transmitted online, we also protect your information offline.
+			Only employees who need the information to perform a specific job (for example, billing or customer service) are granted access to personally identifiable information.
+			The computers/servers in which we store personally identifiable information are kept in a secure environment.
+		</p>	
+		<p>
+			<strong>Registration</strong><br>
+			In order to use this website, a user must first complete the registration form.
+			During registration a user is required to give certain information (such as name and email address).
+			This information is used to contact you about the products/services on our site in which you have expressed interest.
+			At your option, you may also provide demographic information (such as gender or age) about yourself, but it is not required.
+		</p>	
+		<p>
+			<strong>Orders</strong><br>
+			We request information from you on our order form.
+			To buy from us, you must provide contact information (like name and shipping address) and financial information (like credit card number, expiration date). 
+			This information is used for billing purposes and to fill your orders. If we have trouble processing an order, we'll use this information to contact you.
+		</p>	
+		<p>
+			<strong>Updates</strong><br>
+			Our Privacy Policy may change from time to time and all updates will be posted on this page. 
+			If you feel that we are not abiding by this privacy policy, you should contact us immediately via telephone at <strong>646-470-7119</strong> or via email.
+		</p>	
+  </div>
+</div>
+<!-- End Terms of Service Popup -->
 
 <script>
 	$(document).ready(function(){
-		$("#terms").click(function(){                                                                                                                                       
-			$("#myModal").modal({keyboard: true});
+		$('#inline-popups').magnificPopup({
+			delegate: 'a',
+			removalDelay: 800,
+			callbacks: {
+				beforeOpen: function() {
+					 this.st.mainClass = this.st.el.attr('data-effect');
+				},
+				close: function() {
+					$('header .container:nth-child(2)').fadeIn(800, "linear");
+				}
+			},
+			midClick: true
 		});
-		$('button#payButton').prop('disabled',true)
+
+		$('button#payButton').prop('disabled',true);
+
 		$('input[type="checkbox"]').on('click', function() {
 			if ($('input[type="checkbox"]').is(":checked")) {
-				$('button#payButton').prop('disabled',false)
+				$('button#payButton').prop('disabled',false);
 			} else {
-				$('button#payButton').prop('disabled',true)
+				$('button#payButton').prop('disabled',true);
 			}	
 		});
+
+		$('a[href="#test-popup"]').on('click', function() {
+			//$('header .container:nth-child(2)').fadeOut(500, "swing");
+			$('header .container:nth-child(2)').css('display','none');
+			$('button#payButton').prop('disabled',false);
+			$('input[type="checkbox"]').prop('checked',true);
+		});
+
 		buyer_first_name = localStorage.getItem('buyer_first_name');
 		buyer_last_name = localStorage.getItem('buyer_last_name');
 		buyer_email = localStorage.getItem('buyer_email');
