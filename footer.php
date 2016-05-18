@@ -11,7 +11,7 @@
 <footer class="footer">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3 col-sm-6">
+			<div style="width:30%;" class="col-md-3 col-sm-6">
 				<div class="widget about-widget wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
 					<div class="widget-title">
 						<h4>About</h4>
@@ -20,23 +20,20 @@
 					<ul class="contact-details">
 						<li><i class="fa fa-map-marker"></i>175 Varick Street, New York, NY 10014</li>
 						<li><i class="fa fa-phone"></i> (646) 470-7119</li>
-						<li><i class="fa fa-envelope"></i><a href="mailto:info@certrebel.com"> info@certrebel.com</a></li>
+						<li><i class="fa fa-envelope"></i><a style="color:#cbcbcd !important;" href="mailto:info@certrebel.com"> info@certrebel.com</a></li>
 					</ul><!-- end contact-details -->
 				</div><!-- end widget -->
 			</div><!-- end col -->
 
-			<div class="col-md-3 col-sm-6">
+			<div style="width:20%;" class="col-md-3 col-sm-6">
 				<div class="widget about-widget wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
 					<div class="widget-title">
 						<h4>CertRebel Values</h4>
 					</div><!-- end widget-title -->
-					<ul class="latest-course">
-						<li>
-							<p><i style="font-size:1.5em; margin-right:20px;" class="fa fa-desktop"></i>Online Courses</p>
-						</li>
-						<li>
-							<p><i style="font-size:2em; margin-right:20px;" class="fa fa-user-secret"></i>Privacy</p>
-						</li>
+					<ul style="padding-left:15px; color:#cbcbcd;">
+						<li>Integrity</li>
+						<li>Authenticity</li>
+						<li>Community</li>
 					</ul><!-- end latest-course -->
 				</div><!-- end widget -->
 			</div><!-- end col -->
@@ -84,12 +81,26 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-sm-12">
-				<p>All Rights Reserved © CertRebel, LLC</p>
+				<p>All Rights Reserved © CertRebel, LLC | <a style="color:#cbcbcd !important;" href="terms" target="_blank">Privacy Policy</a></p>
 			</div><!-- end col -->
-			<div class="col-md-6 col-sm-12">
+			<div class="col-md-6 col-sm-12" style="padding:0;">
 				<ul class="footer-menu list-inline text-right">
-					<li><a class=" hidden inactive-link" href="index.php">Home</a></li>
-					<li><a class=" hidden inactive-link" href="about.php">About</a></li>
+					<li>
+						<a target="_blank" href="https://www.startssl.org/">
+							<img style="border-radius:10px;" src="https://www.startssl.com/img/startcom_secured_lock_80x15.png" border="0" alt="StartSSL™ Web-of-Trust Notary" title="StartSSL™ Web-of-Trust Notary">
+						</a>
+					</li>
+					<li>
+						<a target="_blank" href="https://stripe.com/us/features#seamless-security/">
+							<img style="border-radius:10px;" src="images/stripe.png" border="0" alt="Stripe" title="Stripe">
+						</a>
+					</li>
+					<li><i class="hidden fa fa-cc-discover"></i></li>
+					<li><i class="hidden fa fa-cc-mastercard"></i></li>
+					<li><i class="hidden fa fa-cc-visa"></i></li>
+					<li><i class="hidden fa fa-cc-amex"></i></li>
+					<li><i class="hidden fa fa-cc-jcb"></i></li>
+					<li><a class="hidden inactive-link" href="about.php">About</a></li>
 				</ul>
 			</div><!-- end col -->
 		</div><!-- end row -->

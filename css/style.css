@@ -819,7 +819,7 @@
 	    background-image: url("upload/services_parallax.jpg");
 	}	
 	#faqs_parallax {
-	    background-image: url("upload/faqs_parallax.jpg");
+	    background-image: url("/images/about3.png");
 	}
 	#testi_parallax {
 	    background-image: url("upload/testi_parallax.jpg");
