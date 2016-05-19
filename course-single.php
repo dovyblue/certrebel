@@ -228,7 +228,7 @@
 							$count 					= count($single_details);
 							if (isset($single_details)) {
 						?>
-								<table class="table table-striped"style="table-layout: fixed;">
+								<table class="table table-striped table-bordered"style="table-layout: fixed;">
 									<thead>
 										<tr>
 											<th>Location</th>
