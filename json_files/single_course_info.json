@@ -223,6 +223,264 @@
             "index": "15"
         }
     ],
+    "hazi": [
+        {
+            "course_address": null,
+            "course_id": "hazi",
+            "course_location": "Syracuse, NY",
+            "course_meeting_date": "Monday, June 13th",
+            "course_meeting_time": "8am to 5pm",
+            "course_price": "550",
+            "index": "40"
+        },
+        {
+            "course_address": null,
+            "course_id": "hazi",
+            "course_location": "Buffalo, NY",
+            "course_meeting_date": "Monday, July 11th",
+            "course_meeting_time": "8am to 5pm",
+            "course_price": "550",
+            "index": "37"
+        },
+        {
+            "course_address": null,
+            "course_id": "hazi",
+            "course_location": "Syracuse, NY",
+            "course_meeting_date": "Monday, August 8th",
+            "course_meeting_time": "8am to 5pm",
+            "course_price": "550",
+            "index": "41"
+        },
+        {
+            "course_address": null,
+            "course_id": "hazi",
+            "course_location": "Charlotte, NC",
+            "course_meeting_date": "Monday, August 22nd",
+            "course_meeting_time": "8am to 5pm",
+            "course_price": "550",
+            "index": "44"
+        },
+        {
+            "course_address": null,
+            "course_id": "hazi",
+            "course_location": "Buffalo, NY",
+            "course_meeting_date": "Monday, September 12th",
+            "course_meeting_time": "8am to 5pm",
+            "course_price": "550",
+            "index": "38"
+        },
+        {
+            "course_address": null,
+            "course_id": "hazi",
+            "course_location": "Syracuse, NY",
+            "course_meeting_date": "Monday, October 17th",
+            "course_meeting_time": "8am to 5pm",
+            "course_price": "550",
+            "index": "42"
+        },
+        {
+            "course_address": null,
+            "course_id": "hazi",
+            "course_location": "Buffalo, NY",
+            "course_meeting_date": "Monday, November 14th",
+            "course_meeting_time": "8am to 5pm",
+            "course_price": "550",
+            "index": "39"
+        },
+        {
+            "course_address": null,
+            "course_id": "hazi",
+            "course_location": "Syracuse, NY",
+            "course_meeting_date": "Monday, December 15th",
+            "course_meeting_time": "8am to 5pm",
+            "course_price": "550",
+            "index": "43"
+        }
+    ],
+    "hazr": [
+        {
+            "course_address": null,
+            "course_id": "hazr",
+            "course_location": "Buffalo, NY",
+            "course_meeting_date": "Friday, June 10th",
+            "course_meeting_time": "8am to 5pm",
+            "course_price": "150",
+            "index": "45"
+        },
+        {
+            "course_address": null,
+            "course_id": "hazr",
+            "course_location": "Syracuse, NY",
+            "course_meeting_date": "Friday, July 8th",
+            "course_meeting_time": "8am to 5pm",
+            "course_price": "150",
+            "index": "49"
+        },
+        {
+            "course_address": null,
+            "course_id": "hazr",
+            "course_location": "Charlotte, NC",
+            "course_meeting_date": "Friday, July 15th",
+            "course_meeting_time": "8am to 5pm",
+            "course_price": "150",
+            "index": "52"
+        },
+        {
+            "course_address": null,
+            "course_id": "hazr",
+            "course_location": "Buffalo, NY",
+            "course_meeting_date": "Friday, August 5th",
+            "course_meeting_time": "8am to 5pm",
+            "course_price": "150",
+            "index": "46"
+        },
+        {
+            "course_address": null,
+            "course_id": "hazr",
+            "course_location": "Syracuse, NY",
+            "course_meeting_date": "Friday, September 9th",
+            "course_meeting_time": "8am to 5pm",
+            "course_price": "150",
+            "index": "50"
+        },
+        {
+            "course_address": null,
+            "course_id": "hazr",
+            "course_location": "Charlotte, NC",
+            "course_meeting_date": "Friday, September 16th",
+            "course_meeting_time": "8am to 5pm",
+            "course_price": "150",
+            "index": "53"
+        },
+        {
+            "course_address": null,
+            "course_id": "hazr",
+            "course_location": "Buffalo, NY",
+            "course_meeting_date": "Friday, October 7th",
+            "course_meeting_time": "8am to 5pm",
+            "course_price": "150",
+            "index": "47"
+        },
+        {
+            "course_address": null,
+            "course_id": "hazr",
+            "course_location": "Syracuse, NY",
+            "course_meeting_date": "Friday, November 4th",
+            "course_meeting_time": "8am to 5pm",
+            "course_price": "150",
+            "index": "51"
+        },
+        {
+            "course_address": null,
+            "course_id": "hazr",
+            "course_location": "Charlotte, NC",
+            "course_meeting_date": "Friday, November 4th",
+            "course_meeting_time": "8am to 5pm",
+            "course_price": "150",
+            "index": "54"
+        },
+        {
+            "course_address": null,
+            "course_id": "hazr",
+            "course_location": "Buffalo, NY",
+            "course_meeting_date": "Friday, December 9th",
+            "course_meeting_time": "8am to 5pm",
+            "course_price": "150",
+            "index": "48"
+        }
+    ],
+    "osha10": [
+        {
+            "course_address": null,
+            "course_id": "osha10",
+            "course_location": "Buffalo, NY",
+            "course_meeting_date": "Monday, May 23rd",
+            "course_meeting_time": "8am to 1:30pm",
+            "course_price": "200",
+            "index": "55"
+        },
+        {
+            "course_address": null,
+            "course_id": "osha10",
+            "course_location": "Syracuse, NY",
+            "course_meeting_date": "Thursday, June 2nd",
+            "course_meeting_time": "8am to 1:30pm",
+            "course_price": "200",
+            "index": "59"
+        },
+        {
+            "course_address": null,
+            "course_id": "osha10",
+            "course_location": "Charlotte, NC",
+            "course_meeting_date": "Thursday, June 16th",
+            "course_meeting_time": "8am to 1:30pm",
+            "course_price": "200",
+            "index": "61"
+        },
+        {
+            "course_address": null,
+            "course_id": "osha10",
+            "course_location": "Buffalo, NY",
+            "course_meeting_date": "Monday, July 25th",
+            "course_meeting_time": "8am to 1:30pm",
+            "course_price": "200",
+            "index": "56"
+        },
+        {
+            "course_address": null,
+            "course_id": "osha10",
+            "course_location": "Charlotte, NC",
+            "course_meeting_date": "Thursday, August 18th",
+            "course_meeting_time": "8am to 1:30pm",
+            "course_price": "200",
+            "index": "62"
+        },
+        {
+            "course_address": null,
+            "course_id": "osha10",
+            "course_location": "Syracuse, NY",
+            "course_meeting_date": "Thursday, August 18th",
+            "course_meeting_time": "8am to 1:30pm",
+            "course_price": "200",
+            "index": "60"
+        },
+        {
+            "course_address": null,
+            "course_id": "osha10",
+            "course_location": "Charlotte, NC",
+            "course_meeting_date": "Thursday, October 13th",
+            "course_meeting_time": "8am to 1:30pm",
+            "course_price": "200",
+            "index": "63"
+        },
+        {
+            "course_address": null,
+            "course_id": "osha10",
+            "course_location": "Buffalo, NY",
+            "course_meeting_date": "Monday, October 24th",
+            "course_meeting_time": "8am to 1:30pm",
+            "course_price": "200",
+            "index": "57"
+        },
+        {
+            "course_address": null,
+            "course_id": "osha10",
+            "course_location": "Charlotte, NC",
+            "course_meeting_date": "Thursday, December 8th",
+            "course_meeting_time": "8am to 1:30pm",
+            "course_price": "200",
+            "index": "64"
+        },
+        {
+            "course_address": null,
+            "course_id": "osha10",
+            "course_location": "Buffalo, NY",
+            "course_meeting_date": "Monday, December 19th",
+            "course_meeting_time": "8am to 1:30pm",
+            "course_price": "200",
+            "index": "58"
+        }
+    ],
     "rrpi": [
         {
             "course_address": "175 Varick Street, New York, NY 10014",
