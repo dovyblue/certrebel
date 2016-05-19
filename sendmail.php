@@ -25,9 +25,9 @@ function sendmail($email, $subject, $file_name)
   // 0 = off (for production use)
   // 1 = client messages
   // 2 = client and server messages
-  $mail->SMTPDebug = 2;
+  //~~$mail->SMTPDebug = 2;
   ////Ask for HTML-friendly debug output
-  $mail->Debugoutput = 'html';
+  //~~$mail->Debugoutput = 'html';
   //Set the hostname of the mail server
   $mail->Host = "smtp.zoho.com";
 	//$mail->Host = "smtp-relay.gmail.com";
@@ -70,9 +70,9 @@ $mail->setFrom('support@certrebel.com', 'CertRebel Support');
 	
 	//send the message, check for errors
   if (!$mail->send()) {
-      echo "Mailer Error: " . $mail->ErrorInfo;
+      //echo "Mailer Error: " . $mail->ErrorInfo;
   } else {
-      echo "Message sent!";
+      //echo "Message sent!";
   }  
 }
 ?>

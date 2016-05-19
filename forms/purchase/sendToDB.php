@@ -14,8 +14,7 @@ if ( empty($_POST['buyer_first_name'])||
 		 empty($_POST['buyer_email']) 		||
 		 empty($_POST['buyer_phone']) 		||
 		 empty($_POST['stripe_token']) 		||
-		 empty($_POST['quantity'])			  
-	) { 
+		 empty($_POST['quantity'])) { 
 		$_SESSION['error'] = 'error';
 	  $return['status']  = 'error';	
 		$return['error']   = 'error';
@@ -192,7 +191,7 @@ if ( empty($_POST['buyer_first_name'])||
 											 VALUES".implode(', ',$sql_fill_table);
 		$checkUserStmt = $dbConnection->prepare($checkUserQuery);
 		$checkUserStmt->execute();
-		//sendmail($info['buyer_email'], $default_subject, $default_message);
+		sendmail($info['buyer_email'], $default_subject, $default_message);
 		//sendmail("support@certrebel.com", $default_subject, $default_message);
 		$_SESSION['__sdjh'] = sha1($info['buyer_email']);
 	} catch (PDOException $e) {

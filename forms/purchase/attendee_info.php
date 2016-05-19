@@ -123,13 +123,13 @@
 			$('.widget-title h1 span').html(', '+first_name+'.').css('text-transform','capitalize');
 		}
 		$('#backButton').on('click', function(){
-			$("#middle-box").load("forms/purchase/buyer_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity=<?php echo $quantity; ?>");
+			$("#middle-box").load("/forms/purchase/buyer_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity=<?php echo $quantity; ?>");
 			$("html, body").animate({ scrollTop: 0 }, 500);
 		});
 		$('form#attendee').on('submit', function(e){
 			e.preventDefault();
 			attendee_save_data();
-			$("#middle-box").load("forms/purchase/review_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity=<?php echo $quantity; ?>", function(){
+			$("#middle-box").load("/forms/purchase/review_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity=<?php echo $quantity; ?>", function(){
 				buyer_first_name = localStorage.getItem('buyer_first_name');
 				buyer_last_name = localStorage.getItem('buyer_last_name');
 				buyer_email = localStorage.getItem('buyer_email');

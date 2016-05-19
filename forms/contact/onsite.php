@@ -1,5 +1,4 @@
 <?php
-
 ob_start();
 session_start();
 require_once('../../functions.php');
@@ -76,7 +75,8 @@ if ( empty($_POST['name'])  				||
 										$info['text']
 									);
 		$checkUserStmt->execute($values);
-		sendmail('support@certrebel.com', $default_subject, $default_message);
+		//sendmail('support@certrebel.com', $default_subject, $default_message);
+		sendmail('renemidouin@gmail.com', $default_subject, $default_message);
 		$_SESSION['success'] = 'success';
 		header("location: $current_url");
 	} catch (PDOException $e) {

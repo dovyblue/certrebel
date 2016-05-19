@@ -20,27 +20,27 @@
 
 	<title>CertRebel</title>
 
-	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
 
-	<link rel="stylesheet" type="text/css" href="libraries/swal/dist/sweetalert.css?ver=<?php echo $version;?>"> 
-	<link rel="stylesheet" type="text/css" href="libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css/stroke.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="css/animate.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="css/carousel.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="css/style.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="css/quote.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="css/onsite.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/libraries/swal/dist/sweetalert.css?ver=<?php echo $version;?>"> 
+	<link rel="stylesheet" type="text/css" href="/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/stroke.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/animate.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/carousel.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/prettyPhoto.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/style.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/quote.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/onsite.css?ver=<?php echo $version;?>">
 
 	<!-- COLORS -->
-	<link rel="stylesheet" type="text/css" href="css/custom.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/custom.css?ver=<?php echo $version;?>">
 
 	<!-- RS SLIDER -->
-	<link rel="stylesheet" type="text/css" href="libraries/rs-plugin/css/settings.css?ver=<?php echo $version;?>" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/libraries/rs-plugin/css/settings.css?ver=<?php echo $version;?>" media="screen" />
 
 	<style>
 		#keep-position-fixed {
@@ -82,7 +82,7 @@
 		<div class="wow zoomIn" data-wow-duration="1s" data-wow-offset="100">
 			<div class="wow rubberBand" data-wow-delay="2000ms" data-wow-duration="1s">
 				<div class="wow pulse" data-wow-delay="100ms" data-wow-iteration="infinite" data-wow-duration="1s">
-					<img src="images/small_logo.png" alt="" class="loader-site">
+					<img src="/images/small_logo.png" alt="" class="loader-site">
 				</div>
 			</div>
 		</div>
@@ -121,13 +121,13 @@
 										 <span class="icon-bar"></span>
 										 <span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="index"><img src="images/cert_logo.png" alt="" style="margin-top: -12px; margin-right: 0px;"></a>
+						<a class="navbar-brand" href="/"><img src="/images/cert_logo.png" alt="" style="margin-top: -12px; margin-right: 0px;"></a>
 					</div>
 					<div id="navbar" class="navbar-collapse collapse">
 			      <ul class="nav navbar-nav navbar-right">
-							<li class="dropdown active megamenu"><a href="index">Home</a></li>
-       				<li><a href="about">About</a></li>
-							<li class="dropdown megamenu"><a href="courses">Courses</a>
+							<li class="dropdown active megamenu"><a href="/">Home</a></li>
+       				<li><a href="/about">About</a></li>
+							<li class="dropdown megamenu"><a href="/courses">Courses</a>
 							<li><a id="contactBtn" href="#" data-toggle="modal" data-target="#myModal">Contact</a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
@@ -140,7 +140,7 @@
 				<div class="tp-banner">
 					<ul>
 						<li data-transition="slidevertical" data-slotamount="1" data-masterspeed="500" data-thumb="images/slide4.png"  data-saveperformance="off"  data-title="Slide">
-						  <img src="images/slide4.png"  alt="fullslide1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+						  <img src="/images/slide4.png"  alt="fullslide1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
 							<div class=" hidden tp-caption slider_01 text-left skewfromright randomrotateout tp-resizeme"
 									data-x="left"
 									data-y="240" 
@@ -222,7 +222,7 @@
 
 				<div class="row section-container">	
 					<div class="col-md-4 col-sm-8" style="cursor:pointer;">
-					  <a style="color: #7a7c82" href="courses">
+					  <a style="color: #7a7c82" href="/courses">
 							<div class="service-item text-center wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
 								<div class="rounded-icon">
 									<i class="icon icon-Book"></i>
@@ -230,7 +230,7 @@
 								<div class="service-desc">
 									<h4>Certification Courses</h4>
 									<hr>
-									<p>Find a local training course near you.<br><a href="courses">Read More</a></p>
+									<p>Find a local training course near you.<br><a href="/courses">Read More</a></p>
 								</div><!-- end service-desc -->
 							</div><!-- end item -->
 						</a>
@@ -280,15 +280,15 @@
 				<div id="owl-courses" class="section-container">
 					<div class="course-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
 						<div class="owl-image">
-							<a href="course-single?course=rrpi" title=""><img src="images/image.png" alt="" class="img-responsive"></a>
+							<a href="/course/rrpi" title=""><img src="/images/image.png" alt="" class="img-responsive"></a>
 						</div><!-- end image -->
 						<div class="course-desc">
-							<h5><a href="course-single?course=rrpi" title="">Lead Renovator (RRP)</a></h5>
+							<h5><a href="/course/rrpi" title="">Lead Renovator (RRP)</a></h5>
 							<span class="meta">Initial Certification Course</span>
 							<p>As contractors, we play an important role in helping to prevent lead poisoning. Sign up now for a custom training course to obtain your lead certification.</p>
 							<div class="course-big-meta clearfix">
 								<div class="pull-left">
-									<a href="course-single?course=rrpi" class="owl-button">Details</a>
+									<a href="/course/rrpi" class="owl-button">Details</a>
 								</div><!-- end left -->
 								<div class="pull-right">
 									<p>$240</p>
@@ -299,16 +299,16 @@
 
 					<div class="course-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s">
 						<div class="owl-image">
-							<a href="course-single?course=hazi" title=""><img src="images/osha.png" alt="" class="img-responsive"></a>
+							<a href="/course/hazi" title=""><img src="/images/osha.png" alt="" class="img-responsive"></a>
 							<!--<span class="course-badge"><i class="fa fa-camera"></i></span>-->
 						</div><!-- end image -->
 						<div class="course-desc">
-							<h5><a href="course-single?course=hazi" title="">Hazardous Materials</a></h5>
+							<h5><a href="/course/hazi" title="">Hazardous Materials</a></h5>
 							<span class="meta">HAZWOPER / HAZMAT</span>
 							<p>HAZWOPER 40-Hour, 24-Hour and 8-Hour Annual Refresher courses are available whether you are an individual or have a large group.</p>
 							<div class="course-big-meta clearfix">
 								<div class="pull-left">
-									<a href="course-single?course=hazi" class="owl-button">Details</a>
+									<a href="/course/hazi" class="owl-button">Details</a>
 								</div><!-- end left -->
 								<div class="pull-right">
 									<p>$600</p>
@@ -319,15 +319,15 @@
 
 					<div class="course-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
 						<div class="owl-image">
-							<a href="course-single?course=osha30" title=""><img src="images/safety.jpg" alt="" class="img-responsive"></a>
+							<a href="/course/osha30" title=""><img src="/images/safety.jpg" alt="" class="img-responsive"></a>
 						</div><!-- end image -->
 						<div class="course-desc">
-							<h5><a href="course-single?course=osha30" title="">OSHA Construction Safety</a></h5>
+							<h5><a href="/course/osha30" title="">OSHA Construction Safety</a></h5>
 							<span class="meta">30-Hour Certification Courses</span>
 							<p>No one should have to sacrifice their life for their livelihood. We offer a wide selection of training courses to help foster worker and employer safety.</p>
 							<div class="course-big-meta clearfix">
 								<div class="pull-left">
-									<a href="course-single?course=osha30" class="owl-button">Details</a>
+									<a href="/course/osha30" class="owl-button">Details</a>
 								</div><!-- end left -->
 								<div class="pull-right">
 									<p>$500</p>
@@ -354,7 +354,7 @@
 			</div>
 			
 			<div class="modal-body">
-				<form role="form" action="forms/contact/quote" method="post">
+				<form role="form" action="/forms/contact/quote" method="post">
 						<p class="name" style="padding-bottom:0;">
 							<input style="width:50%; float:left;" name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="First Name*" id="name" required/>
 							<input style="width:50%; border-left-color:#A9A9AE;" name="last_name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Last Name*" id="last_name" required/>
@@ -396,7 +396,7 @@
 			</div>
 			
 			<div class="modal-body">
-				<form role="form" action="forms/contact/onsite" method="post">
+				<form role="form" action="/forms/contact/onsite" method="post">
 						<p class="name" style="padding-bottom:0;">
 							<input style="width:50%; float:left;" name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="First Name*" id="name" required/>
 							<input style="width:50%; border-left-color:#A9A9AE;" name="last_name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Last Name*" id="last_name" required/>
@@ -442,18 +442,18 @@
 </div><!-- /.modal -->
 <!-- End Modal Contact Form -->
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/retina.js"></script>
-	<script src="js/wow.js"></script>
-	<script src="js/carousel.js"></script>
-	<script src="js/progress.js"></script>
-	<script src="js/parallax.js"></script>
-	<script src="js/jquery.prettyPhoto.js"></script>
-	<script src="js/custom.js?ver=<?php echo $version;?>"></script>
-	<script src="js/clear.js?ver=<?php echo $version;?>"></script>
-	<script type="text/javascript" src="libraries/swal/dist/sweetalert.min.js"></script>
-	<script src="js/maskedinput.js" type="text/javascript"></script>
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/retina.js"></script>
+	<script src="/js/wow.js"></script>
+	<script src="/js/carousel.js"></script>
+	<script src="/js/progress.js"></script>
+	<script src="/js/parallax.js"></script>
+	<script src="/js/jquery.prettyPhoto.js"></script>
+	<script src="/js/custom.js?ver=<?php echo $version;?>"></script>
+	<script src="/js/clear.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript" src="/libraries/swal/dist/sweetalert.min.js"></script>
+	<script src="/js/maskedinput.js" type="text/javascript"></script>
 
 	<script>
 		$("#contactBtn").click(function(){
@@ -511,8 +511,8 @@ $(document).ready(function(){
 </script>
 
 	<!-- SLIDER REV -->
-	<script src="libraries/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-  <script src="libraries/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+	<script src="/libraries/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+  <script src="/libraries/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
   <script>
    /* ==============================================
 	SLIDER -->

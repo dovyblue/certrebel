@@ -106,7 +106,7 @@
 		<hr style="margin-bottom: 10px;">
 		<div class="general-info col-md-6 col-sm-6 col-xs-6">
 				<div class="course-widget" style="width:90%;">
-				<a style="color: #7a7c82;" href="course-single?course=<?php echo $course; ?>"><i style="padding-right: 3%;" class="fa fa-chevron-left"></i>Back</a>
+				<a style="color: #7a7c82;" href="/course/<?php echo $course; ?>"><i style="padding-right: 3%;" class="fa fa-chevron-left"></i>Back</a>
 				</div>
 		</div>
 	</div>
@@ -137,7 +137,7 @@ $(document).ready(function(){
 	$('#quantity_result').on('change', fill_quantity_data);
 
 	$('#generalButton').on('click', function(){
-		$("#middle-box").load("forms/purchase/buyer_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity="+$('#quantity_result').val());
+		$("#middle-box").load("/forms/purchase/buyer_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity="+$('#quantity_result').val());
 		$("html, body").animate({ scrollTop: 0 }, 500);
 	});
 });
