@@ -81,7 +81,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-sm-12">
-				<p>All Rights Reserved © CertRebel, LLC | <a style="color:#cbcbcd !important;" href="terms" target="_blank">Privacy Policy</a></p>
+				<p>All Rights Reserved © CertRebel, LLC | <a style="color:#cbcbcd !important;" href="/terms" target="_blank">Privacy Policy</a></p>
 			</div><!-- end col -->
 			<div class="col-md-6 col-sm-12" style="padding:0;">
 				<ul class="footer-menu list-inline text-right">
@@ -92,7 +92,7 @@
 					</li>
 					<li>
 						<a target="_blank" href="https://stripe.com/us/features#seamless-security/">
-							<img style="border-radius:10px;" src="images/stripe.png" border="0" alt="Stripe" title="Stripe">
+							<img style="border-radius:10px;" src="/images/stripe.png" border="0" alt="Stripe" title="Stripe">
 						</a>
 					</li>
 					<li><i class="hidden fa fa-cc-discover"></i></li>
@@ -100,7 +100,7 @@
 					<li><i class="hidden fa fa-cc-visa"></i></li>
 					<li><i class="hidden fa fa-cc-amex"></i></li>
 					<li><i class="hidden fa fa-cc-jcb"></i></li>
-					<li><a class="hidden inactive-link" href="about.php">About</a></li>
+					<li><a class="hidden inactive-link" href="/about">About</a></li>
 				</ul>
 			</div><!-- end col -->
 		</div><!-- end row -->

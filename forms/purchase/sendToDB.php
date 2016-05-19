@@ -14,8 +14,7 @@ if ( empty($_POST['buyer_first_name'])||
 		 empty($_POST['buyer_email']) 		||
 		 empty($_POST['buyer_phone']) 		||
 		 empty($_POST['stripe_token']) 		||
-		 empty($_POST['quantity'])			  
-	) { 
+		 empty($_POST['quantity'])) { 
 		$_SESSION['error'] = 'error';
 	  $return['status']  = 'error';	
 		$return['error']   = 'error';

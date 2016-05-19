@@ -174,7 +174,7 @@
 				orderData.cost				 = $cost;
 				orderData.quantity		 = $quantity;
         $.ajax({  
-          url: 'forms/purchase/sendToDB',
+          url: '/forms/purchase/sendToDB',
           async: false,
           data: orderData,
           type: 'POST',
@@ -321,7 +321,6 @@
 		});
 
 		$('a[href="#test-popup"]').on('click', function() {
-			//$('header .container:nth-child(2)').fadeOut(500, "swing");
 			$('header .container:nth-child(2)').css('display','none');
 			$('button#payButton').prop('disabled',false);
 			$('input[type="checkbox"]').prop('checked',true);
@@ -376,7 +375,7 @@
 			course					 : course
 		}
 		$('#backButton').on('click', function(){
-			$("#middle-box").load("forms/purchase/attendee_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity=<?php echo $quantity; ?>");
+			$("#middle-box").load("/forms/purchase/attendee_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity=<?php echo $quantity; ?>");
 			$("html, body").animate({ scrollTop: 0 }, 500);
 		});
 	});

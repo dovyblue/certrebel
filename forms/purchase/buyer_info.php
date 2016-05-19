@@ -153,7 +153,7 @@
 		buyer_info_prefill();
 		buyer_address_prefill();
 		$('#backButton').on('click', function(){
-			$("#middle-box").load("forms/purchase/general_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity=<?php echo $quantity; ?>", function(){
+			$("#middle-box").load("/forms/purchase/general_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity=<?php echo $quantity; ?>", function(){
 				$('#quantity_result').selectpicker('refresh');
 				$("html, body").animate({ scrollTop: 0 }, 500);
 			});
@@ -165,7 +165,7 @@
 			if(localStorage.getItem('quantity') !== null) {                            
 				$quantity = localStorage.getItem('quantity');
 			} 
-			$("#middle-box").load("forms/purchase/attendee_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity="+$quantity, function(){
+			$("#middle-box").load("/forms/purchase/attendee_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity="+$quantity, function(){
 				$('#quantity_result').selectpicker('refresh');
 				$("html, body").animate({ scrollTop: 0 }, 500);
 			});

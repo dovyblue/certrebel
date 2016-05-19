@@ -21,27 +21,27 @@
 
 	<title>CertRebel</title>
 
-	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
 
-	<link rel="stylesheet" type="text/css" href="libraries/swal/dist/sweetalert.css?ver=<?php echo $version;?>"> 
-	<link rel="stylesheet" type="text/css" href="libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css/stroke.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="css/animate.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="css/carousel.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap-select.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="css/style.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="css/quote.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/libraries/swal/dist/sweetalert.css?ver=<?php echo $version;?>"> 
+	<link rel="stylesheet" type="text/css" href="/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/stroke.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/animate.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/carousel.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/prettyPhoto.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-select.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/style.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/quote.css?ver=<?php echo $version;?>">
 
 	<!-- COLORS -->
-	<link rel="stylesheet" type="text/css" href="css/custom.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/custom.css?ver=<?php echo $version;?>">
 
 	<!-- RS SLIDER -->
-	<link rel="stylesheet" type="text/css" href="libraries/rs-plugin/css/settings.css?ver=<?php echo $version;?>" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/libraries/rs-plugin/css/settings.css?ver=<?php echo $version;?>" media="screen" />
 
 	<style>
 		#keep-position-fixed {
@@ -83,7 +83,7 @@
 			<div class="wow zoomIn" data-wow-duration="1s" data-wow-offset="100">
 				<div class="wow rubberBand" data-wow-delay="2000ms" data-wow-duration="1s">
 					<div class="wow pulse" data-wow-delay="100ms" data-wow-iteration="infinite" data-wow-duration="1s">
-						<img src="images/small_logo.png" alt="" class="loader-site">
+						<img src="/images/small_logo.png" alt="" class="loader-site">
 					</div>
 				</div>
 			</div>
@@ -120,14 +120,14 @@
 											 <span class="icon-bar"></span>
 											 <span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="index"><img src="images/cert_logo.png" style="margin-top: -12px; margin-right: 0px;" alt="CertRebel logo"></a>
+							<a class="navbar-brand" href="/"><img src="/images/cert_logo.png" style="margin-top: -12px; margin-right: 0px;" alt="CertRebel logo"></a>
 						</div>
 						<div id="navbar" class="navbar-collapse collapse">
 							<ul class="nav navbar-nav navbar-right">
-								<li class="dropdown megamenu"><a href="index">Home</a>
+								<li class="dropdown megamenu"><a href="/">Home</a>
 								</li>
-										<li class="active"><a href="about">About</a></li>
-								<li class="dropdown megamenu"><a href="courses">Courses</a>
+										<li class="active"><a href="/about">About</a></li>
+								<li class="dropdown megamenu"><a href="/courses">Courses</a>
 								</li>
 								<li><a id="contactBtn" href="#" data-toggle="modal" data-target="#myModal">Contact</a></li>
 							</ul>
@@ -146,7 +146,7 @@
 							<hr>
 							<p>All You Want To Know About Us</p>
 							<ol class="breadcrumb">
-							  <li><a href="index">Home</a></li>
+							  <li><a href="/">Home</a></li>
 							  <li class="active">About</li>
 							</ol>
 							</div><!-- end title -->
@@ -165,7 +165,7 @@
 								<h4>About Us</h4>
 								<hr>
 							</div><!-- end widget-title -->
-							<img src="css/upload/about_01.png" alt="" class="hidden img-responsive">
+							<img src="/css/upload/about_01.png" alt="" class="hidden img-responsive">
 							<p>CertRebel, LLC is a family-owned business with over 45 years of teaching experience in the environmental health and safety field. We at CertRebel believe that our student-instructor relationship shouldn't end in the classroom. <span class="">Through our post-training consulting services, your company's continued compliance is our number one priority. Let CertRebel guide you with our custom instruction, expert consultations, and years of in-the-field work experience.</span>  <!-- <a id="read_more" class="readmore">Read More</a> --></p>
 						</div><!-- end widget -->
 					</div><!-- end col -->
@@ -192,7 +192,7 @@
 								<div style="margin-top:-21px;" class="col-md-12 col-sm-12 col-xs-12">
 									<div class="testi-style-3 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s;">
 										<p class="lead" style="font-size: 14px;"><i class="fa fa-quote-right"></i> CertRebel has excellent teachers, they relay all of the information in a way that it can be easily absorbed. Their experience in the real world along with their superb teaching skills and attention to the students questions allowed the course information to be relayed with ease.</p>
-										<h4><img src="css/upload/unknown.png" alt="" class="img-circle"> Bill W. <span>-- Certified by CertRebel --<small class="hidden">7oroof Agency</small></span></h4>
+										<h4><img src="/css/upload/unknown.png" alt="" class="img-circle"> Bill W. <span>-- Certified by CertRebel --<small class="hidden">7oroof Agency</small></span></h4>
 									</div><!-- end testi-style-2 -->
 								</div>
 							</div><!-- end skills -->
@@ -223,7 +223,7 @@
 							<div class="service-desc">
 								<h4>Certification Courses</h4>
 								<hr>
-								<p>Find a local training course near you.<br><a href="courses" style="display:none;">Read More</a></p>
+								<p>Find a local training course near you.<br><a href="/courses" style="display:none;">Read More</a></p>
 							</div><!-- end service-desc -->
 						</div><!-- end item --></a>
 					</div>
@@ -272,7 +272,7 @@
 				</div>
 				
 				<div class="modal-body">
-					<form role="form" action="forms/contact/quote" method="post">
+					<form role="form" action="/forms/contact/quote" method="post">
 							<p class="name" style="padding-bottom:0;">
 								<input style="width:50%; float:left;" name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="First Name*" id="name" required/>
 								<input style="width:50%; border-left-color:#A9A9AE;" name="last_name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Last Name*" id="last_name" required/>
@@ -304,18 +304,18 @@
 	</div><!-- /.modal -->
 	<!-- End Modal Contact Form -->
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/retina.js"></script>
-	<script src="js/wow.js"></script>
-	<script src="js/carousel.js"></script>
-	<script src="js/progress.js"></script>
-	<script src="js/parallax.js"></script>
-	<script src="js/jquery.prettyPhoto.js"></script>
-	<script src="js/custom.js?ver=<?php echo $version;?>"></script>
-	<script src="js/clear.js?ver=<?php echo $version;?>"></script>
-	<script type="text/javascript" src="libraries/swal/dist/sweetalert.min.js"></script>
-	<script src="js/maskedinput.js" type="text/javascript"></script>
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/retina.js"></script>
+	<script src="/js/wow.js"></script>
+	<script src="/js/carousel.js"></script>
+	<script src="/js/progress.js"></script>
+	<script src="/js/parallax.js"></script>
+	<script src="/js/jquery.prettyPhoto.js"></script>
+	<script src="/js/custom.js?ver=<?php echo $version;?>"></script>
+	<script src="/js/clear.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript" src="/libraries/swal/dist/sweetalert.min.js"></script>
+	<script src="/js/maskedinput.js" type="text/javascript"></script>
 
 	<script>
 		$("#contactBtn").click(function(){
@@ -372,8 +372,8 @@
 	});
 	</script>
   	<!-- SLIDER REV -->
-	<script src="libraries/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-  <script src="libraries/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+	<script src="/libraries/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+  <script src="/libraries/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
   <script>
 		 /* ==============================================
 		SLIDER -->
@@ -435,7 +435,7 @@
 		});   
 	</script>
 
-	<script src="js/jquery.fitvids.js"></script>
+	<script src="/js/jquery.fitvids.js"></script>
 	<script>
 	  $(document).ready(function(){
 	    $(".blog-media").fitVids();

@@ -99,7 +99,7 @@
 				$('#other_textbox').find('textarea').val(other_val);
 			} 
 		  $('#backButton').on('click', function(){
-				$("#middle-box").load("attendee_info?course=<?php echo $course; ?>&quantity=<?php echo $quantity; ?>");
+				$("#middle-box").load("forms/purchase/attendee_info?course=<?php echo $course; ?>&quantity=<?php echo $quantity; ?>");
   	  });
 			$('form div').find('div:first').on('click', function(){
 					$('form div').each(function(){
@@ -126,7 +126,7 @@
 			  if(localStorage.getItem('other_textbox') !== null) {                            
 					localStorage.setItem('other_textbox', $('#other_textbox').find('textarea').val());
 				} 
-				$("#middle-box").load("review_info?course=<?php echo $course; ?>&quantity=<?php echo $quantity; ?>", function(){
+				$("#middle-box").load("forms/purchase/review_info?course=<?php echo $course; ?>&quantity=<?php echo $quantity; ?>", function(){
 					buyer_first_name = localStorage.getItem('buyer_first_name');
 					buyer_last_name = localStorage.getItem('buyer_last_name');
 					buyer_email = localStorage.getItem('buyer_email');
