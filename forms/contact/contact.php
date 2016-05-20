@@ -51,8 +51,8 @@ if (empty($_POST['name'])  ||
 											$info['message']
 										);
 			$checkUserStmt->execute($values);
-			//sendmail("support@certrebel.com", $default_subject, $default_message);
-			sendmail("renemidouin@gmail.com", $default_subject, $default_message);
+			sendmail("support@certrebel.com", $default_subject, $default_message);
+			//sendmail("renemidouin@gmail.com", $default_subject, $default_message);
 	  	$return['status'] = 'success';	
 		} catch (PDOException $e) {
 			die("Error: Cannot satisfy your request at this time. Please try again later");
