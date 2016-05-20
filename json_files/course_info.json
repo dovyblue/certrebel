@@ -31,18 +31,18 @@
             "course_tagline": "Refresher Certification Course"
         }
     ],
-    "hazi": [
+    "hazr": [
         {
             "course_address": "175 Varick Street, New York, NY 10014",
             "course_highlight": "HAZWOPER 40-Hour, 24-Hour and 8-Hour Annual Refresher courses are available whether you are an individual or have a large group.",
-            "course_hour_length": "40",
-            "course_id": "hazi",
-            "course_long_title": "HAZWOPER Initial Certification",
+            "course_hour_length": "8",
+            "course_id": "hazr",
+            "course_long_title": "HAZWOPER 8-Hour Refresher Certification",
             "course_meeting_date": "February 5, 2016",
             "course_meeting_time": "11:00 AM",
-            "course_picture": "osha.png",
-            "course_price": "550",
-            "course_short_detail": "This 5-day, 40-hour course is specifically designed for workers who are involved in clean-up operations, voluntary clean-up operations, emergency response operations, and storage, disposal, or treatment of hazardous substances or uncontrolled hazardous waste sites. This course covers regulations in 29 CFR 1910.120. Topics include protection against hazardous chemicals, elimination of hazardous chemicals, safety of workers, the environment, and OSHA regulations.",
+            "course_picture": "hazwoper.jpg",
+            "course_price": "150",
+            "course_short_detail": "This 8-hour course meets the requirements outlined in OSHA 29 CFR 1910.120 for 8 (eight) hours of annual refresher training for workers at hazardous waste sites. This course is designed for general site workers who remove hazardous waste or who are exposed or potentially exposed to hazardous substances or health hazards. Topics include HAZWOPER regulations, from site characterization, and hazard recognition to decontamination and emergency procedures.",
             "course_short_title": "Hazardous Materials",
             "course_tagline": "HAZWOPER / HAZMAT"
         }
@@ -53,7 +53,7 @@
             "course_highlight": "HAZWOPER 40-Hour, 24-Hour and 8-Hour Annual Refresher courses are available whether you are an individual or have a large group.",
             "course_hour_length": "24",
             "course_id": "haz24",
-            "course_long_title": "HAZWOPER - 24-Hour",
+            "course_long_title": "HAZWOPER 24-Hour Site Worker",
             "course_meeting_date": "February 5, 2016",
             "course_meeting_time": "11:00 AM",
             "course_picture": "hazwoper24.jpg",
@@ -63,18 +63,18 @@
             "course_tagline": "HAZWOPER / HAZMAT"
         }
     ],
-    "hazr": [
+    "hazi": [
         {
             "course_address": "175 Varick Street, New York, NY 10014",
             "course_highlight": "HAZWOPER 40-Hour, 24-Hour and 8-Hour Annual Refresher courses are available whether you are an individual or have a large group.",
-            "course_hour_length": "8",
-            "course_id": "hazr",
-            "course_long_title": "HAZWOPER Refresher Certification",
+            "course_hour_length": "40",
+            "course_id": "hazi",
+            "course_long_title": "HAZWOPER 40-Hour Initial Certification",
             "course_meeting_date": "February 5, 2016",
             "course_meeting_time": "11:00 AM",
-            "course_picture": "hazwoper.jpg",
-            "course_price": "150",
-            "course_short_detail": "This 8-hour course meets the requirements outlined in OSHA 29 CFR 1910.120 for 8 (eight) hours of annual refresher training for workers at hazardous waste sites. This course is designed for general site workers who remove hazardous waste or who are exposed or potentially exposed to hazardous substances or health hazards. Topics include HAZWOPER regulations, from site characterization, and hazard recognition to decontamination and emergency procedures.",
+            "course_picture": "osha.png",
+            "course_price": "550",
+            "course_short_detail": "This 5-day, 40-hour course is specifically designed for workers who are involved in clean-up operations, voluntary clean-up operations, emergency response operations, and storage, disposal, or treatment of hazardous substances or uncontrolled hazardous waste sites. This course covers regulations in 29 CFR 1910.120. Topics include protection against hazardous chemicals, elimination of hazardous chemicals, safety of workers, the environment, and OSHA regulations.",
             "course_short_title": "Hazardous Materials",
             "course_tagline": "HAZWOPER / HAZMAT"
         }
@@ -85,7 +85,7 @@
             "course_highlight": "No one should have to sacrifice their life for their livelihood. We offer a wide selection of training courses to help foster worker and employer safety.",
             "course_hour_length": "10",
             "course_id": "osha10",
-            "course_long_title": "OSHA Construction Safety",
+            "course_long_title": "OSHA 10-Hour Construction Safety",
             "course_meeting_date": "February 5, 2016",
             "course_meeting_time": "11:00 AM",
             "course_picture": "osha10.jpg",
@@ -101,7 +101,7 @@
             "course_highlight": "No one should have to sacrifice their life for their livelihood. We offer a wide selection of training courses to help foster worker and employer safety.",
             "course_hour_length": "30",
             "course_id": "osha30",
-            "course_long_title": "OSHA Construction Safety",
+            "course_long_title": "OSHA 30-Hour Construction Safety",
             "course_meeting_date": "February 5, 2016",
             "course_meeting_time": "11:00 AM",
             "course_picture": "safety.jpg",
@@ -133,13 +133,13 @@
             "course_highlight": "This course is designed for employees who will enter a confined space and/or be the attendant for others who have entered.",
             "course_hour_length": "4",
             "course_id": "cse",
-            "course_long_title": "Confined Space Entrant & Attendant For Const",
+            "course_long_title": "Confined Space Entrant & Attendant",
             "course_meeting_date": "February 5, 2016",
             "course_meeting_time": "11:00 AM",
             "course_picture": "cse.jpg",
             "course_price": "295",
             "course_short_detail": "This course will follow the new confined space in construction OSHA standard in teaching students about identification, classification, proper protection, monitoring and rescue requirements for confined spaces. This course is designed for employees who will enter a confined space and/or be the attendant for others who have entered.",
-            "course_short_title": " Confined Space Entrant ",
+            "course_short_title": "Confined Space Entrant ",
             "course_tagline": "Attendant For Construction"
         }
     ],
