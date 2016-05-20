@@ -124,12 +124,10 @@
 						</div>
 						<div id="navbar" class="navbar-collapse collapse">
 							<ul class="nav navbar-nav navbar-right">
-								<li class="dropdown megamenu"><a href="/">Home</a>
-								</li>
-										<li class="active"><a href="/about">About</a></li>
-								<li class="dropdown megamenu"><a href="/courses">Courses</a>
-								</li>
-								<li><a id="contactBtn" href="#" data-toggle="modal" data-target="#myModal">Contact</a></li>
+								<li class="dropdown megamenu"><a href="/">Home</a></li>
+								<li class="active"><a href="/about">About</a></li>
+								<li class="dropdown megamenu"><a href="/courses">Courses</a></li>
+								<li class="dropdown megamenu"><a href="/contact">Contact</a></li>
 							</ul>
 						</div><!--/.nav-collapse -->
 					</nav><!-- end nav -->

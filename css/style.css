@@ -20,6 +20,7 @@
 	13. SLIDESHOW
 	14. RESPONSIVE
 	15. COLORS
+	16. CONTACT PAGE
 
 ------------------------------------------------------- */  
 
@@ -2803,3 +2804,14 @@
 	#owl-testimonial.owl-dots .owl-dot:hover span {
 	  background: #17181e !important;
 	}
+
+/* ----------------------------------------------------
+	CONTACT PAGE	
+------------------------------------------------------- */  
+.contact-banner {
+	width: 96%;
+	margin-left: 2%;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}

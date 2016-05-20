@@ -1,8 +1,8 @@
-<!-- List all the courses offered -->
+<!-- Contact Page -->
+
 
 <?php
 	session_start();
-	require_once('functions.php');
 	include_once('version_number.inc');
 ?>
 <!DOCTYPE html>
@@ -10,6 +10,7 @@
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,6 +33,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/animate.css?ver=<?php echo $version;?>">
 	<link rel="stylesheet" type="text/css" href="/css/carousel.css?ver=<?php echo $version;?>">
 	<link rel="stylesheet" type="text/css" href="/css/prettyPhoto.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-select.css?ver=<?php echo $version;?>">
 	<link rel="stylesheet" type="text/css" href="/css/style.css?ver=<?php echo $version;?>">
 	<link rel="stylesheet" type="text/css" href="/css/quote.css?ver=<?php echo $version;?>">
 
@@ -39,7 +41,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/custom.css?ver=<?php echo $version;?>">
 
 	<!-- RS SLIDER -->
-	<link rel="stylesheet" type="text/css" href="/libraries/rs-plugin/css/settings.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/libraries/rs-plugin/css/settings.css?ver=<?php echo $version;?>" media="screen" />
 
 	<style>
 		#keep-position-fixed {
@@ -75,23 +77,21 @@
 	<?php include_once('js_scripts.php'); ?>
 
 </head>
-
 <body>
-
-	<div id="loader">
+  <div id="loader">
 		<div class="loader-container">
 			<div class="wow zoomIn" data-wow-duration="1s" data-wow-offset="100">
 				<div class="wow rubberBand" data-wow-delay="2000ms" data-wow-duration="1s">
 					<div class="wow pulse" data-wow-delay="100ms" data-wow-iteration="infinite" data-wow-duration="1s">
-						<img src="images/small_logo.png" alt="" class="loader-site">
+						<img src="/images/small_logo.png" alt="" class="loader-site">
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-    
-	<div id="wrapper">
-		<header id="keep-position-fixed" style="background:linear-gradient(to bottom, #fdfdfd 0%,#f7f7f7 100%) ;" class="header clearfix">
+
+	<header id="keep-position-fixed" style="background:linear-gradient(to bottom, #fdfdfd 0%,#f7f7f7 100%) ;" class="header clearfix">
+		<div id="wrapper">
 			<div class="topbar clearfix" style="">
 				<div class="container">
 					<div class="clearfix">
@@ -103,7 +103,6 @@
 								</ul>
 							</div><!-- end contactwrap -->
 						</div><!-- end col -->
-
 						<div class="pull-right">
 							<ul class="social">
 							</ul>
@@ -114,93 +113,113 @@
 
 			<div class="container">
 				<nav class="yamm navbar navbar-default">
-		      <div class="navbar-header">
+					<div class="navbar-header">
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 										 <span class="sr-only">Toggle navigation</span>
 										 <span class="icon-bar"></span>
 										 <span class="icon-bar"></span>
 										 <span class="icon-bar"></span>
 						</button>
-		        <a class="navbar-brand" href="/"><img src="images/cert_logo.png" alt="" style="margin-top: -12px; margin-right: 0px;"></a>
-		      </div>
+						<a class="navbar-brand" href="/"><img src="/images/cert_logo.png" style="margin-top: -12px; margin-right: 0px;" alt="CertRebel logo"></a>
+					</div>
 					<div id="navbar" class="navbar-collapse collapse">
-			      <ul class="nav navbar-nav navbar-right">
-							<li class="dropdown megamenu"><a href="/">Home</a>
-							</li>
-       							<li><a href="/about">About</a></li>
-							<li class="dropdown active megamenu"><a href="/courses">Courses</a>
-							</li>
-							<li><a id="contactBtn" href="#" data-toggle="modal" data-target="#myModal">Contact</a></li>
+						<ul class="nav navbar-nav navbar-right">
+							<li class="dropdown megamenu"><a href="/">Home</a></li>
+							<li><a href="/about">About</a></li>
+							<li class="dropdown megamenu"><a href="/courses">Courses</a></li>
+							<li class="active"><a href="#">Contact</a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</nav><!-- end nav -->
 			</div><!-- end container -->
 		</header><!-- end header -->
 
-		<section class="section-white" style="padding-top: 140px;">
+	  <section id="about_parallax" class="section-white page-title-wrapper" data-stellar-background-ratio="1" data-stellar-offset-parent="true">
+			<div class="container" style="padding-top: 90px;">
+				<div class="relative">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="section-title text-center">
+							<h4>Contact Us</h4>
+							<hr>
+							<p>We Want To Hear From You </p>
+							<ol class="breadcrumb">
+							  <li><a href="/">Home</a></li>
+							  <li class="active">Contact</li>
+							</ol>
+							</div><!-- end title -->
+						</div><!-- end col -->
+					</div><!-- end row -->
+				</div><!-- end relative -->
+			</div><!-- end container -->
+		</section><!-- end section-white -->
+
+		<section class="section-white">
 			<div class="container">
-				<div class="row courses-list">
-					<?php
-						$course_info = course_info();
-						if ($course_info) {
-							foreach ($course_info as $info) {
-								$id 		= $info[0]['course_id'];
-								$pic 		= $info[0]['course_picture'];
-								$hr 		= $info[0]['course_hour_length'];
-								$title 	= $info[0]['course_long_title'];
-								$detail = $info[0]['course_short_detail'];
-								$price  = $info[0]['course_price'];
-						?>
-								<div class="col-md-12 col-sm-12 col-xs-12">
-									<div class="course-item row wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-										<div class="col-md-4">
-										<div class="owl-image">
-											<a href="/course/<?php echo $id; ?>" 
-												 title=""><img src="images/<?php echo $pic; ?>" alt="" class="img-responsive"></a>
-										</div><!-- end image -->
-										</div>
-										<div class="col-md-8">
-										<div class="course-desc noborder">
-											<span class="meta"><?php echo $hr; ?>-Hour Course</span>
-											<h5><a href="/course/<?php echo $id; ?>" title=""><?php echo $title;?></a></h5>
-											<p><?php echo $detail;?></p>
-											<div class="course-big-meta clearfix">
-												<div class="pull-left">
-													<a href="/course/<?php echo $id; ?>" class="owl-button">Details</a>
-												</div><!-- end left -->
-												<div class="pull-right">
-													<p><?php //echo $price; ?></p>
-												</div><!-- end right -->
-											</div><!-- end course-big-meta -->
-										</div><!-- end desc -->
-										</div>
-									</div><!-- end item -->
-								</div>
-						<?php 
-							}
-						}
-						?>
+				<div class="row">
+					<div class="col-md-12">
+						<section class="googlemap">
+							<!--<iframe class="mapmarker" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8351118085707!2d144.955652!3d-37.817330999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2s!4v1433492479787"></iframe>-->
+							<iframe class="mapmarker" style="pointer-events:none;" width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=175%20Varick%20Street%2C%20New%20York%2C%20NY%2010014&key=AIzaSyB6b4JwW29ht9cPue50gBMKr6DpAYOd1Lk" allowfullscreen></iframe>
+						</section>
+					</div><!-- end col -->
 				</div><!-- end row -->
 
-				<nav class="text-center hidden ">
-				  <ul class="pagination">
-				    <li><a href="#">1</a></li>
-				    <li><a href="#">2</a></li>
-				    <li>
-				      <a href="#" aria-label="Next">
-				        <span aria-hidden="true">&raquo;</span>
-				      </a>
-				    </li>
-				  </ul>
-				</nav>
+				<div class="row section-container">
+					<div class="col-md-12">
+						<div class="section-title text-center">
+						<h4>Quick Contact</h4>
+						<hr>
+						<p>We Wanna Hear From You Soon!</p>
+						</div><!-- end title -->
+					</div><!-- end col -->
+				</div><!-- end row -->
 
+				<div class="row section-container">
+					<div class="col-md-8">
+						<form id="contact" class="row contact_form">
+							<p class="bg-success contact-banner">Your message has been successfully sent!</p>
+							<p class="bg-danger contact-banner">You need to fill out every required field.</p>
+							<p class="bg-warning contact-banner">Oops! Something went wrong and we couldn't send your message.<br>Please try again later.</p>
+							<div class="col-md-6 col-sm-6">
+							    <input id="user_name" type="text" class="form-control" placeholder="Your Name*" required>
+							</div>
+							<div class="col-md-6 col-sm-6">
+							    <input id="user_email" type="email" class="form-control" placeholder="Your Email*" required>
+							</div>
+							<div class="col-md-12 col-sm-6">
+							    <textarea id="user_message" class="form-control" placeholder="Message*" required></textarea>
+							</div>
+							<div class="col-md-12 col-sm-6">
+							    <button class="btn btn-primary btn-block">Send Message</button>
+							</div>
+						</form>
+					</div>
+					<div class="col-md-4">
+						<div class="contact-widget">
+							<h4>Contact Information :</h4>
+							<i class="fa fa-envelope"></i>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique.</p>
+							<small>- 7oroof@7oroof.com</small>
+							<small>- 002 01065370701</small>
+						</div><!-- end contact-widget -->
+
+						<div class="contact-widget">
+							<h4>Business Hours :</h4>
+							<i class="fa fa-clock-o"></i>
+							<p>Monday – Friday : 9am to 20 pm<br>
+							Saturday : 9am to 17 pm<br>
+							Sunday : day off</p>
+						</div><!-- end contact-widget -->
+
+					</div><!-- end col -->
+				</div>
 			</div><!-- end container -->
 		</section><!-- end section-white -->
 
 		<!-- Footer -->
 		<?php require_once("footer.php"); ?>
 		<!-- End Footer -->
-
 	</div><!-- end wrapper -->
 
 	<!-- Modal Contact Form -->
@@ -245,18 +264,19 @@
 	</div><!-- /.modal -->
 	<!-- End Modal Contact Form -->
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/retina.js"></script>
-	<script src="js/wow.js"></script>
-	<script src="js/carousel.js"></script>
-	<script src="js/progress.js"></script>
-	<script src="js/parallax.js"></script>
-	<script src="js/jquery.prettyPhoto.js"></script>
-	<script src="js/custom.js?ver=<?php echo $version;?>"></script>
-	<script src="js/clear.js?ver=<?php echo $version;?>"></script>
-	<script type="text/javascript" src="libraries/swal/dist/sweetalert.min.js"></script>
-	<script src="js/maskedinput.js" type="text/javascript"></script>
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/retina.js"></script>
+	<script src="/js/wow.js"></script>
+	<script src="/js/carousel.js"></script>
+	<script src="/js/progress.js"></script>
+	<script src="/js/parallax.js"></script>
+	<script src="/js/jquery.prettyPhoto.js"></script>
+	<script src="/js/custom.js?ver=<?php echo $version;?>"></script>
+	<script src="/js/clear.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript" src="/libraries/swal/dist/sweetalert.min.js"></script>
+	<script src="/js/maskedinput.js" type="text/javascript"></script>
+	<script src="/js/contact.js?ver=<?php echo $version;?>"></script>
 
 	<script>
 		$("#contactBtn").click(function(){
@@ -312,10 +332,9 @@
 			?>
 	});
 	</script>
-
   	<!-- SLIDER REV -->
-	<script src="libraries/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-  <script src="libraries/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+	<script src="/libraries/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+  <script src="/libraries/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
   <script>
 		 /* ==============================================
 		SLIDER -->
@@ -377,10 +396,16 @@
 		});   
 	</script>
 
-	<script src="js/jquery.fitvids.js"></script>
+	<script src="/js/jquery.fitvids.js"></script>
 	<script>
 	  $(document).ready(function(){
 	    $(".blog-media").fitVids();
+			$('.googlemap').on('click', function(){
+			  $('.googlemap iframe').css("pointer-events", "auto");
+			});
+      $('.googlemap').mouseleave(function(){ 
+			  $('.googlemap iframe').css("pointer-events", "none");
+		  });
 	  });
 	</script>
 
