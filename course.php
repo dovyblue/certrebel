@@ -143,7 +143,7 @@
        							<li><a href="/about">About</a></li>
 							
 							<li class="dropdown active megamenu"><a href="/courses">Courses</a>
-							<li><a id="contactBtn" href="/#" data-toggle="modal" data-target="#myModal">Contact</a></li>
+								<li class="dropdown megamenu"><a href="/contact">Contact</a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</nav><!-- end nav -->
