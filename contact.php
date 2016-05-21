@@ -170,7 +170,7 @@
 						<div class="section-title text-center">
 						<h4>Quick Contact</h4>
 						<hr>
-						<p>We Wanna Hear From You Soon!</p>
+						<p>We Want To Hear From You Soon!</p>
 						</div><!-- end title -->
 					</div><!-- end col -->
 				</div><!-- end row -->
@@ -199,17 +199,17 @@
 						<div class="contact-widget">
 							<h4>Contact Information :</h4>
 							<i class="fa fa-envelope"></i>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique.</p>
-							<small>- 7oroof@7oroof.com</small>
-							<small>- 002 01065370701</small>
+							<p>If you are experiencing any difficulties or you want to leave us a quick feedback on how we're doing, please send us a quick message.</p>
+							<small>- info@certrebel.com</small>
+							<small>- (646) 470-7119</small>
 						</div><!-- end contact-widget -->
 
 						<div class="contact-widget">
 							<h4>Business Hours :</h4>
 							<i class="fa fa-clock-o"></i>
-							<p>Monday – Friday : 9am to 20 pm<br>
-							Saturday : 9am to 17 pm<br>
-							Sunday : day off</p>
+							<p>Monday – Friday : 9am to 8pm<br>
+							Saturday : 9am to 5pm<br>
+							Sunday : Closed</p>
 						</div><!-- end contact-widget -->
 
 					</div><!-- end col -->
