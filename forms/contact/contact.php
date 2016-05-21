@@ -18,7 +18,7 @@ if (empty($_POST['name'])  ||
 	$info['phone'] 				= "";
 	$info['message'] 			= htmlentities($_POST['message']);
 	$_SESSION['email'] 		= $info['email'];
-	$default_subject			= $info['name']." wants to speak to a consultant";
+	$default_subject			= "Quick Contact Form | Used by ".$info['name'];
 	$default_message 			=
 	'
 	<html>
