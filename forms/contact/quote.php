@@ -51,7 +51,6 @@ if (empty($_POST['name'])  ||
 	</html>
 	';
 
-		echo $default_message;
 		try {
 			$dbConnection = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser , $dbpass);
 			$checkUserQuery = "INSERT INTO `certRebel`.`contactForm`
