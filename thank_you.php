@@ -95,7 +95,6 @@
 	<!-- Google Code for Registration Conversion Page -->
 	<script type="text/javascript">
 	/* <![CDATA[ */
-	/*
 	var google_conversion_id = 934308555;
 	var google_conversion_language = "en";
 	var google_conversion_format = "3";
@@ -104,7 +103,6 @@
 	var google_conversion_value = 1.00;
 	var google_conversion_currency = "USD";
 	var google_remarketing_only = false;
-	*/
 	/* ]]> */
 	</script>
 </head>
