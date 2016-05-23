@@ -86,7 +86,7 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
-	<?php include_once('js_scripts.php'); ?>
+	<?php include_once('scripts/js/seo.php'); ?>
 
 </head>
 <body>
