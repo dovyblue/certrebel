@@ -58,7 +58,7 @@ if ( empty($_POST['name'])  				||
 
 	try {
 		$dbConnection = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser , $dbpass);
-		$checkUserQuery = "INSERT INTO `certRebel`.`quote`
+		$checkUserQuery = "INSERT INTO `CertRebel`.`quote`
 											 (time_stamp, name, last_name, company, email, phone, selectOption, text) 
 											 VALUES (?,?,?,?,?,?,?,?)";
 

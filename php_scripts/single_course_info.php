@@ -10,7 +10,7 @@ try
 	$checkUserQuery ="SELECT 
 												*
 										FROM
-												certRebel.single_course_info
+												CertRebel.single_course_info
 										WHERE
 												DATE_FORMAT(STR_TO_DATE(course_meeting_date, '%W, %M %D'),
 																'%m-%d') > DATE_FORMAT(DATE(NOW()), '%m-%d')";

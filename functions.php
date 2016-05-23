@@ -1,6 +1,6 @@
 <?php // functions.php
 $dbhost 	 = 'localhost'; 
-$dbname 	 = 'certRebel';
+$dbname 	 = 'CertRebel';
 $dbuser 	 = 'root'; 
 $dbpass 	 = '$lice0fBread@123'; 
 

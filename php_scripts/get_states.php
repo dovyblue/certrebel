@@ -10,7 +10,7 @@
 		$checkUserQuery ="SELECT 
 													*
 											FROM
-													certRebel.states";
+													CertRebel.states";
 		$checkUserStmt = $dbConnection->prepare($checkUserQuery);
 		$checkUserStmt->execute();
 		while ($queryResult = $checkUserStmt->fetch(PDO::FETCH_ASSOC)) {

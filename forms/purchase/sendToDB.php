@@ -152,7 +152,7 @@ if ( empty($_POST['buyer_first_name'])||
 
 	try {
 		$dbConnection = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser , $dbpass);
-		$checkUserQuery = "INSERT INTO `certRebel`.`orders`
+		$checkUserQuery = "INSERT INTO `CertRebel`.`orders`
 											 (order_number, course_id, `index`, stripe_token, quantity, time_stamp, buyer_first_name, buyer_last_name, 
 												buyer_email, buyer_phone, buyer_company, buyer_address1, buyer_address2,
 												buyer_city, buyer_state_name, buyer_country, buyer_zip, charge_response, error_details) 
@@ -186,7 +186,7 @@ if ( empty($_POST['buyer_first_name'])||
 
 	try {
 		$dbConnection = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser , $dbpass);
-		$checkUserQuery = "INSERT INTO `certRebel`.`attendees` 
+		$checkUserQuery = "INSERT INTO `CertRebel`.`attendees` 
 													(order_number, attendee_first_name, attendee_last_name, attendee_email, attendee_phone) 
 											 VALUES".implode(', ',$sql_fill_table);
 		$checkUserStmt = $dbConnection->prepare($checkUserQuery);

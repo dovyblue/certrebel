@@ -39,7 +39,7 @@ if (empty($_POST['name'])  ||
 
 		try {
 			$dbConnection = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser , $dbpass);
-			$checkUserQuery = "INSERT INTO `certRebel`.`contactForm`
+			$checkUserQuery = "INSERT INTO `CertRebel`.`contactForm`
 												 (time_stamp, name, email, phone, text) 
 												 VALUES (?,?,?,?,?)";
 
