@@ -2,7 +2,7 @@
 $dbhost 	 = 'localhost'; 
 $dbname 	 = 'certRebel';
 $dbuser 	 = 'root'; 
-$dbpass 	 = 'CertRebel'; 
+$dbpass 	 = '$lice0fBread@123'; 
 
 function single_course_info() {
 	$url = __DIR__.'/json_files/single_course_info.json';
