@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-require_once('../functions.php');
+require_once('/var/www/certrebel/functions.php');
 date_default_timezone_set('America/New_york');
 
 try
@@ -10,7 +10,10 @@ try
 	$checkUserQuery ="SELECT 
 												*
 										FROM
-												certRebel.single_course_info";
+												certRebel.single_course_info
+										WHERE
+												DATE_FORMAT(STR_TO_DATE(course_meeting_date, '%W, %M %D'),
+																'%m-%d') > DATE_FORMAT(DATE(NOW()), '%m-%d')";
 	$checkUserStmt = $dbConnection->prepare($checkUserQuery);
 	$checkUserStmt->execute();
 	while ($queryResult = $checkUserStmt->fetch(PDO::FETCH_ASSOC)) {
