@@ -10,7 +10,7 @@ try
 	$checkUserQuery ="SELECT 
 												*
 										FROM
-												certRebel.courses";
+												CertRebel.courses";
 	$checkUserStmt = $dbConnection->prepare($checkUserQuery);
 	$checkUserStmt->execute();
 	while ($queryResult = $checkUserStmt->fetch(PDO::FETCH_ASSOC)) {
