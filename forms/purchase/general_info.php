@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require_once('../../functions.php');
+	require_once('/var/www/certrebel/functions.php');
 	if (!isset($_GET['course']) || !isset($_GET['index'])) {
 		header("Location: courses");
 	}

@@ -1,8 +1,8 @@
 <?php
 ob_start();
 session_start();
-require_once('../../functions.php');
-require_once('../../sendmail.php');
+require_once('/var/www/certrebel/functions.php');
+require_once('/var/www/certrebel/sendmail.php');
 date_default_timezone_set('America/New_york');
 $current_url = $_SERVER['HTTP_REFERER'];
 

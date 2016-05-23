@@ -4,8 +4,8 @@ session_start();
 $stripe  = $_SERVER['DOCUMENT_ROOT'];
 $stripe .= "/libraries/stripe/init.php";
 require_once($stripe);
-require_once('../../functions.php');
-require_once('../../sendmail.php');
+require_once('/var/www/certrebel/functions.php');
+require_once('/var/www/certrebel/sendmail.php');
 date_default_timezone_set('America/New_york');
 $return	     = array();
 
