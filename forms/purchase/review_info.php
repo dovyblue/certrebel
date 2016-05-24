@@ -170,6 +170,7 @@
 			image: '/images/small_logo.png',
 			locale: 'auto',
 			token: function(token) {
+				console.log('token');
 				orderData.stripe_token = token;
 				orderData.cost				 = $cost;
 				orderData.quantity		 = $quantity;
@@ -189,6 +190,11 @@
           }
         });
 			},
+			closed: function(){
+				$('#loading').delay(300).fadeOut('slow');                                    
+				$('#loader-container').delay(200).fadeOut('slow');
+				$('body').delay(300).css({'overflow':'visible'});
+			}
 		});
 
 		$('#payButton').on('click', function(e) {
@@ -199,6 +205,7 @@
 				email:    $buyer_email,
 				zipCode: 'false'
 			});
+			$('#loading').show();
 			e.preventDefault();
 		});
 

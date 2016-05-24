@@ -78,15 +78,15 @@
 <body>
 
 	<div id="loader">
-			<div class="loader-container">
-		<div class="wow zoomIn" data-wow-duration="1s" data-wow-offset="100">
-			<div class="wow rubberBand" data-wow-delay="2000ms" data-wow-duration="1s">
-				<div class="wow pulse" data-wow-delay="100ms" data-wow-iteration="infinite" data-wow-duration="1s">
-					<img src="/images/small_logo.png" alt="" class="loader-site">
+		<div class="loader-container">
+			<div class="wow zoomIn" data-wow-duration="1s" data-wow-offset="100">
+				<div class="wow rubberBand" data-wow-delay="2000ms" data-wow-duration="1s">
+					<div class="wow pulse" data-wow-delay="100ms" data-wow-iteration="infinite" data-wow-duration="1s">
+						<img src="/images/small_logo.png" alt="" class="loader-site">
+					</div>
 				</div>
 			</div>
 		</div>
-			</div>
 	</div>
 
 	<div id="wrapper">
