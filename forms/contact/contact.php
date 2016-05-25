@@ -12,16 +12,16 @@ if (empty($_POST['name'])  ||
 		$return['status']  = 'error';	
 		die(json_encode($return));
 } else {
-	$date 								= date("Y-m-d H:i:s");
-	$info['type']					= "contact_form";
-	$info['name'] 				= htmlentities(ucwords($_POST['name']));
-	$info['email'] 				= htmlentities(strtolower($_POST['email']));
-	$info['message_receiver'] = "renemidouin@gmail.com";
-	$info['phone'] 				= "";
-	$info['message'] 			= htmlentities($_POST['message']);
-	$_SESSION['email'] 		= $info['email'];
-	$info['subject']			= "Quick Contact Form | Used by ".$info['name'];
-	$info['body']   			=
+	$date											= date("Y-m-d H:i:s");
+	$info['type']							= "contact_form";
+	$info['name']							= htmlentities(ucwords($_POST['name']));
+	$info['email']						= htmlentities(strtolower($_POST['email']));
+	$info['message_receiver'] = "support@certrebel.com";
+	$info['phone']						= "";
+	$info['message']					= htmlentities($_POST['message']);
+	$_SESSION['email']				= $info['email'];
+	$info['subject']					= "Quick Contact Form | Used by ".$info['name'];
+	$info['body']							=
 	'
 	<html>
 		<head>
