@@ -11,6 +11,7 @@
 </div>
 <h3 style="text-align:center; font-size:20px; color:#7a7c82; padding-bottom:5%;">Now, who is attending?</h3>
 <form id="attendee" class="form-horizontal" style="margin-left:17%; margin-right:17%;">
+	<p class="bg-danger contact-banner" style="display:none;">Please make sure you fill out all required fields *</p>
 	<span style="margin-left:1%; font-weight:bold; font-size:15px;">Attendee Info</span>
 	<hr style="width:98%; margin-top:3px;">
 		<?php
@@ -124,53 +125,67 @@
 		}
 		$('#backButton').on('click', function(){
 			$("#middle-box").load("/forms/purchase/buyer_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity=<?php echo $quantity; ?>");
-			$("html, body").animate({ scrollTop: 0 }, 500);
+			$("html, body").stop().animate({ scrollTop: 0 }, 500);
 		});
-		$('form#attendee').on('submit', function(e){
+		$('body').on('submit', '#attendee', function(e){
 			e.preventDefault();
-			attendee_save_data();
-			$("#middle-box").load("/forms/purchase/review_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity=<?php echo $quantity; ?>", function(){
-				buyer_first_name = localStorage.getItem('buyer_first_name');
-				buyer_last_name = localStorage.getItem('buyer_last_name');
-				buyer_email = localStorage.getItem('buyer_email');
-				buyer_phone = localStorage.getItem('buyer_phone');
-				buyer_company = localStorage.getItem('buyer_company');
-				buyer_company = (buyer_company != "") ? buyer_company+'<br>' : "";
-				buyer_address1 = localStorage.getItem('buyer_address1');
-				buyer_address2 = localStorage.getItem('buyer_address2');
-				buyer_address2 = (buyer_address2 != "") ? ' - '+buyer_address2 : "";
-				buyer_city = localStorage.getItem('buyer_city');
-				buyer_state_name = localStorage.getItem('buyer_state_name');
-				buyer_country = localStorage.getItem('buyer_country');
-				buyer_zip = localStorage.getItem('buyer_zip');
-				$quantity = "<?php echo $quantity; ?>";
-				$quantity = parseInt($quantity);
-
-				for(i = 1; i <= $quantity; ++i){
-					first_name = 'attendee'+i+'_first_name';
-					last_name = 'attendee'+i+'_last_name';
-					email = 'attendee'+i+'_email';
-					phone = 'attendee'+i+'_phone';
-					$('#'+first_name).html(localStorage.getItem(first_name));
-					$('#'+last_name).html(localStorage.getItem(last_name)+'<br>');
-					$('#'+email).html(localStorage.getItem(email)+'<br>');
-					$('#'+phone).html(localStorage.getItem(phone)+'<br>');
+			var check = true;
+			$('#attendee [required]').each(function(){
+				if ($(this).val() == "" || $(this).val() == null) {
+					$(this).css('border-color','red');
+					check = false;
+				} else {
+					$(this).css('border-color','#DADADC');
 				}
-
-				$('#firstName').html(buyer_first_name);
-				$('#lastName').html(buyer_last_name+'<br>');
-				$('#email').html(buyer_email+'<br>');
-				$('#phone').html(buyer_phone+'<br>');
-				$('#company').html(buyer_company);
-				$('#address1').html(buyer_address1);
-				$('#address2').html(buyer_address2);
-				$('#city').html('<br>'+buyer_city);
-				$('#state_result').html(buyer_state_name);
-				$('#zip_code').html(buyer_zip+'<br>');
-				$('#country_result').html(buyer_country+'<br>');
-
-				$("html, body").animate({ scrollTop: 0 }, 500);
 			});
+			if (check) {
+				attendee_save_data();
+				$("#middle-box").load("/forms/purchase/review_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity=<?php echo $quantity; ?>", function(){
+					buyer_first_name = localStorage.getItem('buyer_first_name');
+					buyer_last_name = localStorage.getItem('buyer_last_name');
+					buyer_email = localStorage.getItem('buyer_email');
+					buyer_phone = localStorage.getItem('buyer_phone');
+					buyer_company = localStorage.getItem('buyer_company');
+					buyer_company = (buyer_company != "") ? buyer_company+'<br>' : "";
+					buyer_address1 = localStorage.getItem('buyer_address1');
+					buyer_address2 = localStorage.getItem('buyer_address2');
+					buyer_address2 = (buyer_address2 != "") ? ' - '+buyer_address2 : "";
+					buyer_city = localStorage.getItem('buyer_city');
+					buyer_state_name = localStorage.getItem('buyer_state_name');
+					buyer_country = localStorage.getItem('buyer_country');
+					buyer_zip = localStorage.getItem('buyer_zip');
+					$quantity = "<?php echo $quantity; ?>";
+					$quantity = parseInt($quantity);
+
+					for(i = 1; i <= $quantity; ++i){
+						first_name = 'attendee'+i+'_first_name';
+						last_name = 'attendee'+i+'_last_name';
+						email = 'attendee'+i+'_email';
+						phone = 'attendee'+i+'_phone';
+						$('#'+first_name).html(localStorage.getItem(first_name));
+						$('#'+last_name).html(localStorage.getItem(last_name)+'<br>');
+						$('#'+email).html(localStorage.getItem(email)+'<br>');
+						$('#'+phone).html(localStorage.getItem(phone)+'<br>');
+					}
+
+					$('#firstName').html(buyer_first_name);
+					$('#lastName').html(buyer_last_name+'<br>');
+					$('#email').html(buyer_email+'<br>');
+					$('#phone').html(buyer_phone+'<br>');
+					$('#company').html(buyer_company);
+					$('#address1').html(buyer_address1);
+					$('#address2').html(buyer_address2);
+					$('#city').html('<br>'+buyer_city);
+					$('#state_result').html(buyer_state_name);
+					$('#zip_code').html(buyer_zip+'<br>');
+					$('#country_result').html(buyer_country+'<br>');
+
+					$("html, body").stop().animate({ scrollTop: 0 }, 500);
+				});
+			} else {
+				$("html, body").stop().animate({ scrollTop: 0 }, 500);
+				$('.contact-banner.bg-danger').fadeIn(1000, function(){$(this).delay(3000).fadeOut(1000)})
+			}
 		});
 	});	
 </script>

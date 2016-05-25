@@ -138,7 +138,7 @@ $(document).ready(function(){
 
 	$('#generalButton').on('click', function(){
 		$("#middle-box").load("/forms/purchase/buyer_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity="+$('#quantity_result').val());
-		$("html, body").animate({ scrollTop: 0 }, 500);
+		$("html, body").stop().animate({ scrollTop: 0 }, 500);
 	});
 });
 </script>

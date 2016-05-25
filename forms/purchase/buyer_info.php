@@ -12,6 +12,7 @@
 </div>
 <h3 style="text-align:center; font-size:20px; color:#7a7c82; padding-bottom:5%;">Who is buying this course?</h3>
 <form id="buyer_info" class="form-horizontal" style="margin-left:17%; margin-right:17%;">
+	<p class="bg-danger contact-banner" style="display:none;">Please make sure you fill out all required fields *</p>
 	<span style="margin-left:1%; font-weight:bold; font-size:15px;">Buyer Info</span>
 	<hr style="width:98%; margin-top:3px;">
 	<div class="col-sm-6 padding" style="margin-bottom:3%;">
@@ -152,23 +153,40 @@
 		$('#country_result').selectpicker('refresh');
 		buyer_info_prefill();
 		buyer_address_prefill();
+		$('#buyer_info [required]').each(function(){
+			$(this).css('border-color','#DADADC');
+		});
 		$('#backButton').on('click', function(){
 			$("#middle-box").load("/forms/purchase/general_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity=<?php echo $quantity; ?>", function(){
 				$('#quantity_result').selectpicker('refresh');
-				$("html, body").animate({ scrollTop: 0 }, 500);
+				$("html, body").stop().animate({ scrollTop: 0 }, 500);
 			});
 		});
 
 		$('body').on('submit', '#buyer_info', function(e){
 			e.preventDefault();
-			buyer_save_data();
-			if(localStorage.getItem('quantity') !== null) {                            
-				$quantity = localStorage.getItem('quantity');
-			} 
-			$("#middle-box").load("/forms/purchase/attendee_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity="+$quantity, function(){
-				$('#quantity_result').selectpicker('refresh');
-				$("html, body").animate({ scrollTop: 0 }, 500);
+			var check = true;
+			$('#buyer_info [required]').each(function(){
+				if ($(this).val() == "" || $(this).val() == null) {
+					$(this).css('border-color','red');
+					check = false;
+				} else {
+					$(this).css('border-color','#DADADC');
+				}
 			});
+			if (check) {
+				buyer_save_data();
+				if(localStorage.getItem('quantity') !== null) {                            
+					$quantity = localStorage.getItem('quantity');
+				} 
+				$("#middle-box").load("/forms/purchase/attendee_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity="+$quantity, function(){
+					$('#quantity_result').selectpicker('refresh');
+					$("html, body").stop().animate({ scrollTop: 0 }, 500);
+				});
+			} else {
+				$("html, body").stop().animate({ scrollTop: 0 }, 500);
+				$('.contact-banner.bg-danger').fadeIn(1000, function(){$(this).delay(3000).fadeOut(1000)})
+			}
 		});
 	});
 </script>
