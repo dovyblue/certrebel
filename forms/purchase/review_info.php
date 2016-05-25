@@ -1,4 +1,5 @@
 <?php
+  session_start();
 	require_once('/var/www/certrebel/functions.php');
 	if (!isset($_GET['course']) && !isset($_GET['quantity'])) {
 		header("Location: courses");
