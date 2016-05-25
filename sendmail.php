@@ -8,15 +8,23 @@
 date_default_timezone_set('Etc/UTC');
  
 require 'PHPMailer/PHPMailerAutoload.php';
- 
+require_once('functions.php'); 
 //header("MIME-Version: 1.0; Content-Type: text/html; charset=ISO-8859-1", true);
  
   //Create a new PHPMailer instance
-function sendmail($email, $subject, $file_name)
+function sendmail($data)
 {
 
 	//$message = file_get_contents($file_name);	
-	$message = $file_name;
+	$email 	 = $data['message_receiver'];
+	$subject = $data['subject'];
+
+	if ($data['type'] != 'order_receipt') {
+	  $message = $data['body'];
+	} else {
+		$message = order_receipt($data); 
+	}
+
 	$mail = new PHPMailer(true);
   $mail->CharSet = "UTF-8";
   //Tell PHPMailer to use SMTP
