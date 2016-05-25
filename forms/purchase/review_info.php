@@ -383,7 +383,7 @@
 		}
 		$('#backButton').on('click', function(){
 			$("#middle-box").load("/forms/purchase/attendee_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity=<?php echo $quantity; ?>");
-			$("html, body").animate({ scrollTop: 0 }, 500);
+			$("html, body").stop().animate({ scrollTop: 0 }, 500);
 		});
 	});
 </script>
