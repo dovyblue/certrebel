@@ -5,7 +5,6 @@
 		//header("location: http://$server");
 
 	unset($_SESSION['__sdjh']);
-	require_once('sendmail.php');
 	include_once('version_number.inc');
 ?>
 <!DOCTYPE html>

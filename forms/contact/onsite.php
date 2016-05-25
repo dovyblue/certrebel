@@ -16,21 +16,20 @@ if ( empty($_POST['name'])  				||
 		$_SESSION['error'] = 'error';
 		header("location: $current_url");
 } else {
-	$file_name						= 'CertRebel_ThankYou.html';
-	$date 								= date("Y-m-d H:i:s");
-	$info['name'] 				= htmlentities(ucwords($_POST['name']));
-	$info['last_name'] 		= htmlentities(ucwords($_POST['last_name']));
-	$info['company'] 			= htmlentities(ucwords($_POST['company']));
-	$info['email'] 				= htmlentities(strtolower($_POST['email']));
-	$info['phone'] 				= htmlentities($_POST['phone']);
-	$info['selectOption'] = htmlentities($_POST['selectOption']);
-	$info['text'] 				= htmlentities($_POST['text']);
-	$_SESSION['email'] 		= $info['email'];
-	$subject							= $info['selectOption'].' | On-Site Training';
-	$file_name						= 'CertRebel_ThankYou.html';
-	$file_name 						= file_get_contents($file_name);
-	$default_subject			= $subject.' For '.$info['name']." ".$info['last_name'];
-	$default_message 			=
+	$date											= date("Y-m-d H:i:s");
+	$info['type']							= "onsite_form";
+	$info['name']							= htmlentities(ucwords($_POST['name']));
+	$info['last_name']				= htmlentities(ucwords($_POST['last_name']));
+	$info['company']					= htmlentities(ucwords($_POST['company']));
+	$info['email']						= htmlentities(strtolower($_POST['email']));
+	$info['message_receiver'] = "renemidouin@gmail.com";
+	$info['phone']						= htmlentities($_POST['phone']);
+	$info['selectOption']			= htmlentities($_POST['selectOption']);
+	$info['text']							= htmlentities($_POST['text']);
+	$_SESSION['email']				= $info['email'];
+	$subject									= $info['selectOption'].' | On-Site Training';
+	$info['subject']					= $subject.' For '.$info['name']." ".$info['last_name'];
+	$info['body']							=
 '
 <html>
 	<head>
@@ -73,8 +72,7 @@ if ( empty($_POST['name'])  				||
 										$info['text']
 									);
 		$checkUserStmt->execute($values);
-		//sendmail('support@certrebel.com', $default_subject, $default_message);
-		sendmail('renemidouin@gmail.com', $default_subject, $default_message);
+		sendmail($info);
 		$_SESSION['success'] = 'success';
 		header("location: $current_url");
 	} catch (PDOException $e) {

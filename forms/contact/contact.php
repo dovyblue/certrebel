@@ -13,13 +13,15 @@ if (empty($_POST['name'])  ||
 		die(json_encode($return));
 } else {
 	$date 								= date("Y-m-d H:i:s");
+	$info['type']					= "contact_form";
 	$info['name'] 				= htmlentities(ucwords($_POST['name']));
 	$info['email'] 				= htmlentities(strtolower($_POST['email']));
+	$info['message_receiver'] = "renemidouin@gmail.com";
 	$info['phone'] 				= "";
 	$info['message'] 			= htmlentities($_POST['message']);
 	$_SESSION['email'] 		= $info['email'];
-	$default_subject			= "Quick Contact Form | Used by ".$info['name'];
-	$default_message 			=
+	$info['subject']			= "Quick Contact Form | Used by ".$info['name'];
+	$info['body']   			=
 	'
 	<html>
 		<head>
@@ -51,8 +53,7 @@ if (empty($_POST['name'])  ||
 											$info['message']
 										);
 			$checkUserStmt->execute($values);
-			//sendmail("support@certrebel.com", $default_subject, $default_message);
-			sendmail("renemidouin@gmail.com", $default_subject, $default_message);
+			sendmail($info);
 	  	$return['status'] = 'success';	
 		} catch (PDOException $e) {
 			die("Error: Cannot satisfy your request at this time. Please try again later");
