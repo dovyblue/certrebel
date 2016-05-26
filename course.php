@@ -177,58 +177,25 @@
 								<!-- End Course Overview -->
 							</div><!-- end col-md-8 -->
 
-							<div id="sidebar" class="col-md-4 hidden" style="margin-top: -13px;">
-								<div class="widget course-widget" style="line-height: 29px;">
-									<div class="widget-title">
-										<h4>Course Details</h4>
-										<hr>
-									</div><!-- end widget-title -->
-									<div class="course-widget">
-									<?php
-										$course_info 	= course_info();
-										$course 		 	= htmlentities($_GET['course']);
-										$title	 			= isset($course_info[$course][0]['course_long_title']) ? $course_info[$course][0]['course_long_title']: 'N/A';
-										$date 	 			= isset($course_info[$course][0]['course_meeting_date']) ? $course_info[$course][0]['course_meeting_date']: 'N/A';
-										$time 	 			= isset($course_info[$course][0]['course_meeting_time']) ? $course_info[$course][0]['course_meeting_time'] : 'N/A';
-										$address 			= isset($course_info[$course][0]['course_address']) ? $course_info[$course][0]['course_address'] : 'N/A';
-										$cost 	 			= isset($course_info[$course][0]['course_price']) ? $course_info[$course][0]['course_price'] : '0';
-										?>
-										<ul>
-											<li>
-												<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Course: </div>
-												<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $title; ?></strong></a></div>
-											</li>
-											<li>
-												<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Date: </div>
-												<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $date; ?></strong></a></div>
-											</li>
-											<li>
-												<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Time: </div>
-												<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $time; ?></strong></a></div>
-											</li>
-											<li>
-												<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Address: </div>
-												<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $address; ?></strong></a></div>
-											</li>
-											<li>
-												<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Cost: </div>
-												<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong>$<?php echo $cost; ?></strong></a></div>
-											</li>
-										</ul>
-										<a style="color: white;" href="/purchase?course=<?php echo $course; ?>"><button id="joinCourse" class="btn btn-block btn-primary">Join Course</button></a>
-									</div><!-- end latest-course -->
-								</div><!-- end widget -->
-							</div>
+							<?php
+								$single_details = isset(single_course_info()[$course])? single_course_info()[$course] : null;
+								$count 					= count($single_details);
+								if (isset($single_details)) {
+							?>
+								<div class="col-xs-12">
+									<p id="scroll_info" style="text-transform: uppercase; display:none;"><span>Scroll the table from right to left </span><span>to see its full content</span></p>
+								</div>
+							<?php
+							  }
+							?>
 						</div><!-- end desc -->
 
 					</div><!-- end content -->
-					<div id="content" class="col-md-12 col-sm-12">
+					<div id="content" class="col-md-12 col-sm-12 table-responsive">
 						<?php
-							$single_details = isset(single_course_info()[$course])? single_course_info()[$course] : null;
-							$count 					= count($single_details);
 							if (isset($single_details)) {
 						?>
-								<table class="table table-striped table-bordered"style="table-layout: fixed;">
+								<table class="table table-striped table-bordered"style="table-layout:fixed;">
 									<thead>
 										<tr>
 											<th>Location</th>

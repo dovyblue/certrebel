@@ -2692,8 +2692,7 @@
 		background-color: #ffffff;
 	}
 
-	.contactwrap,
-	.noborder {
+	.contactwrap {
 		display: none !important;
 	}
 
@@ -2713,6 +2712,38 @@
 		display: block;
 		width: auto !important;
 		margin:auto !important;
+	}
+
+	.navbar-brand img {
+		height: 50px;
+		margin-top: 1% !important;
+	}
+
+	.tp-caption.slider_03 {
+		font-size: 10px !important;
+		line-height: 11px !important;
+	}
+
+	.modal-dialog {
+		width: 100%; 
+	}
+
+	.modal-open .modal {
+		overflow-y: scroll;
+		-webkit-overflow-scrolling: touch;
+	}
+
+  .modal .modal-body {
+    max-height: none; 
+		-webkit-overflow-scrolling: touch;
+  }
+
+	#content table {
+		table-layout: auto !important;
+	}
+
+	#scroll_info {
+			display: block !important;
 	}
 }
 

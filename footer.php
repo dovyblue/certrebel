@@ -11,7 +11,7 @@
 <footer class="footer">
 	<div class="container">
 		<div class="row">
-			<div style="width:30%;" class="col-md-3 col-sm-6">
+			<div class="col-md-3 col-sm-6">
 				<div class="widget about-widget wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
 					<div class="widget-title">
 						<h4>About</h4>
@@ -25,7 +25,7 @@
 				</div><!-- end widget -->
 			</div><!-- end col -->
 
-			<div style="width:20%;" class="col-md-3 col-sm-6">
+			<div class="col-md-3 col-sm-6">
 				<div class="widget about-widget wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
 					<div class="widget-title">
 						<h4>CertRebel Values</h4>

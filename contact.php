@@ -199,7 +199,7 @@
 						<div class="contact-widget">
 							<h4>Contact Information :</h4>
 							<i class="fa fa-envelope"></i>
-							<p>If you are experiencing any difficulties or you want to leave us a quick feedback on how we're doing, please send us a quick message.</p>
+							<p>If you are experiencing any difficulties or you want to leave us feedback on how we're doing, please send us a quick message.</p>
 							<small>- info@certrebel.com</small>
 							<small>- (646) 470-7119</small>
 						</div><!-- end contact-widget -->
