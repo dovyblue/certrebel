@@ -16,7 +16,7 @@
 	<span style="margin-left:1%; font-weight:bold; font-size:15px;">Course Info</span>
 	<hr style="width:98%; margin-top:3px;">
 	<div class="row" style="margin-top:0%; padding-left:1.5%; padding-right:1.5%;">
-		<div class="col-md-7 col-sm-7" style="margin-bottom: 3%;">
+		<div class="col-md-7 col-sm-12 col-xs-12" style="margin-bottom: 3%;">
 				<div class="course-widget" style="width:100%;">
 				<?php
 					$course 		 		= htmlentities($_GET['course']);
@@ -62,22 +62,32 @@
 					</ul>
 				</div>
 		</div>
-		<div class="col-md-5 col-sm-5 col-xs-5" style="padding-left: 4%; padding-right:0;">
+		<div class="col-md-5 col-sm-12 col-xs-12" style="padding-left: 4%; padding-right:0;">
 			<div class="row">
-				<div class="col-xs-8">
-					<p style="float: right; margin: 0; padding: 0;">Quantity:</p><br>
-					<p style="float: right; margin: 0; padding: 0;">Unit Price:</p><br>
-					<p style="float: right; margin: 0; padding: 0;">Subtotal:</p><br>
-					<p style="float: right; margin: 0; padding: 0;">2% Processing Fee:</p><br>
-					<p style="float: right; margin: 0; padding: 0;"><strong>Total:</strong></p><br>
-				</div>
-				<div class="col-xs-4" style="padding: 0;">
-					<p style="margin: 0; padding: 0;"><span></span><span ><?php echo $quantity; ?></span></p>
-					<p style="margin: 0; padding: 0;"><span>$</span><span ><?php echo $cost; ?></span></p>
-					<p style="margin: 0; padding: 0;"><span>$</span><span ><?php echo $subtotal; ?></span></p>
-					<p style="margin: 0; padding: 0;"><span>$</span><span ><?php echo $fee; ?></span></p>
-					<p style="margin: 0; padding: 0;"><span>$</><span><strong><?php echo $total; ?></strong></span></p>
-				</div>
+				<table class="table table-borderless">
+					<tbody>
+						<tr>
+							<td style="float:right;">Quantity:</td>
+							<td><span><?php echo $quantity; ?></td>
+						</tr>
+						<tr>
+							<td style="float:right;">Unit Price:</td>
+							<td><span>$</span><span><?php echo $cost; ?></td>
+						</tr>
+						<tr>
+							<td style="float:right;">Subtotal:</td>
+							<td><span>$</span><span><?php echo $subtotal; ?></span></td>
+						</tr>
+						<tr>
+							<td style="float:right;">2% Processing Fee:</td>
+							<td><span>$</span><span><?php echo $fee; ?></span></td>
+						</tr>
+						<tr>
+							<td style="float:right;"><strong>Total:</strong></td>
+							<td><span>$</span><span><strong><?php echo $total; ?></strong></span></td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
@@ -151,7 +161,7 @@
 	</p>
 </div>
 </div>
-<div style="padding-left:43%; padding-right:43%; padding-top:5%;" class="col-md-12 col-sm-12 col-xs-12">
+<div class="col-md-2 col-md-offset-5 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
 	<script src="https://checkout.stripe.com/checkout.js"></script>
 	<button id="payButton" class="btn btn-block btn-primary">Pay</button>
 	<script>

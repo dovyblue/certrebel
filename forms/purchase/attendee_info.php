@@ -54,7 +54,7 @@
 	<?php
 		}
 	?>
-	<div style="padding-left:43%; padding-right:43%; padding-top:5%;" class="col-md-12 col-sm-12 col-xs-12">
+	<div class="col-md-3 col-md-offset-5 col-sm-12 col-xs-12" style="margin-top:5%;">
 		<button type="submit" id="customButton" class="btn btn-block btn-primary">Continue</button>
 	</div>
 </form>
