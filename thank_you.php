@@ -176,10 +176,8 @@
 							<h1 style="text-align:center; font-size:30px;">Thank you for your order!</h1>
 						</div>
 						<h3 style="text-align:center; font-size:20px; color:#7a7c82; padding-bottom:5%;">We've sent you an email with your order details.</h3>
-						<div id="buyer_info" class="form-horizontal" style="margin-left:17%; margin-right:17%;">
-							<div class="row" style="margin-top:0%; padding-left:1.5%; padding-right:1.5%;">
-								<img src="/images/email.png" alt="Email Sent">
-							</div>
+						<div>
+							<img id="envelope" src="/images/email.png" alt="Email Sent">
 						</div>
 					</div><!-- end col -->
 				</div><!-- end row -->

@@ -21,6 +21,8 @@
 	14. RESPONSIVE
 	15. COLORS
 	16. CONTACT PAGE
+	17. PURCHASE PAGE
+	18. THANK_YOU PAGE
 
 ------------------------------------------------------- */  
 
@@ -2743,7 +2745,11 @@
 	}
 
 	#scroll_info {
-			display: block !important;
+		display: block !important;
+	}
+
+	#envelope {
+	  height: 100px !important;	
 	}
 }
 
@@ -2868,4 +2874,22 @@
 	text-align: center;
 	padding-top: 10px;
 	padding-bottom: 10px;
+}
+
+/* ----------------------------------------------------
+	PURCHASE PAGE	
+------------------------------------------------------- */  
+.table-borderless tbody tr td, .table-borderless tbody tr th, .table-borderless thead tr th {
+    border: none;
+		line-height: 1;
+}
+
+/* ----------------------------------------------------
+	THANK_YOU PAGE	
+------------------------------------------------------- */  
+#envelope {
+  display: block;
+	margin-left: auto;
+	margin-right: auto;
+	height: 150px;
 }

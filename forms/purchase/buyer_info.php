@@ -38,8 +38,8 @@
 	<div id="rest_of_form">
 		<?php include_once('billing_address.php'); ?>
 	</div>
-	<div style="padding-left:43%; padding-right:43%; padding-top:5%;" class="col-md-12 col-sm-12 col-xs-12">
-		<button id="buyerButton" class="btn btn-block btn-primary">Continue</button>
+	<div class="col-md-3 col-md-offset-5 col-sm-12 col-xs-12" style="margin-top:5%;">
+		<button type="submit" id="buyerButton" class="btn btn-block btn-primary">Continue</button>
 	</div>
 </form>
 <div style="padding-right: 17%; padding-left: 17%;" class="col-md-12 col-sm-12 col-xs-12">

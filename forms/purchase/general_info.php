@@ -11,22 +11,13 @@
 <h3 style="text-align:center; font-size:20px; color:#7a7c82;">How many people will be joining this course?</h3>
 <div class="row" style="margin-top:5%; padding-left:10%; padding-right:10%;">
 	<hr>
-	<div class="general-info col-md-6 col-sm-6 col-xs-6">
-			<div class="course-widget" style="width:90%;">
-			Course
-			</div>
-	</div>
-	<div class="general-info col-md-2 col-sm-2 col-xs-2">
-			Quantity
-	</div>
-	<div style="padding-left:8%;" class="general-info col-md-4 col-sm-4 col-xs-4">
-			Price
-	</div>
 </div>
 <div class="row" style="margin-top:0%; padding-left:10%; padding-right:10%;">
-	<hr>
-	<div class="col-md-6 col-sm-12 col-xs-12">
-			<div class="course-widget" style="width:90%;">
+	<div class="col-md-6 col-sm-12 col-xs-12" style="margin-bottom:10%;">
+			<div class="general-info col-md-2 col-sm-2 col-xs-2" style="padding-left:0; clear:both; margin-bottom:5%;">
+					Course
+			</div>
+			<div class="course-widget" style="clear:both;">
 			<?php
 				$course 		 		= htmlentities($_GET['course']);
 				$index 		 			= htmlentities($_GET['index']);
@@ -69,35 +60,51 @@
 				</ul>
 			</div>
 	</div>
-	<div class="col-md-2 col-sm-12 col-xs-12">
-		<select id="quantity_result" class="selectpicker" data-width="100px">
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-			<option value="6">6</option>
-		</select>
-	</div>
-	<div style="padding-left:8%;" class="col-md-4 col-sm-12 col-xs-12">
-		<p>$<?php echo $cost; ?> per person</p>
-		<p></p>
-		<p></p>
-		<hr>
-		<div class="row">
-			<div class="col-xs-8">
-			<p style="float: right; margin: 0; padding: 0;">Subtotal:</p>	
-			<p style="float: right; margin: 0; padding: 0;">2% Processing Fee:</p>	
-			<p style="float: right; margin: 0; padding: 0;">Total:</p>	
-			</div>
-			<div class="col-xs-4" style="padding: 0;">
-				<p style="margin: 0; padding: 0;"><span>$</span><span id="subtotal"><?php echo $cost; ?></span></p>
-				<p style="margin: 0; padding: 0;"><span>$</span><span id="fee"><?php echo $fee; ?></span></p>
-				<p style="margin: 0; padding: 0;"><span>$</><span id="total"><?php echo $total; ?></span></p>
-			</div>
+	<div class="col-md-2 col-sm-12 col-xs-12" style="margin-bottom:15%;">
+		<div class="general-info col-md-2 col-sm-2 col-xs-2" style="padding-left:0; clear:both; margin-bottom:5%;">
+				Quantity
+		</div>
+		<div style="clear:both;">
+			<select id="quantity_result" class="selectpicker" data-width="100px">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+			</select>
 		</div>
 	</div>
-	<div style="padding-left:43%; padding-right:43%; padding-top:5%; padding-bottom: 1%;" class="col-md-12 col-sm-12 col-xs-12">
+	<div style="margin-bottom:10%;" class="col-md-4 col-sm-12 col-xs-12">
+		<div class="general-info col-md-10 col-md-offset-1 col-sm-12 col-xs-12" style="padding-left:0; clear:both; margin-bottom:5%;">
+				Price
+		</div>
+		<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12" style="padding-left:0;">
+		  <p style="clear:both;">$<?php echo $cost; ?> per person</p>
+		</div>
+		<div class="row" style="clear:both;">
+			<p></p>
+			<p></p>
+			<hr>
+			<table class="table table-borderless">
+				<tbody>
+					<tr>
+						<td style="float:right;">Subtotal:</td>
+						<td><span>$</span><span id="subtotal"><?php echo $cost; ?></td>
+					</tr>
+					<tr>
+						<td style="float:right;">2% Processing Fee:</td>
+						<td><span>$</span><span id="fee"><?php echo $fee; ?></span></td>
+					</tr>
+					<tr>
+						<td style="float:right;">Total:</td>
+						<td><span>$</span><span id="total"><?php echo $total; ?></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="col-md-3 col-md-offset-5 col-sm-12 col-xs-12">
 		<button id="generalButton" class="btn btn-block btn-primary">Continue</button>
 	</div>
 	<hr>

@@ -177,7 +177,7 @@
 
 				<div class="row section-container">
 					<div class="col-md-8">
-						<form id="contact" class="row contact_form">
+						<form id="contact" class="row contact_form" style="padding-bottom:15%;">
 							<p class="bg-success contact-banner">Your message has been successfully sent!</p>
 							<p class="bg-danger contact-banner">You need to fill out every required field.</p>
 							<p class="bg-warning contact-banner">Oops! Something went wrong and we couldn't send your message.<br>Please try again later.</p>
