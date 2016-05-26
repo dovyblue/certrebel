@@ -57,7 +57,6 @@
 			transition: all 0.8s;
 		}
 		.modal-header, #myModal h4, #myModal .close {
-				background-color: #df4a43 !important;
 				color:white !important;
 				text-align: center;
 				font-size: 30px;

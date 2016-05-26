@@ -25,7 +25,7 @@
 </div>
 <div class="row" style="margin-top:0%; padding-left:10%; padding-right:10%;">
 	<hr>
-	<div class="col-md-6 col-sm-6 col-xs-6">
+	<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="course-widget" style="width:90%;">
 			<?php
 				$course 		 		= htmlentities($_GET['course']);
@@ -69,7 +69,7 @@
 				</ul>
 			</div>
 	</div>
-	<div class="col-md-2 col-sm-2 col-xs-2">
+	<div class="col-md-2 col-sm-12 col-xs-12">
 		<select id="quantity_result" class="selectpicker" data-width="100px">
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -79,7 +79,7 @@
 			<option value="6">6</option>
 		</select>
 	</div>
-	<div style="padding-left:8%;" class="col-md-4 col-sm-4 col-xs-4">
+	<div style="padding-left:8%;" class="col-md-4 col-sm-12 col-xs-12">
 		<p>$<?php echo $cost; ?> per person</p>
 		<p></p>
 		<p></p>
