@@ -13,7 +13,8 @@ try
 												CertRebel.single_course_info
 										WHERE
 												DATE_FORMAT(STR_TO_DATE(course_meeting_date, '%W, %M %D'),
-																'%m-%d') > DATE_FORMAT(DATE(NOW()), '%m-%d')";
+																'%m-%d') > DATE_FORMAT(DATE(NOW()), '%m-%d')
+																OR course_meeting_time = 'On Demand'";
 	$checkUserStmt = $dbConnection->prepare($checkUserQuery);
 	$checkUserStmt->execute();
 	while ($queryResult = $checkUserStmt->fetch(PDO::FETCH_ASSOC)) {
