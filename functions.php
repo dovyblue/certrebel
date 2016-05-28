@@ -4,6 +4,16 @@ $dbname 	 = 'CertRebel';
 $dbuser 	 = 'root'; 
 $dbpass 	 = '$lice0fBread@123'; 
 
+function course_extra_details() {
+	$url = __DIR__.'/json_files/course_extra_details.json';
+	if (!file_exists($url) || !filesize($url))
+		return false;
+
+	$file = file_get_contents($url);
+	$json_a = json_decode($file, true);
+	return $json_a;
+}
+
 function order_receipt($data){
 	require_once(__DIR__.'/scripts/php/order_receipt.php');
 	$receipt = get_receipt($data);
