@@ -190,6 +190,17 @@ ACCORDION -->
     $('#accordion').on('hidden.bs.collapse', toggleChevron);
     $('#accordion').on('shown.bs.collapse', toggleChevron);
 
+		$('div.panel-group a').on('click', function(){
+			var href = $(this).attr('href');
+			$('div.panel-group a').each(function(){
+				if ($(this).attr('aria-expanded') == "true" && href != $(this).attr('href')) {
+					$($(this).attr('href')).collapse('hide');
+					$(this).find("i.indicator").toggleClass('fa-minus fa-plus');
+				}
+			});
+			$(this).find("i.indicator").toggleClass('fa-minus fa-plus');
+		});
+
 /* ==============================================
 SEARCH -->
 =============================================== */

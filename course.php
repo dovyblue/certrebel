@@ -167,16 +167,94 @@
 								</div><!-- end widget-title -->
 								<!-- Course Overview -->
 								<?php
-									$details = course_details();
-									if (isset($details[$course]['course_details']) && isset($course)) {
-										echo $details[$course]['course_details'];	
-									} else {
-										echo "<p>Course overview not available.</p>";
-									}
+								$details = course_details();
+								if (isset($details[$course]['course_details']) && isset($course)) {
+									echo $details[$course]['course_details'];	
+								} else {
+									echo "<p>Course overview not available.</p>";
+								}
 								?>
 								<!-- End Course Overview -->
 							</div><!-- end col-md-8 -->
+						<?php
+						$extra_details = course_extra_details();
+						if (isset($extra_details[$course]['course_details']) && isset($course)) {
+						?>
+							<div class="row" style="margin-bottom:40px;">
+								<div class="col-md-4 col-sm-12 col-xs-12">
+									<div class="widget about-widget">
+											<div class="accordion-toggle-2">
+													<div class="panel-group" id="accordion_1" style="margin-bottom:0px; height:50px;">
+															<div class="panel panel-default">
+																	<div class="panel-heading">
+																			<div class="panel-title">
+																					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseFour">
+																						<h3><i class="indicator fa fa-plus"></i>Course Details</h3>
+																					</a>
+																			</div>
+																	</div>
+															</div>
+															<br>
+													</div>
+											</div><!-- accordion -->
+									</div><!-- end widget -->
+								</div><!-- end col -->
+								<div class="col-md-4 col-sm-12 col-xs-12">
+									<div class="widget about-widget">
+											<div class="accordion-toggle-2">
+													<div class="panel-group" id="accordion_2" style="margin-bottom:0px; height:50px;">
+															<div class="panel panel-default">
+																	<div class="panel-heading">
+																			<div class="panel-title">
+																					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseFive">
+																							<h3><i class="indicator fa fa-plus"></i>Course Topics</h3>
+																					</a>
+																			</div>
+																	</div>
+															</div>
+															<br>
+													</div>
+											</div><!-- accordion -->
+									</div><!-- end widget -->
+								</div><!-- end col -->
+								<div class="col-md-4 col-sm-12 col-xs-12">
+									<div class="widget about-widget">
+										<div class="accordion-toggle-2">
+											<div class="panel-group" id="accordion_3" style="margin-bottom:0px; height:50px;">
+												<div class="panel panel-default">
+													<div class="panel-heading">
+														<div class="panel-title">
+															<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseSix">
+																<h3><i class="indicator fa fa-plus"></i>Student Reviews</h3>
+															</a>
+														</div>
+													</div>
+												</div>
+												<br>
+											</div>
+										</div><!-- accordion -->
+									</div><!-- end widget -->
+								</div><!-- end col -->
 
+								<div id="collapseFour" class="panel-collapse collapse col-md-12 col-sm-12 col-xs-12">
+									<div class="panel-body" style="border:1px solid rgba(0, 0, 0, 0.17);">
+										<?php echo implode(" ",$extra_details[$course]['course_details']); ?>
+									</div>
+								</div>
+								<div id="collapseFive" class="panel-collapse collapse col-md-12 col-sm-12 col-xs-12">
+										<div class="panel-body" style="border:1px solid rgba(0, 0, 0, 0.17);">
+										<?php echo implode(" ",$extra_details[$course]['course_topics']); ?>
+										</div>
+								</div>
+								<div id="collapseSix" class="panel-collapse collapse col-md-12 col-sm-12 col-xs-12">
+									<div class="panel-body" style="border:1px solid rgba(0, 0, 0, 0.17);">
+										<?php echo implode(" ",$extra_details[$course]['student_reviews']); ?>
+									</div>
+								</div>
+							</div>
+							<?php
+								}
+							?>
 							<?php
 								$single_details = isset(single_course_info()[$course])? single_course_info()[$course] : null;
 								$count 					= count($single_details);
@@ -191,10 +269,11 @@
 						</div><!-- end desc -->
 
 					</div><!-- end content -->
+
 					<div id="content" class="col-md-12 col-sm-12 table-responsive">
-						<?php
+							<?php
 							if (isset($single_details)) {
-						?>
+							?>
 								<table class="table table-striped table-bordered"style="table-layout:fixed;">
 									<thead>
 										<tr>

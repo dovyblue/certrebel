@@ -1,0 +1,35 @@
+{
+		"rrpr": {
+						"course_details": ["<ul>",
+						                      "<li>A student’s username and password to access the online training program will be sent within 1 business day of purchasing the course</li>",
+																	"<li>The entirety of the program, including the required final assessment, must be completed within 30 days of the student’s enrollment date. Access to the Online Training will expire after 30 days of the enrollment date</li>",
+																	"<li>Students must complete every module and answer the knowledge check questions for each module before they can take the final assessment</li>",
+																	"<li>The final assessment consists of 30 questions. Students must receive a score of 80% or better to pass the final assessment</li>",
+																	"<li>Upon successful completion of the course and exam, students will receive an email confirmation with instructions on how to download their course completion certificate. A student’s certificate will be processed within 48 hours of completing the course AND providing the necessary documentation (see below)</li>",
+															 "</ul>",
+															 "<strong>Students MUST provide a copy of their initial training certificate or card, as well as a recent passport-sized photo, to receive the RRP renewal certificate.</strong>After launching their online course, students will be prompted to upload these required documents. Failing to submit this documentation prior to completing the course will cause delays in students receiving their renewal certificate.",
+															 "<br>",
+															 "If a student no longer has their initial training certificate or card, they will contact their initial training provider to request a new copy. Certified Renovators are required to complete the refresher training prior to the expiration date of their original certification. If a student’s certificate has expired, they must retake the 8-hour initial course to obtain certification.",
+															 "<br>",
+															 "<br>",
+															 "<strong>Hands-on vs. Online Refresher Training Options:</strong> (Source: EPA Final Ruling 02-17-2016)",
+															 "<ul>",
+																 "<li>The EPA will allow renovators to take a refresher course without hands-on training once every other certification. Once a renovator takes the refresher course without the hands-on training, their next refresher training must include hands-on training.</li>",
+																 "<li>The certification from the refresher course without hands-on training will last for 3 years. Taking the course without hands-on training is optional but once a renovator takes the course, their next refresher course must include hands-on training and be taken within 3 years of their previous certification.</li>",
+																 "<li>The certification from taking a course with hands-on training will last for 5 years.</li>",
+															 "</ul>"
+															 ],
+						"course_topics": ["<ul>",
+																 "<li>Module 1: Regulations</li>",
+																 "<li>Module 2: Testing for Lead-Based Paint</li>",
+																 "<li>Module 3: Review of Setup Practices</li>",
+																 "<li>Module 4: Review of Prohibited Practices, Personal Protective Equipment, and Dust Control</li>",
+																 "<li>Module 5: Cleaning Activities and Checking Your Work</li>",
+																 "<li>Module 6: Record-Keeping</li>",
+																 "<li>Module 7: Training Non-Certified Renovation Workers</li>",
+																 "<li>Final Assessment (30 Questions)</li>"
+														 ],
+						"student_reviews": ["<p>Currently there are no reviews for this course</p>"
+															 ]
+		}
+}
