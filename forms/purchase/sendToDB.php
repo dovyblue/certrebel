@@ -76,47 +76,7 @@ if (empty($_POST['buyer_first_name'])||
 			$info['error_details'] = $result['error_details'];
 			$return['status'] = 'error';
 			break;
-
 	}
-	///**
-  // * Set your secret key: remember to change this to your live secret key in production
-	// * See your keys here https://dashboard.stripe.com/account/apikeys
-	// */
-	//\Stripe\Stripe::setApiKey("sk_test_V2Voa4gzopov2DNk2IS93ntv");
-	////\Stripe\Stripe::setApiKey("sk_live_lEDDhnLG7h2vNeR08dW14oat");
-
-	///**
-	// * Get the credit card details submitted by the form
-	// */
-	//$token = $_POST['stripe_token'];
-
-	///**
-	// * Create the charge on Stripe's servers - this will charge the user's card
-	// */
-	//try {
-	//	$charge = \Stripe\Charge::create(array(
-	//		"amount" => $info['cost_in_cents'], // amount in cents, again
-	//		"currency" => "usd",
-	//		"source" => $token['id'],
-	//		"description" => $info['buyer_first_name']." ".$info['buyer_last_name']." - Charged for ".$info['title']
-	//		));
-	//	$info['charge_response'] = json_encode($charge);
-	//  $return['status'] = 'success';	
-	//} catch (\Stripe\Error\Card $e) { // The card has been declined
-	//	$_SESSION['payment_error'] = 'error processing payment';
-	//	$return['message'] = "Error processing payment";
-	//	$return['error'] = json_encode($e->getJsonBody());
-	//	$info['error_details']  	= json_encode($e->getJsonBody());
-	//  $return['status'] = 'error';	
-	//	die(json_encode($return));
-	//} catch (\Stripe\Error\Base $e) {
-	//	$return['message'] = "Error processing payment";
-	//	$return['error'] = json_encode($e->getJsonBody());
-	//	$_SESSION['payment_error'] = 'error processing payment';
-	//	$info['error_details']  	= json_encode($e->getJsonBody());
-	//  $return['status'] = 'error';	
-	//	die(json_encode($return));
-	//}	 
 
 	for ($i = 0; $i < $info['quantity']; $i++) {
 		$sql_fill_table[] = '("'.htmlentities($info['order_number']).'","'

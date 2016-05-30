@@ -15,7 +15,6 @@ require_once('functions.php');
 function sendmail($data)
 {
 
-	//$message = file_get_contents($file_name);	
 	$email 	 = $data['message_receiver'];
 	$subject = $data['subject'];
 
