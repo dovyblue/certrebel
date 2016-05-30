@@ -160,7 +160,7 @@
 								<!-- End Course Overview -->
 							</div><!-- end col-md-8 -->
 							<?php
-							if ($single_course->details_success) {
+							if ($single_course->details_success && $course_id != 'rrpr') {
 							?>
 							<div class="row" style="margin-bottom:40px;">
 								<div class="col-md-4 col-sm-12 col-xs-12">
@@ -238,7 +238,7 @@
 								}
 							?>
 							<?php
-								if (isset($single_course->single_course_success)) {
+								if ($single_course->single_course_success && $course_id != 'rrpr') {
 							?>
 								<div class="col-xs-12">
 									<p id="scroll_info" style="text-transform: uppercase; display:none;"><span>Scroll the table from right to left </span><span>to see its full content</span></p>
@@ -252,7 +252,7 @@
 
 					<div id="content" class="col-md-12 col-sm-12 table-responsive">
 							<?php
-							if ($single_course->single_course_success) {
+							if ($single_course->single_course_success && $course_id != 'rrpr') {
 							?>
 								<table class="table table-striped table-bordered"style="table-layout:fixed;">
 									<thead>
