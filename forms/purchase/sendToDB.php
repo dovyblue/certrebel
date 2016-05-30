@@ -169,10 +169,9 @@ if (empty($_POST['buyer_first_name'])||
 		$checkUserStmt->execute();
 		if ($return['status'] == 'success') {
 			sendmail($info);
-			$info['message_receiver'] = "renemidouin@yahoo.com";
+			$info['message_receiver'] = "support@certrebel.com";
 			sendmail($info);
 		}
-
 		$_SESSION['__sdjh'] = sha1($info['buyer_email']);
 	} catch (PDOException $e) {
 		die("Error: Cannot satisfy your request at this time. Please try again later");
