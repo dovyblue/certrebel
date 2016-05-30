@@ -2,15 +2,20 @@
 	session_start();
 	require_once('sendmail.php');
 	require_once('/var/www/certrebel/classes/courses/SingleCourses.php');
-	$course_id = htmlentities($_GET['course']);
-	$single_course = new SingleCourses\SingleCourse($course_id);
 	include_once('version_number.inc');
-  if (!isset($_GET['course']) || !isset($_GET['index']) || !$single_course->single_course_success) {
-    header("Location: /courses");
-  } 
+
 	$course = htmlentities($_GET['course']);
 	$index	= htmlentities($_GET['index']);
 	$attendee_var = isset($_GET['attendee_var'])? $_GET['attendee_var'] : 1;
+
+	$single_course = new SingleCourses\SingleCourse($course);
+
+  if (!isset($_GET['course']) 
+		|| !isset($_GET['index']) 
+		|| !$single_course->single_course_success 
+		|| !$single_course->isValidIndex($index)) {
+    header("Location: /courses");
+  } 
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
