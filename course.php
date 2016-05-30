@@ -238,7 +238,7 @@
 								}
 							?>
 							<?php
-								if (isset($single_course->single_course_success)) {
+								if ($single_course->single_course_success) {
 							?>
 								<div class="col-xs-12">
 									<p id="scroll_info" style="text-transform: uppercase; display:none;"><span>Scroll the table from right to left </span><span>to see its full content</span></p>
