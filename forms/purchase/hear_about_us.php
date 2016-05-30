@@ -1,7 +1,7 @@
 <?php
-	if (!isset($_GET['course']) && !isset($_GET['quantity'])) {
-		header("Location: courses");
-	}
+	if (!isset($_GET['course']) && !isset($_GET['quantity']))
+		header("Location: /courses");
+
 	$course 	= $_GET['course'];
 	$quantity = $_GET['quantity'];
 ?>

@@ -1,6 +1,7 @@
 <!-- Main Page -->
 <?php
 	session_start();
+	require_once('/var/www/certrebel/classes/courses/Courses.php');
 	require_once('sendmail.php');
 	include_once('version_number.inc');
 ?>
@@ -275,65 +276,34 @@
 						</div><!-- end title -->
 					</div><!-- end col -->
 				</div><!-- end row -->
-
+				
 				<div id="owl-courses" class="section-container">
+				<?php
+				$course_ids = ['rrpi','hazi','osha30'];
+				foreach($course_ids as $id) {
+					$course = new Courses\Course($id);
+				?>
 					<div class="course-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
 						<div class="owl-image">
-							<a href="/course/rrpi" title=""><img src="/images/image.png" alt="" class="img-responsive"></a>
+							<a href="/course/<?php echo $course->getId(); ?>" title=""><img src="/images/<?php echo $course->getPicture(); ?>" alt="" class="img-responsive"></a>
 						</div><!-- end image -->
 						<div class="course-desc">
-							<h5><a href="/course/rrpi" title="">Lead Renovator (RRP)</a></h5>
-							<span class="meta">Initial Certification Course</span>
-							<p>As contractors, we play an important role in helping to prevent lead poisoning. Sign up now for a custom training course to obtain your lead certification.</p>
+							<h5><a href="/course/<?php echo $course->getId(); ?>" title=""><?php echo $course->getShortTitle(); ?></a></h5>
+							<span class="meta"><?php echo $course->getTagLine(); ?></span>
+							<p><?php echo $course->getHighLight(); ?></p>
 							<div class="course-big-meta clearfix">
 								<div class="pull-left">
-									<a href="/course/rrpi" class="owl-button">Details</a>
+									<a href="/course/<?php echo $course->getId(); ?>" class="owl-button">Details</a>
 								</div><!-- end left -->
 								<div class="pull-right">
-									<p>$240</p>
+									<p>$<?php echo $course->getPrice(); ?></p>
 								</div><!-- end right -->
 							</div><!-- end course-big-meta -->
 						</div><!-- end desc -->
 					</div><!-- end item -->
-
-					<div class="course-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s">
-						<div class="owl-image">
-							<a href="/course/hazi" title=""><img src="/images/osha.png" alt="" class="img-responsive"></a>
-							<!--<span class="course-badge"><i class="fa fa-camera"></i></span>-->
-						</div><!-- end image -->
-						<div class="course-desc">
-							<h5><a href="/course/hazi" title="">Hazardous Materials</a></h5>
-							<span class="meta">HAZWOPER / HAZMAT</span>
-							<p>HAZWOPER 40-Hour, 24-Hour and 8-Hour Annual Refresher courses are available whether you are an individual or have a large group.</p>
-							<div class="course-big-meta clearfix">
-								<div class="pull-left">
-									<a href="/course/hazi" class="owl-button">Details</a>
-								</div><!-- end left -->
-								<div class="pull-right">
-									<p>$600</p>
-								</div><!-- end right -->
-							</div><!-- end course-big-meta -->
-						</div><!-- end desc -->
-					</div><!-- end item -->
-
-					<div class="course-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
-						<div class="owl-image">
-							<a href="/course/osha30" title=""><img src="/images/safety.jpg" alt="" class="img-responsive"></a>
-						</div><!-- end image -->
-						<div class="course-desc">
-							<h5><a href="/course/osha30" title="">OSHA Construction Safety</a></h5>
-							<span class="meta">30-Hour Certification Courses</span>
-							<p>No one should have to sacrifice their life for their livelihood. We offer a wide selection of training courses to help foster worker and employer safety.</p>
-							<div class="course-big-meta clearfix">
-								<div class="pull-left">
-									<a href="/course/osha30" class="owl-button">Details</a>
-								</div><!-- end left -->
-								<div class="pull-right">
-									<p>$500</p>
-								</div><!-- end right -->
-							</div><!-- end course-big-meta -->
-						</div><!-- end desc -->
-					</div><!-- end item -->
+				<?php
+				}
+				?>
 			</div><!-- end container -->
 		</section><!-- end section-white -->
 

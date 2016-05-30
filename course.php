@@ -6,15 +6,14 @@
 
 <?php
 	session_start();
+	require_once('/var/www/certrebel/classes/courses/SingleCourses.php');
 	require_once('functions.php');
 	include_once('version_number.inc');
-	$course  		 = htmlentities($_GET['course']);
-	$course_info = course_info();
-	$title 			 = $course_info[$course][0]['course_long_title'];
-	$pic 				 = $course_info[$course][0]['course_picture'];
-	$id 				 = $course_info[$course][0]['course_id'];
-	if (!isset($_GET['course']) || $_GET['course'] == "" || !isset($id))
-		header("Location: courses");
+	$course_id = htmlentities($_GET['course']);
+	$single_course = new SingleCourses\SingleCourse($course_id);
+
+	if (!isset($_GET['course']) || $_GET['course'] == "" || !$single_course->course_success)
+		header("Location: /courses");
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
@@ -157,29 +156,21 @@
 						<div class="course-long-desc section-container row">
 							<div class="col-md-4" style="margin-top: 9%;">
 							  <div class="owl-image">
-								  <a href="/course?course=<?php echo $id;?>" title=""><img src="/images/<?php echo $pic; ?>" alt="" class="img-responsive"></a>
+								  <a href="/course?course=<?php echo $single_course->getId();?>" title=""><img src="/images/<?php echo $single_course->getPicture(); ?>" alt="" class="img-responsive"></a>
 							  </div><!-- end image -->
 							</div>
 							<div class="col-md-8">
 								<div class="widget-title">
-									<h4><?php echo $title; ?></h4>
+									<h4><?php echo $single_course->getLongTitle(); ?></h4>
 									<hr>
 								</div><!-- end widget-title -->
 								<!-- Course Overview -->
-								<?php
-								$details = course_details();
-								if (isset($details[$course]['course_details']) && isset($course)) {
-									echo $details[$course]['course_details'];	
-								} else {
-									echo "<p>Course overview not available.</p>";
-								}
-								?>
+								<?php echo $single_course->getOverview();?>
 								<!-- End Course Overview -->
 							</div><!-- end col-md-8 -->
-						<?php
-						$extra_details = course_extra_details();
-						if (isset($extra_details[$course]['course_details']) && isset($course)) {
-						?>
+							<?php
+							if ($single_course->details_success) {
+							?>
 							<div class="row" style="margin-bottom:40px;">
 								<div class="col-md-4 col-sm-12 col-xs-12">
 									<div class="widget about-widget">
@@ -238,17 +229,17 @@
 
 								<div id="collapseFour" class="panel-collapse collapse col-md-12 col-sm-12 col-xs-12">
 									<div class="panel-body" style="border:1px solid rgba(0, 0, 0, 0.17);">
-										<?php echo implode(" ",$extra_details[$course]['course_details']); ?>
+										<?php echo $single_course->getDetails(); ?>
 									</div>
 								</div>
 								<div id="collapseFive" class="panel-collapse collapse col-md-12 col-sm-12 col-xs-12">
 										<div class="panel-body" style="border:1px solid rgba(0, 0, 0, 0.17);">
-										<?php echo implode(" ",$extra_details[$course]['course_topics']); ?>
+										<?php echo $single_course->getTopics(); ?>
 										</div>
 								</div>
 								<div id="collapseSix" class="panel-collapse collapse col-md-12 col-sm-12 col-xs-12">
 									<div class="panel-body" style="border:1px solid rgba(0, 0, 0, 0.17);">
-										<?php echo implode(" ",$extra_details[$course]['student_reviews']); ?>
+										<?php echo $single_course->getStudentReviews() ?>
 									</div>
 								</div>
 							</div>
@@ -256,9 +247,9 @@
 								}
 							?>
 							<?php
-								$single_details = isset(single_course_info()[$course])? single_course_info()[$course] : null;
+								$single_details = isset(single_course_info()[$course_id])? single_course_info()[$course_id] : null;
 								$count 					= count($single_details);
-								if (isset($single_details)) {
+								if (isset($single_course->single_course_success)) {
 							?>
 								<div class="col-xs-12">
 									<p id="scroll_info" style="text-transform: uppercase; display:none;"><span>Scroll the table from right to left </span><span>to see its full content</span></p>
@@ -272,7 +263,7 @@
 
 					<div id="content" class="col-md-12 col-sm-12 table-responsive">
 							<?php
-							if (isset($single_details)) {
+							if ($single_course->single_course_success) {
 							?>
 								<table class="table table-striped table-bordered"style="table-layout:fixed;">
 									<thead>
@@ -286,15 +277,16 @@
 									</thead>
 									<tbody>
 										<?php
-											for ($i = 0; $i < $count; ++$i) {
+											for ($i = 0; $i < $single_course->length(); ++$i) {
+												$course = new SingleCourses\SingleCourse($course_id, $i);
 										?>
 										<tr>
-											<td><?php echo $single_details[$i]['course_location']; ?></td>
-											<td><?php echo $single_details[$i]['course_meeting_date']; ?></td>
-											<td><?php echo $single_details[$i]['course_meeting_time']; ?></td>
-											<td>$<?php echo $single_details[$i]['course_price']; ?></td>
+											<td><?php echo $course->getLocation() ?></td>
+											<td><?php echo $course->getMeetingDate() ?></td>
+											<td><?php echo $course->getMeetingTime() ?></td>
+											<td>$<?php echo $course->getPrice() ?></td>
 											<td>
-												<a style="color: white;" href="/purchase/<?php echo $course; ?>/<?php echo $single_details[$i]['index']; ?>">
+												<a style="color: white;" href="/purchase/<?php echo $course_id; ?>/<?php echo $course->getIndex() ?>">
 													<button id="joinCourse" class="btn btn-block btn-primary">Join Course</button>
 												</a>
 											</td>

@@ -1,9 +1,9 @@
 <?php
   session_start();
 	require_once('/var/www/certrebel/functions.php');
-	if (!isset($_GET['course']) && !isset($_GET['quantity'])) {
-		header("Location: courses");
-	}
+	if (!isset($_GET['course']) && !isset($_GET['quantity']))
+		header("Location: /courses");
+	
 	$course 	= htmlentities($_GET['course']);
 	$index 		= htmlentities($_GET['index']);
 	$quantity = htmlentities($_GET['quantity']);
