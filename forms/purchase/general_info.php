@@ -3,9 +3,6 @@
 	require_once('/var/www/certrebel/functions.php');
 	require_once('/var/www/certrebel/classes/courses/SingleCourses.php');
 
-	$course_id = htmlentities($_GET['course']);
-	$single_course = new SingleCourses\SingleCourse($course_id);
-
 	if (!isset($_GET['course']) || !isset($_GET['index']))
 		header("Location: /courses");
 
