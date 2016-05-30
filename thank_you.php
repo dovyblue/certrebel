@@ -74,15 +74,6 @@
 		.navbar-nav li {
 			border-bottom: 2px solid #ffffff;	
 		}
-		.modal-header, #myModal h4, #myModal .close {
-				background-color: #df4a43 !important;
-				color:white !important;
-				text-align: center;
-				font-size: 30px;
-		}
-		.modal-footer {
-				background-color: #f9f9f9;
-		}
 	</style>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -250,32 +241,7 @@
 	<script src="/libraries/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 
 	<script>
-		$("#contactBtn").click(function(){
-			$('.header').fadeOut(0, "linear");
-			$('#myModal input[name="phone"]').mask("(999) 999-9999");
-		});
-		$("#myBtn").click(function(){
-			$('.header').fadeOut(0, "linear");
-			$('#myModal input[name="phone"]').mask("(999) 999-9999");
-		});
-		$("#quoteBtn").click(function(){
-			$('.header').fadeOut(0, "linear");
-			$('#getQuote input[name="phone"]').mask("(999) 999-9999");
-		});
-		$('#myModal').on('hidden.bs.modal', function () {
-			$('.header').fadeIn(0, "linear");
-		});
-		$('#getQuote').on('hidden.bs.modal', function () {
-			$('.header').fadeIn(0, "linear");
-		});
-	</script>
-
-	<script>
 	$(document).ready(function(){
-			$('select[name="selectOption"]').on('change', function() {
-				$selectOption = $('#getQuote .mc-select select');
-				$selectOption.css('cssText','color: #3c3c3c !important');
-			});
 			<?php
 			if (isset($_SESSION['success'])) {
 			?>	

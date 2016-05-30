@@ -67,15 +67,6 @@
 			-moz-transition: all 0.8s;
 			transition: all 0.8s;
 		}
-		.modal-header, #myModal h4, #myModal .close {
-				background-color: #df4a43 !important;
-				color:white !important;
-				text-align: center;
-				font-size: 30px;
-		}
-		.modal-footer {
-				background-color: #f9f9f9;
-		}
 	</style>
 
 	<script src="/js/jquery.min.js"></script>
@@ -312,48 +303,6 @@
 
 	</div><!-- end wrapper -->
 
-	<!-- Modal Contact Form -->
-	<div id="myModal" class=" modal fade"  tabindex="-1">
-		<div class="modal-dialog form-div">
-			<div class="modal-content">
-				<div class="modal-header" style="background-color:#df4a43">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:#750909 !important">&times;</button>
-					<h4 style="text-align:center; font-size: 25px; color:white;"><span class="glyphicon glyphicon-envelope" style="margin-right:10px"></span> Contact Us</h4>
-				</div>
-				
-				<div class="modal-body">
-					<form role="form" action="/forms/contact/quote" method="post">
-							<p class="name" style="padding-bottom:0;">
-								<input style="width:50%; float:left;" name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="First Name*" id="name" required/>
-								<input style="width:50%; border-left-color:#A9A9AE;" name="last_name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Last Name*" id="last_name" required/>
-							</p>
-							<p class="name" style="padding-bottom:0;">
-								<input name="company" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Company" id="company" />
-							</p>
-							
-							<p class="email" style="padding-bottom:0;">
-								<input name="email" type="email" class="validate[required,custom[email]] feedback-input" placeholder="Email*" id="email" required/>
-							</p>
-
-							<p class="name" style="padding-bottom:0;">
-								<input name="phone" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="(555)555-5555*" id="phone" required />
-							</p>
-							<p class="text" style="padding-bottom: 0;">
-								<textarea style="max-height:90px;" name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Message*" required></textarea>
-							</p>
-							<div class="modal-footer">
-								<button id="sendForm" name="sendForm" type="submit" class="mc-btn btn-style-4">
-									<i class="fa fa-paper-plane" style="margin-right:15px;"></i>SEND
-								</button>
-							</div>
-					</form>
-				</div>
-
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
-	<!-- End Modal Contact Form -->
-
 	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/retina.js"></script>
 	<script src="/js/wow.js"></script>
@@ -367,37 +316,7 @@
 	<script src="/js/maskedinput.js" type="text/javascript"></script>
 
 	<script>
-		attendee_var = 0;
-		$("#contactBtn").click(function(){
-			$('.header').fadeOut(0, "linear");
-			$('#myModal input[name="phone"]').mask("(999) 999-9999");
-		});
-		$("#customButton").click(function(){
-			$('.header').fadeOut(0, "linear");
-			$('#myModal input[name="phone"]').mask("(999) 999-9999");
-		});
-		$("#myBtn").click(function(){
-			$('.header').fadeOut(0, "linear");
-			$('#myModal input[name="phone"]').mask("(999) 999-9999");
-		});
-		$("#quoteBtn").click(function(){
-			$('.header').fadeOut(0, "linear");
-			$('#getQuote input[name="phone"]').mask("(999) 999-9999");
-		});
-		$('#myModal').on('hidden.bs.modal', function () {
-			$('.header').fadeIn(0, "linear");
-		});
-		$('#getQuote').on('hidden.bs.modal', function () {
-			$('.header').fadeIn(0, "linear");
-		});
-	</script>
-
-	<script>
 	$(document).ready(function(){
-			$('select[name="selectOption"]').on('change', function() {
-				$selectOption = $('#getQuote .mc-select select');
-				$selectOption.css('cssText','color: #3c3c3c !important');
-			});
 			<?php
 			if (isset($_SESSION['success'])) {
 			?>	
