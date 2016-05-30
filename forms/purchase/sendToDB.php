@@ -6,15 +6,16 @@ $stripe .= "/libraries/stripe/init.php";
 require_once($stripe);
 require_once('/var/www/certrebel/functions.php');
 require_once('/var/www/certrebel/sendmail.php');
+require_once('/var/www/certrebel/classes/courses/SingleCourses.php');
 date_default_timezone_set('America/New_york');
-$return	     = array();
+$return = array();
 
-if ( empty($_POST['buyer_first_name'])||
-		 empty($_POST['buyer_last_name'])	||
-		 empty($_POST['buyer_email']) 		||
-		 empty($_POST['buyer_phone']) 		||
-		 empty($_POST['stripe_token']) 		||
-		 empty($_POST['quantity'])) { 
+if (empty($_POST['buyer_first_name'])||
+		empty($_POST['buyer_last_name']) ||
+		empty($_POST['buyer_email']) 		 ||
+		empty($_POST['buyer_phone']) 		 ||
+		empty($_POST['stripe_token']) 	 ||
+		empty($_POST['quantity'])) { 
 		$_SESSION['error'] = 'error';
 	  $return['status']  = 'error';	
 		$return['error']   = 'error';
@@ -32,7 +33,6 @@ if ( empty($_POST['buyer_first_name'])||
 	$info['charge_response']  = "";
 	$info['error_details']  	= "no errors";
 	$info['attendee_info']		= $_POST['attendee_info'];
-
 	$info['quantity']					= htmlentities($_POST['quantity']);
 	$info['buyer_first_name'] = htmlentities(ucwords($_POST['buyer_first_name']));
 	$info['buyer_last_name'] 	= htmlentities(ucwords($_POST['buyer_last_name']));
@@ -51,73 +51,72 @@ if ( empty($_POST['buyer_first_name'])||
 	$info['cost_in_cents'] 		= (float) htmlentities($_POST['cost']); 
 	$info['subject']				  = 'Thank You for Your Order!';
 
-	$quantity 			= $info['quantity'];
-	$course_info 		= course_info();
-	$course 		 		= $info['course'];
-	$single_details = single_course_info()[$course];
-	$count 					= count($single_details);
-	$info['title']	= isset($course_info[$course][0]['course_long_title']) ? $course_info[$course][0]['course_long_title']: 'N/A';
-	for ($i = 0; $i < $count; ++$i) {
-		if ($single_details[$i]['index'] == $info['index']) {
-			$info['date']			= isset($single_details[$i]['course_meeting_date']) ? $single_details[$i]['course_meeting_date'] : 'N/A';
-			$info['time']		  = isset($single_details[$i]['course_meeting_time']) ? $single_details[$i]['course_meeting_time'] : 'N/A';
-			$info['address'] 	= isset($single_details[$i]['course_address']) ? $single_details[$i]['course_address'] : 'N/A';
-			$cost							= isset($single_details[$i]['course_price']) ? $single_details[$i]['course_price'] : '0';
-			$cost							= number_format((float) $cost, 2);
-			$subtotal					= $quantity*$cost;                                                                             
-			$subtotal					= number_format((float) $subtotal, 2);
-			$fee							= 0.02*$cost*$quantity;
-			$fee							= number_format((float) $fee, 2);
-			$total						= $cost*$quantity + $fee;
-			$total						= number_format((float) $total, 2);
+	$single_course  = new SingleCourses\SingleCourse($info['course']);
+	$single_course->setIndex($info['index']);
+	$info['title'] = $single_course->getLongTitle();
+	$info['date'] = $single_course->getMeetingDate();
+	$info['time'] = $single_course->getMeetingTime();
+	$info['address'] = $single_course->getAddress();
+	$info['unit_cost'] = $single_course->getPrice('decimal');
+	$info['subtotal'] = $single_course->getPrice('decimal', $info['quantity']);
+	$info['fee']= $single_course->getFee('decimal', $info['quantity']);
+	$info['total']= $single_course->getTotal('decimal', $info['quantity']);
+	$token_id = $_POST['stripe_token']['id'];
+	$result = $single_course->charge($token_id, $info['total'], "Test");
+	switch($result['status']) {
+		case "success":
+			$info['charge_response'] = $result['charge_response'];
+			$return['status'] = 'success';	
 			break;
-		}
+		case "error":
+			$info['error_details'] = $result['error_details'];
+			$return['status'] = 'error';
+			break;
+		default:
+			$info['error_details'] = $result['error_details'];
+			$return['status'] = 'error';
+			break;
+
 	}
+	///**
+  // * Set your secret key: remember to change this to your live secret key in production
+	// * See your keys here https://dashboard.stripe.com/account/apikeys
+	// */
+	//\Stripe\Stripe::setApiKey("sk_test_V2Voa4gzopov2DNk2IS93ntv");
+	////\Stripe\Stripe::setApiKey("sk_live_lEDDhnLG7h2vNeR08dW14oat");
 
-	$info['unit_cost']  = $cost;
-	$info['subtotal']   = $subtotal;
-	$info['fee']			  = $fee;
-	$info['total']		  = $total;
+	///**
+	// * Get the credit card details submitted by the form
+	// */
+	//$token = $_POST['stripe_token'];
 
-	/**
-   * Set your secret key: remember to change this to your live secret key in production
-	 * See your keys here https://dashboard.stripe.com/account/apikeys
-	 */
-	\Stripe\Stripe::setApiKey("sk_test_V2Voa4gzopov2DNk2IS93ntv");
-	//\Stripe\Stripe::setApiKey("sk_live_lEDDhnLG7h2vNeR08dW14oat");
-
-	/**
-	 * Get the credit card details submitted by the form
-	 */
-	$token = $_POST['stripe_token'];
-
-	/**
-	 * Create the charge on Stripe's servers - this will charge the user's card
-	 */
-	try {
-		$charge = \Stripe\Charge::create(array(
-			"amount" => $info['cost_in_cents'], // amount in cents, again
-			"currency" => "usd",
-			"source" => $token['id'],
-			"description" => $info['buyer_first_name']." ".$info['buyer_last_name']." - Charged for ".$info['title']
-			));
-		$info['charge_response'] = json_encode($charge);
-	  $return['status'] = 'success';	
-	} catch (\Stripe\Error\Card $e) { // The card has been declined
-		$_SESSION['payment_error'] = 'error processing payment';
-		$return['message'] = "Error processing payment";
-		$return['error'] = json_encode($e->getJsonBody());
-		$info['error_details']  	= json_encode($e->getJsonBody());
-	  $return['status'] = 'error';	
-		die(json_encode($return));
-	} catch (\Stripe\Error\Base $e) {
-		$return['message'] = "Error processing payment";
-		$return['error'] = json_encode($e->getJsonBody());
-		$_SESSION['payment_error'] = 'error processing payment';
-		$info['error_details']  	= json_encode($e->getJsonBody());
-	  $return['status'] = 'error';	
-		die(json_encode($return));
-	}	 
+	///**
+	// * Create the charge on Stripe's servers - this will charge the user's card
+	// */
+	//try {
+	//	$charge = \Stripe\Charge::create(array(
+	//		"amount" => $info['cost_in_cents'], // amount in cents, again
+	//		"currency" => "usd",
+	//		"source" => $token['id'],
+	//		"description" => $info['buyer_first_name']." ".$info['buyer_last_name']." - Charged for ".$info['title']
+	//		));
+	//	$info['charge_response'] = json_encode($charge);
+	//  $return['status'] = 'success';	
+	//} catch (\Stripe\Error\Card $e) { // The card has been declined
+	//	$_SESSION['payment_error'] = 'error processing payment';
+	//	$return['message'] = "Error processing payment";
+	//	$return['error'] = json_encode($e->getJsonBody());
+	//	$info['error_details']  	= json_encode($e->getJsonBody());
+	//  $return['status'] = 'error';	
+	//	die(json_encode($return));
+	//} catch (\Stripe\Error\Base $e) {
+	//	$return['message'] = "Error processing payment";
+	//	$return['error'] = json_encode($e->getJsonBody());
+	//	$_SESSION['payment_error'] = 'error processing payment';
+	//	$info['error_details']  	= json_encode($e->getJsonBody());
+	//  $return['status'] = 'error';	
+	//	die(json_encode($return));
+	//}	 
 
 	for ($i = 0; $i < $info['quantity']; $i++) {
 		$sql_fill_table[] = '("'.htmlentities($info['order_number']).'","'
@@ -168,7 +167,12 @@ if ( empty($_POST['buyer_first_name'])||
 											 VALUES".implode(', ',$sql_fill_table);
 		$checkUserStmt = $dbConnection->prepare($checkUserQuery);
 		$checkUserStmt->execute();
-		sendmail($info);
+		if ($return['status'] == 'success') {
+			sendmail($info);
+			$info['message_receiver'] = "renemidouin@yahoo.com";
+			sendmail($info);
+		}
+
 		$_SESSION['__sdjh'] = sha1($info['buyer_email']);
 	} catch (PDOException $e) {
 		die("Error: Cannot satisfy your request at this time. Please try again later");

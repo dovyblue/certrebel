@@ -1,8 +1,14 @@
 <?php
 	session_start();
 	require_once('/var/www/certrebel/functions.php');
+	require_once('/var/www/certrebel/classes/courses/SingleCourses.php');
 	if (!isset($_GET['course']) || !isset($_GET['index']))
 		header("Location: /courses");
+
+	$course 		 		= htmlentities($_GET['course']);
+	$index 		 			= htmlentities($_GET['index']);
+	$single_course  = new SingleCourses\SingleCourse($course);
+	$single_course->setIndex($index);
 
 ?>
 <div class="widget-title">
@@ -18,44 +24,22 @@
 					Course
 			</div>
 			<div class="course-widget" style="clear:both;">
-			<?php
-				$course 		 		= htmlentities($_GET['course']);
-				$index 		 			= htmlentities($_GET['index']);
-				$course_info 		= course_info();
-				$single_details = single_course_info()[$course];
-				$count 					= count($single_details);
-				$title	 			= isset($course_info[$course][0]['course_long_title']) ? $course_info[$course][0]['course_long_title']: 'N/A';
-				for ($i = 0; $i < $count; ++$i) {
-					if ($single_details[$i]['index'] == $index) {
-						$date 	 			= isset($single_details[$i]['course_meeting_date']) ? $single_details[$i]['course_meeting_date'] : 'N/A';
-						$time 	 			= isset($single_details[$i]['course_meeting_time']) ? $single_details[$i]['course_meeting_time'] : 'N/A';
-						$address 			= isset($single_details[$i]['course_address']) ? $single_details[$i]['course_address'] : 'N/A';
-						$cost 	 			= isset($single_details[$i]['course_price']) ? $single_details[$i]['course_price'] : '0';
-						$cost					= number_format((float) $cost, 2);
-						$fee					= 0.02*$cost;
-						$fee					= number_format((float) $fee, 2);
-						$total				= $cost + $fee;
-						$total				= number_format((float) $total, 2);
-						break;
-					}
-				}
-				?>
 				<ul>
 					<li>
 						<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Course: </div>
-						<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $title; ?></strong></a></div>
+						<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $single_course->getLongTitle(); ?></strong></a></div>
 					</li>
 					<li>
 						<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Date: </div>
-						<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $date; ?></strong></a></div>
+						<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $single_course->getMeetingDate(); ?></strong></a></div>
 					</li>
 					<li>
 						<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Time: </div>
-						<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $time; ?></strong></a></div>
+						<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $single_course->getMeetingTime(); ?></strong></a></div>
 					</li>
 					<li>
 						<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Address: </div>
-						<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $address; ?></strong></a></div>
+						<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $single_course->getAddress(); ?></strong></a></div>
 					</li>
 				</ul>
 			</div>
@@ -80,7 +64,7 @@
 				Price
 		</div>
 		<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12" style="padding-left:0;">
-		  <p style="clear:both;">$<?php echo $cost; ?> per person</p>
+		  <p style="clear:both;">$<?php echo $single_course->getPrice('decimal'); ?> per person</p>
 		</div>
 		<div class="row" style="clear:both;">
 			<p></p>
@@ -90,15 +74,15 @@
 				<tbody>
 					<tr>
 						<td style="float:right;">Subtotal:</td>
-						<td><span>$</span><span id="subtotal"><?php echo $cost; ?></td>
+						<td><span>$</span><span id="subtotal"><?php echo $single_course->getPrice('decimal');; ?></td>
 					</tr>
 					<tr>
 						<td style="float:right;">2% Processing Fee:</td>
-						<td><span>$</span><span id="fee"><?php echo $fee; ?></span></td>
+						<td><span>$</span><span id="fee"><?php echo $single_course->getFee('decimal'); ?></span></td>
 					</tr>
 					<tr>
 						<td style="float:right;">Total:</td>
-						<td><span>$</span><span id="total"><?php echo $total; ?></span></td>
+						<td><span>$</span><span id="total"><?php echo $single_course->getTotal('decimal'); ?></span></td>
 					</tr>
 				</tbody>
 			</table>
@@ -123,7 +107,7 @@
 $(document).ready(function(){
 	function fill_quantity_data() {
 		$quantity = parseInt($('#quantity_result').val());
-		$cost 		= parseFloat("<?php echo $cost; ?>");
+		$cost 		= parseFloat("<?php echo $single_course->getPrice('decimal'); ?>");
 		$subtotal	= $quantity*$cost;
 		$subtotal = parseFloat($subtotal).toFixed(2);
 		$fee			= 0.02*$subtotal;

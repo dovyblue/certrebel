@@ -1,12 +1,15 @@
 <?php
   session_start();
 	require_once('/var/www/certrebel/functions.php');
+	require_once('/var/www/certrebel/classes/courses/SingleCourses.php');
 	if (!isset($_GET['course']) && !isset($_GET['quantity']))
 		header("Location: /courses");
 	
 	$course 	= htmlentities($_GET['course']);
 	$index 		= htmlentities($_GET['index']);
 	$quantity = htmlentities($_GET['quantity']);
+	$single_course  = new SingleCourses\SingleCourse($course);
+	$single_course->setIndex($index);
 ?>
 <div class="widget-title">
 	<h1 style="text-align:center; font-size:30px;">Almost done <i class="fa fa-smile-o"></i></h1>
@@ -18,46 +21,22 @@
 	<div class="row" style="margin-top:0%; padding-left:1.5%; padding-right:1.5%;">
 		<div class="col-md-7 col-sm-12 col-xs-12" style="margin-bottom: 3%;">
 				<div class="course-widget" style="width:100%;">
-				<?php
-					$course 		 		= htmlentities($_GET['course']);
-					$index 		 			= htmlentities($_GET['index']);
-					$course_info 		= course_info();
-					$single_details = single_course_info()[$course];
-					$count 					= count($single_details);
-					$title	 				= isset($course_info[$course][0]['course_long_title']) ? $course_info[$course][0]['course_long_title']: 'N/A';
-					for ($i = 0; $i < $count; ++$i) {
-						if ($single_details[$i]['index'] == $index) {
-							$date 	 			= isset($single_details[$i]['course_meeting_date']) ? $single_details[$i]['course_meeting_date'] : 'N/A';
-							$time 	 			= isset($single_details[$i]['course_meeting_time']) ? $single_details[$i]['course_meeting_time'] : 'N/A';
-							$address 			= isset($single_details[$i]['course_address']) ? $single_details[$i]['course_address'] : 'N/A';
-							$cost 	 			= isset($single_details[$i]['course_price']) ? $single_details[$i]['course_price'] : '0';
-							$cost					= number_format((float) $cost, 2);
-							$subtotal     = $quantity*$cost;                                                                             
-							$subtotal     = number_format((float) $subtotal, 2);
-							$fee					= 0.02*$cost*$quantity;
-							$fee					= number_format((float) $fee, 2);
-							$total				= $cost*$quantity + $fee;
-							$total				= number_format((float) $total, 2);
-							break;
-						}
-					}
-					?>
 					<ul>
 						<li>
 							<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Course: </div>
-							<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $title; ?></strong></a></div>
+							<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $single_course->getLongTitle(); ?></strong></a></div>
 						</li>
 						<li>
 							<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Date: </div>
-							<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $date; ?></strong></a></div>
+							<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $single_course->getMeetingDate(); ?></strong></a></div>
 						</li>
 						<li>
 							<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Time: </div>
-							<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $time; ?></strong></a></div>
+							<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $single_course->getMeetingTime(); ?></strong></a></div>
 						</li>
 						<li>
 							<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Address: </div>
-							<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $address; ?></strong></a></div>
+							<div style="width: 78%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $single_course->getAddress(); ?></strong></a></div>
 						</li>
 					</ul>
 				</div>
@@ -72,19 +51,19 @@
 						</tr>
 						<tr>
 							<td style="float:right;">Unit Price:</td>
-							<td><span>$</span><span><?php echo $cost; ?></td>
+							<td><span>$</span><span><?php echo $single_course->getPrice('decimal'); ?></td>
 						</tr>
 						<tr>
 							<td style="float:right;">Subtotal:</td>
-							<td><span>$</span><span><?php echo $subtotal; ?></span></td>
+							<td><span>$</span><span><?php echo $single_course->getPrice('decimal', $quantity); ?></span></td>
 						</tr>
 						<tr>
 							<td style="float:right;">2% Processing Fee:</td>
-							<td><span>$</span><span><?php echo $fee; ?></span></td>
+							<td><span>$</span><span><?php echo $single_course->getFee('decimal', $quantity); ?></span></td>
 						</tr>
 						<tr>
 							<td style="float:right;"><strong>Total:</strong></td>
-							<td><span>$</span><span><strong><?php echo $total; ?></strong></span></td>
+							<td><span>$</span><span><strong><?php echo $single_course->getTotal('decimal', $quantity); ?></strong></span></td>
 						</tr>
 					</tbody>
 				</table>
@@ -140,26 +119,27 @@
 		}
 		?>
 	</div>
-<span style="margin-left:1%; font-weight:bold; font-size:15px;">Terms of Service</span>
-<hr style="width:98%; margin-top:3px;">
-<div class="" style="margin-bottom: 3%; margin-left:2%;">
-  <div class="checkbox" style="margin-bottom:3%;">
-    <label style="cursor:default; float:left;">
-      <input type="checkbox"> I agree to the </input>
-    </label>
-		<span id="inline-popups" style="cursor: pointer; padding-left:5px;;" class="links"> 
-		  <a href="#test-popup" data-effect="mfp-zoom-in">Terms of Service</a>
-		</span>
-  </div>
-	<p>
-	<strong>Changes and Cancellations to Your Registration for In-Person Courses:</strong><br>
-	All courses are subject to a 25% administration fee if written notice is given at least 5 business days in advance to:  support@certrebel.com. Refunds are not given if written notice is not received at least 5 business days in advance. Attendee substitutions are permitted and must be emailed to support@certrebel.com to be processed. In the case of an event cancellation made by CertRebel, LLC, you may choose to receive a 100% refund or you can choose to apply your registration fee to another course. By submitting payment you agree to these Terms of Service.
-	</p>
-	<p>
-	<strong>Changes and Cancellations to Your Registration for Live Webinars or On-Demand Courses:</strong><br>
-	All sales are final and refunds are not issued for Live Webinar and On-Demand courses.
-	</p>
-</div>
+	<span style="margin-left:1%; font-weight:bold; font-size:15px;">Terms of Service</span>
+	<hr style="width:98%; margin-top:3px;">
+	<div class="" style="margin-bottom: 3%; margin-left:2%;">
+		<div class="checkbox" style="margin-bottom:3%;">
+			<label style="cursor:default; float:left;">
+				<input type="checkbox"> I agree to the Terms of Service and  
+					<span id="inline-popups" style="cursor: pointer;" class="links"> 
+						<a href="#test-popup" data-effect="mfp-zoom-in">Privacy Policy</a>
+					</span>
+				</input>
+			</label>
+		</div>
+		<p>
+		<strong>Changes and Cancellations to Your Registration for In-Person Courses:</strong><br>
+		All courses are subject to a 25% administration fee if written notice is given at least 5 business days in advance to: support@certrebel.com. Refunds are not given if written notice is not received at least 5 business days in advance. Attendee substitutions are permitted and must be emailed to support@certrebel.com to be processed. In the case of an event cancellation made by CertRebel, LLC, you may choose to receive a 100% refund or you can choose to apply your registration fee to another course. By submitting payment you agree to these Terms of Service.
+		</p>
+		<p>
+		<strong>Changes and Cancellations to Your Registration for Live Webinars or On-Demand Courses:</strong><br>
+		All sales are final and refunds are not issued for Live Webinar and On-Demand courses.
+		</p>
+	</div>
 </div>
 <div class="col-md-2 col-md-offset-5 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
 	<script src="https://checkout.stripe.com/checkout.js"></script>
@@ -168,7 +148,7 @@
 		course 				   = "<?php echo $course; ?>";
 		index 				   = "<?php echo $index; ?>";
 		quantity 			   = "<?php echo $quantity; ?>";
-		var $cost 			 = "<?php echo $total; ?>";
+		var $cost 			 = "<?php echo $single_course->getTotal('decimal', $quantity); ?>";
 		var $cost 			 = parseFloat($cost)*100;
 		var $quantity 	 = "<?php echo $quantity; ?>";
 		var $buyer_email = localStorage.getItem("buyer_email");
@@ -192,11 +172,14 @@
           dataType: 'json',
           success: function(data) {
 						if (data.status == "success")
-						  window.location.replace('/thank_you');
+						  //window.location.replace('/thank_you');
+							console.log('thank_you');
 						else if(data.status == "error" && data.error == "error")
-						  window.location.replace('/index');
+						  //window.location.replace('/index');
+							console.log('index');
 						else 
-						  window.location.replace('/error');
+						  //window.location.replace('/error');
+							console.log('error');
           }
         });
 			},
@@ -237,7 +220,7 @@
 <!-- Terms of Service Popup -->
 <div id="test-popup" class="white-popup mfp-with-anim mfp-hide">
   <header style="text-align:center;">
-		<span class="start">Terms of Service</span>
+		<span class="start">Privacy Policy</span>
 	</header>
   <div class="popup-scroll">
 		<p style="padding-bottom:0;">

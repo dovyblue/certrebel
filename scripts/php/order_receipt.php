@@ -689,9 +689,15 @@ function get_receipt($info) {
 								<tbody>
 									<tr>
 										<td style="color: #383C4B !important;text-align: left;"><span style="font-family:courier new,courier,lucida sans typewriter,lucida typewriter,monospace">'.$info['buyer_first_name'].' '.$info['buyer_last_name'].'<br>
-										<span style="text-decoration:none">'.$info['buyer_email'].'</span><br>
-										'.$info['buyer_phone'].'<br>
-										'.$info['buyer_address1'].', '.$info['buyer_address2'].', '.$info['buyer_city'].', '.$info['buyer_state_name'].' '.$info['buyer_zip'].'</span></td>
+										  <span style="text-decoration:none">'.$info['buyer_email'].'</span><br>
+										  '.$info['buyer_phone'].'<br>
+										  '.$info['buyer_address1'].', ';
+										  if(isset($info['buyer_address2'])&& $info['buyer_address2']!="") {
+	$receipt .=					  $info['buyer_address2'].', ';
+										  }
+	$receipt .=				  $info['buyer_city'].', '.$info['buyer_state_name'].' '.$info['buyer_zip'].'
+										  </span>
+										</td>
 									</tr>
 								</tbody>
 							</table>
@@ -729,7 +735,7 @@ function get_receipt($info) {
 								<tbody>
 									<tr>
 										<td style="color: #7A7C82;text-align: justify;"><span style="font-family:courier new,courier,lucida sans typewriter,lucida typewriter,monospace"><span style="color:#A9A9A9"><strong style="color:#808080; font-size:15px; font-weight:bold">Quantity:</strong></span></span></td>
-										<td style="padding-left: 10px;color: #383C4B !important;text-align: justify;"><span style="font-family:courier new,courier,lucida sans typewriter,lucida typewriter,monospace">$'.$info['quantity'].'</span></td>
+										<td style="padding-left: 10px;color: #383C4B !important;text-align: justify;"><span style="font-family:courier new,courier,lucida sans typewriter,lucida typewriter,monospace">'.$info['quantity'].'</span></td>
 									</tr>
 									<tr>
 										<td style="color: #7A7C82;text-align: justify;"><span style="font-family:courier new,courier,lucida sans typewriter,lucida typewriter,monospace"><span style="color:#A9A9A9"><strong style="color:#808080; font-size:15px; font-weight:bold">Unit Price:</strong></span></span></td>

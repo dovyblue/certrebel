@@ -247,8 +247,6 @@
 								}
 							?>
 							<?php
-								$single_details = isset(single_course_info()[$course_id])? single_course_info()[$course_id] : null;
-								$count 					= count($single_details);
 								if (isset($single_course->single_course_success)) {
 							?>
 								<div class="col-xs-12">

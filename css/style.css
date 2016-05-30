@@ -2751,6 +2751,10 @@
 	#envelope {
 	  height: 100px !important;	
 	}
+
+	#test-popup {
+		max-width: 110% !important;
+	}
 }
 
 /* ----------------------------------------------------
