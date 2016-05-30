@@ -3,7 +3,7 @@
 	require_once('sendmail.php');
 	include_once('version_number.inc');
   if (!isset($_GET['course']) || !isset($_GET['index'])) {                                                                                                                                              
-    header("Location: courses");
+    header("Location: /courses");
   } 
 	$course = htmlentities($_GET['course']);
 	$index	= htmlentities($_GET['index']);

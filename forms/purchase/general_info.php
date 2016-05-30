@@ -1,9 +1,9 @@
 <?php
 	session_start();
 	require_once('/var/www/certrebel/functions.php');
-	if (!isset($_GET['course']) || !isset($_GET['index'])) {
-		header("Location: courses");
-	}
+	if (!isset($_GET['course']) || !isset($_GET['index']))
+		header("Location: /courses");
+
 ?>
 <div class="widget-title">
 	<h1 style="text-align:center; font-size:30px;">Hello, nice to meet you.</h1>

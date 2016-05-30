@@ -1,8 +1,8 @@
 <?php
 	require_once('/var/www/certrebel/functions.php');
-	if (!isset($_GET['course']) || !isset($_GET['index'])) {
-		header("Location: courses");
-	}
+	if (!isset($_GET['course']) || !isset($_GET['index']))
+		header("Location: /courses");
+
 	$course 	= htmlentities($_GET['course']);
 	$quantity = htmlentities($_GET['quantity']);
 	$index 		= htmlentities($_GET['index']);

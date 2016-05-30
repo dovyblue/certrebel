@@ -3,6 +3,7 @@
 <?php
 	session_start();
 	require_once('functions.php');
+	require_once('/var/www/certrebel/classes/courses/Courses.php');
 	include_once('version_number.inc');
 ?>
 <!DOCTYPE html>
@@ -141,35 +142,31 @@
 			<div class="container">
 				<div class="row courses-list">
 					<?php
-						$course_info = course_info();
-						if ($course_info) {
-							foreach ($course_info as $info) {
-								$id 		= $info[0]['course_id'];
-								$pic 		= $info[0]['course_picture'];
-								$hr 		= $info[0]['course_hour_length'];
-								$title 	= $info[0]['course_long_title'];
-								$detail = $info[0]['course_short_detail'];
-								$price  = $info[0]['course_price'];
+						$courses = new Courses\Course();
+						$course_ids = $courses->getAllCourseIds();
+						if ($course_ids) {
+							foreach ($course_ids as $id) {
+								$course = new Courses\Course($id);
 						?>
 								<div class="col-md-12 col-sm-12 col-xs-12">
 									<div class="course-item row wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
 										<div class="col-md-4">
 										<div class="owl-image">
-											<a href="/course/<?php echo $id; ?>" 
-												 title=""><img src="images/<?php echo $pic; ?>" alt="" class="img-responsive"></a>
+											<a href="/course/<?php echo $course->getId(); ?>" 
+												 title=""><img src="images/<?php echo $course->getPicture(); ?>" alt="" class="img-responsive"></a>
 										</div><!-- end image -->
 										</div>
 										<div class="col-md-8">
 										<div class="course-desc noborder">
-											<span class="meta"><?php echo $hr; ?>-Hour Course</span>
-											<h5><a href="/course/<?php echo $id; ?>" title=""><?php echo $title;?></a></h5>
-											<p><?php echo $detail;?></p>
+											<span class="meta"><?php echo $course->getHourLength(); ?>-Hour Course</span>
+											<h5><a href="/course/<?php echo $course->getId(); ?>" title=""><?php echo $course->getLongTitle();?></a></h5>
+											<p><?php echo $course->getShortDetail();?></p>
 											<div class="course-big-meta clearfix">
 												<div class="pull-left">
-													<a href="/course/<?php echo $id; ?>" class="owl-button">Details</a>
+													<a href="/course/<?php echo $course->getId(); ?>" class="owl-button">Details</a>
 												</div><!-- end left -->
 												<div class="pull-right">
-													<p><?php //echo $price; ?></p>
+													<p><?php //echo $course->getPrice(); ?></p>
 												</div><!-- end right -->
 											</div><!-- end course-big-meta -->
 										</div><!-- end desc -->
