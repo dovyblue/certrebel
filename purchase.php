@@ -1,8 +1,11 @@
 <?php
 	session_start();
 	require_once('sendmail.php');
+	require_once('/var/www/certrebel/classes/courses/SingleCourses.php');
+	$course_id = htmlentities($_GET['course']);
+	$single_course = new SingleCourses\SingleCourse($course_id);
 	include_once('version_number.inc');
-  if (!isset($_GET['course']) || !isset($_GET['index'])) {                                                                                                                                              
+  if (!isset($_GET['course']) || !isset($_GET['index']) || !$single_course->single_course_success) {
     header("Location: /courses");
   } 
 	$course = htmlentities($_GET['course']);
