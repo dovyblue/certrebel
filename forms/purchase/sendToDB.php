@@ -63,7 +63,7 @@ if (empty($_POST['buyer_first_name'])||
 	$info['total']= $single_course->getTotal('decimal', $info['quantity']);
 	$token_id = $_POST['stripe_token']['id'];
 	$description = $info['buyer_first_name']." ".$info['buyer_last_name']." - Charged for ".$info['title'];
-	$result = $single_course->charge($token_id, $info['total'], $description);
+  $result = $single_course->charge($token_id, $info['total'], $description);
 	switch($result['status']) {
 		case "success":
 			$info['charge_response'] = $result['charge_response'];
