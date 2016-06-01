@@ -722,10 +722,12 @@ function get_receipt($info) {
 	$receipt .=      '</span>
 									</td>';
 									}
-	$receipt .=  '</tr>
-								<tr>
+	$receipt .=  '</tr>';
+									if ($i != $info['quantity'] - 1) {
+  $receipt .=	 '<tr>
 									<td style="text-align: left;">&nbsp;</td>
 								</tr>';
+								  }
 								}
 	$receipt .=	 '</tbody>
 							</table>
