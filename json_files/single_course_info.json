@@ -382,15 +382,6 @@
     ],
     "osha10": [
         {
-            "course_address": "8430 University Executive Park Dr, Charlotte, NC 28262",
-            "course_id": "osha10",
-            "course_location": "Charlotte, NC",
-            "course_meeting_date": "Thursday, June 16th",
-            "course_meeting_time": "8am to 1:30pm",
-            "course_price": "200",
-            "index": "61"
-        },
-        {
             "course_address": "3730A California Rd, Orchard Park, NY 14127",
             "course_id": "osha10",
             "course_location": "Buffalo, NY",
@@ -398,15 +389,6 @@
             "course_meeting_time": "8am to 1:30pm",
             "course_price": "200",
             "index": "56"
-        },
-        {
-            "course_address": "8430 University Executive Park Dr, Charlotte, NC 28262",
-            "course_id": "osha10",
-            "course_location": "Charlotte, NC",
-            "course_meeting_date": "Thursday, August 18th",
-            "course_meeting_time": "8am to 1:30pm",
-            "course_price": "200",
-            "index": "62"
         },
         {
             "course_address": "3532 James St, Suite 202, Syracuse, NY 13206",
@@ -418,15 +400,6 @@
             "index": "60"
         },
         {
-            "course_address": "8430 University Executive Park Dr, Charlotte, NC 28262",
-            "course_id": "osha10",
-            "course_location": "Charlotte, NC",
-            "course_meeting_date": "Thursday, October 13th",
-            "course_meeting_time": "8am to 1:30pm",
-            "course_price": "200",
-            "index": "63"
-        },
-        {
             "course_address": "3730A California Rd, Orchard Park, NY 14127",
             "course_id": "osha10",
             "course_location": "Buffalo, NY",
@@ -434,15 +407,6 @@
             "course_meeting_time": "8am to 1:30pm",
             "course_price": "200",
             "index": "57"
-        },
-        {
-            "course_address": "8430 University Executive Park Dr, Charlotte, NC 28262",
-            "course_id": "osha10",
-            "course_location": "Charlotte, NC",
-            "course_meeting_date": "Thursday, December 8th",
-            "course_meeting_time": "8am to 1:30pm",
-            "course_price": "200",
-            "index": "65"
         },
         {
             "course_address": "3730A California Rd, Orchard Park, NY 14127",
