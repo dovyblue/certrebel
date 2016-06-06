@@ -4,13 +4,15 @@ session_start();
 require_once('/var/www/certrebel/functions.php');
 date_default_timezone_set('America/New_york');
 
-try
-{
+try {
 	$dbConnection = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser , $dbpass);
 	$checkUserQuery ="SELECT 
 												*
 										FROM
-												CertRebel.courses";
+												CertRebel.courses
+														LEFT JOIN
+												course_details ON `courses`.course_id = `course_details`.course_id
+										ORDER BY `course_details`.course_position";
 	$checkUserStmt = $dbConnection->prepare($checkUserQuery);
 	$checkUserStmt->execute();
 	while ($queryResult = $checkUserStmt->fetch(PDO::FETCH_ASSOC)) {
@@ -25,12 +27,13 @@ try
 																										 "course_meeting_date" 	=> $queryResult['course_meeting_date'],		
 																										 "course_meeting_time" 	=> $queryResult['course_meeting_time'],		
 																										 "course_address" 			=> $queryResult['course_address'],		
-																										 "course_price"					=> $queryResult['course_price']
+																										 "course_price"					=> $queryResult['course_price'],
+																										 "course_position"			=> $queryResult['course_position'],
+																										 "course_keywords"			=> $queryResult['course_keywords']
 																										);
 	}
 }
-catch (PDOException $e)
-{
+catch (PDOException $e) {
 	die("Error: Cannot satisfy your request at this time. Please try again later");
 }
 ob_flush();
