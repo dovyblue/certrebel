@@ -9,7 +9,7 @@ live_host='certrebel.com'
 
 echo "Now dumping beta mysql tables"
 umask 177
-declare -a arr=("courses" "single_course_info")
+declare -a arr=("courses" "single_course_info" "course_details")
 
 for table in "${arr[@]}"
 do
