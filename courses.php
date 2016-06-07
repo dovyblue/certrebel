@@ -79,7 +79,7 @@
 			<div class="wow zoomIn" data-wow-duration="1s" data-wow-offset="100">
 				<div class="wow rubberBand" data-wow-delay="2000ms" data-wow-duration="1s">
 					<div class="wow pulse" data-wow-delay="100ms" data-wow-iteration="infinite" data-wow-duration="1s">
-						<img src="images/small_logo.png" alt="" class="loader-site">
+						<img src="/images/small_logo.png" alt="" class="loader-site">
 					</div>
 				</div>
 			</div>
@@ -117,7 +117,7 @@
 										 <span class="icon-bar"></span>
 										 <span class="icon-bar"></span>
 						</button>
-		        <a class="navbar-brand" href="/"><img src="images/cert_logo.png" alt="" style="margin-top: -12px; margin-right: 0px;"></a>
+		        <a class="navbar-brand" href="/"><img src="/images/cert_logo.png" alt="" style="margin-top: -12px; margin-right: 0px;"></a>
 		      </div>
 					<div id="navbar" class="navbar-collapse collapse">
 			      <ul class="nav navbar-nav navbar-right">
@@ -158,7 +158,7 @@
 			<div class="container">
 				<div class="relative">
 					<div class="section-container">
-						<form action="/courses" class="row search_form">
+						<form action="/forms/search/redirect" method="post" class="row search_form">
 							<div class="col-md-3 col-sm-6">
 							    <input type="text" name="search" class="form-control" placeholder="Search Words">
 							</div>
@@ -217,7 +217,7 @@
 									<div class="col-md-4">
 									<div class="owl-image">
 										<a href="/course/<?php echo $course->getId(); ?>" 
-											 title=""><img src="images/<?php echo $course->getPicture(); ?>" alt="" class="img-responsive"></a>
+											 title=""><img src="/images/<?php echo $course->getPicture(); ?>" alt="" class="img-responsive"></a>
 									</div><!-- end image -->
 									</div>
 									<div class="col-md-8">
@@ -279,7 +279,7 @@
 										<div class="col-md-4">
 										<div class="owl-image">
 											<a href="/course/<?php echo $course->getId(); ?>" 
-												 title=""><img src="images/<?php echo $course->getPicture(); ?>" alt="" class="img-responsive"></a>
+												 title=""><img src="/images/<?php echo $course->getPicture(); ?>" alt="" class="img-responsive"></a>
 										</div><!-- end image -->
 										</div>
 										<div class="col-md-8">
@@ -328,19 +328,19 @@
 
 	</div><!-- end wrapper -->
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/retina.js"></script>
-	<script src="js/wow.js"></script>
-	<script src="js/carousel.js"></script>
-	<script src="js/progress.js"></script>
-	<script src="js/parallax.js"></script>
-	<script src="js/jquery.prettyPhoto.js"></script>
-	<script src="js/custom.js?ver=<?php echo $version;?>"></script>
-	<script src="js/clear.js?ver=<?php echo $version;?>"></script>
-	<script type="text/javascript" src="libraries/swal/dist/sweetalert.min.js"></script>
-	<script src="js/maskedinput.js" type="text/javascript"></script>
-	<script src="js/bootstrap-select.min.js"></script>
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/retina.js"></script>
+	<script src="/js/wow.js"></script>
+	<script src="/js/carousel.js"></script>
+	<script src="/js/progress.js"></script>
+	<script src="/js/parallax.js"></script>
+	<script src="/js/jquery.prettyPhoto.js"></script>
+	<script src="/js/custom.js?ver=<?php echo $version;?>"></script>
+	<script src="/js/clear.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript" src="/libraries/swal/dist/sweetalert.min.js"></script>
+	<script src="/js/maskedinput.js" type="text/javascript"></script>
+	<script src="/js/bootstrap-select.min.js"></script>
 
 	<script>
 	$(document).ready(function(){
@@ -373,8 +373,8 @@
 	</script>
 
   	<!-- SLIDER REV -->
-	<script src="libraries/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-  <script src="libraries/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+	<script src="/libraries/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+  <script src="/libraries/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
   <script>
 		 /* ==============================================
 		SLIDER -->
@@ -436,7 +436,7 @@
 		});   
 	</script>
 
-	<script src="js/jquery.fitvids.js"></script>
+	<script src="/js/jquery.fitvids.js"></script>
 	<script>
 	  $(document).ready(function(){
 	    $(".blog-media").fitVids();
