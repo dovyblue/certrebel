@@ -133,7 +133,7 @@
 			</div><!-- end container -->
 		</header><!-- end header -->
 
-	  <section id="course_parallax" style="margin-top:10%;" class="section-white page-title-wrapper" data-stellar-background-ratio="1" data-stellar-offset-parent="true">
+	  <section id="course_parallax" style="margin-top:10%;" class=" hidden section-white page-title-wrapper" data-stellar-background-ratio="1" data-stellar-offset-parent="true">
 			<div class="container">
 				<div class="relative">
 					<div class="row">
@@ -154,7 +154,7 @@
 			</div><!-- end container -->
 		</section><!-- end section-white -->
 
-	  <section class="background littlebottom">
+	  <section class="background littlebottom hidden">
 			<div class="container">
 				<div class="relative">
 					<div class="section-container">
@@ -264,7 +264,7 @@
 		<?php
 		if (!isset($_GET['search']) || (isset($_GET['search']) && empty($_GET['search']))) {
 		?>
-		<section class="section-white" style="padding-top: 40px;">
+		<section class="section-white" style="padding-top: 140px;">
 			<div class="container">
 				<div class="row courses-list">
 					<?php
