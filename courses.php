@@ -3,6 +3,7 @@
 <?php
 	session_start();
 	require_once('functions.php');
+	require_once('/var/www/certrebel/libraries/composer/elastic_search.php');
 	require_once('/var/www/certrebel/classes/courses/Courses.php');
 	include_once('version_number.inc');
 ?>
@@ -41,6 +42,9 @@
 
 	<!-- RS SLIDER -->
 	<link rel="stylesheet" type="text/css" href="/libraries/rs-plugin/css/settings.css" media="screen" />
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="/css/bootstrap-select.css?ver=<?php echo $version;?>">
 
 	<style>
 		#keep-position-fixed {
@@ -129,7 +133,138 @@
 			</div><!-- end container -->
 		</header><!-- end header -->
 
-		<section class="section-white" style="padding-top: 140px;">
+	  <section id="course_parallax" style="margin-top:10%;" class="section-white page-title-wrapper" data-stellar-background-ratio="1" data-stellar-offset-parent="true">
+			<div class="container">
+				<div class="relative">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="section-title text-center">
+							<h4>Our Courses</h4>
+							<hr>
+							<p>Check Out Our Latest Courses</p>
+							<ol class="breadcrumb">
+							  <li><a href="#">Home</a></li>
+							  <li class="active">Courses</li>
+							</ol>
+
+							</div><!-- end title -->
+						</div><!-- end col -->
+					</div><!-- end row -->
+				</div><!-- end relative -->
+			</div><!-- end container -->
+		</section><!-- end section-white -->
+
+	  <section class="background littlebottom">
+			<div class="container">
+				<div class="relative">
+					<div class="section-container">
+						<form action="/courses" class="row search_form">
+							<div class="col-md-3 col-sm-6">
+							    <input type="text" name="search" class="form-control" placeholder="Search Words">
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<select class="selectpicker form-control" data-style="btn-inverse">
+						  		<option>Category</option>
+									<option>Category</option>
+							    <option>Category</option>
+								</select>
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<select class="selectpicker form-control" data-style="btn-inverse">
+						  		<option>Type</option>
+									<option>Type</option>
+							    <option>Type</option>
+								</select>
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<button type="submit" class="btn btn-default btn-block">Start Search</button>
+							</div>
+						</form>
+					</div><!-- end row -->
+				</div><!-- end relative -->
+			</div><!-- end container -->
+		</section><!-- end section-white -->
+
+		<?php
+		if (isset($_GET['search']) && !empty($_GET['search'])) {
+			$search = $_GET['search'];
+			$params = [
+				'body' => [
+					'query' => [
+						'bool' => [
+						  'should' => [
+								['match' => ['title' => ['query' => $search, 'operator' => 'and']]],
+								['match' => ['body' => ['query' => $search, 'operator' => 'and']]],
+								['match' => ['keywords' => ['query' => $search, 'operator' => 'and']]]
+							]
+						]
+					]
+				]
+			];
+			$query = $client->search($params);
+			if ($query['hits']['total'] >=1) {
+				$results = $query['hits']['hits'];
+			?>
+				<section class="section-white" style="padding-top: 40px;">
+					<div class="container">
+						<div class="row courses-list">
+						<?php
+						foreach ($results as $result) {
+							$course = new Courses\Course($result["_id"]);
+						?>
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="course-item row wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+									<div class="col-md-4">
+									<div class="owl-image">
+										<a href="/course/<?php echo $course->getId(); ?>" 
+											 title=""><img src="images/<?php echo $course->getPicture(); ?>" alt="" class="img-responsive"></a>
+									</div><!-- end image -->
+									</div>
+									<div class="col-md-8">
+									<div class="course-desc noborder">
+										<span class="meta"><?php echo $course->getHourLength(); ?>-Hour Course</span>
+										<h5><a href="/course/<?php echo $course->getId(); ?>" title=""><?php echo $course->getLongTitle();?></a></h5>
+										<p><?php echo $course->getShortDetail();?></p>
+										<div class="course-big-meta clearfix">
+											<div class="pull-left">
+												<a href="/course/<?php echo $course->getId(); ?>" class="owl-button">Details</a>
+											</div><!-- end left -->
+											<div class="pull-right">
+												<p><?php //echo $course->getPrice(); ?></p>
+											</div><!-- end right -->
+										</div><!-- end course-big-meta -->
+									</div><!-- end desc -->
+									</div>
+								</div><!-- end item -->
+							</div>
+						<?php 
+						}
+						?>
+						</div><!-- end row -->
+
+						<nav class="text-center hidden ">
+							<ul class="pagination">
+								<li><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li>
+									<a href="#" aria-label="Next">
+										<span aria-hidden="true">&raquo;</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+
+					</div><!-- end container -->
+				</section><!-- end section-white -->
+		<?php
+		  }
+		}
+		?>
+
+		<?php
+		if (!isset($_GET['search']) || (isset($_GET['search']) && empty($_GET['search']))) {
+		?>
+		<section class="section-white" style="padding-top: 40px;">
 			<div class="container">
 				<div class="row courses-list">
 					<?php
@@ -184,7 +319,9 @@
 
 			</div><!-- end container -->
 		</section><!-- end section-white -->
-
+		<?php
+		}
+		?>
 		<!-- Footer -->
 		<?php require_once("footer.php"); ?>
 		<!-- End Footer -->
@@ -203,6 +340,7 @@
 	<script src="js/clear.js?ver=<?php echo $version;?>"></script>
 	<script type="text/javascript" src="libraries/swal/dist/sweetalert.min.js"></script>
 	<script src="js/maskedinput.js" type="text/javascript"></script>
+	<script src="js/bootstrap-select.min.js"></script>
 
 	<script>
 	$(document).ready(function(){
