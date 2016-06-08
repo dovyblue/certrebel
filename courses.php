@@ -7,8 +7,8 @@
 	require_once('/var/www/certrebel/classes/courses/Courses.php');
 	include_once('version_number.inc');
 	$search_text = isset($_GET['search']) ? $_GET['search'] : '';
-	$search_category = str_replace(' ', '+', $_GET['search_category']);
-	$search_location = str_replace(' ', '+', $_GET['search_location']);
+	$search_category = isset($_GET['search_category']) ? str_replace(' ', '+', $_GET['search_category']) : '';
+	$search_location = isset($_GET['search_location']) ? str_replace(' ', '+', $_GET['search_location']) : '';
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
