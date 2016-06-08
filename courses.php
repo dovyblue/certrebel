@@ -141,7 +141,7 @@
 			</div><!-- end container -->
 		</header><!-- end header -->
 
-	  <section id="course_parallax" style="margin-top:10%;" class="section-white page-title-wrapper" data-stellar-background-ratio="1" data-stellar-offset-parent="true">
+	  <section id="course_parallax" style="margin-top:3%;" class="section-white page-title-wrapper" data-stellar-background-ratio="1" data-stellar-offset-parent="true">
 			<div class="container">
 				<div class="relative">
 					<div class="row">
@@ -211,109 +211,194 @@
 		</section><!-- end section-white -->
 
 		<?php
-		if (isset($_GET['search']) && !empty($_GET['search'])) {
-			$search = $_GET['search'];
-			$params = [
-				'body' => [
-					'query' => [
-						'bool' => [
-						  'should' => [
-								['match' => ['title' => ['query' => $search, 'operator' => 'and']]],
-								['match' => ['body' => ['query' => $search, 'operator' => 'and']]],
-								['match' => ['keywords' => ['query' => $search, 'operator' => 'and']]]
+		$search = isset($_GET['search']) ? $_GET['search'] : '';
+		$category = isset($_GET['search_category']) ? $_GET['search_category'] : '';;
+		$location = str_replace('-', ', ', isset($_GET['search_location']) ? $_GET['search_location'] : '');
+		if (isset($search) && !empty($search)) {
+			if (($category == "all" && $location == "all")) {
+				$params = [
+					'body' => [
+						'query' => [
+							'bool' => [
+								'should' => [
+									['match' => ['title' => ['query' => $search, 'operator' => 'and']]],
+									['match' => ['body' => ['query' => $search, 'operator' => 'and']]],
+									['match' => ['keywords' => ['query' => $search, 'operator' => 'and']]]
+								]
 							]
 						]
 					]
-				]
-			];
-			$query = $client->search($params);
-			if ($query['hits']['total'] >=1) {
-				$results = $query['hits']['hits'];
-			?>
-				<section class="section-white" style="padding-top: 40px;">
-					<div class="container">
-						<div class="row courses-list">
-						<?php
-						$delay = 0;
-						foreach ($results as $result) {
-							$course = new Courses\Course($result["_id"]);
-							$delay = ($delay == 6) ? 2 : $delay + 2;
-						?>
-							<div class="col-md-4 col-sm-6 col-xs-12">
-								<div class="course-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.<?php echo $delay;?>s">
-									<div class="owl-image">
-										<a href="/course/<?php echo $course->getId(); ?>" title="">
-											<img src="/images/<?php echo $course->getPicture(); ?>" alt="" style="height: 260px;" class="img-responsive">
-										</a>
-									</div><!-- end image -->
-									<div class="course-desc" style="height:250px;">
-										<span class="meta"><?php echo $course->getHourLength(); ?>-Hour Course</span>
-										<h5 style="min-height: 64px;"><a href="/course/<?php echo $course->getId(); ?>" title=""><?php echo $course->getLongTitle();?></a></h5>
-										<p><?php echo $course->getShortDetailLimited()?></p>
-										<div class="course-big-meta clearfix">
-											<div class="pull-left">
-												<a href="/course/<?php echo $course->getId(); ?>" class="owl-button">Details</a>
-											</div><!-- end left -->
-											<div class="pull-right">
-												<p><?php //echo $course->getPrice(); ?></p>
-											</div><!-- end right -->
-										</div><!-- end course-big-meta -->
-									</div><!-- end desc -->
-								</div><!-- end item -->
-							</div>
-
-							<div class="hidden col-md-12 col-sm-12 col-xs-12">
-								<div class="course-item row wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-									<div class="col-md-4">
-									<div class="owl-image">
-										<a href="/course/<?php echo $course->getId(); ?>" 
-											 title=""><img src="/images/<?php echo $course->getPicture(); ?>" alt="" class="img-responsive"></a>
-									</div><!-- end image -->
-									</div>
-									<div class="col-md-8">
-									<div class="course-desc noborder">
-										<span class="meta"><?php echo $course->getHourLength(); ?>-Hour Course</span>
-										<h5><a href="/course/<?php echo $course->getId(); ?>" title=""><?php echo $course->getLongTitle();?></a></h5>
-										<p><?php echo $course->getShortDetail();?></p>
-										<div class="course-big-meta clearfix">
-											<div class="pull-left">
-												<a href="/course/<?php echo $course->getId(); ?>" class="owl-button">Details</a>
-											</div><!-- end left -->
-											<div class="pull-right">
-												<p><?php //echo $course->getPrice(); ?></p>
-											</div><!-- end right -->
-										</div><!-- end course-big-meta -->
-									</div><!-- end desc -->
-									</div>
-								</div><!-- end item -->
-							</div>
-						<?php 
-							unset($course);
-						}
-						?>
-						</div><!-- end row -->
-
-						<nav class="text-center hidden ">
-							<ul class="pagination">
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li>
-									<a href="#" aria-label="Next">
-										<span aria-hidden="true">&raquo;</span>
+				];
+			} else if (($category != "all" && $location != "all")) {
+				$params = [
+					'body' => [
+						'query' => [
+							'bool' => [
+								'must' => [
+									['match' => ['category' => ['query' => $category, 'operator' => 'and']]],
+									['match' => ['locations' => ['query' => $location, 'operator' => 'and']]],
+									['bool' => [
+										'should' => [
+											['match' => ['title' => ['query' => $search, 'operator' => 'and']]],
+											['match' => ['body' => ['query' => $search, 'operator' => 'and']]],
+											['match' => ['keywords' => ['query' => $search, 'operator' => 'and']]]
+										 ]
+									]]
+								]
+							]
+						]
+					]
+				];
+			} else if (($category == "all" && $location != "all") || ($category !="all" && $location == "all")) {
+				$params = [
+					'body' => [
+						'query' => [
+							'bool' => [
+								'must' => [
+									['bool' => [
+										'should' => [
+											['match' => ['category' => ['query' => $category, 'operator' => 'and']]],
+											['match' => ['locations' => ['query' => $location, 'operator' => 'and']]]
+										 ]
+									]],
+									['bool' => [
+										'should' => [
+											['match' => ['title' => ['query' => $search, 'operator' => 'and']]],
+											['match' => ['body' => ['query' => $search, 'operator' => 'and']]],
+											['match' => ['keywords' => ['query' => $search, 'operator' => 'and']]]
+										 ]
+									]]
+								]
+							]
+						]
+					]
+				];
+			}
+		} else {
+			if (($category == "all" && $location == "all")) {
+				$params = [];
+			} else if (($category != "all" && $location != "all")) {
+				$params = [
+					'body' => [
+						'query' => [
+							'bool' => [
+								'must' => [
+									['match' => ['category' => ['query' => $category, 'operator' => 'and']]],
+									['match' => ['locations' => ['query' => $location, 'operator' => 'and']]]
+								]
+							]
+						]
+					]
+				];
+			} else if (($category == "all" && $location != "all") || ($category !="all" && $location == "all")) {
+				$params = [
+					'body' => [
+						'query' => [
+							'bool' => [
+								'must' => [
+									['bool' => [
+										'should' => [
+											['match' => ['category' => ['query' => $category, 'operator' => 'and']]],
+											['match' => ['locations' => ['query' => $location, 'operator' => 'and']]]
+										 ]
+									]]
+								]
+							]
+						]
+					]
+				];
+			}
+		}
+		$query = $client->search($params);
+		if ($query['hits']['total'] >=1 && !empty($params)) {
+			$results = $query['hits']['hits'];
+		?>
+			<section class="section-white" style="padding-top: 40px;">
+				<div class="container">
+					<div class="row courses-list">
+					<?php
+					$delay = 0;
+					foreach ($results as $result) {
+						$course = new Courses\Course($result["_id"]);
+						$delay = ($delay == 6) ? 2 : $delay + 2;
+					?>
+						<div class="col-md-4 col-sm-6 col-xs-12">
+							<div class="course-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.<?php echo $delay;?>s">
+								<div class="owl-image">
+									<a href="/course/<?php echo $course->getId(); ?>" title="">
+										<img src="/images/<?php echo $course->getPicture(); ?>" alt="" style="height: 260px;" class="img-responsive">
 									</a>
-								</li>
-							</ul>
-						</nav>
+								</div><!-- end image -->
+								<div class="course-desc" style="height:250px;">
+									<span class="meta"><?php echo $course->getHourLength(); ?>-Hour Course</span>
+									<h5 style="min-height: 64px;"><a href="/course/<?php echo $course->getId(); ?>" title=""><?php echo $course->getLongTitle();?></a></h5>
+									<p><?php echo $course->getShortDetailLimited()?></p>
+									<div class="course-big-meta clearfix">
+										<div class="pull-left">
+											<a href="/course/<?php echo $course->getId(); ?>" class="owl-button">Details</a>
+										</div><!-- end left -->
+										<div class="pull-right">
+											<p><?php //echo $course->getPrice(); ?></p>
+										</div><!-- end right -->
+									</div><!-- end course-big-meta -->
+								</div><!-- end desc -->
+							</div><!-- end item -->
+						</div>
 
-					</div><!-- end container -->
-				</section><!-- end section-white -->
+						<div class="hidden col-md-12 col-sm-12 col-xs-12">
+							<div class="course-item row wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+								<div class="col-md-4">
+								<div class="owl-image">
+									<a href="/course/<?php echo $course->getId(); ?>" 
+										 title=""><img src="/images/<?php echo $course->getPicture(); ?>" alt="" class="img-responsive"></a>
+								</div><!-- end image -->
+								</div>
+								<div class="col-md-8">
+								<div class="course-desc noborder">
+									<span class="meta"><?php echo $course->getHourLength(); ?>-Hour Course</span>
+									<h5><a href="/course/<?php echo $course->getId(); ?>" title=""><?php echo $course->getLongTitle();?></a></h5>
+									<p><?php echo $course->getShortDetail();?></p>
+									<div class="course-big-meta clearfix">
+										<div class="pull-left">
+											<a href="/course/<?php echo $course->getId(); ?>" class="owl-button">Details</a>
+										</div><!-- end left -->
+										<div class="pull-right">
+											<p><?php //echo $course->getPrice(); ?></p>
+										</div><!-- end right -->
+									</div><!-- end course-big-meta -->
+								</div><!-- end desc -->
+								</div>
+							</div><!-- end item -->
+						</div>
+					<?php 
+						unset($course);
+					}
+					?>
+					</div><!-- end row -->
+
+					<nav class="text-center hidden ">
+						<ul class="pagination">
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li>
+								<a href="#" aria-label="Next">
+									<span aria-hidden="true">&raquo;</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+
+				</div><!-- end container -->
+			</section><!-- end section-white -->
 		<?php
-		  }
 		}
 		?>
 
 		<?php
-		if (!isset($_GET['search']) || (isset($_GET['search']) && empty($_GET['search']))) {
+		if ( empty($params) ||
+				((!isset($_GET['search']) || (isset($_GET['search']) && empty($_GET['search']))) 
+				&& !isset($_GET['search_category']) 
+				&& !isset($_GET['search_location']))) {
 		?>
 		<section class="section-white" style="padding-top: 40px;">
 			<div class="container">
