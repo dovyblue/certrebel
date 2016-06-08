@@ -6,6 +6,9 @@
 	require_once('/var/www/certrebel/libraries/composer/elastic_search.php');
 	require_once('/var/www/certrebel/classes/courses/Courses.php');
 	include_once('version_number.inc');
+	$search_text = isset($_GET['search']) ? $_GET['search'] : '';
+	$search_category = str_replace(' ', '+', $_GET['search_category']);
+	$search_location = str_replace(' ', '+', $_GET['search_location']);
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
@@ -59,6 +62,11 @@
 			-webkit-transition: all 0.8s;
 			-moz-transition: all 0.8s;
 			transition: all 0.8s;
+		}
+		.bs-style{
+			margin-bottom: 15px !important;
+			padding: 6px 12px !important;
+			border: 1px solid #ffffff !important;
 		}
 	</style>
 
@@ -163,17 +171,34 @@
 							    <input type="text" name="search" class="form-control" placeholder="Search Words">
 							</div>
 							<div class="col-md-3 col-sm-6">
-								<select class="selectpicker form-control" data-style="btn-inverse">
-						  		<option>Category</option>
-									<option>Category</option>
-							    <option>Category</option>
+								<select id="search_category"name="search_category" class="selectpicker bs-style form-control" data-style="btn-inverse">
+						  		<option value="" disabled selected>Category</option>
+									<option value="all">All</option>
+										<?php
+										$categories = course_categories();
+										foreach ($categories as $category) {
+											$value = str_replace(' ','+', $category);
+										?>
+										<option value="<?php echo strtolower($value); ?>"><?php echo $category; ?></option>
+										<?php
+										}
+										?>
 								</select>
 							</div>
 							<div class="col-md-3 col-sm-6">
-								<select class="selectpicker form-control" data-style="btn-inverse">
-						  		<option>Type</option>
-									<option>Type</option>
-							    <option>Type</option>
+								<select id="search_location" name="search_location" class="selectpicker bs-style form-control" data-style="btn-inverse">
+						  		<option value="" disabled selected>Location</option>
+									<option value="all">All</option>
+										<?php
+										$locations = course_locations();
+										foreach ($locations as $location) {
+											$value = str_replace(', ','-', $location);
+											$value = str_replace(' ','+', $value);
+										?>
+										<option value="<?php echo strtolower($value); ?>"><?php echo $location; ?></option>
+										<?php
+										}
+										?>
 								</select>
 							</div>
 							<div class="col-md-3 col-sm-6">
@@ -209,10 +234,35 @@
 					<div class="container">
 						<div class="row courses-list">
 						<?php
+						$delay = 0;
 						foreach ($results as $result) {
 							$course = new Courses\Course($result["_id"]);
+							$delay = ($delay == 6) ? 2 : $delay + 2;
 						?>
-							<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="col-md-4 col-sm-6 col-xs-12">
+								<div class="course-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.<?php echo $delay;?>s">
+									<div class="owl-image">
+										<a href="/course/<?php echo $course->getId(); ?>" title="">
+											<img src="/images/<?php echo $course->getPicture(); ?>" alt="" style="height: 260px;" class="img-responsive">
+										</a>
+									</div><!-- end image -->
+									<div class="course-desc" style="height:250px;">
+										<span class="meta"><?php echo $course->getHourLength(); ?>-Hour Course</span>
+										<h5 style="min-height: 64px;"><a href="/course/<?php echo $course->getId(); ?>" title=""><?php echo $course->getLongTitle();?></a></h5>
+										<p><?php echo $course->getShortDetailLimited()?></p>
+										<div class="course-big-meta clearfix">
+											<div class="pull-left">
+												<a href="/course/<?php echo $course->getId(); ?>" class="owl-button">Details</a>
+											</div><!-- end left -->
+											<div class="pull-right">
+												<p><?php //echo $course->getPrice(); ?></p>
+											</div><!-- end right -->
+										</div><!-- end course-big-meta -->
+									</div><!-- end desc -->
+								</div><!-- end item -->
+							</div>
+
+							<div class="hidden col-md-12 col-sm-12 col-xs-12">
 								<div class="course-item row wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
 									<div class="col-md-4">
 									<div class="owl-image">
@@ -238,6 +288,7 @@
 								</div><!-- end item -->
 							</div>
 						<?php 
+							unset($course);
 						}
 						?>
 						</div><!-- end row -->
@@ -269,17 +320,41 @@
 				<div class="row courses-list">
 					<?php
 						$courses = new Courses\Course();
-						$course_ids = $courses->getAllCourseIds();
+						$course_ids = $courses->getAllCoursesId();
 						if ($course_ids) {
+							$delay = 0;
 							foreach ($course_ids as $id) {
 								$course = new Courses\Course($id);
+								$delay = ($delay == 6) ? 2 : $delay + 2;
 						?>
-								<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="col-md-4 col-sm-6 col-xs-12">
+									<div class="course-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.<?php echo $delay;?>s">
+										<div class="owl-image">
+											<a href="/course/<?php echo $course->getId(); ?>" title="">
+												<img src="/images/<?php echo $course->getPicture(); ?>" alt="" style="height: 260px;" class="img-responsive">
+											</a>
+										</div><!-- end image -->
+										<div class="course-desc" style="height:250px;">
+											<span class="meta"><?php echo $course->getHourLength(); ?>-Hour Course</span>
+											<h5 style="min-height: 64px;"><a href="/course/<?php echo $course->getId(); ?>" title=""><?php echo $course->getLongTitle();?></a></h5>
+											<p><?php echo $course->getShortDetailLimited()?></p>
+											<div class="course-big-meta clearfix">
+												<div class="pull-left">
+													<a href="/course/<?php echo $course->getId(); ?>" class="owl-button">Details</a>
+												</div><!-- end left -->
+												<div class="pull-right">
+													<p><?php //echo $course->getPrice(); ?></p>
+												</div><!-- end right -->
+											</div><!-- end course-big-meta -->
+										</div><!-- end desc -->
+									</div><!-- end item -->
+								</div>
+
+								<div class="hidden col-md-12 col-sm-12 col-xs-12">
 									<div class="course-item row wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
 										<div class="col-md-4">
 										<div class="owl-image">
-											<a href="/course/<?php echo $course->getId(); ?>" 
-												 title=""><img src="/images/<?php echo $course->getPicture(); ?>" alt="" class="img-responsive"></a>
+											<a href="/course/<?php echo $course->getId(); ?>" title=""><img src="/images/<?php echo $course->getPicture(); ?>" alt="" class="img-responsive"></a>
 										</div><!-- end image -->
 										</div>
 										<div class="col-md-8">
@@ -440,6 +515,12 @@
 	<script>
 	  $(document).ready(function(){
 	    $(".blog-media").fitVids();
+			var category = "<?php echo $search_category; ?>";
+			var location = "<?php echo $search_location; ?>";
+			var search_text = "<?php echo $search_text; ?>";
+			$('#search_category').val(category).change();
+			$('#search_location').val(location).change();
+			$('input[name="search"]').val(search_text);
 	  });
 	</script>
 

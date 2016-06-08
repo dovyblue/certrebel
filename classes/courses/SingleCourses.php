@@ -17,7 +17,7 @@ class SingleCourse extends Courses\Course {
 
 	function __construct($course_id, $position=0) {
 		parent::__construct($course_id);
-		$single_details = single_course_info()[$course_id];
+		$single_details = isset(single_course_info()[$course_id]) ? single_course_info()[$course_id] : null;
 
 				if (!isset($single_details) || is_null($single_details))
 					$this->single_course_success = false;

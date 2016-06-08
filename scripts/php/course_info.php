@@ -29,7 +29,8 @@ try {
 																										 "course_address" 			=> $queryResult['course_address'],		
 																										 "course_price"					=> $queryResult['course_price'],
 																										 "course_position"			=> $queryResult['course_position'],
-																										 "course_keywords"			=> $queryResult['course_keywords']
+																										 "course_keywords"			=> $queryResult['course_keywords'],
+																										 "course_category"			=> $queryResult['course_category']
 																										);
 	}
 }
