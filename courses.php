@@ -315,7 +315,7 @@
 		<?php
 		if (!isset($_GET['search']) || (isset($_GET['search']) && empty($_GET['search']))) {
 		?>
-		<section class="section-white" style="padding-top: 70px;">
+		<section class="section-white" style="padding-top: 140px;">
 			<div class="container">
 				<div class="row courses-list">
 					<?php
