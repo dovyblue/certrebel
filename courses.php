@@ -239,7 +239,7 @@
 							$course = new Courses\Course($result["_id"]);
 							$delay = ($delay == 6) ? 2 : $delay + 2;
 						?>
-							<div class="col-md-4 col-sm-6 col-xs-12">
+							<div class="hidden col-md-4 col-sm-6 col-xs-12">
 								<div class="course-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.<?php echo $delay;?>s">
 									<div class="owl-image">
 										<a href="/course/<?php echo $course->getId(); ?>" title="">
@@ -262,7 +262,7 @@
 								</div><!-- end item -->
 							</div>
 
-							<div class="hidden col-md-12 col-sm-12 col-xs-12">
+							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div class="course-item row wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
 									<div class="col-md-4">
 									<div class="owl-image">
@@ -327,7 +327,7 @@
 								$course = new Courses\Course($id);
 								$delay = ($delay == 6) ? 2 : $delay + 2;
 						?>
-								<div class="col-md-4 col-sm-6 col-xs-12">
+								<div class="hidden col-md-4 col-sm-6 col-xs-12">
 									<div class="course-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.<?php echo $delay;?>s">
 										<div class="owl-image">
 											<a href="/course/<?php echo $course->getId(); ?>" title="">
@@ -350,7 +350,7 @@
 									</div><!-- end item -->
 								</div>
 
-								<div class="hidden col-md-12 col-sm-12 col-xs-12">
+								<div class="col-md-12 col-sm-12 col-xs-12">
 									<div class="course-item row wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
 										<div class="col-md-4">
 										<div class="owl-image">
