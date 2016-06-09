@@ -5,6 +5,7 @@ $dbuser 	 = 'root';
 $dbpass 	 = '$lice0fBread@123'; 
 
 function limit_text($text, $limit) {
+	// Credit goes to stack overflow users VisioN and karim79
 	if (str_word_count($text, 0) > $limit) {
 			$words = str_word_count($text, 2);
 			$pos = array_keys($words);
