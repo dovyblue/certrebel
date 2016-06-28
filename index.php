@@ -208,7 +208,7 @@
 			</div>
 		</section>
 
-		<section class="section-white">
+		<section class="section-white" style="padding-bottom: 42px;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
@@ -221,7 +221,7 @@
 				</div><!-- end row -->
 
 				<div class="row section-container">	
-					<div class="col-md-4 col-sm-8" style="cursor:pointer;">
+					<div class="col-md-4 col-sm-8" style="cursor: pointer; margin-bottom: 48px;">
 					  <a style="color: #7a7c82" href="/courses">
 							<div class="service-item text-center wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
 								<div class="rounded-icon">
@@ -236,7 +236,7 @@
 						</a>
 					</div>
 
-					<div class="col-md-4 col-sm-8" id="myBtn" style="cursor: pointer;" data-toggle="modal" data-target="#myModal">
+					<div class="col-md-4 col-sm-8" id="myBtn" style="cursor: pointer; margin-bottom: 48px;" data-toggle="modal" data-target="#myModal">
 						<div class="service-item text-center wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s">
 							<div class="rounded-icon">
 								<i class="icon icon-Users"></i>
@@ -249,7 +249,7 @@
 						</div><!-- end item -->
 					</div>
 
-					<div class="col-md-4 col-sm-8" id="quoteBtn" style="cursor: pointer;" data-toggle="modal" data-target="#getQuote">
+					<div class="col-md-4 col-sm-8" id="quoteBtn" style="cursor: pointer; margin-bottom: 48px;" data-toggle="modal" data-target="#getQuote">
 						<div class="service-item text-center wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
 							<div class="rounded-icon">
 								<i class="icon icon-MessageLeft"></i>
