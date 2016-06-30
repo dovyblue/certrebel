@@ -18,11 +18,10 @@ function sendmail($data)
 	$email 	 = $data['message_receiver'];
 	$subject = $data['subject'];
 
-	if ($data['type'] != 'order_receipt') {
+	if ($data['type'] != 'order_receipt')
 	  $message = $data['body'];
-	} else {
+	else
 		$message = order_receipt($data); 
-	}
 
 	$mail = new PHPMailer(true);
   $mail->CharSet = "UTF-8";
@@ -49,16 +48,16 @@ function sendmail($data)
   //Username to use for SMTP authentication
   //~~$mail->Username = "rene.certrebel@gmail.com";
   //~~
-$mail->Username = "support@certrebel.com";
+	$mail->Username = "support@certrebel.com";
   //~~$mail->Username = "support.certrebel@zoho.com";
   //Password to use for SMTP authentication
   //~~
-$mail->Password = 'Bunnytitties123';
+	$mail->Password = 'Bunnytitties123';
   //~~$mail->Password = '$lice0fbread@611';
   //Set who the message is to be sent from
   //~~$mail->setFrom('rene.certrebel@gmail.com', 'CertRebel Support ');
   //~~
-$mail->setFrom('support@certrebel.com', 'CertRebel Support');
+	$mail->setFrom('support@certrebel.com', 'CertRebel Support');
   //~~$mail->setFrom('support.certrebel@zoho.com', 'CertRebel Support');
   //Set an alternative reply-to address
   //$mail->addReplyTo('replyto@example.com', 'First Last');

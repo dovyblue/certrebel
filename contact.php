@@ -26,22 +26,10 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
 
-	<link rel="stylesheet" type="text/css" href="/libraries/swal/dist/sweetalert.css?ver=<?php echo $version;?>"> 
 	<link rel="stylesheet" type="text/css" href="/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/stroke.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/animate.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/carousel.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/prettyPhoto.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap-select.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/style.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/quote.css?ver=<?php echo $version;?>">
-
-	<!-- COLORS -->
-	<link rel="stylesheet" type="text/css" href="/css/custom.css?ver=<?php echo $version;?>">
-
-	<!-- RS SLIDER -->
-	<link rel="stylesheet" type="text/css" href="/libraries/rs-plugin/css/settings.css?ver=<?php echo $version;?>" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/css/dist/bootstrap.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/animate.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/style.min.css?ver=<?php echo $version;?>">
 
 	<style>
 		#keep-position-fixed {
@@ -51,7 +39,6 @@
 			padding: 0;
 			margin: 0;
 			position: fixed;
-			/*border-bottom: 1px solid #ececec;*/
 			z-index: 9999;
 			-webkit-transition: all 0.8s;
 			-moz-transition: all 0.8s;
@@ -118,7 +105,7 @@
 							<li class="dropdown megamenu"><a href="/">Home</a></li>
 							<li><a href="/about">About</a></li>
 							<li class="dropdown megamenu"><a href="/courses">Courses</a></li>
-							<li class="active"><a href="#">Contact</a></li>
+							<li class="active"><a href="/contact">Contact</a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</nav><!-- end nav -->
@@ -150,7 +137,6 @@
 				<div class="row">
 					<div class="col-md-12">
 						<section class="googlemap">
-							<!--<iframe class="mapmarker" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8351118085707!2d144.955652!3d-37.817330999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2s!4v1433492479787"></iframe>-->
 							<iframe class="mapmarker" style="pointer-events:none;" width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=175%20Varick%20Street%2C%20New%20York%2C%20NY%2010014&key=AIzaSyB6b4JwW29ht9cPue50gBMKr6DpAYOd1Lk" allowfullscreen></iframe>
 						</section>
 					</div><!-- end col -->
@@ -213,125 +199,11 @@
 		<!-- End Footer -->
 	</div><!-- end wrapper -->
 
-	<script src="/js/jquery.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
-	<script src="/js/retina.js"></script>
-	<script src="/js/wow.js"></script>
-	<script src="/js/carousel.js"></script>
-	<script src="/js/progress.js"></script>
-	<script src="/js/parallax.js"></script>
-	<script src="/js/jquery.prettyPhoto.js"></script>
-	<script src="/js/custom.js?ver=<?php echo $version;?>"></script>
-	<script src="/js/clear.js?ver=<?php echo $version;?>"></script>
-	<script type="text/javascript" src="/libraries/swal/dist/sweetalert.min.js"></script>
-	<script src="/js/maskedinput.js" type="text/javascript"></script>
-	<script src="/js/contact.js?ver=<?php echo $version;?>"></script>
-
-	<script>
-	$(document).ready(function(){
-			<?php
-			if (isset($_SESSION['success'])) {
-			?>	
-				swal({
-					title: "Awesome!", 
-					text:  "<span style=\"font-size:19px;\">Your form has been sent.</span>", 
-					type:  "success",
-					html: 	true,
-					confirmButtonColor: "#A5DC86"
-				});
-			<?php
-				session_destroy();
-			} else if (isset($_SESSION['error'])) {
-			?>
-				swal({
-					title: "Oops!", 
-					text:  "<span style=\"font-size:19px;\">Make sure you fill out all required fields.</span>", 
-					type:  "error",
-					html: 	true,
-					confirmButtonColor: "#F27474"
-				});
-			<?php
-				session_destroy();
-			}
-			?>
-	});
-	</script>
-  	<!-- SLIDER REV -->
-	<script src="/libraries/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-  <script src="/libraries/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-  <script>
-		 /* ==============================================
-		SLIDER -->
-		=============================================== */   
-		jQuery('.tp-banner').show().revolution(
-		{
-		dottedOverlay:"none",
-		delay:16000,
-		startwidth:1170,
-		startheight:665,
-		hideThumbs:200,     
-		thumbWidth:100,
-		thumbHeight:50,
-		thumbAmount:5,  
-		navigationType:"none",
-		navigationArrows:"solo",
-		navigationStyle:"preview3",  
-		touchenabled:"on",
-		onHoverStop:"on",
-		swipe_velocity: 0.7,
-		swipe_min_touches: 1,
-		swipe_max_touches: 1,
-		drag_block_vertical: false,          
-		parallax:"mouse",
-		parallaxBgFreeze:"on",
-		parallaxLevels:[7,4,3,2,5,4,3,2,1,0],            
-		keyboardNavigation:"off",   
-		navigationHAlign:"center",
-		navigationVAlign:"bottom",
-		navigationHOffset:0,
-		navigationVOffset:20,
-		soloArrowLeftHalign:"left",
-		soloArrowLeftValign:"center",
-		soloArrowLeftHOffset:20,
-		soloArrowLeftVOffset:0,
-		soloArrowRightHalign:"right",
-		soloArrowRightValign:"center",
-		soloArrowRightHOffset:20,
-		soloArrowRightVOffset:0,  
-		shadow:0,
-		fullWidth:"on",
-		fullScreen:"off",
-		spinner:"spinner4",  
-		stopLoop:"off",
-		stopAfterLoops:-1,
-		stopAtSlide:-1,
-		shuffle:"off",  
-		autoHeight:"off",           
-		forceFullWidth:"off",                         
-		hideThumbsOnMobile:"off",
-		hideNavDelayOnMobile:1500,            
-		hideBulletsOnMobile:"off",
-		hideArrowsOnMobile:"off",
-		hideThumbsUnderResolution:0,
-		hideSliderAtLimit:0,
-		hideCaptionAtLimit:0,
-		hideAllCaptionAtLilmit:0,
-		startWithSlide:0
-		});   
-	</script>
-
-	<script src="/js/jquery.fitvids.js"></script>
-	<script>
-	  $(document).ready(function(){
-	    $(".blog-media").fitVids();
-			$('.googlemap').on('click', function(){
-			  $('.googlemap iframe').css("pointer-events", "auto");
-			});
-      $('.googlemap').mouseleave(function(){ 
-			  $('.googlemap iframe').css("pointer-events", "none");
-		  });
-	  });
-	</script>
+	<script src="/js/dist/jquery.min.js"></script>
+	<script src="/js/dist/bootstrap.min.js"></script>
+	<script src="/js/dist/wow.min.js"></script>
+	<script src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
+	<script src="/js/dist/contact.min.js?ver=<?php echo $version;?>"></script>
 
 </body>
 </html>
