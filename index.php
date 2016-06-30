@@ -26,22 +26,18 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
 
-	<link rel="stylesheet" type="text/css" href="/libraries/swal/dist/sweetalert.css?ver=<?php echo $version;?>"> 
+	<link rel="stylesheet" type="text/css" href="/libraries/swal/dist/sweetalert.min.css?ver=<?php echo $version;?>"> 
 	<link rel="stylesheet" type="text/css" href="/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/stroke.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/animate.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/carousel.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/prettyPhoto.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/style.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/quote.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/onsite.css?ver=<?php echo $version;?>">
-
-	<!-- COLORS -->
-	<link rel="stylesheet" type="text/css" href="/css/custom.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/stroke.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/bootstrap.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/animate.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/carousel.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/style.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/quote.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/onsite.min.css?ver=<?php echo $version;?>">
 
 	<!-- RS SLIDER -->
-	<link rel="stylesheet" type="text/css" href="/libraries/rs-plugin/css/settings.css?ver=<?php echo $version;?>" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/libraries/rs-plugin/css/settings.min.css?ver=<?php echo $version;?>" media="screen" />
 
 	<style>
 		#keep-position-fixed {
@@ -51,7 +47,6 @@
 			padding: 0;
 			margin: 0;
 			position: fixed;
-			/*border-bottom: 1px solid #ececec;*/
 			z-index: 9999;
 			-webkit-transition: all 0.8s;
 			-moz-transition: all 0.8s;
@@ -112,7 +107,6 @@
 				</div><!-- end container -->
 			</div><!-- end topbar -->
 			<div class="container">
-				<!--<nav style="background:linear-gradient(to bottom, #fdfdfd 0%,#ffffff 100%) ;" class="yamm navbar navbar-default">-->
 				<nav class="yamm navbar navbar-default">
 		      <div class="navbar-header">
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -179,28 +173,6 @@
 									data-endelementdelay="0.1"
 									data-endspeed="1000"
 									style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">Our mission is to provide meaningful training courses that are <br> relevant, industry-specific, and most importantly, fun!
-							</div>
-							<div class="tp-caption lft customout rs-parallaxlevel-0"
-									data-x="660"
-									data-y="231" 
-									data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-									data-speed="1000"
-									data-start="1400"
-									data-easing="Power3.easeInOut"
-									data-elementdelay="0.1"
-									data-endelementdelay="0.1"
-									style="z-index: 4;">
-							</div>
-							<div class="tp-caption lft customout rs-parallaxlevel-0"
-									data-x="590"
-									data-y="370" 
-									data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-									data-speed="1000"
-									data-start="1600"
-									data-easing="Power3.easeInOut"
-									data-elementdelay="0.1"
-									data-endelementdelay="0.1"
-									style="z-index: 4;">
 							</div>
 						</li>
 					</ul>
@@ -411,18 +383,17 @@
 </div><!-- /.modal -->
 <!-- End Modal Contact Form -->
 
-	<script src="/js/jquery.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
-	<script src="/js/retina.js"></script>
-	<script src="/js/wow.js"></script>
-	<script src="/js/carousel.js"></script>
-	<script src="/js/progress.js"></script>
-	<script src="/js/parallax.js"></script>
-	<script src="/js/jquery.prettyPhoto.js"></script>
-	<script src="/js/custom.js?ver=<?php echo $version;?>"></script>
-	<script src="/js/clear.js?ver=<?php echo $version;?>"></script>
+	<script src="/js/dist/jquery.min.js"></script>
+	<script src="/js/dist/bootstrap.min.js"></script>
+	<script src="/js/dist/wow.min.js"></script>
+	<script src="/js/dist/carousel.min.js"></script>
+	<script src="/js/dist/progress.min.js"></script>
+	<script src="/js/dist/parallax.min.js"></script>
+	<script src="/js/dist/jquery.prettyPhoto.min.js"></script>
+	<script src="/js/dist/custom.min.js?ver=<?php echo $version;?>"></script>
+	<script src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
+	<script src="/js/dist/maskedinput.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/libraries/swal/dist/sweetalert.min.js"></script>
-	<script src="/js/maskedinput.js" type="text/javascript"></script>
 
 	<script>
 		$("#contactBtn").click(function(){

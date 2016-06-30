@@ -38,28 +38,16 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
 
-	<link rel="stylesheet" type="text/css" href="/libraries/swal/dist/sweetalert.css?ver=<?php echo $version;?>"> 
 	<link rel="stylesheet" type="text/css" href="/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/stroke.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/animate.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/carousel.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/prettyPhoto.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/style.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/quote.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/onsite.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/terms_of_service.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/magnific-popup.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/squares.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/bootstrap.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/animate.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/style.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/terms_of_service.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/magnific-popup.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/squares.min.css?ver=<?php echo $version;?>">
+
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="/libraries/bootstrap-select/dist/css/bootstrap-select.css?ver=<?php echo $version;?>">
-
-
-	<!-- COLORS -->
-	<link rel="stylesheet" type="text/css" href="/css/custom.css?ver=<?php echo $version;?>">
-
-	<!-- RS SLIDER -->
-	<link rel="stylesheet" type="text/css" href="/libraries/rs-plugin/css/settings.css?ver=<?php echo $version;?>" media="screen" />
+	<link rel="stylesheet" href="/libraries/bootstrap-select/dist/css/bootstrap-select.min.css?ver=<?php echo $version;?>">
 
 	<style>
 		.drop-caps p:first-child::first-letter {
@@ -205,9 +193,6 @@
 			-moz-transition: all 0.8s;
 			transition: all 0.8s;
 		}
-		.navbar-nav li {
-			border-bottom: 2px solid #ffffff;	
-		}
 	</style>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -281,73 +266,7 @@
 			<div class="container">
 				<div class="row">
 					<div id="middle-box" class="col-md-12 col-sm-12 col-xs-12">
-						<div class="widget-title">
-							<h1 style="text-align:center; font-size:30px;">We're curious ...</h1>
-						</div>
-						<h3 style="text-align:center; font-size:20px; color:#7a7c82; padding-bottom:5%;">How did you hear about us?</h3>
-							<form class="form-horizontal" style="margin-left:20%; margin-right:10%;">
-								<div class="col-sm-3 padding" style="margin-bottom:3%;height: 50%;">
-									<div id="hear_internet" class="col-sm-12 padding-inside" style="cursor: pointer; width: 150px; height: 150px; background: #F7F7F7;">
-										<i class="fa fa-search" style="font-size: 100px; margin-top:15%; margin-left: 11%;"></i>
-									</div>
-									<div class="col-sm-12 padding-inside" style="width: 150px; height: auto;">
-										<p style="text-align: center;padding-top: 8px;font-size: 16px;">Internet Search</p>
-									</div>
-								</div>
-								<div class="col-sm-3 padding" style="margin-bottom:3%;height: 50%;">
-									<div id="hear_email" class="col-sm-12 padding-inside" style="cursor: pointer; width: 150px; height: 150px; background: #F7F7F7;">
-										<i class="fa fa-paper-plane-o" style="font-size: 100px; margin-top:15%; margin-left: 11%;"></i>
-									</div>
-									<div class="col-sm-12 padding-inside" style="width: 150px; height: auto;">
-										<p style="text-align: center;padding-top: 8px;font-size: 16px;">Email</p>
-									</div>
-								</div>
-								<div class="col-sm-3 padding" style="margin-bottom:3%;height: 50%;">
-									<div id="hear_company" class="col-sm-12 padding-inside" style="cursor: pointer; width: 150px; height: 150px; background: #F7F7F7;">
-										<i class="fa fa-building-o" style="font-size: 100px; margin-top:19%; margin-left: 19%;"></i>
-									</div>
-									<div class="col-sm-12 padding-inside" style="width: 150px; height: auto;">
-										<p style="text-align: center;padding-top: 8px;font-size: 16px;">My Company</p>
-									</div>
-								</div>
-								<div class="col-sm-3 padding" style="margin-bottom:3%;height: 50%;">
-									<div id="hear_friend" class="col-sm-12 padding-inside" style="cursor: pointer; width: 150px; height: 150px; background: #F7F7F7;">
-										<i class="fa fa-users" style="font-size: 100px; margin-top:20%; margin-left: 11%;"></i>
-									</div>
-									<div class="col-sm-12 padding-inside" style="width: 150px; height: auto;">
-										<p style="text-align: center;padding-top: 8px;font-size: 16px;">Colleague/Friend</p>
-									</div>
-								</div>
-								<div class="col-sm-3 padding" style="margin-bottom:3%;height: 50%;">
-									<div id="hear_customer" class="col-sm-12 padding-inside" style="cursor: pointer; width: 150px; height: 150px; background: #F7F7F7;">
-										<i class="fa fa-user" style="font-size: 100px; margin-top:19%; margin-left: 19%;"></i>
-									</div>
-									<div class="col-sm-12 padding-inside" style="width: 150px; height: auto;">
-										<p style="text-align: center;padding-top: 8px;font-size: 16px;">I'm a Customer</p>
-									</div>
-								</div>
-								<div class="col-sm-3 padding" style="margin-bottom:3%;height: 50%;">
-									<div id="hear_mail" class="col-sm-12 padding-inside" style="cursor: pointer; width: 150px; height: 150px; background: #F7F7F7;">
-										<i class="fa fa-envelope-o" style="font-size: 100px; margin-top:15%; margin-left: 11%;"></i>
-									</div>
-									<div class="col-sm-12 padding-inside" style="width: 150px; height: auto;">
-										<p style="text-align: center;padding-top: 8px;font-size: 16px;">Mail</p>
-									</div>
-								</div>
-								<div class="col-sm-3 padding" style="margin-bottom:3%;height: 50%;">
-									<div id="hear_other" class="col-sm-12 padding-inside" style="cursor: pointer; width: 150px; height: 150px; background: #F7F7F7;">
-										<i class="fa fa-question" style="font-size: 100px; margin-top:20%; margin-left: 25%;"></i>
-									</div>
-									<div class="col-sm-12 padding-inside" style="width: 150px; height: auto;">
-										<p style="text-align: center;padding-top: 8px;font-size: 16px;">Other</p>
-									</div>
-								</div>
-							</form>
-							<div style="padding-left:43%; padding-right:43%; padding-top:5%;" class="col-md-12 col-sm-12 col-xs-12">
-								<button id="customButton" class="btn btn-block btn-primary" data-toggle="modal" data-target="#myModal">Continue</button>
-							</div>
 					</div><!-- end col -->
-
 				</div><!-- end row -->
 			</div><!-- end container -->
 		</section><!-- end section-white -->
@@ -372,122 +291,17 @@
 
 	</div><!-- end wrapper -->
 
-	<script src="/js/jquery.min.js"></script>
-	<script src="/js/jquery-1.12.3.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
-	<script src="/js/retina.js"></script>
-	<script src="/js/wow.js"></script>
-	<script src="/js/carousel.js"></script>
-	<script src="/js/progress.js"></script>
-	<script src="/js/parallax.js"></script>
-	<script src="/js/jquery.prettyPhoto.js"></script>
-	<script src="/js/custom.js?ver=<?php echo $version;?>"></script>
+	<script src="/js/dist/jquery.min.js"></script>
+	<script src="/js/dist/bootstrap.min.js"></script>
+	<script src="/js/dist/wow.min.js"></script>
 	<script src="https://checkout.stripe.com/checkout.js"></script>
-	<script type="text/javascript" src="/libraries/swal/dist/sweetalert.min.js"></script>
-	<script src="/js/maskedinput.js?ver=<?php echo $version;?>" type="text/javascript"></script>
-	<!-- Latest compiled and minified JavaScript -->
+	<script src="/js/dist/maskedinput.min.js?ver=<?php echo $version;?>" type="text/javascript"></script>
 	<script src="/libraries/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 	<script src="/libraries/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
-	<script src="/js/terms_of_service.js?ver=<?php echo $version;?>" type="text/javascript"></script>
+	<script src="/js/dist/terms_of_service.min.js?ver=<?php echo $version;?>" type="text/javascript"></script>
 
-	<script>
-	$(document).ready(function(){
-			<?php
-			if (isset($_SESSION['success'])) {
-			?>	
-				swal({
-					title: "Awesome!", 
-					text:  "<span style=\"font-size:19px;\">Your form has been sent.</span>", 
-					type:  "success",
-					html: 	true,
-					confirmButtonColor: "#A5DC86"
-				});
-			<?php
-				session_destroy();
-			} else if (isset($_SESSION['error'])) {
-			?>
-				swal({
-					title: "Oops!", 
-					text:  "<span style=\"font-size:19px;\">Make sure you fill out all required fields.</span>", 
-					type:  "error",
-					html: 	true,
-					confirmButtonColor: "#F27474"
-				});
-			<?php
-				session_destroy();
-			}
-			?>
-	});
-	</script>
-
-  <!-- SLIDER REV -->
-	<script src="/libraries/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-  <script src="/libraries/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-  <script>
-		 /* ==============================================
-		SLIDER -->
-		=============================================== */   
-		jQuery('.tp-banner').show().revolution(
-		{
-		dottedOverlay:"none",
-		delay:16000,
-		startwidth:1170,
-		startheight:665,
-		hideThumbs:200,     
-		thumbWidth:100,
-		thumbHeight:50,
-		thumbAmount:5,  
-		navigationType:"none",
-		navigationArrows:"solo",
-		navigationStyle:"preview3",  
-		touchenabled:"on",
-		onHoverStop:"on",
-		swipe_velocity: 0.7,
-		swipe_min_touches: 1,
-		swipe_max_touches: 1,
-		drag_block_vertical: false,          
-		parallax:"mouse",
-		parallaxBgFreeze:"on",
-		parallaxLevels:[7,4,3,2,5,4,3,2,1,0],            
-		keyboardNavigation:"off",   
-		navigationHAlign:"center",
-		navigationVAlign:"bottom",
-		navigationHOffset:0,
-		navigationVOffset:20,
-		soloArrowLeftHalign:"left",
-		soloArrowLeftValign:"center",
-		soloArrowLeftHOffset:20,
-		soloArrowLeftVOffset:0,
-		soloArrowRightHalign:"right",
-		soloArrowRightValign:"center",
-		soloArrowRightHOffset:20,
-		soloArrowRightVOffset:0,  
-		shadow:0,
-		fullWidth:"on",
-		fullScreen:"off",
-		spinner:"spinner4",  
-		stopLoop:"off",
-		stopAfterLoops:-1,
-		stopAtSlide:-1,
-		shuffle:"off",  
-		autoHeight:"off",           
-		forceFullWidth:"off",                         
-		hideThumbsOnMobile:"off",
-		hideNavDelayOnMobile:1500,            
-		hideBulletsOnMobile:"off",
-		hideArrowsOnMobile:"off",
-		hideThumbsUnderResolution:0,
-		hideSliderAtLimit:0,
-		hideCaptionAtLimit:0,
-		hideAllCaptionAtLilmit:0,
-		startWithSlide:0
-		});   
-	</script>
-
-	<script src="/js/jquery.fitvids.js"></script>
 	<script>
 	  $(document).ready(function(){
-	    $(".blog-media").fitVids();
 			$course = "<?php echo $course; ?>";
 			$index = "<?php echo $index; ?>";
 			var att_var = "<?php echo $attendee_var; ?>";

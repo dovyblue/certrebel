@@ -29,26 +29,10 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
 
-	<link rel="stylesheet" type="text/css" href="/libraries/swal/dist/sweetalert.css?ver=<?php echo $version;?>"> 
 	<link rel="stylesheet" type="text/css" href="/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/stroke.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/animate.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/carousel.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/prettyPhoto.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/style.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/quote.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/onsite.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/squares.css?ver=<?php echo $version;?>">
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="/libraries/bootstrap-select/dist/css/bootstrap-select.css?ver=<?php echo $version;?>">
-
-
-	<!-- COLORS -->
-	<link rel="stylesheet" type="text/css" href="/css/custom.css?ver=<?php echo $version;?>">
-
-	<!-- RS SLIDER -->
-	<link rel="stylesheet" type="text/css" href="/libraries/rs-plugin/css/settings.css?ver=<?php echo $version;?>" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/css/dist/bootstrap.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/style.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/squares.min.css?ver=<?php echo $version;?>">
 
 	<style>
 		div#middle-box {
@@ -72,9 +56,6 @@
 			-moz-transition: all 0.8s;
 			transition: all 0.8s;
 		}
-		.navbar-nav li {
-			border-bottom: 2px solid #ffffff;	
-		}
 	</style>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -83,22 +64,6 @@
 	<![endif]-->
 
 	<?php include_once('scripts/js/seo.php'); ?>
-
-	<!-- Google Code for Registration Conversion Page -->
-	<script type="text/javascript">
-	/* <![CDATA[ */
-	/*
-	var google_conversion_id = 934308555;
-	var google_conversion_language = "en";
-	var google_conversion_format = "3";
-	var google_conversion_color = "ffffff";
-	var google_conversion_label = "iqOgCJm0yGYQy9XBvQM";
-	var google_conversion_value = 1.00;
-	var google_conversion_currency = "USD";
-	var google_remarketing_only = false;
-	*/
-	/* ]]> */
-	</script>
 </head>
 <body>
 
@@ -190,114 +155,9 @@
 
 	</div><!-- end wrapper -->
 
-	<script src="/js/jquery.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
-	<script src="/js/retina.js"></script>
-	<script src="/js/wow.js"></script>
-	<script src="/js/carousel.js"></script>
-	<script src="/js/progress.js"></script>
-	<script src="/js/parallax.js"></script>
-	<script src="/js/jquery.prettyPhoto.js"></script>
-	<script src="/js/custom.js?ver=<?php echo $version;?>"></script>
-	<script src="/js/clear.js?ver=<?php echo $version;?>"></script>
-	<script type="text/javascript" src="/libraries/swal/dist/sweetalert.min.js"></script>
-	<script src="/js/maskedinput.js?ver=<?php echo $version;?>" type="text/javascript"></script>
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="/libraries/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="/js/dist/jquery.min.js"></script>
+	<script src="/js/dist/bootstrap.min.js"></script>
+	<script src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
 
-	<script>
-	$(document).ready(function(){
-			<?php
-			if (isset($_SESSION['success'])) {
-			?>	
-				swal({
-					title: "Awesome!", 
-					text:  "<span style=\"font-size:19px;\">Your form has been sent.</span>", 
-					type:  "success",
-					html: 	true,
-					confirmButtonColor: "#A5DC86"
-				});
-			<?php
-				session_destroy();
-			} else if (isset($_SESSION['error'])) {
-			?>
-				swal({
-					title: "Oops!", 
-					text:  "<span style=\"font-size:19px;\">Make sure you fill out all required fields.</span>", 
-					type:  "error",
-					html: 	true,
-					confirmButtonColor: "#F27474"
-				});
-			<?php
-				session_destroy();
-			}
-			?>
-	});
-	</script>
-  <!-- SLIDER REV -->
-	<script src="/libraries/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-  <script src="/libraries/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-  <script>
-		 /* ==============================================
-		SLIDER -->
-		=============================================== */   
-		jQuery('.tp-banner').show().revolution(
-		{
-		dottedOverlay:"none",
-		delay:16000,
-		startwidth:1170,
-		startheight:665,
-		hideThumbs:200,     
-		thumbWidth:100,
-		thumbHeight:50,
-		thumbAmount:5,  
-		navigationType:"none",
-		navigationArrows:"solo",
-		navigationStyle:"preview3",  
-		touchenabled:"on",
-		onHoverStop:"on",
-		swipe_velocity: 0.7,
-		swipe_min_touches: 1,
-		swipe_max_touches: 1,
-		drag_block_vertical: false,          
-		parallax:"mouse",
-		parallaxBgFreeze:"on",
-		parallaxLevels:[7,4,3,2,5,4,3,2,1,0],            
-		keyboardNavigation:"off",   
-		navigationHAlign:"center",
-		navigationVAlign:"bottom",
-		navigationHOffset:0,
-		navigationVOffset:20,
-		soloArrowLeftHalign:"left",
-		soloArrowLeftValign:"center",
-		soloArrowLeftHOffset:20,
-		soloArrowLeftVOffset:0,
-		soloArrowRightHalign:"right",
-		soloArrowRightValign:"center",
-		soloArrowRightHOffset:20,
-		soloArrowRightVOffset:0,  
-		shadow:0,
-		fullWidth:"on",
-		fullScreen:"off",
-		spinner:"spinner4",  
-		stopLoop:"off",
-		stopAfterLoops:-1,
-		stopAtSlide:-1,
-		shuffle:"off",  
-		autoHeight:"off",           
-		forceFullWidth:"off",                         
-		hideThumbsOnMobile:"off",
-		hideNavDelayOnMobile:1500,            
-		hideBulletsOnMobile:"off",
-		hideArrowsOnMobile:"off",
-		hideThumbsUnderResolution:0,
-		hideSliderAtLimit:0,
-		hideCaptionAtLimit:0,
-		hideAllCaptionAtLilmit:0,
-		startWithSlide:0
-		});   
-	</script>
-
-	<script src="/js/jquery.fitvids.js"></script>
 </body>
 </html>
