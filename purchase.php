@@ -47,7 +47,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/dist/squares.min.css?ver=<?php echo $version;?>">
 
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="/libraries/bootstrap-select/dist/css/bootstrap-select.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/libraries/bootstrap-select/dist/css/bootstrap-select.min.css?ver=<?php echo $version;?>">
 
 	<style>
 		.drop-caps p:first-child::first-letter {
@@ -291,16 +291,16 @@
 
 	</div><!-- end wrapper -->
 
-	<script src="/js/dist/jquery.min.js"></script>
-	<script src="/js/dist/bootstrap.min.js"></script>
-	<script src="/js/dist/wow.min.js"></script>
-	<script src="https://checkout.stripe.com/checkout.js"></script>
-	<script src="/js/dist/maskedinput.min.js?ver=<?php echo $version;?>" type="text/javascript"></script>
-	<script src="/libraries/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-	<script src="/libraries/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
-	<script src="/js/dist/terms_of_service.min.js?ver=<?php echo $version;?>" type="text/javascript"></script>
+	<script type="text/javascript" src="/js/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/dist/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/dist/wow.min.js"></script>
+	<script type="text/javascript" src="https://checkout.stripe.com/checkout.js"></script>
+	<script type="text/javascript" src="/js/dist/maskedinput.min.js?ver=<?php echo $version;?>" type="text/javascript"></script>
+	<script type="text/javascript" src="/libraries/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script type="text/javascript" src="/libraries/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
+	<script type="text/javascript" src="/js/dist/terms_of_service.min.js?ver=<?php echo $version;?>" type="text/javascript"></script>
 
-	<script>
+	<script type="text/javascript">
 	  $(document).ready(function(){
 			$course = "<?php echo $course; ?>";
 			$index = "<?php echo $index; ?>";

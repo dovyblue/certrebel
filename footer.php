@@ -87,7 +87,7 @@
 				<ul class="footer-menu list-inline text-right">
 					<li>
 						<a target="_blank" href="https://www.startssl.org/">
-							<img style="border-radius:10px;" src="https://www.startssl.com/img/startcom_secured_lock_80x15.png" border="0" alt="StartSSL™ Web-of-Trust Notary" title="StartSSL™ Web-of-Trust Notary">
+							<img style="border-radius:10px;" src="/images/startcom_secured_lock_80x15.png" border="0" alt="StartSSL™ Web-of-Trust Notary" title="StartSSL™ Web-of-Trust Notary">
 						</a>
 					</li>
 					<li>

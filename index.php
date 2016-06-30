@@ -383,19 +383,19 @@
 </div><!-- /.modal -->
 <!-- End Modal Contact Form -->
 
-	<script src="/js/dist/jquery.min.js"></script>
-	<script src="/js/dist/bootstrap.min.js"></script>
-	<script src="/js/dist/wow.min.js"></script>
-	<script src="/js/dist/carousel.min.js"></script>
-	<script src="/js/dist/progress.min.js"></script>
-	<script src="/js/dist/parallax.min.js"></script>
-	<script src="/js/dist/jquery.prettyPhoto.min.js"></script>
-	<script src="/js/dist/custom.min.js?ver=<?php echo $version;?>"></script>
-	<script src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
-	<script src="/js/dist/maskedinput.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="/js/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/dist/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/dist/wow.min.js"></script>
+	<script type="text/javascript" src="/js/dist/carousel.min.js"></script>
+	<script type="text/javascript" src="/js/dist/progress.min.js"></script>
+	<script type="text/javascript" src="/js/dist/parallax.min.js"></script>
+	<script type="text/javascript" src="/js/dist/jquery.prettyPhoto.min.js"></script>
+	<script type="text/javascript" src="/js/dist/custom.min.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript" src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript" src="/js/dist/maskedinput.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/libraries/swal/dist/sweetalert.min.js"></script>
 
-	<script>
+	<script type="text/javascript">
 		$("#contactBtn").click(function(){
 			$('.header').fadeOut(0, "linear");
 			$('#myModal input[name="phone"]').mask("(999) 999-9999");
@@ -416,7 +416,7 @@
 		});
 	</script>
 
-<script>
+<script type="text/javascript">
 $(document).ready(function(){
 		$('select[name="selectOption"]').on('change', function() {
 			$selectOption = $('#getQuote .mc-select select');
@@ -451,9 +451,9 @@ $(document).ready(function(){
 </script>
 
 	<!-- SLIDER REV -->
-	<script src="/libraries/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-  <script src="/libraries/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-  <script>
+	<script type="text/javascript" src="/libraries/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+  <script type="text/javascript" src="/libraries/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+  <script type="text/javascript">
    /* ==============================================
 	SLIDER -->
 	=============================================== */   
