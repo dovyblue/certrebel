@@ -56,7 +56,7 @@
 		}
 	</style>
 
-	<script src="/js/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/dist/jquery.min.js"></script>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -290,9 +290,9 @@
 
 	</div><!-- end wrapper -->
 
-	<script src="/js/dist/bootstrap.min.js"></script>
-	<script src="/js/dist/wow.min.js"></script>
-	<script src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript" src="/js/dist/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/dist/wow.min.js"></script>
+	<script type="text/javascript" src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
 
 </body>
 </html>

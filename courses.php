@@ -7,8 +7,8 @@
 	require_once('/var/www/certrebel/classes/courses/Courses.php');
 	include_once('version_number.inc');
 	$search_text = isset($_GET['search']) ? $_GET['search'] : '';
-	$search_category = str_replace(' ', '+', $_GET['search_category']);
-	$search_location = str_replace(' ', '+', $_GET['search_location']);
+	$search_category = isset($_GET['search_category']) ? str_replace(' ', '+', $_GET['search_category']) : '';
+	$search_location = isset($_GET['search_location']) ? str_replace(' ', '+', $_GET['search_location']) : '';
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
@@ -34,7 +34,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/dist/bootstrap.min.css?ver=<?php echo $version;?>">
 	<link rel="stylesheet" type="text/css" href="/css/dist/animate.min.css?ver=<?php echo $version;?>">
 	<link rel="stylesheet" type="text/css" href="/css/dist/style.min.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" href="/css/dist/bootstrap-select.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/bootstrap-select.min.css?ver=<?php echo $version;?>">
 
 	<style>
 		#keep-position-fixed {
@@ -474,13 +474,13 @@
 
 	</div><!-- end wrapper -->
 
-	<script src="/js/dist/jquery.min.js"></script>
-	<script src="/js/dist/bootstrap.min.js"></script>
-	<script src="/js/dist/wow.min.js"></script>
-	<script src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
-	<script src="/js/dist/bootstrap-select.min.js"></script>
+	<script type="text/javascript" src="/js/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/dist/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/dist/wow.min.js"></script>
+	<script type="text/javascript" src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript" src="/js/dist/bootstrap-select.min.js"></script>
 
-	<script>
+	<script type="text/javascript">
 	  $(document).ready(function(){
 			var category = "<?php echo $search_category; ?>";
 			var location = "<?php echo $search_location; ?>";

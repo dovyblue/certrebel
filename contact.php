@@ -199,11 +199,11 @@
 		<!-- End Footer -->
 	</div><!-- end wrapper -->
 
-	<script src="/js/dist/jquery.min.js"></script>
-	<script src="/js/dist/bootstrap.min.js"></script>
-	<script src="/js/dist/wow.min.js"></script>
-	<script src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
-	<script src="/js/dist/contact.min.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript" src="/js/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/dist/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/dist/wow.min.js"></script>
+	<script type="text/javascript" src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript" src="/js/dist/contact.min.js?ver=<?php echo $version;?>"></script>
 
 </body>
 </html>
