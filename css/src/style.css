@@ -2659,6 +2659,9 @@
 ------------------------------------------------------- */  
 
 @media (max-width: 768px) {
+	#course-container {
+		padding-top: 0px !important;
+	}
 	.header {
 		padding:20px 0;
 	}
@@ -2869,6 +2872,13 @@
 	#owl-testimonial.owl-dots .owl-dot:hover span {
 	  background: #17181e !important;
 	}
+
+/* ----------------------------------------------------
+	PURCHASE PAGE	
+------------------------------------------------------- */  
+#course-container {
+	padding-top: 90px;
+}
 
 /* ----------------------------------------------------
 	CONTACT PAGE	

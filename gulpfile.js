@@ -6,8 +6,10 @@ var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
-var cleanCSS = require('gulp-clean-css');
 var imagemin = require('gulp-imagemin');
+var cleanCSS = require('gulp-clean-css');
+var concatCss = require('gulp-concat-css');
+var minifyCSS = require('gulp-minify-css');
 
 // Lint Task
 gulp.task('lint', function() {
@@ -26,14 +28,22 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('js/dist'));
 });
 
+//  Combine CSS
+gulp.task('combine-css', function () {
+  return gulp.src(['css/src/bootstrap.css','css/src/style.css'])
+		.pipe(minifyCSS())
+		.pipe(concat('bootstyle.min.css'))
+    .pipe(gulp.dest('css/dist/'));
+});
+
 //  Minify CSS
 gulp.task('minify-css', function() {
-  return gulp.src('libraries/rs-plugin/css/settings.css')
+  return gulp.src('css/src/*.css')
     .pipe(cleanCSS({compatibility: 'ie8'}))
 		.pipe(rename(function(path) {
 			path.basename += '.min';
 		}))
-    .pipe(gulp.dest('libraries/rs-plugin/css'));
+    .pipe(gulp.dest('css/dist'));
 });
 
 gulp.task('minify-image', function() {
@@ -49,4 +59,4 @@ gulp.task('watch', function() {
 });
 
 // Default Task
-gulp.task('default', ['lint', 'scripts', 'watch', 'minify-css', 'minify-image']);
+gulp.task('default', ['lint', 'scripts', 'watch', 'minify-css', 'minify-image', 'combine-css']);

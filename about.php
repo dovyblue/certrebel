@@ -19,18 +19,14 @@
 	<meta name="author" content="">
 	<meta name="keywords" content="">
 
-	<title>CertRebel</title>
+	<title>About Us | CertRebel</title>
 
 	<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
 	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
 
-	<link rel="stylesheet" type="text/css" href="/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/dist/stroke.min.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/dist/bootstrap.min.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/dist/animate.min.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/dist/style.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/bootstyle.min.css?ver=<?php echo $version;?>">
 
 	<style>
 		#keep-position-fixed {
@@ -200,7 +196,7 @@
 							<div class="service-desc">
 								<h4>Certification Courses</h4>
 								<hr>
-								<p>Find a local training course near you.<br><a href="/courses" style="display:none;">Read More</a></p>
+								<p>Find a local training course near you.</p>
 							</div><!-- end service-desc -->
 						</div><!-- end item --></a>
 					</div>
@@ -213,7 +209,7 @@
 							<div class="service-desc">
 								<h4>Speak to a Consultant</h4>
 								<hr>
-								<p>Hand tailor a training program based on your needs. <br><a href="#" style="display:none;">Read More</a></p>
+								<p>Hand tailor a training program based on your needs.</p>
 							</div><!-- end service-desc -->
 						</div><!-- end item -->
 					</div>
@@ -226,7 +222,7 @@
 							<div class="service-desc">
 								<h4>On-Site Training</h4>
 								<hr>
-								<p>CertRebel will send our expert instructors to you.<br> <a href="#" style="display:none;">Read More</a></p>
+								<p>CertRebel will send our expert instructors to you.</p>
 							</div><!-- end service-desc -->
 						</div><!-- end item -->
 					</div><!-- end row -->
@@ -243,6 +239,13 @@
 	<script type="text/javascript" src="/js/dist/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/dist/wow.min.js"></script>
 	<script type="text/javascript" src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			loadStyleSheet('/css/dist/stroke.min.css?ver=<?php echo $version;?>');
+			loadStyleSheet('/css/dist/animate.min.css?ver=<?php echo $version;?>');
+			loadStyleSheet('/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css');
+		});
+	</script>
 
 </body>
 </html>
