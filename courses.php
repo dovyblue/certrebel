@@ -3,7 +3,7 @@
 <?php
 	session_start();
 	require_once('functions.php');
-	require_once('/var/www/certrebel/libraries/composer/elastic_search.php');
+	//require_once('/var/www/certrebel/libraries/composer/elastic_search.php');
 	require_once('/var/www/certrebel/classes/courses/Courses.php');
 	include_once('version_number.inc');
 	$search_text = isset($_GET['search']) ? $_GET['search'] : '';
@@ -30,7 +30,11 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
 
-	<link rel="stylesheet" type="text/css" href="/css/dist/bootstyle.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/dist/bootstrap.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/animate.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/style.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/bootstrap-select.min.css?ver=<?php echo $version;?>">
 
 	<style>
 		#keep-position-fixed {
@@ -193,6 +197,7 @@
 		</section><!-- end section-white -->
 
 		<?php
+		/*
 		$search = isset($_GET['search']) ? $_GET['search'] : '';
 		$category = isset($_GET['search_category']) ? $_GET['search_category'] : '';;
 		$location = str_replace('-', ', ', isset($_GET['search_location']) ? $_GET['search_location'] : '');
@@ -374,6 +379,7 @@
 			</section><!-- end section-white -->
 		<?php
 		}
+		*/
 		?>
 
 		<?php
@@ -475,13 +481,6 @@
 	<script type="text/javascript" src="/js/dist/wow.min.js"></script>
 	<script type="text/javascript" src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
 	<script type="text/javascript" src="/js/dist/bootstrap-select.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			loadStyleSheet('/css/dist/animate.min.css?ver=<?php echo $version;?>');
-			loadStyleSheet('/css/dist/bootstrap-select.min.css?ver=<?php echo $version;?>');
-			loadStyleSheet('/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css');
-		});
-	</script>
 
 	<script type="text/javascript">
 	  $(document).ready(function(){
