@@ -36,10 +36,7 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
 
-	<link rel="stylesheet" type="text/css" href="/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/dist/bootstrap.min.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/dist/animate.min.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/dist/style.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/bootstyle.min.css?ver=<?php echo $version;?>">
 
 	<style>
 		#keep-position-fixed {
@@ -56,7 +53,6 @@
 		}
 	</style>
 
-	<script type="text/javascript" src="/js/dist/jquery.min.js"></script>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -128,7 +124,7 @@
     </header><!-- end header -->
 
     <section class="section-white" style="padding-top:0px;">
-			<div class="container" style="padding-top:90px;">
+			<div class="container" id="course-container">
 				<div class="row">
 					<div id="content" class="col-md-12 col-sm-12" style="margin-bottom: 2%;">
 						<div class="course-long-desc section-container row">
@@ -290,9 +286,16 @@
 
 	</div><!-- end wrapper -->
 
-	<script type="text/javascript" src="/js/dist/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/js/dist/wow.min.js"></script>
+	<script type="text/javascript" src="/js/dist/jquery.min.js"></script>
+	<script type="text/javascript" async src="/js/dist/bootstrap.min.js"></script>
+	<script type="text/javascript" async src="/js/dist/wow.min.js"></script>
 	<script type="text/javascript" src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			loadStyleSheet('/css/dist/animate.min.css?ver=<?php echo $version;?>');
+			loadStyleSheet('/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css');
+		});
+	</script>
 
 </body>
 </html>

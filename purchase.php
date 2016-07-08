@@ -38,13 +38,7 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
 
-	<link rel="stylesheet" type="text/css" href="/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/dist/bootstrap.min.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/dist/animate.min.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/dist/style.min.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/dist/terms_of_service.min.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/dist/magnific-popup.min.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/dist/squares.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/bootstyle.min.css?ver=<?php echo $version;?>">
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" type="text/css" href="/libraries/bootstrap-select/dist/css/bootstrap-select.min.css?ver=<?php echo $version;?>">
@@ -301,6 +295,14 @@
 	<script type="text/javascript" src="/js/dist/terms_of_service.min.js?ver=<?php echo $version;?>" type="text/javascript"></script>
 
 	<script type="text/javascript">
+		function loadStyleSheet(src) {
+				if (document.createStyleSheet){
+						document.createStyleSheet(src);
+				}
+				else {
+						$("head").append($("<link rel='stylesheet' href='"+src+"' type='text/css' media='screen' />"));
+				}
+		};
 	  $(document).ready(function(){
 			$course = "<?php echo $course; ?>";
 			$index = "<?php echo $index; ?>";
@@ -311,5 +313,15 @@
 			});
 	  });
 	</script>
+	<script>
+		$(document).ready(function() {
+			loadStyleSheet('/css/dist/squares.min.css?ver=<?php echo $version;?>');
+			loadStyleSheet('/css/dist/animate.min.css?ver=<?php echo $version;?>');
+			loadStyleSheet('/css/dist/magnific-popup.min.css?ver=<?php echo $version;?>');
+			loadStyleSheet('/css/dist/terms_of_service.min.css?ver=<?php echo $version;?>');
+			loadStyleSheet('/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css');
+		});
+	</script>
+
 </body>
 </html>

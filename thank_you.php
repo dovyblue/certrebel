@@ -28,10 +28,7 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
 
-	<link rel="stylesheet" type="text/css" href="/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/dist/bootstrap.min.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/dist/style.min.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/dist/squares.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/bootstyle.min.css?ver=<?php echo $version;?>">
 
 	<style>
 		div#middle-box {
@@ -151,5 +148,11 @@
 	<script type="text/javascript" src="/js/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/dist/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			loadStyleSheet('/css/dist/squares.min.css?ver=<?php echo $version;?>');
+			loadStyleSheet('/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css');
+		});
+	</script>
 </body>
 </html>
