@@ -172,8 +172,8 @@
           dataType: 'json',
           success: function(data) {
 						if (data.status == "success")
-						  window.location.replace('/thank_you');
-							//console.log('thank_you');
+						  window.location.replace('/thank-you');
+							//console.log('thank-you');
 						else if(data.status == "error" && data.error == "error")
 						  window.location.replace('/index');
 							//console.log('index');
