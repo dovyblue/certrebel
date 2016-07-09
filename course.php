@@ -25,11 +25,11 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<meta name="keywords" content="">
+	<meta name="description" content="<?php echo $single_course->getLongTitle();?>">
+	<meta name="author" content="Rene Midouin">
+	<meta name="keywords" content="<?php echo $single_course->getKeywords();?>">
 
-	<title>CertRebel</title>
+	<title><?php echo $single_course->getLongTitle();?> | CertRebel</title>
 
 	<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
 	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
@@ -39,18 +39,18 @@
 	<link rel="stylesheet" type="text/css" href="/css/dist/bootstyle.min.css?ver=<?php echo $version;?>">
 
 	<style>
-		#keep-position-fixed {
-			width: 100%;
-			top: 0;
-			right: 0;
-			padding: 0;
-			margin: 0;
-			position: fixed;
-			z-index: 9999;
-			-webkit-transition: all 0.8s;
-			-moz-transition: all 0.8s;
-			transition: all 0.8s;
-		}
+	#keep-position-fixed {
+		width: 100%;
+		top: 0;
+		right: 0;
+		padding: 0;
+		margin: 0;
+		position: fixed;
+		z-index: 9999;
+		-webkit-transition: all 0.8s;
+		-moz-transition: all 0.8s;
+		transition: all 0.8s;
+	}
 	</style>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

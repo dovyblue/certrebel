@@ -9,6 +9,7 @@ namespace Courses {
 		private $course_highlight;
 		private $course_hour_length;
 		private $course_id;
+		private $course_keywords;
 		private $course_long_title;
 		private $course_meeting_date;
 		private $course_meeting_time;
@@ -55,6 +56,7 @@ namespace Courses {
 				$this->course_short_title = $info['course_short_title'];
 				$this->course_tagline = $info['course_tagline'];
 				$this->course_overview = $overview;
+				$this->course_keywords = isset($info['course_keywords']) ? $info['course_keywords'] : "";
 			}
 		}
 		public function getAddress() {
@@ -99,6 +101,9 @@ namespace Courses {
 		}
 		public function getId() {
 			return $this->course_id;
+		}
+		public function getKeywords() {
+			return $this->course_keywords;
 		}
 		public function getLongTitle() {
 			return $this->course_long_title;
