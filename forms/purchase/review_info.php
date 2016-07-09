@@ -172,7 +172,7 @@
           dataType: 'json',
           success: function(data) {
 						if (data.status == "success")
-						  window.location.replace('/thank_you');
+						  window.location.replace('/thank-you');
 						else if(data.status == "error" && data.error == "error")
 						  window.location.replace('/index');
 						else 
