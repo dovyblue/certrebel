@@ -153,10 +153,10 @@
 		var $quantity 	 = "<?php echo $quantity; ?>";
 		var $buyer_email = localStorage.getItem("buyer_email");
 
-			//key: 'pk_live_uJKTW3qOpa71wHf6DeVXft8K',
-			//key: 'pk_test_AKb5rcrHRSKKAf3mkzlM05Yx',
+		//var $key = "<?php echo PK_LIVE; ?>";
+		var $key = "<?php echo PK_TEST; ?>";
 		var handler = StripeCheckout.configure({
-			key: 'pk_test_AKb5rcrHRSKKAf3mkzlM05Yx',
+			key: $key,
 			image: '/images/small_logo.png',
 			locale: 'auto',
 			token: function(token) {
