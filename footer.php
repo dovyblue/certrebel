@@ -18,9 +18,9 @@
 					</div><!-- end widget-title -->
 					<p>With over 45 years of teaching experience in the environmental health and safety field, let CertRebel guide you with our custom instruction, expert consultations, and years of in-the-field work experience.</p>
 					<ul class="contact-details">
-						<li><i class="fa fa-map-marker"></i>175 Varick Street, New York, NY 10014</li>
 						<li><i class="fa fa-phone"></i> (646) 470-7119</li>
 						<li><i class="fa fa-envelope"></i><a style="color:#cbcbcd !important;" href="mailto:info@certrebel.com"> info@certrebel.com</a></li>
+						<li class="hidden"><i class="fa fa-map-marker"></i> 175 Varick Street, New York, NY 10014</li>
 					</ul><!-- end contact-details -->
 				</div><!-- end widget -->
 			</div><!-- end col -->

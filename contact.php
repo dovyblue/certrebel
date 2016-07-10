@@ -133,7 +133,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<section class="googlemap">
+						<section class="googlemap hidden">
 							<iframe class="mapmarker" style="pointer-events:none;" width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=175%20Varick%20Street%2C%20New%20York%2C%20NY%2010014&key=AIzaSyB6b4JwW29ht9cPue50gBMKr6DpAYOd1Lk" allowfullscreen></iframe>
 						</section>
 					</div><!-- end col -->
