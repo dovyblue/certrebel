@@ -136,7 +136,7 @@
 							<div class="row" style="margin-top:0%; padding-left:1.5%; padding-right:1.5%;">
 								<div class="col-md-6 col-md-offset-3">
 									<h3 style="font-size:20px; color:#7a7c82;"><i class="fa fa-phone"> Call us: (646) 470-7119</i></h3>
-									<h3 style="font-size:20px; color:#7a7c82;"><i class="fa fa-envelope-o"> Email us: info@certrebel.com</i></h3>
+									<h3 style="font-size:20px; color:#7a7c82;"><i class="fa fa-envelope-o"> Email us: support@certrebel.com</i></h3>
 									<h3 style="font-size:20px; color:#7a7c82;"><i class="fa fa-refresh"> Try again</i></h3>
 								</div>
 							</div>

@@ -562,8 +562,6 @@ function get_receipt($info) {
 																	<tbody><tr>
 																			
 																			<td valign="top" class="mcnTextContent" style="padding-top:0; padding-left:18px; padding-bottom:9px; padding-right:18px;">
-																			
-																					<a href="*|ARCHIVE|*" target="_blank">View this email in your browser</a>
 																			</td>
 																	</tr>
 															</tbody></table>

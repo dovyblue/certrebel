@@ -3,6 +3,7 @@ namespace Payments {
 $stripe  = $_SERVER['DOCUMENT_ROOT'];
 $stripe .= "/libraries/stripe/init.php";
 require_once($stripe);
+require_once('/var/www/certrebel/functions.php');
 
 class Payment {
 	
@@ -11,8 +12,8 @@ class Payment {
 		 * Set your secret key: remember to change this to your live secret key in production
 		 * See your keys here https://dashboard.stripe.com/account/apikeys
 		 */
-		//\Stripe\Stripe::setApiKey("sk_test_V2Voa4gzopov2DNk2IS93ntv");
-		\Stripe\Stripe::setApiKey("sk_live_lEDDhnLG7h2vNeR08dW14oat");
+		//\Stripe\Stripe::setApiKey(SK_TEST);
+		\Stripe\Stripe::setApiKey(SK_LIVE);
 	}
 	public function charge($token_id, $amount_in_cents, $description) {
 		/**

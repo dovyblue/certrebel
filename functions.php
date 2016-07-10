@@ -1,8 +1,10 @@
 <?php // functions.php
-$dbhost 	 = 'localhost'; 
-$dbname 	 = 'CertRebel';
-$dbuser 	 = 'root'; 
-$dbpass 	 = '$lice0fBread@123'; 
+require_once("credentials.php");
+
+$dbhost 	 = DB_HOST; 
+$dbname 	 = DB_NAME;
+$dbuser 	 = DB_USER; 
+$dbpass 	 = DB_PASS; 
 
 function limit_text($text, $limit) {
 	// Credit goes to stack overflow users VisioN and karim79

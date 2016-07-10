@@ -35,7 +35,7 @@ function sendmail($data)
   ////Ask for HTML-friendly debug output
   //~~$mail->Debugoutput = 'html';
   //Set the hostname of the mail server
-  $mail->Host = "smtp.zoho.com";
+  $mail->Host = ADMIN_HOST;
 	//$mail->Host = "smtp-relay.gmail.com";
   //$mail->Host = "aspmx.l.google.com";
   //Set the SMTP port number - likely to be 25, 465 or 587
@@ -48,16 +48,16 @@ function sendmail($data)
   //Username to use for SMTP authentication
   //~~$mail->Username = "rene.certrebel@gmail.com";
   //~~
-	$mail->Username = "support@certrebel.com";
+	$mail->Username = ADMIN_EMAIL;
   //~~$mail->Username = "support.certrebel@zoho.com";
   //Password to use for SMTP authentication
   //~~
-	$mail->Password = 'Bunnytitties123';
+	$mail->Password = ADMIN_PSWD;
   //~~$mail->Password = '$lice0fbread@611';
   //Set who the message is to be sent from
   //~~$mail->setFrom('rene.certrebel@gmail.com', 'CertRebel Support ');
   //~~
-	$mail->setFrom('support@certrebel.com', 'CertRebel Support');
+	$mail->setFrom(ADMIN_EMAIL, 'CertRebel Support');
   //~~$mail->setFrom('support.certrebel@zoho.com', 'CertRebel Support');
   //Set an alternative reply-to address
   //$mail->addReplyTo('replyto@example.com', 'First Last');
