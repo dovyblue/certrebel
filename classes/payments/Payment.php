@@ -13,7 +13,7 @@ class Payment {
 		 * See your keys here https://dashboard.stripe.com/account/apikeys
 		 */
 		\Stripe\Stripe::setApiKey(SK_TEST);
-		//\Stripe\Stripe::setApiKey(SK_LIVE");
+		//\Stripe\Stripe::setApiKey(SK_LIVE);
 	}
 	public function charge($token_id, $amount_in_cents, $description) {
 		/**
