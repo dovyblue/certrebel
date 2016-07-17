@@ -149,7 +149,7 @@
 		index 				   = "<?php echo $index; ?>";
 		quantity 			   = "<?php echo $quantity; ?>";
 		var $cost 			 = "<?php echo $single_course->getTotal('decimal', $quantity); ?>";
-		var $cost 			 = parseFloat($cost)*100;
+		var $cost 			 = parseFloat($cost.replace(/,/g,''))*100;
 		var $quantity 	 = "<?php echo $quantity; ?>";
 		var $buyer_email = localStorage.getItem("buyer_email");
 
