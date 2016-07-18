@@ -142,6 +142,9 @@
 	</div>
 </div>
 <div class="col-md-2 col-md-offset-5 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+<?php 
+if ($course != "rrpif") {
+?>
 	<script src="https://checkout.stripe.com/checkout.js"></script>
 	<button id="payButton" class="btn btn-block btn-primary">Pay</button>
 	<script>
@@ -207,6 +210,13 @@
 			handler.close();
 		});
   </script>	
+<?php
+} else {
+?>
+<button id="registerButton" class="btn btn-block btn-primary">Register</button>
+<?php
+}
+?>
 </div>
 <div style="padding-right: 17%; padding-left: 17%;" class="col-md-12 col-sm-12 col-xs-12">
 	<hr style="margin-bottom: 10px;">
@@ -310,19 +320,19 @@
 			midClick: true
 		});
 
-		$('button#payButton').prop('disabled',true);
+		$('button#payButton, button#registerButton').prop('disabled',true);
 
 		$('input[type="checkbox"]').on('click', function() {
 			if ($('input[type="checkbox"]').is(":checked")) {
-				$('button#payButton').prop('disabled',false);
+				$('button#payButton, button#registerButton').prop('disabled',false);
 			} else {
-				$('button#payButton').prop('disabled',true);
+				$('button#payButton, button#registerButton').prop('disabled',true);
 			}	
 		});
 
 		$('a[href="#test-popup"]').on('click', function() {
 			$('header .container:nth-child(2)').css('display','none');
-			$('button#payButton').prop('disabled',false);
+			$('button#payButton, button#registerButton').prop('disabled',false);
 			$('input[type="checkbox"]').prop('checked',true);
 		});
 
@@ -338,6 +348,8 @@
 		buyer_country = localStorage.getItem('buyer_country');
 		buyer_zip = localStorage.getItem('buyer_zip');
 		quantity = "<?php echo $quantity; ?>";
+		index = "<?php echo $index; ?>";
+		course = "<?php echo $course; ?>";
 		quantity = parseInt(quantity);
 		attendee_info = {
 			first_name: [],
@@ -377,6 +389,35 @@
 		$('#backButton').on('click', function(){
 			$("#middle-box").load("/forms/purchase/attendee_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity=<?php echo $quantity; ?>");
 			$("html, body").stop().animate({ scrollTop: 0 }, 500);
+		});
+		$('button#registerButton').on('click', function(e){
+			$('#loading').show();
+			e.preventDefault();
+			quantity 			   = "<?php echo $quantity; ?>";
+			var $cost 			 = "<?php echo $single_course->getTotal('decimal', $quantity); ?>";
+			var $cost 			 = parseFloat($cost.replace(/,/g,''))*100;
+			var $quantity 	 = "<?php echo $quantity; ?>";
+			orderData.stripe_token = {id : "no token"};
+			orderData.cost				 = $cost;
+			orderData.quantity		 = $quantity;
+			$.ajax({  
+				url: '/forms/purchase/sendToDB',
+				async: false,
+				data: orderData,
+				type: 'POST',
+				dataType: 'json',
+				success: function(data) {
+					if (data.status == "success")
+						window.location.replace('/thank-you');
+						//console.log('thank-you');
+					else if(data.status == "error" && data.error == "error")
+						window.location.replace('/index');
+						//console.log('index');
+					else 
+						window.location.replace('/error');
+						//console.log('error');
+				}
+			});
 		});
 	});
 </script>

@@ -61,22 +61,27 @@ if (empty($_POST['buyer_first_name'])||
 	$info['subtotal'] = $single_course->getPrice('decimal', $info['quantity']);
 	$info['fee']= $single_course->getFee('decimal', $info['quantity']);
 	$info['total']= $single_course->getTotal('decimal', $info['quantity']);
-	$token_id = $_POST['stripe_token']['id'];
-	$description = $info['buyer_first_name']." ".$info['buyer_last_name']." - Charged for ".$info['title'];
-  $result = $single_course->charge($token_id, $info['total'], $description);
-	switch($result['status']) {
-		case "success":
-			$info['charge_response'] = $result['charge_response'];
-			$return['status'] = 'success';	
-			break;
-		case "error":
-			$info['error_details'] = $result['error_details'];
-			$return['status'] = 'error';
-			break;
-		default:
-			$info['error_details'] = $result['error_details'];
-			$return['status'] = 'error';
-			break;
+
+	if ($info['course'] == "rrpif" && $info['total'] == "0.00") {
+		$return['status'] = 'success';
+	} else {
+		$token_id = $_POST['stripe_token']['id'];
+		$description = $info['buyer_first_name']." ".$info['buyer_last_name']." - Charged for ".$info['title'];
+		$result = $single_course->charge($token_id, $info['total'], $description);
+		switch($result['status']) {
+			case "success":
+				$info['charge_response'] = $result['charge_response'];
+				$return['status'] = 'success';	
+				break;
+			case "error":
+				$info['error_details'] = $result['error_details'];
+				$return['status'] = 'error';
+				break;
+			default:
+				$info['error_details'] = $result['error_details'];
+				$return['status'] = 'error';
+				break;
+		}
 	}
 
 	for ($i = 0; $i < $info['quantity']; $i++) {
