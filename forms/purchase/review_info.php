@@ -406,13 +406,10 @@ if ($course != "rrpif") {
 				success: function(data) {
 					if (data.status == "success")
 						window.location.replace('/thank-you');
-						//console.log('thank-you');
 					else if(data.status == "error" && data.error == "error")
 						window.location.replace('/index');
-						//console.log('index');
 					else 
 						window.location.replace('/error');
-						//console.log('error');
 				}
 			});
 		});
