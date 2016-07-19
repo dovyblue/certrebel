@@ -11,6 +11,7 @@
 	include_once('version_number.inc');
 	$course_id = htmlentities($_GET['course']);
 	$single_course = new SingleCourses\SingleCourse($course_id);
+	$box = ($single_course->getPrice() === "0") ? "box sample" : "";
 
 	if (!isset($_GET['course']) || $_GET['course'] == "" || !$single_course->course_success)
 		header("Location: /courses");
@@ -129,8 +130,9 @@
 					<div id="content" class="col-md-12 col-sm-12" style="margin-bottom: 2%;">
 						<div class="course-long-desc section-container row">
 							<div class="col-md-4" style="margin-top: 9%;">
-							  <div class="owl-image">
+								<div class="<?php echo $box; ?> owl-image">
 								  <a href="/course?course=<?php echo $single_course->getId();?>" title=""><img src="/images/<?php echo $single_course->getPicture(); ?>" alt="" class="img-responsive"></a>
+									<?php if($box) echo '<div class="ribbon"><span>FREE</span></div>'; ?>
 							  </div><!-- end image -->
 							</div>
 							<div class="col-md-8">
@@ -293,6 +295,7 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			loadStyleSheet('/css/dist/animate.min.css?ver=<?php echo $version;?>');
+			loadStyleSheet('/css/dist/ribbon.min.css?ver=<?php echo $version;?>');
 			loadStyleSheet('/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css');
 		});
 	</script>

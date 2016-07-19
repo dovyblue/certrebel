@@ -240,24 +240,26 @@
 				
 				<div id="owl-courses" class="section-container">
 				<?php
-				$course_ids = ['rrpi','hazi','osha30'];
+				$course_ids = ['rrpif','rrpi','hazi'];
 				foreach($course_ids as $id) {
 					$course = new Courses\Course($id);
+					$box = ($course->getAllSingleCourses()->getPrice() === "0") ? "box sample" : "";
 				?>
 					<div class="course-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-						<div class="owl-image">
+						<div class="<?php echo $box; ?> owl-image">
 							<a href="/course/<?php echo $course->getId(); ?>" title=""><img src="/images/<?php echo $course->getPicture(); ?>" alt="" class="img-responsive"></a>
+							<?php if($box) echo '<div class="ribbon"><span>FREE</span></div>'; ?>
 						</div><!-- end image -->
 						<div class="course-desc">
 							<h5><a href="/course/<?php echo $course->getId(); ?>" title=""><?php echo $course->getShortTitle(); ?></a></h5>
 							<span class="meta"><?php echo $course->getTagLine(); ?></span>
-							<p><?php echo $course->getHighLight(); ?></p>
+							<p><?php echo $course->getShortDetailLimited(); ?></p>
 							<div class="course-big-meta clearfix">
 								<div class="pull-left">
 									<a href="/course/<?php echo $course->getId(); ?>" class="owl-button">Details</a>
 								</div><!-- end left -->
 								<div class="pull-right">
-									<p>$<?php echo $course->getPrice(); ?></p>
+									<p>$<?php echo $course->getAllSingleCourses()->getPrice(); ?></p>
 								</div><!-- end right -->
 							</div><!-- end course-big-meta -->
 						</div><!-- end desc -->
@@ -511,6 +513,7 @@ $(document).ready(function(){
 			loadStyleSheet('/css/dist/stroke.min.css?ver=<?php echo $version;?>');
 			loadStyleSheet('/css/dist/animate.min.css?ver=<?php echo $version;?>');
 			loadStyleSheet('/css/dist/carousel.min.css?ver=<?php echo $version;?>');
+			loadStyleSheet('/css/dist/ribbon.min.css?ver=<?php echo $version;?>');
 			loadStyleSheet('/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css');
 		});
 	</script>

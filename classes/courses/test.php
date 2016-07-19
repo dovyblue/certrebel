@@ -1,11 +1,11 @@
 <?php
 require_once('Courses.php');
 require_once('SingleCourses.php');
-//$course = new Courses\Course('rrpi');
-$course = new Courses\Course();
+$course = new Courses\Course('rrpif');
+//$course = new Courses\Course();
 //$other = new SingleCourses\SingleCourse('rrpi');
 
-echo json_encode($course->getAllCoursesLocation());
+//echo json_encode($course->getAllCoursesLocation());
 //echo json_encode($course->getAllCourseIds());
 //echo $other->length();
 //echo $other->getIndex()."<br>";
@@ -19,7 +19,7 @@ echo json_encode($course->getAllCoursesLocation());
 //echo $other->charge("5","229.50","Test");
 //echo "success is: ".$other->success;
 //echo $course->length()."<br>";
-//echo "length is: ".$course->getAllSingleCourses()->length();
+echo "length is: ".$course->getAllSingleCourses()->getPrice();
 //echo $other->getLocation();
 
 ?>
