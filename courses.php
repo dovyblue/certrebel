@@ -307,13 +307,15 @@
 					$delay = 0;
 					foreach ($results as $result) {
 						$course = new Courses\Course($result["_id"]);
+						$box = ($course->getAllSingleCourses()->getPrice() === "0") ? "box sample" : "";
 						$delay = ($delay == 6) ? 2 : $delay + 2;
 					?>
 						<div class="col-md-4 col-sm-6 col-xs-12">
 							<div class="course-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.<?php echo $delay;?>s">
-								<div class="owl-image">
+								<div class="<?php echo $box; ?> owl-image">
 									<a href="/course/<?php echo $course->getId(); ?>" title="">
 										<img src="/images/<?php echo $course->getPicture(); ?>" alt="" style="height: 260px;" class="img-responsive">
+										<?php if($box) echo '<div class="ribbon"><span>FREE</span></div>'; ?>
 									</a>
 								</div><!-- end image -->
 								<div class="course-desc" style="height:250px;">
@@ -335,10 +337,11 @@
 						<div class="hidden col-md-12 col-sm-12 col-xs-12">
 							<div class="course-item row wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
 								<div class="col-md-4">
-								<div class="owl-image">
-									<a href="/course/<?php echo $course->getId(); ?>" 
-										 title=""><img src="/images/<?php echo $course->getPicture(); ?>" alt="" class="img-responsive"></a>
-								</div><!-- end image -->
+									<div class="<?php echo $box; ?> owl-image">
+										<a href="/course/<?php echo $course->getId(); ?>" 
+											 title=""><img src="/images/<?php echo $course->getPicture(); ?>" alt="" class="img-responsive"></a>
+												<?php if($box) echo '<div class="ribbon"><span>FREE</span></div>'; ?>
+									</div><!-- end image -->
 								</div>
 								<div class="col-md-8">
 								<div class="course-desc noborder">
@@ -398,13 +401,15 @@
 							$delay = 0;
 							foreach ($course_ids as $id) {
 								$course = new Courses\Course($id);
+								$box = ($course->getAllSingleCourses()->getPrice() === "0") ? "box sample" : "";
 								$delay = ($delay == 6) ? 2 : $delay + 2;
 						?>
 								<div class="hidden col-md-4 col-sm-6 col-xs-12">
 									<div class="course-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.<?php echo $delay;?>s">
-										<div class="owl-image">
+										<div class="<?php echo $box; ?> owl-image">
 											<a href="/course/<?php echo $course->getId(); ?>" title="">
 												<img src="/images/<?php echo $course->getPicture(); ?>" alt="" style="height: 260px;" class="img-responsive">
+												<?php if($box) echo '<div class="ribbon"><span>FREE</span></div>'; ?>
 											</a>
 										</div><!-- end image -->
 										<div class="course-desc" style="height:250px;">
@@ -426,8 +431,9 @@
 								<div class="col-md-12 col-sm-12 col-xs-12">
 									<div class="course-item row wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
 										<div class="col-md-4">
-										<div class="owl-image">
+										<div class="<?php echo $box; ?> owl-image">
 											<a href="/course/<?php echo $course->getId(); ?>" title=""><img src="/images/<?php echo $course->getPicture(); ?>" alt="" class="img-responsive"></a>
+												<?php if($box) echo '<div class="ribbon"><span>FREE</span></div>'; ?>
 										</div><!-- end image -->
 										</div>
 										<div class="col-md-8">
@@ -481,6 +487,14 @@
 	<script type="text/javascript" src="/js/dist/wow.min.js"></script>
 	<script type="text/javascript" src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
 	<script type="text/javascript" src="/js/dist/bootstrap-select.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			loadStyleSheet('/css/dist/animate.min.css?ver=<?php echo $version;?>');
+			loadStyleSheet('/css/dist/ribbon.min.css?ver=<?php echo $version;?>');
+			loadStyleSheet('/css/dist/bootstrap-select.min.css?ver=<?php echo $version;?>');
+			loadStyleSheet('/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css');
+		});
+	</script>
 
 	<script type="text/javascript">
 	  $(document).ready(function(){

@@ -47,9 +47,9 @@ gulp.task('minify-css', function() {
 });
 
 gulp.task('minify-image', function() {
-	return gulp.src('css/upload/*')
+	return gulp.src('images/*')
 		.pipe(imagemin())
-		.pipe(gulp.dest('test/images'))
+		.pipe(gulp.dest('images/'))
 });
 
 // Watch Files For Changes
