@@ -1,5 +1,3 @@
-<?php
-?>
 <!-- Start of Leadin Embed -->
 	<script type="text/javascript" src="//js.leadin.com/js/v1/2039008.js" id="LeadinEmbed-2039008" crossorigin="use-credentials" async defer>
 	</script>
@@ -16,6 +14,25 @@ var google_custom_params = window.google_tag_params;
 var google_remarketing_only = true;
 /* ]]> */
 </script>
+
+<!-- Google Code for Purchased Class From Website Conversion Page -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 934308555;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "EWKQCJqFvWgQy9XBvQM";
+var google_remarketing_only = false;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/934308555/?label=EWKQCJqFvWgQy9XBvQM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
 
 <!--
 <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
