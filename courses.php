@@ -387,7 +387,7 @@
 				&& !isset($_GET['search_category']) 
 				&& !isset($_GET['search_location']))) {
 		?>
-		<section class="section-white" style="padding-top: 140px;">
+		<section class="section-white" style="padding-top: 160px;">
 			<div class="container">
 				<div class="row courses-list">
 					<?php
