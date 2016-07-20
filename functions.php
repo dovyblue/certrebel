@@ -103,4 +103,13 @@ function get_states() {
 
 	return $json_a;
 }
+function getTerms() {
+	$url = __DIR__.'/json_files/terms.json';
+	if (!file_exists($url) || !filesize($url))
+		return false;
+
+	$file = file_get_contents($url);
+	$json_a = json_decode($file, true);
+	return $json_a;
+}
 ?>  

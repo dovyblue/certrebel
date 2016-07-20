@@ -9,6 +9,7 @@
 	$index 		= htmlentities($_GET['index']);
 	$quantity = htmlentities($_GET['quantity']);
 	$single_course  = new SingleCourses\SingleCourse($course);
+	$type = ($single_course->getPrice() === "0") ? "free" : "paid";
 	$single_course->setIndex($index);
 ?>
 <div class="widget-title">
@@ -131,19 +132,15 @@
 				</input>
 			</label>
 		</div>
-		<p>
-		<strong>Changes and Cancellations to Your Registration for In-Person Courses:</strong><br>
-		All courses are subject to a 25% administration fee if written notice is given at least 5 business days in advance to: support@certrebel.com. Refunds are not given if written notice is not received at least 5 business days in advance. Attendee substitutions are permitted and must be emailed to support@certrebel.com to be processed. In the case of an event cancellation made by CertRebel, LLC, you may choose to receive a 100% refund or you can choose to apply your registration fee to another course. By submitting payment you agree to these Terms of Service.
-		</p>
-		<p>
-		<strong>Changes and Cancellations to Your Registration for Live Webinars or On-Demand Courses:</strong><br>
-		All sales are final and refunds are not issued for Live Webinar and On-Demand courses.
-		</p>
+		<?php
+		$terms = implode(" ",getTerms()[$type]);
+		echo '<p>'.$terms.'</p>';
+		?>
 	</div>
 </div>
 <div class="col-md-2 col-md-offset-5 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
 <?php 
-if ($course != "rrpif") {
+if ($type == "paid") {
 ?>
 	<script src="https://checkout.stripe.com/checkout.js"></script>
 	<button id="payButton" class="btn btn-block btn-primary">Pay</button>

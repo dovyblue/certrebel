@@ -53,16 +53,19 @@ if (empty($_POST['buyer_first_name'])||
 
 	$single_course  = new SingleCourses\SingleCourse($info['course']);
 	$single_course->setIndex($info['index']);
+	$type = ($single_course->getPrice() === "0") ? "free" : "paid";
+	$terms = implode(" ",getTerms()[$type]);
 	$info['title'] = $single_course->getLongTitle();
 	$info['date'] = $single_course->getMeetingDate();
 	$info['time'] = $single_course->getMeetingTime();
 	$info['address'] = $single_course->getAddress();
 	$info['unit_cost'] = $single_course->getPrice('decimal');
 	$info['subtotal'] = $single_course->getPrice('decimal', $info['quantity']);
-	$info['fee']= $single_course->getFee('decimal', $info['quantity']);
-	$info['total']= $single_course->getTotal('decimal', $info['quantity']);
+	$info['fee'] = $single_course->getFee('decimal', $info['quantity']);
+	$info['total'] = $single_course->getTotal('decimal', $info['quantity']);
+	$info['terms'] = $terms;
 
-	if ($info['course'] == "rrpif" && $info['total'] == "0.00") {
+	if ($type == "free") {
 		$return['status'] = 'success';
 	} else {
 		$token_id = $_POST['stripe_token']['id'];

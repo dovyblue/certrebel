@@ -733,11 +733,12 @@ function get_receipt($info) {
 							<div style="text-align: left;"><br>
 							<span style="font-family:courier new,courier,lucida sans typewriter,lucida typewriter,monospace"><span style="color:#A9A9A9"><strong style="color:#808080; font-size:15px; font-weight:bold">Terms of Service</strong></span></span></div>
 
-							<hr style="width:100%; margin-top:3px;"><span style="color: #383C4B !important;text-align: left;"><span style="font-family:courier new,courier,lucida sans typewriter,lucida typewriter,monospace"><strong>Changes and Cancellations to Your Registration for In-Person Courses:</strong><br>
-							All courses are subject to a 25% administration fee if written notice is given at least 5 business days in advance to: support@certrebel.com. Refunds are not given if written notice is not received at least 5 business days in advance. Attendee substitutions are permitted and must be emailed to support@certrebel.com to be processed. In the case of an event cancellation made by CertRebel, LLC, you may choose to receive a 100% refund or you can choose to apply your registration fee to another course. By submitting payment you agree to these Terms of Service.</span><br>
-							<br>
-							<span style="color: #383C4B !important;text-align: left;"><span style="font-family:courier new,courier,lucida sans typewriter,lucida typewriter,monospace"><strong>Changes and Cancellations to Your Registration for Live Webinars or On-Demand Courses:</strong><br>
-							All sales are final and refunds are not issued for Live Webinar and On-Demand courses.</span> </span></span><br>
+							<hr style="width:100%; margin-top:3px;">
+								<span style="color: #383C4B !important;text-align: left;">
+									<span style="font-family:courier new,courier,lucida sans typewriter,lucida typewriter,monospace">
+										'.$info['terms'].'
+									<span>
+								</span>
 							&nbsp;
 
 							<hr style="width:100%; margin-top:3px;">
