@@ -36,6 +36,14 @@ gulp.task('combine-css', function () {
     .pipe(gulp.dest('css/dist/'));
 });
 
+//  Combine Admin CSS
+gulp.task('combine-admin-css', function () {
+  return gulp.src(['admin/css/src/bootstrap.css','admin/css/src/style.css'])
+		.pipe(minifyCSS())
+		.pipe(concat('bootstyle.min.css'))
+    .pipe(gulp.dest('admin/css/dist/'));
+});
+
 //  Minify CSS
 gulp.task('minify-css', function() {
   return gulp.src('css/src/*.css')
@@ -44,6 +52,16 @@ gulp.task('minify-css', function() {
 			path.basename += '.min';
 		}))
     .pipe(gulp.dest('css/dist'));
+});
+
+//  Minify Admin CSS
+gulp.task('minify-admin-css', function() {
+  return gulp.src('admin/css/src/*.css')
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+		.pipe(rename(function(path) {
+			path.basename += '.min';
+		}))
+    .pipe(gulp.dest('admin/css/dist'));
 });
 
 gulp.task('minify-image', function() {
@@ -59,4 +77,4 @@ gulp.task('watch', function() {
 });
 
 // Default Task
-gulp.task('default', ['lint', 'scripts', 'watch', 'minify-css', 'minify-image', 'combine-css']);
+gulp.task('default', ['lint', 'scripts', 'watch', 'minify-css', 'minify-admin-css', 'minify-image', 'combine-css']);

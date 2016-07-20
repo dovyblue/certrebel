@@ -30,8 +30,9 @@ namespace Courses {
 				$this->all_courses = course_info();
 				$this->length = count(course_info());
 			} else {
-				$info = course_info()[$course_id][0];
+				$info = course_info()[$course_id];
 				$overview = course_details()[$course_id]['course_details'];
+				$short_detail = course_info()[$course_id]['course_short_detail'];
 
 				if (!isset($info) || is_null($info))
 					$this->course_success = false;
@@ -52,7 +53,8 @@ namespace Courses {
 				$this->course_meeting_time = $info['course_meeting_date'];
 				$this->course_picture = $info['course_picture'];
 				$this->course_price = $info['course_price'];
-				$this->course_short_detail = $info['course_short_detail'];
+				//$this->course_short_detail = $info['course_short_detail'];
+				$this->course_short_detail = $short_detail;
 				$this->course_short_title = $info['course_short_title'];
 				$this->course_tagline = $info['course_tagline'];
 				$this->course_overview = $overview;
