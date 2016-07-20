@@ -1082,7 +1082,7 @@
 	}
 
 	body.notfound { 
-	  background: url(upload/notfound.jpg) no-repeat center center fixed; 
+		background: linear-gradient(rgba(20,20,20, .5), rgba(20,20,20, .5)), url(/images/notfound.jpg) no-repeat center center fixed; 
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
