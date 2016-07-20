@@ -16,7 +16,8 @@ try {
 	$checkUserStmt = $dbConnection->prepare($checkUserQuery);
 	$checkUserStmt->execute();
 	while ($queryResult = $checkUserStmt->fetch(PDO::FETCH_ASSOC)) {
-				$result[$queryResult['course_id']][] = array("course_id" 						=> $queryResult['course_id'],
+				$result[$queryResult['course_id']] = array();
+				$result[$queryResult['course_id']] = array("course_id" 						=> $queryResult['course_id'],
 																										 "course_short_title" 	=> $queryResult['course_short_title'],		
 																										 "course_long_title" 		=> $queryResult['course_long_title'],		
 																										 "course_tagline" 			=> $queryResult['course_tagline'],		

@@ -96,7 +96,7 @@
 			</div><!-- end container -->
 		</header><!-- end header -->
 
-		<section class="slider-section">
+		<section class="slider-section" id="slider-section">
 			<div class="tp-banner-container">
 				<div class="tp-banner">
 					<ul>
@@ -104,7 +104,7 @@
 						  <img src="/images/slide4.png"  alt="fullslide1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
 	                        <div class="tp-caption slider_01 text-left skewfromright randomrotateout tp-resizeme"
 	                            data-x="left"
-	                            data-y="195" 
+	                            data-y="105" 
 	                            data-speed="1000"
 	                            data-start="800"
 	                            data-easing="Power3.easeInOut"
@@ -118,7 +118,7 @@
 	                        </div>
 													<div class="tp-caption slider_01 text-left skewfromright randomrotateout tp-resizeme"
 															data-x="left"
-															data-y="270" 
+															data-y="180" 
 															data-speed="1000"
 															data-start="1400"
 															data-easing="Power3.easeInOut"
@@ -131,7 +131,7 @@
 	                        </div>
 	                        <div class="tp-caption slider_02 text-center skewfromright randomrotateout tp-resizeme"
 	                            data-x="left"
-	                            data-y="330" 
+	                            data-y="240" 
 	                            data-speed="1000"
 	                            data-start="1400"
 	                            data-easing="Power3.easeInOut"
@@ -144,7 +144,7 @@
 	                        </div>
 	                        <div class="tp-caption slider_03 text-left randomrotateout tp-resizeme"
 	                            data-x="left"
-	                            data-y="395" 
+	                            data-y="305" 
 	                            data-speed="1000"
 	                            data-start="1400"
 	                            data-easing="Power3.easeInOut"
@@ -157,10 +157,14 @@
 															The Orange County Department of Health has provided funding for this training for free! <br>
 															This course includes both training and EPA Certification for Lead Paint Safety during renovations.<br>
 															Free for property owners and contractors.<br>
+															**Students must reside in Orange County, Ulster County, Putnam County,<br>
+															or surrounding areas to be eligible for the free class.<br>
+															Please call <span style="font-size: 16px;">(646) 470-7119</span> or email info@certrebel.com if you have any questions.
+
 	                        </div>
 	                        <div class="tp-caption text-center randomrotateout tp-resizeme"
 	                            data-x="left"
-	                            data-y="540" 
+	                            data-y="560" 
 	                            data-speed="1000"
 	                            data-start="1400"
 	                            data-easing="Power3.easeInOut"

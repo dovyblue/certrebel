@@ -772,8 +772,8 @@
 	    background-image: url("upload/blog_parallax.jpg");
 	}
 	#course_parallax {
-	    background-image: url("upload/course_parallax.jpg");
-	    /*background-image: url("http://trendingtemplates.com/demos/coursat/upload/course_parallax.jpg");*/
+	    /*background-image: url("upload/course_parallax.jpg");*/
+	    background-image: url("http://trendingtemplates.com/demos/coursat/upload/course_parallax.jpg");
 	}
 
 	#login_parallax,
@@ -2654,10 +2654,6 @@
 		display: block;
 		position: relative;
 	}
-	
-	#slider-section {
-		padding-top: 135px;
-	}
 
 /* ----------------------------------------------------
 	RESPONSIVE	
@@ -2768,10 +2764,6 @@
 
 	#test-popup {
 		max-width: 110% !important;
-	}
-
-	#slider-section {
-		padding-top: 60px !important;
 	}
 }
 
