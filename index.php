@@ -118,13 +118,82 @@
 			</div><!-- end container -->
 		</header><!-- end header -->
 
-		<section class="slider-section ">
+		<section class="slider-section">
 			<div class="tp-banner-container">
 				<div class="tp-banner">
 					<ul>
 						<li data-transition="slidevertical" data-slotamount="1" data-masterspeed="500" data-thumb="images/slide4.png"  data-saveperformance="off"  data-title="Slide">
 						  <img src="/images/slide4.png"  alt="fullslide1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
-							<div class=" hidden tp-caption slider_01 text-left skewfromright randomrotateout tp-resizeme"
+	                        <div class="tp-caption slider_01 text-left skewfromright randomrotateout tp-resizeme"
+	                            data-x="left"
+	                            data-y="195" 
+	                            data-speed="1000"
+	                            data-start="800"
+	                            data-easing="Power3.easeInOut"
+	                            data-splitin="none"
+	                            data-splitout="none"
+	                            data-elementdelay="0.1"
+	                            data-endelementdelay="0.1"
+	                            data-endspeed="1000"
+	                            style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">
+															<img src="/images/orange-county.png"  alt="Orange County Logo" style="height: 55px; background: #df4a43;">
+	                        </div>
+													<div class="tp-caption slider_01 text-left skewfromright randomrotateout tp-resizeme"
+															data-x="left"
+															data-y="270" 
+															data-speed="1000"
+															data-start="1400"
+															data-easing="Power3.easeInOut"
+															data-splitin="none"
+															data-splitout="none"
+															data-elementdelay="0.1"
+															data-endelementdelay="0.1"
+															data-endspeed="1000"
+	                            style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;"><hr>
+	                        </div>
+	                        <div class="tp-caption slider_02 text-center skewfromright randomrotateout tp-resizeme"
+	                            data-x="left"
+	                            data-y="330" 
+	                            data-speed="1000"
+	                            data-start="1400"
+	                            data-easing="Power3.easeInOut"
+	                            data-splitin="none"
+	                            data-splitout="none"
+	                            data-elementdelay="0.1"
+	                            data-endelementdelay="0.1"
+	                            data-endspeed="1000"
+	                            style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">Free! Lead Renovator (RRP)
+	                        </div>
+	                        <div class="tp-caption slider_03 text-left randomrotateout tp-resizeme"
+	                            data-x="left"
+	                            data-y="395" 
+	                            data-speed="1000"
+	                            data-start="1400"
+	                            data-easing="Power3.easeInOut"
+	                            data-splitin="none"
+	                            data-splitout="none"
+	                            data-elementdelay="0.1"
+	                            data-endelementdelay="0.1"
+	                            data-endspeed="1000"
+	                            style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">
+															The Orange County Department of Health has provided funding for this training for free! <br>
+															This course includes both training and EPA Certification for Lead Paint Safety during renovations.<br>
+															Free for property owners and contractors.<br>
+	                        </div>
+	                        <div class="tp-caption text-center randomrotateout tp-resizeme"
+	                            data-x="left"
+	                            data-y="540" 
+	                            data-speed="1000"
+	                            data-start="1400"
+	                            data-easing="Power3.easeInOut"
+	                            data-splitin="none"
+	                            data-splitout="none"
+	                            data-elementdelay="0.1"
+	                            data-endelementdelay="0.1"
+	                            data-endspeed="1000"
+	                            style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;"><a href="course/rrpif" class="btn btn-slider">Register Now</a>
+	                        </div>
+							<div class="hidden tp-caption slider_01 text-left skewfromright randomrotateout tp-resizeme"
 									data-x="left"
 									data-y="240" 
 									data-speed="1000"
@@ -137,7 +206,7 @@
 									data-endspeed="1000"
 									style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">Find The Hidden Learner Within You<hr>
 							</div>
-							<div class="tp-caption slider_02 text-center skewfromright randomrotateout tp-resizeme"
+							<div class="hidden tp-caption slider_02 text-center skewfromright randomrotateout tp-resizeme"
 									data-x="left"
 									data-y="330" 
 									data-speed="1000"
@@ -150,7 +219,7 @@
 									data-endspeed="1000"
 									style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">Certification Made Easy
 							</div>
-							<div class="tp-caption slider_03 text-left randomrotateout tp-resizeme"
+							<div class="hidden tp-caption slider_03 text-left randomrotateout tp-resizeme"
 									data-x="left"
 									data-y="395" 
 									data-speed="1000"

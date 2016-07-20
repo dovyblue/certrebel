@@ -2727,8 +2727,13 @@
 	}
 
 	.tp-caption.slider_03 {
-		font-size: 10px !important;
+		font-size: 6px !important;
 		line-height: 11px !important;
+	}
+
+	.tp-caption .btn {
+    font-size: 10px!important;
+    padding: 8px 10px!important;
 	}
 
 	.modal-dialog {
