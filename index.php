@@ -28,28 +28,6 @@
 
 	<link rel="stylesheet" type="text/css" href="/css/dist/bootstyle.min.css?ver=<?php echo $version;?>">
 
-	<style>
-		#keep-position-fixed {
-			width: 100%;
-			top: 0;
-			right: 0;
-			padding: 0;
-			margin: 0;
-			position: fixed;
-			z-index: 9999;
-			-webkit-transition: all 0.8s;
-			-moz-transition: all 0.8s;
-			transition: all 0.8s;
-		}
-		.modal-header, #myModal h4, #myModal .close {
-				color:white !important;
-				text-align: center;
-				font-size: 30px;
-		}
-		.modal-footer {
-				background-color: #f9f9f9;
-		}
-	</style>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>

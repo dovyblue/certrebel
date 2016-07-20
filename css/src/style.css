@@ -2879,38 +2879,78 @@
 	  background: #17181e !important;
 	}
 
+	#keep-position-fixed {
+		width: 100%;
+		top: 0;
+		right: 0;
+		padding: 0;
+		margin: 0;
+		position: fixed;
+		z-index: 9999;
+		-webkit-transition: all 0.8s;
+		-moz-transition: all 0.8s;
+		transition: all 0.8s;
+	}
+
+/* ----------------------------------------------------
+	INDEX PAGE	
+------------------------------------------------------- */  
+	.modal-header, #myModal h4, #myModal .close {
+			color:white !important;
+			text-align: center;
+			font-size: 30px;
+	}
+	.modal-footer {
+			background-color: #f9f9f9;
+	}
+
 /* ----------------------------------------------------
 	PURCHASE PAGE	
 ------------------------------------------------------- */  
-#course-container {
-	padding-top: 90px;
-}
+	#course-container {
+		padding-top: 90px;
+	}
+
+	div#middle-box {
+		background: white;
+		margin-top: 5%;
+		width: 90%;
+		margin-left: 5%;
+		padding-top: 2%;
+		padding-bottom: 5%;
+	}
+
+	.bs-style{
+		margin-bottom: 15px !important;
+		padding: 6px 12px !important;
+		border: 1px solid #ffffff !important;
+	}
 
 /* ----------------------------------------------------
 	CONTACT PAGE	
 ------------------------------------------------------- */  
-.contact-banner {
-	width: 96%;
-	margin-left: 2%;
-	text-align: center;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
+	.contact-banner {
+		width: 96%;
+		margin-left: 2%;
+		text-align: center;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
 
 /* ----------------------------------------------------
 	PURCHASE PAGE	
 ------------------------------------------------------- */  
-.table-borderless tbody tr td, .table-borderless tbody tr th, .table-borderless thead tr th {
-    border: none;
-		line-height: 1;
-}
+	.table-borderless tbody tr td, .table-borderless tbody tr th, .table-borderless thead tr th {
+			border: none;
+			line-height: 1;
+	}
 
 /* ----------------------------------------------------
 	THANK_YOU PAGE	
 ------------------------------------------------------- */  
-#envelope {
-  display: block;
-	margin-left: auto;
-	margin-right: auto;
-	height: 150px;
-}
+	#envelope {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		height: 150px;
+	}

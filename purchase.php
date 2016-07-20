@@ -59,7 +59,7 @@
 			padding-right:10px;
 			padding-left:10px;
 		}
-		.form-control {
+		div .form-control {
 			text-transform: none;
 			color: black;
 		}		
@@ -166,27 +166,6 @@
 			font-weight: bold;
 			font-size: 15px;
 		}
-		div#middle-box {
-			background: white;
-			margin-top: 5%;
-			width: 90%;
-			margin-left: 5%;
-			padding-top: 2%;
-			padding-bottom: 5%;
-		}
-		#keep-position-fixed {
-			width: 100%;
-			top: 0;
-			right: 0;
-			padding: 0;
-			margin: 0;
-			position: fixed;
-			border-bottom: 1px solid #ececec;
-			z-index: 9999;
-			-webkit-transition: all 0.8s;
-			-moz-transition: all 0.8s;
-			transition: all 0.8s;
-		}
 	</style>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -213,7 +192,7 @@
 
 	<div id="wrapper">
 
-		<header id="keep-position-fixed" style="background:linear-gradient(to bottom, #fdfdfd 0%,#ffffff 100%) ;" class="header clearfix">
+		<header id="keep-position-fixed" style="background:linear-gradient(to bottom, #fdfdfd 0%,#ffffff 100%); border-bottom: 1px solid #ececec;" class="header clearfix">
 			<div class="topbar clearfix" style="">
 				<div class="container">
 					<div class="clearfix">
