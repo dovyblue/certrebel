@@ -26,26 +26,7 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
 
-	<link rel="stylesheet" type="text/css" href="/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/dist/bootstrap.min.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/dist/style.min.css?ver=<?php echo $version;?>">
-	<link rel="stylesheet" type="text/css" href="/css/dist/animate.min.css?ver=<?php echo $version;?>">
-
-	<style>
-		#keep-position-fixed {
-			width: 100%;
-			top: 0;
-			right: 0;
-			padding: 0;
-			margin: 0;
-			position: fixed;
-			/*border-bottom: 1px solid #ececec;*/
-			z-index: 9999;
-			-webkit-transition: all 0.8s;
-			-moz-transition: all 0.8s;
-			transition: all 0.8s;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="/css/dist/bootstyle.min.css?ver=<?php echo $version;?>">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -224,6 +205,12 @@
 	<script type="text/javascript" src="/js/dist/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/dist/wow.min.js"></script>
 	<script type="text/javascript" src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			loadStyleSheet('/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css');
+			loadStyleSheet('/css/dist/animate.min.css?ver=<?php echo $version;?>');
+		});
+	</script>
 
 </body>
 </html>

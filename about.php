@@ -28,21 +28,6 @@
 
 	<link rel="stylesheet" type="text/css" href="/css/dist/bootstyle.min.css?ver=<?php echo $version;?>">
 
-	<style>
-		#keep-position-fixed {
-			width: 100%;
-			top: 0;
-			right: 0;
-			padding: 0;
-			margin: 0;
-			position: fixed;
-			z-index: 9999;
-			-webkit-transition: all 0.8s;
-			-moz-transition: all 0.8s;
-			transition: all 0.8s;
-		}
-	</style>
-
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
