@@ -974,7 +974,7 @@ function get_receipt($info) {
 							175 Varick Street, New York, NY 10014<br>
 							<br>
 							<strong>Our mailing address is:</strong><br>
-							<a href="mailto:info@certrebel.com" target="_blank">info@certrebel.com</a><br>
+							<a href="mailto:hello@certrebel.com" target="_blank">hello@certrebel.com</a><br>
 							<br>
 							Visit our <a href="http://certrebel.com/terms" target="_blank">Privacy Policy</a> if you have any questions.</span><br>
 							&nbsp;
