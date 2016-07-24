@@ -1265,6 +1265,18 @@
 	SERVICES	
 ------------------------------------------------------- */ 
 
+	#data-loader {
+		overflow-x: hidden;
+		overflow-y: hidden;
+		vertical-align: middle;
+		display: table;
+		width: 100%;
+		top:0;
+		height: 100%;
+		min-height: 100%;
+		z-index:9998;
+	}
+
 	#loader {
 		overflow-x: hidden;
 		overflow-y: hidden;
@@ -2654,6 +2666,10 @@
 		display: block;
 		position: relative;
 	}
+	
+	#slider-section {
+		padding-top: 135px;
+	}
 
 /* ----------------------------------------------------
 	RESPONSIVE	
@@ -2764,6 +2780,10 @@
 
 	#test-popup {
 		max-width: 110% !important;
+	}
+
+	#slider-section {
+		padding-top: 60px !important;
 	}
 }
 
@@ -2913,17 +2933,21 @@
 
 	div#middle-box {
 		background: white;
-		margin-top: 5%;
-		width: 90%;
-		margin-left: 5%;
 		padding-top: 2%;
-		padding-bottom: 5%;
+		padding-bottom: 2%;
+		margin-bottom: 5%;
+		border-style: double;
 	}
 
 	.bs-style{
 		margin-bottom: 15px !important;
 		padding: 6px 12px !important;
 		border: 1px solid #ffffff !important;
+	}
+
+	.general-info {
+		font-weight: bold;
+		font-size: 15px;
 	}
 
 /* ----------------------------------------------------

@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <?php
 	session_start();
-	//if (isset($_COOKIE['xv'])) 
-	//	header('location: attendance/?#');
+	require_once('credentials.php');
+	require_once('/var/www/certrebel/functions.php');
+	if (isset($_COOKIE['xv']) && $_COOKIE['xv'] == get_rand(PASSWORD)) 
+		header('location: /dashboard');
 
-	require_once('version_number.inc');
+	require_once('/var/www/certrebel/version_number.inc');
 ?>
 <html >
   <head>
-    <meta charset="UTF-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="description" content="Privacy Policy">
+		<meta name="author" content="Rene Midouin">
+		<meta name="keywords" content="">
+
     <title>ADMIN | CertRebel, LLC</title>
-    <link rel="stylesheet" href="css/reset.css">
-		<link rel='stylesheet' href='css/font-awesome.min.css'>
-    <link rel="stylesheet" href="css/login_style.css">
+
+		<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+
+    <link rel="stylesheet" href="css/dist/login_style.min.css">
   </head>
 	<style>
 	.container .info span {
@@ -34,22 +46,12 @@
 					<p class="bg-danger">Invalid Account</p>
 				<?php
 				}
-				if (isset($_GET['ack'])) {
+				if (isset($_SESSION['err'])) {
 				?>
-					<p class="bg-danger">Your account is not activated yet.<br><br> Please try again later.</p>
+					<p class="bg-danger">Please make sure all fields are filled.</p>
 				<?php
 				}
-				if (isset($_GET['wa'])) {
-				?>
-					<p class="bg-success">Your account was successfully created.<br><br> We will activate it soon.</p>
-				<?php
-				}
-				if (isset($_GET['err'])) {
-				?>
-					<p class="bg-danger">Oops! Something went wrong.<br><br>Please make sure all fields are filled.</p>
-				<?php
-				}
-				if (isset($_GET['expired'])) {
+				if (isset($_SESSION['expired'])) {
 				?>
 					<p class="bg-danger">Your session has expired.</p>
 				<?php
@@ -61,7 +63,5 @@
 				<button type="submit">Login</button>
 			</form>
 		</div>
-		<script src='js/jquery-2.1.4.min.js'></script>
-		<script src="js/signin.js"></script>
   </body>
 </html>
