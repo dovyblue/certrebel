@@ -54,7 +54,7 @@ if (empty($_POST['buyer_first_name'])||
 	$single_course  = new SingleCourses\SingleCourse($info['course']);
 	$single_course->setIndex($info['index']);
 	$type = ($single_course->getPrice() === "0") ? "free" : "paid";
-	$terms = implode(" ",getTerms()[$type]);
+	$terms = implode(" ",get_terms()[$type]);
 	$info['title'] = $single_course->getLongTitle();
 	$info['date'] = $single_course->getMeetingDate();
 	$info['time'] = $single_course->getMeetingTime();

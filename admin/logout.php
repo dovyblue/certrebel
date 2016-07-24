@@ -1,7 +1,9 @@
 <?php
+session_start();
+ob_start();
 if(isset($_COOKIE['xv'])) {
-	unset($_COOKIE['xv']);
-	setcookie('xv',$user, time()-60*60*24, '/');
+	setcookie("xv",null, time() - 60*60*24, '/');
 }
-header("Location: /index");
+ob_end_flush();
+header("Location: /");
 ?>

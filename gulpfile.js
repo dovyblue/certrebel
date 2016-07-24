@@ -28,6 +28,16 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('js/dist'));
 });
 
+//  Minify Admin JS
+gulp.task('admin-scripts', function() {
+    return gulp.src('admin/js/src/*.js')
+				.pipe(rename(function(path) {
+					path.basename += '.min';
+				}))
+        .pipe(uglify())
+        .pipe(gulp.dest('admin/js/dist'));
+});
+
 //  Combine CSS
 gulp.task('combine-css', function () {
   return gulp.src(['css/src/bootstrap.css','css/src/style.css'])

@@ -133,7 +133,7 @@
 			</label>
 		</div>
 		<?php
-		$terms = implode(" ",getTerms()[$type]);
+		$terms = implode(" ",get_terms()[$type]);
 		echo '<p>'.$terms.'</p>';
 		?>
 	</div>
