@@ -57,7 +57,7 @@ function sendmail($data)
   //Set who the message is to be sent from
   //~~$mail->setFrom('rene.certrebel@gmail.com', 'CertRebel Support ');
   //~~
-	$mail->setFrom(ADMIN_EMAIL, 'CertRebel Support');
+	$mail->setFrom(ADMIN_EMAIL, 'CertRebel Team');
   //~~$mail->setFrom('support.certrebel@zoho.com', 'CertRebel Support');
   //Set an alternative reply-to address
   //$mail->addReplyTo('replyto@example.com', 'First Last');

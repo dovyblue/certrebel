@@ -61,7 +61,7 @@
 							<div class="contactwrap text-left">
 								<ul class="list-inline">
 									<li><i class="fa fa-phone"></i> Call Us: (646) 470-7119</li>
-									<li><i class="fa fa-envelope"></i><a href="mailto:info@certrebel.com"> Email Us: info@certrebel.com</a></li>
+									<li><i class="fa fa-envelope"></i><a href="mailto:hello@certrebel.com"> Email Us: hello@certrebel.com</a></li>
 								</ul>
 							</div><!-- end contactwrap -->
 						</div><!-- end col -->
@@ -159,7 +159,7 @@
 															Free for property owners and contractors.<br>
 															**Students must reside in Orange County, Ulster County, Putnam County,<br>
 															or surrounding areas to be eligible for the free class.<br>
-															Please call <span style="font-size: 16px;">(646) 470-7119</span> or email info@certrebel.com if you have any questions.
+															Please call <span style="font-size: 16px;">(646) 470-7119</span> or email hello@certrebel.com if you have any questions.
 
 	                        </div>
 	                        <div class="tp-caption text-center randomrotateout tp-resizeme"

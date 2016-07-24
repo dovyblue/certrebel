@@ -59,7 +59,7 @@
 							<div class="contactwrap text-left">
 								<ul class="list-inline">
 									<li><i class="fa fa-phone"></i> Call Us: (646) 470-7119</li>
-									<li><i class="fa fa-envelope"></i><a href="mailto:info@certrebel.com"> Email Us: info@certrebel.com</a></li>
+									<li><i class="fa fa-envelope"></i><a href="mailto:hello@certrebel.com"> Email Us: hello@certrebel.com</a></li>
 								</ul>
 							</div><!-- end contactwrap -->
 						</div><!-- end col -->
@@ -159,7 +159,7 @@
 							<h4>Contact Information :</h4>
 							<i class="fa fa-envelope"></i>
 							<p>If you are experiencing any difficulties or you want to leave us feedback on how we're doing, please send us a quick message.</p>
-							<small>- info@certrebel.com</small>
+							<small>- hello@certrebel.com</small>
 							<small>- (646) 470-7119</small>
 						</div><!-- end contact-widget -->
 
