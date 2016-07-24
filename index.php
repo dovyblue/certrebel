@@ -220,6 +220,50 @@
 			</div>
 		</section>
 
+		<section class="section-grey">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="section-title text-center">
+							<h4>Latest Courses</h4>
+							<hr>
+							<p>Check Out Our Latest Professional Courses</p>
+						</div><!-- end title -->
+					</div><!-- end col -->
+				</div><!-- end row -->
+				
+				<div id="owl-courses" class="section-container">
+				<?php
+				$course_ids = ['rrpif','rrpi','rrpr'];
+				foreach($course_ids as $id) {
+					$course = new Courses\Course($id);
+					$box = ($course->getAllSingleCourses()->getPrice() === "0") ? "box sample" : "";
+				?>
+					<div class="course-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+						<div class="<?php echo $box; ?> owl-image">
+							<a href="/course/<?php echo $course->getId(); ?>" title=""><img src="/images/<?php echo $course->getPicture(); ?>" alt="" class="img-responsive"></a>
+							<?php if($box) echo '<div class="ribbon"><span>FREE</span></div>'; ?>
+						</div><!-- end image -->
+						<div class="course-desc">
+							<h5><a href="/course/<?php echo $course->getId(); ?>" title=""><?php echo $course->getShortTitle(); ?></a></h5>
+							<span class="meta"><?php echo $course->getTagLine(); ?></span>
+							<p><?php echo $course->getShortDetailLimited(); ?></p>
+							<div class="course-big-meta clearfix">
+								<div class="pull-left">
+									<a href="/course/<?php echo $course->getId(); ?>" class="owl-button">Details</a>
+								</div><!-- end left -->
+								<div class="pull-right">
+									<p>$<?php echo $course->getAllSingleCourses()->getPrice(); ?></p>
+								</div><!-- end right -->
+							</div><!-- end course-big-meta -->
+						</div><!-- end desc -->
+					</div><!-- end item -->
+				<?php
+				}
+				?>
+			</div><!-- end container -->
+		</section><!-- end section-white -->
+
 		<section class="section-white" style="padding-bottom: 42px;">
 			<div class="container">
 				<div class="row">
@@ -276,50 +320,6 @@
 				</div><!-- end services -->
 			</div>
 		</section>
-
-		<section class="section-grey">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="section-title text-center">
-							<h4>Latest Courses</h4>
-							<hr>
-							<p>Check Out Our Latest Professional Courses</p>
-						</div><!-- end title -->
-					</div><!-- end col -->
-				</div><!-- end row -->
-				
-				<div id="owl-courses" class="section-container">
-				<?php
-				$course_ids = ['rrpif','rrpi','hazi'];
-				foreach($course_ids as $id) {
-					$course = new Courses\Course($id);
-					$box = ($course->getAllSingleCourses()->getPrice() === "0") ? "box sample" : "";
-				?>
-					<div class="course-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-						<div class="<?php echo $box; ?> owl-image">
-							<a href="/course/<?php echo $course->getId(); ?>" title=""><img src="/images/<?php echo $course->getPicture(); ?>" alt="" class="img-responsive"></a>
-							<?php if($box) echo '<div class="ribbon"><span>FREE</span></div>'; ?>
-						</div><!-- end image -->
-						<div class="course-desc">
-							<h5><a href="/course/<?php echo $course->getId(); ?>" title=""><?php echo $course->getShortTitle(); ?></a></h5>
-							<span class="meta"><?php echo $course->getTagLine(); ?></span>
-							<p><?php echo $course->getShortDetailLimited(); ?></p>
-							<div class="course-big-meta clearfix">
-								<div class="pull-left">
-									<a href="/course/<?php echo $course->getId(); ?>" class="owl-button">Details</a>
-								</div><!-- end left -->
-								<div class="pull-right">
-									<p>$<?php echo $course->getAllSingleCourses()->getPrice(); ?></p>
-								</div><!-- end right -->
-							</div><!-- end course-big-meta -->
-						</div><!-- end desc -->
-					</div><!-- end item -->
-				<?php
-				}
-				?>
-			</div><!-- end container -->
-		</section><!-- end section-white -->
 
 		<!-- Footer -->
 		<?php require_once("footer.php"); ?>
