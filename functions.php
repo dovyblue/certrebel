@@ -8,6 +8,7 @@
  * function course_info()
  * function course_locations()
  * function get_attendees(from, to)
+ * function get_orange_county_zip_codes()
  * function get_rand()
  * function get_states()
  * function get_terms()
@@ -84,6 +85,17 @@ function course_locations() {
 }
 function get_attendees($from = "", $to = "") {
 	$url = 'http://localhost/scripts/php/get_attendees.php?from='.$from.'&to='.$to;
+	
+	$file = file_get_contents($url);
+	$json_a = json_decode($file, true);
+
+	return $json_a;
+}
+function get_orange_county_zip_codes() {
+	$url = __DIR__.'/json_files/orange_county_zip.json';
+
+	if (!file_exists($url) || !filesize($url))
+		$url = 'http://' . $_SERVER['HTTP_HOST'].'/scripts/php/get_orange_county_zip.php';
 	
 	$file = file_get_contents($url);
 	$json_a = json_decode($file, true);
