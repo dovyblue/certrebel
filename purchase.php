@@ -264,6 +264,52 @@
 
 	</div><!-- end wrapper -->
 
+<!-- Zip Code Popup -->
+<span id="inline-popups" style="cursor: pointer;" class="hidden links"> 
+	<a href="#test-popup" data-effect="mfp-zoom-in">Attention!</a>
+</span>
+<div id="test-popup" class="white-popup mfp-with-anim mfp-hide">
+  <header style="text-align:center; color: #df4a43">
+		<span class="start">Attention!</span>
+	</header>
+  <div class="popup-scroll">
+		<p style="text-align: center; font-size: 15px; padding-bottom:0;">
+			<br><strong>Here are the list of zip codes that are acceptable for the free class.</strong><br><br>
+		</p>
+			<table class="table table-striped table-bordered"style="table-layout:fixed;">
+				<thead>
+					<tr>
+						<th>ZIP Code - 1 </th>
+						<th>ZIP Code - 2</th>
+						<th>ZIP Code - 3</th>
+						<th>ZIP Code - 4</th>
+						<th>ZIP Code - 5</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+						$zips = get_orange_county_zip_codes();
+						$length = count($zips);
+						$size = ceil($length/5);
+						for ($i = 0; $i < $size; ++$i) {
+					?>
+					<tr>
+						<td><?php echo $zips[$i]['zip_code'] ?></td>
+						<td><?php echo $zips[$i+$size*1]['zip_code']; ?></td>
+						<td><?php echo $zips[$i+$size*2]['zip_code']; ?></td>
+						<td><?php echo $zips[$i+$size*3]['zip_code']; ?></td>
+						<td><?php echo isset($zips[$i+$size*4]['zip_code']) ? $zips[$i+$size*4]['zip_code'] : ""; ?></td>
+					</tr>
+					<?php
+						}
+					?>
+				</tbody>
+			</table>	
+  </div>
+</div>
+<!-- End Terms of Service Popup -->
+
+
 	<script type="text/javascript" src="/js/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/dist/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/dist/wow.min.js"></script>
@@ -290,6 +336,29 @@
 				$('#quantity_result').selectpicker('refresh');
 				$("html, body").animate({ scrollTop: 0 }, 500);
 			});
+
+			$('#inline-popups').magnificPopup({
+				delegate: 'a',
+				removalDelay: 800,
+				callbacks: {
+					beforeOpen: function() {
+						 this.st.mainClass = this.st.el.attr('data-effect');
+					},
+					close: function() {
+						$('header .container:nth-child(2)').fadeIn(800, "linear");
+					}
+				},
+				midClick: true
+			});
+			
+			if ($course == 'rrpif') {
+				setTimeout(function(){ 
+					$('a[href="#test-popup"]').click();
+					$('header .container:nth-child(2)').css('display','none');
+					$('button#payButton, button#registerButton').prop('disabled',false);
+					$('input[type="checkbox"]').prop('checked',true);
+				}, 2000);
+			}
 	  });
 	</script>
 	<script>
