@@ -16,7 +16,7 @@ if (empty($_POST['name'])  ||
 	$info['type']							= "contact_form";
 	$info['name']							= htmlentities(ucwords($_POST['name']));
 	$info['email']						= htmlentities(strtolower($_POST['email']));
-	$info['message_receiver'] = "support@certrebel.com";
+	$info['message_receiver'] = "hello@certrebel.com";
 	$info['phone']						= "";
 	$info['message']					= htmlentities($_POST['message']);
 	$_SESSION['email']				= $info['email'];

@@ -22,7 +22,7 @@ if ( empty($_POST['name'])  				||
 	$info['last_name']				= htmlentities(ucwords($_POST['last_name']));
 	$info['company']					= htmlentities(ucwords($_POST['company']));
 	$info['email']						= htmlentities(strtolower($_POST['email']));
-	$info['message_receiver'] = "support@certrebel.com";
+	$info['message_receiver'] = "hello@certrebel.com";
 	$info['phone']						= htmlentities($_POST['phone']);
 	$info['selectOption']			= htmlentities($_POST['selectOption']);
 	$info['text']							= htmlentities($_POST['text']);
