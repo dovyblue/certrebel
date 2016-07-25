@@ -157,8 +157,7 @@
 															The Orange County Department of Health has provided funding for this training for free! <br>
 															This course includes both training and EPA Certification for Lead Paint Safety during renovations.<br>
 															Free for property owners and contractors.<br>
-															**Students must reside in Orange County, Ulster County, Putnam County,<br>
-															or surrounding areas to be eligible for the free class.<br>
+															**Students must reside and/or work in Orange County to be eligible for the free class.<br>
 															Please call <span style="font-size: 16px;">(646) 470-7119</span> or email hello@certrebel.com if you have any questions.
 
 	                        </div>
