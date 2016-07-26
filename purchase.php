@@ -274,7 +274,8 @@
 	</header>
   <div class="popup-scroll">
 		<p style="text-align: center; font-size: 15px; padding-bottom:0;">
-			<br><strong>Here are the list of zip codes that are acceptable for the free class.</strong><br><br>
+			<br><strong>You must reside and/or work in Orange County to be eligible for the free class.</strong><br>
+			<br><strong>Here are the list of zip codes that are acceptable.</strong><br><br>
 		</p>
 			<table class="table table-striped table-bordered"style="table-layout:fixed;">
 				<thead>

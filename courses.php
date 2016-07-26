@@ -372,7 +372,9 @@
 				<div class="row courses-list">
 					<?php
 						$courses = new Courses\Course();
+						$remove_ids = array('rrpifa');
 						$course_ids = $courses->getAllCoursesId();
+						$course_ids = array_diff($course_ids,$remove_ids);
 						if ($course_ids) {
 							$delay = 0;
 							foreach ($course_ids as $id) {

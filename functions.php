@@ -16,6 +16,7 @@
  * function order_receipt()
  * function set_session()
  * function single_course_info()
+ * function validate_orange_county_zip_code();
  */
 require_once("credentials.php");
 
@@ -95,7 +96,7 @@ function get_orange_county_zip_codes() {
 	$url = __DIR__.'/json_files/orange_county_zip.json';
 
 	if (!file_exists($url) || !filesize($url))
-		$url = 'http://' . $_SERVER['HTTP_HOST'].'/scripts/php/get_orange_county_zip.php';
+		$url = 'http://' . $_SERVER['HTTP_HOST'].'/scripts/php/get_orange_county_zip.php?type=array';
 	
 	$file = file_get_contents($url);
 	$json_a = json_decode($file, true);
@@ -156,5 +157,18 @@ function single_course_info() {
 	$json_a = json_decode($file, true);
 
 	return $json_a;
+}
+function validate_orange_county_zip_code($zip) {
+	$url = __DIR__.'/json_files/validate_orange_county_zip.json';
+
+	if (!file_exists($url) || !filesize($url))
+		$url = 'http://' . $_SERVER['HTTP_HOST'].'/scripts/php/get_orange_county_zip.php?type=associative';
+	
+	$file = file_get_contents($url);
+	$json_a = json_decode($file, true);
+	if (isset($json_a[$zip]))
+		return true;
+	
+	return false;
 }
 ?>  
