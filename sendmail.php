@@ -11,9 +11,8 @@ require 'PHPMailer/PHPMailerAutoload.php';
 require_once('functions.php'); 
 //header("MIME-Version: 1.0; Content-Type: text/html; charset=ISO-8859-1", true);
  
-  //Create a new PHPMailer instance
-function sendmail($data)
-{
+//Create a new PHPMailer instance
+function sendmail($data) {
 
 	$email 	 = $data['message_receiver'];
 	$subject = $data['subject'];
@@ -39,9 +38,11 @@ function sendmail($data)
 	//$mail->Host = "smtp-relay.gmail.com";
   //$mail->Host = "aspmx.l.google.com";
   //Set the SMTP port number - likely to be 25, 465 or 587
- 	// $mail->Port = 25;
+ 	//$mail->Port = 25;
  	$mail->Port = 465;
+ 	//$mail->Port = 587;
   //Set the encryption system to use - ssl (deprecated) or tls
+  //$mail->SMTPSecure = 'tls';
   $mail->SMTPSecure = 'ssl';
   //Whether to use SMTP authentication
   $mail->SMTPAuth = true;

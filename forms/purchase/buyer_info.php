@@ -7,6 +7,7 @@
 	$quantity = htmlentities($_GET['quantity']);
 	$index 		= htmlentities($_GET['index']);
 ?>
+<link rel="stylesheet" type="text/css" href="/libraries/swal/dist/sweetalert.min.css?ver=<?php echo $version;?>">
 <div class="widget-title">
 	<h1 style="text-align:center; font-size:30px;">Awesome!</h1>
 </div>
@@ -51,6 +52,7 @@
 	</div>
 </div>
 
+<script type="text/javascript" src="/libraries/swal/dist/sweetalert.min.js"></script>
 <script>
 	function buyer_info_prefill() {
 		var buyer_info = ['buyer_first_name',
@@ -145,6 +147,23 @@
 			localStorage.setItem($attendee_phone, $('#phone').val());
 		} 
 	}
+	function check_zip($zip) {
+		var result = null;
+		$.ajax({
+			url: '/scripts/php/validate_orange_county_zip',
+			data: {zip_code: $zip},
+			async: false,
+			type: 'GET',
+			dataType: 'json',
+			success: function(data) {
+				if(data.success == true)
+					result = true;	
+				else
+					result = false;
+			}
+		});
+		return result;
+	}
 </script>
 <script>
 	$(document).ready(function(){
@@ -163,30 +182,77 @@
 			});
 		});
 
-		$('body').on('submit', '#buyer_info', function(e){
-			e.preventDefault();
-			var check = true;
-			$('#buyer_info [required]').each(function(){
-				if ($(this).val() == "" || $(this).val() == null) {
-					$(this).css('border-color','red');
-					check = false;
-				} else {
-					$(this).css('border-color','#DADADC');
-				}
-			});
-			if (check) {
-				buyer_save_data();
-				if(localStorage.getItem('quantity') !== null) {                            
-					$quantity = localStorage.getItem('quantity');
-				} 
-				$("#middle-box").load("/forms/purchase/attendee_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity="+$quantity, function(){
-					$('#quantity_result').selectpicker('refresh');
-					$("html, body").stop().animate({ scrollTop: 0 }, 500);
+		function buyerFunc(e){
+				e.preventDefault();
+				var check = true;
+				$('#buyer_info [required]').each(function(){
+					if ($(this).val() == "" || $(this).val() == null) {
+						$(this).css('border-color','red');
+						check = false;
+					} else {
+						$(this).css('border-color','#DADADC');
+					}
 				});
-			} else {
-				$("html, body").stop().animate({ scrollTop: 0 }, 500);
-				$('.contact-banner.bg-danger').fadeIn(1000, function(){$(this).delay(3000).fadeOut(1000)})
-			}
-		});
+				if (check) {
+					var course = "<?php echo $course; ?>";
+					var $zip = $('#zip_code').val();
+					if (course == 'rrpif') {
+							if (check_zip($zip)) {
+								buyer_save_data();
+								if(localStorage.getItem('quantity') !== null) {                            
+									$quantity = localStorage.getItem('quantity');
+								} 
+								$("#middle-box").load("/forms/purchase/attendee_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity="+$quantity, function(){
+									$('#quantity_result').selectpicker('refresh');
+									$("html, body").stop().animate({ scrollTop: 0 }, 500);
+									$('body').unbind('submit', buyerFunc);
+								});
+							} else {
+								swal({
+									title: "<span style=\"font-size:18px;\">Invalid ZIP Code</span>", 
+									text:  "<span style=\"font-size:15px; line-height:25px; text-align:left;\">"+
+														"Click <a href=\"#\" id=\"list_of_zip_codes\">here </a>to see the list of acceptable ZIP codes"+
+														" or  purchase a ticket at <strong>our competitive price of $200!</strong>"+
+												 "</span>", 
+									html: 	true,
+									showCancelButton: true,
+									cancelButtonText: "Close",
+									confirmButtonText: "Pay $200",
+									confirmButtonColor: "#F27474",
+								},
+								function(){
+									buyer_save_data();
+									if(localStorage.getItem('quantity') !== null) {                            
+										$quantity = localStorage.getItem('quantity');
+									} 
+									$("#middle-box").load("/forms/purchase/attendee_info?course=rrpifa&index=<?php echo $index; ?>&quantity="+$quantity, function(){
+										$('#quantity_result').selectpicker('refresh');
+										$("html, body").stop().animate({ scrollTop: 0 }, 500);
+										$('body').unbind('submit', buyerFunc);
+									});
+								});
+								$('#list_of_zip_codes').on('click', function(){
+									$('header .container:nth-child(2)').css('display','none');
+									swal.close();
+									$('a[href="#test-popup"]').click();
+								});
+							}
+					} else {
+						buyer_save_data();
+						if(localStorage.getItem('quantity') !== null) {
+							$quantity = localStorage.getItem('quantity');
+						} 
+						$("#middle-box").load("/forms/purchase/attendee_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity="+$quantity, function(){
+							$('#quantity_result').selectpicker('refresh');
+							$("html, body").stop().animate({ scrollTop: 0 }, 500);
+						});
+					}
+				} else {
+					$("html, body").stop().animate({ scrollTop: 0 }, 500);
+					$('.contact-banner.bg-danger').fadeIn(1000, function(){$(this).delay(3000).fadeOut(1000)})
+				}
+			};
+
+		$('body').on('submit', '#buyer_info', buyerFunc);
 	});
 </script>

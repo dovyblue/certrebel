@@ -124,10 +124,14 @@
 			$('.widget-title h1 span').html(', '+first_name+'.').css('text-transform','capitalize');
 		}
 		$('#backButton').on('click', function(){
-			$("#middle-box").load("/forms/purchase/buyer_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity=<?php echo $quantity; ?>");
+			$course = "<?php echo $course; ?>";
+			if ($course == 'rrpifa')
+				$course = 'rrpif';
+
+			$("#middle-box").load("/forms/purchase/buyer_info?course="+$course+"&index=<?php echo $index; ?>&quantity=<?php echo $quantity; ?>");
 			$("html, body").stop().animate({ scrollTop: 0 }, 500);
 		});
-		$('body').on('submit', '#attendee', function(e){
+		function attendeeFunc(e){
 			e.preventDefault();
 			var check = true;
 			$('#attendee [required]').each(function(){
@@ -141,6 +145,7 @@
 			if (check) {
 				attendee_save_data();
 				$("#middle-box").load("/forms/purchase/review_info?course=<?php echo $course; ?>&index=<?php echo $index; ?>&quantity=<?php echo $quantity; ?>", function(){
+					$('body').unbind('submit', attendeeFunc);
 					buyer_first_name = localStorage.getItem('buyer_first_name');
 					buyer_last_name = localStorage.getItem('buyer_last_name');
 					buyer_email = localStorage.getItem('buyer_email');
@@ -186,6 +191,7 @@
 				$("html, body").stop().animate({ scrollTop: 0 }, 500);
 				$('.contact-banner.bg-danger').fadeIn(1000, function(){$(this).delay(3000).fadeOut(1000)})
 			}
-		});
+		}
+		$('body').on('submit', '#attendee', attendeeFunc);
 	});	
 </script>

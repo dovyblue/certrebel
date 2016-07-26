@@ -2773,6 +2773,16 @@
 	#slider-section {
 		padding-top: 60px !important;
 	}
+	#swal-title {
+		font-size: 15px !important; 
+	}
+	#swal-text {
+		font-size: 12px !important; 
+	}
+	.sweet-alert {
+		margin-top: -160px !important; 
+	}
+
 }
 
 /* ----------------------------------------------------
