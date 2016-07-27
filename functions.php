@@ -151,7 +151,7 @@ function single_course_info() {
 	$url = __DIR__.'/json_files/single_course_info.json';
 
 	if (!file_exists($url) || !filesize($url)) 
-		$url = 'http://' . $_SERVER['HTTP_HOST'].'/scripts/php/single_course_info.php';
+		$url = 'http://localhost/scripts/php/single_course_info.php';
 	
 	$file = file_get_contents($url);
 	$json_a = json_decode($file, true);

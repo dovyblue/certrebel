@@ -19,7 +19,7 @@ try
 												FROM
 														CertRebel.single_course_info
 												WHERE
-														DATE_FORMAT(STR_TO_DATE(course_meeting_date, '%W, %M %D, %Y'), '%y-%m-%d') > DATE_FORMAT(DATE(NOW()), '00-%m-%d')
+														DATE_FORMAT(STR_TO_DATE(course_meeting_date, '%W, %M %D, %Y'), '%y-%m-%d') > DATE_FORMAT(DATE(NOW()), '%y-%m-%d')
 																OR course_meeting_time = 'On Demand') AS NEW_DATE";
 	$checkUserStmt = $dbConnection->prepare($checkUserQuery);
 	$checkUserStmt->execute();

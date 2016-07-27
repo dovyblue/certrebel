@@ -208,34 +208,67 @@
 									$('body').unbind('submit', buyerFunc);
 								});
 							} else {
-								swal({
-									title: "<span style=\"font-size:18px;\">Invalid ZIP Code</span>", 
-									text:  "<span style=\"font-size:15px; line-height:25px; text-align:left;\">"+
-														"Click <a href=\"#\" id=\"list_of_zip_codes\">here </a>to see the list of acceptable ZIP codes"+
-														" or  purchase a ticket at <strong>our competitive price of $200!</strong>"+
-												 "</span>", 
-									html: 	true,
-									showCancelButton: true,
-									cancelButtonText: "Close",
-									confirmButtonText: "Pay $200",
-									confirmButtonColor: "#F27474",
-								},
-								function(){
-									buyer_save_data();
-									if(localStorage.getItem('quantity') !== null) {                            
-										$quantity = localStorage.getItem('quantity');
-									} 
-									$("#middle-box").load("/forms/purchase/attendee_info?course=rrpifa&index=<?php echo $index; ?>&quantity="+$quantity, function(){
-										$('#quantity_result').selectpicker('refresh');
-										$("html, body").stop().animate({ scrollTop: 0 }, 500);
-										$('body').unbind('submit', buyerFunc);
+								var isMobile = window.matchMedia("only screen and (max-width: 768px)").matches;
+								if (isMobile) {
+									swal({
+										title: "<span style=\"font-size:18px;\">Invalid ZIP Code</span>", 
+										text:  "<span style=\"font-size:15px; line-height:25px; text-align:left;\">"+
+															"Click <a href=\"#\" id=\"list_of_zip_codes\">here </a>to see the list of acceptable ZIP codes"+
+															" or  purchase a ticket at <strong>our competitive price of $200!</strong>"+
+													 "</span>", 
+										html: 	true,
+										showCancelButton: true,
+										cancelButtonText: "Close",
+										confirmButtonText: "Pay $200",
+										confirmButtonColor: "#F27474",
+									},
+									function(){
+										buyer_save_data();
+										if(localStorage.getItem('quantity') !== null) {                            
+											$quantity = localStorage.getItem('quantity');
+										} 
+										$("#middle-box").load("/forms/purchase/attendee_info?course=rrpifa&index=<?php echo $index; ?>&quantity="+$quantity, function(){
+											$('#quantity_result').selectpicker('refresh');
+											$("html, body").stop().animate({ scrollTop: 0 }, 500);
+											$('body').unbind('submit', buyerFunc);
+										});
 									});
-								});
-								$('#list_of_zip_codes').on('click', function(){
-									$('header .container:nth-child(2)').css('display','none');
-									swal.close();
-									$('a[href="#test-popup"]').click();
-								});
+									$('#list_of_zip_codes').on('click', function(){
+										$('header .container:nth-child(2)').css('display','none');
+										swal.close();
+										$('a[href="#test-popup"]').click();
+									});
+								} else {
+									swal({
+										title: "Invalid ZIP Code", 
+										text:  "<span style=\"line-height:40px;\">"+
+															"Click <a href=\"#\" id=\"list_of_zip_codes\">here </a>to see the list of acceptable ZIP codes"+
+															" or  purchase a ticket at <strong>our competitive price of $200!</strong>"+
+													 "</span>", 
+										html: 	true,
+										type: 'error',
+										showCancelButton: true,
+										cancelButtonText: "Close",
+										confirmButtonText: "Pay $200",
+										confirmButtonColor: "#F27474",
+									},
+									function(){
+										buyer_save_data();
+										if(localStorage.getItem('quantity') !== null) {                            
+											$quantity = localStorage.getItem('quantity');
+										} 
+										$("#middle-box").load("/forms/purchase/attendee_info?course=rrpifa&index=<?php echo $index; ?>&quantity="+$quantity, function(){
+											$('#quantity_result').selectpicker('refresh');
+											$("html, body").stop().animate({ scrollTop: 0 }, 500);
+											$('body').unbind('submit', buyerFunc);
+										});
+									});
+									$('#list_of_zip_codes').on('click', function(){
+										$('header .container:nth-child(2)').css('display','none');
+										swal.close();
+										$('a[href="#test-popup"]').click();
+									});
+								}
 							}
 					} else {
 						buyer_save_data();
