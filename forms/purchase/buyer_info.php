@@ -246,7 +246,7 @@
 															" or  purchase a ticket at <strong>our competitive price of $200!</strong>"+
 													 "</span>", 
 										html: 	true,
-										type: 'error',
+										type: 'warning',
 										showCancelButton: true,
 										cancelButtonText: "Close",
 										confirmButtonText: "Pay $200",
