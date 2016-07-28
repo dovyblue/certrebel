@@ -1,11 +1,16 @@
 <?php
 	require_once('/var/www/certrebel/functions.php');
+	require_once('/var/www/certrebel/classes/courses/SingleCourses.php');
 	if (!isset($_GET['course']) || !isset($_GET['index']))
 		header("Location: /courses");
 
 	$course 	= htmlentities($_GET['course']);
 	$quantity = htmlentities($_GET['quantity']);
 	$index 		= htmlentities($_GET['index']);
+	
+	$alternate_course  = new SingleCourses\SingleCourse('rrpifa');
+	$alternate_course->setIndex($index);
+	$alternate_price = $alternate_course->getPrice();
 ?>
 <link rel="stylesheet" type="text/css" href="/libraries/swal/dist/sweetalert.min.css?ver=<?php echo $version;?>">
 <div class="widget-title">
@@ -209,17 +214,18 @@
 								});
 							} else {
 								var isMobile = window.matchMedia("only screen and (max-width: 768px)").matches;
+								var alternate_price = "<?php echo $alternate_price; ?>";
 								if (isMobile) {
 									swal({
 										title: "<span style=\"font-size:18px;\">Invalid ZIP Code</span>", 
 										text:  "<span style=\"font-size:15px; line-height:25px; text-align:left;\">"+
 															"Click <a href=\"#\" id=\"list_of_zip_codes\">here </a>to see the list of acceptable ZIP codes"+
-															" or  purchase a ticket at <strong>our competitive price of $200!</strong>"+
+															" or  purchase a ticket at <strong>our competitive price of $"+alternate_price+"!</strong>"+
 													 "</span>", 
 										html: 	true,
 										showCancelButton: true,
 										cancelButtonText: "Close",
-										confirmButtonText: "Pay $200",
+										confirmButtonText: "Pay $"+alternate_price,
 										confirmButtonColor: "#F27474",
 									},
 									function(){
