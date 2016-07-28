@@ -234,11 +234,13 @@
 				<div id="owl-courses" class="section-container">
 				<?php
 				$course_ids = ['rrpif','rrpi','rrpr'];
+				$delay = 0;
 				foreach($course_ids as $id) {
 					$course = new Courses\Course($id);
 					$box = ($course->getAllSingleCourses()->getPrice() === "0") ? "box sample" : "";
-				?>
-					<div class="course-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+					$delay = ($delay == 6) ? 2 : $delay + 2;
+					?>
+					<div class="course-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.<?php echo $delay;?>s">
 						<div class="<?php echo $box; ?> owl-image">
 							<a href="/course/<?php echo $course->getId(); ?>" title=""><img src="/images/<?php echo $course->getPicture(); ?>" alt="" class="img-responsive"></a>
 							<?php if($box) echo '<div class="ribbon"><span>FREE</span></div>'; ?>
