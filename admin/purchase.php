@@ -1,8 +1,8 @@
 <?php
 	session_start();
-	require_once('sendmail.php');
+	require_once('/var/www/certrebel/sendmail.php');
 	require_once('/var/www/certrebel/classes/courses/SingleCourses.php');
-	include_once('version_number.inc');
+	include_once('/var/www/certrebel/version_number.inc');
 
 	$course = htmlentities($_GET['course']);
 	$index	= htmlentities($_GET['index']);
@@ -38,7 +38,7 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
 
-	<link rel="stylesheet" type="text/css" href="/css/dist/bootstyle.min.css?ver=<?php echo $version;?>">
+	<link rel="stylesheet" type="text/css" href="/css/dist/bootstyle.admin.min.css?ver=<?php echo $version;?>">
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" type="text/css" href="/libraries/bootstrap-select/dist/css/bootstrap-select.min.css?ver=<?php echo $version;?>">
@@ -173,8 +173,6 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
-	<?php include_once('scripts/js/seo.php'); ?>
-
 </head>
 <body>
 
@@ -193,25 +191,6 @@
 	<div id="wrapper">
 
 		<header id="keep-position-fixed" style="background:linear-gradient(to bottom, #fdfdfd 0%,#ffffff 100%); border-bottom: 1px solid #ececec;" class="header clearfix">
-			<div class="topbar clearfix" style="">
-				<div class="container">
-					<div class="clearfix">
-						<div class="pull-left">
-							<div class="contactwrap text-left">
-								<ul class="list-inline">
-									<li><i class="fa fa-phone"></i> Call Us: (646) 470-7119</li>
-									<li><i class="fa fa-envelope"></i><a href="mailto:hello@certrebel.com"> Email Us: hello@certrebel.com</a></li>
-								</ul>
-							</div><!-- end contactwrap -->
-						</div><!-- end col -->
-
-						<div class="pull-right">
-							<ul class="social">
-							</ul>
-						</div><!-- end col -->
-					</div><!-- end row -->
-				</div><!-- end container -->
-			</div><!-- end topbar -->
 			<div class="container">
 				<nav style="background:linear-gradient(to bottom, #fdfdfd 0%,#ffffff 100%) ;" class="yamm navbar navbar-default">
 					<div class="navbar-header">
@@ -226,9 +205,10 @@
 					<div id="navbar" class="navbar-collapse collapse">
 			      <ul class="nav navbar-nav navbar-right">
 							<li class="dropdown megamenu"><a href="/">Home</a></li>
-       				<li><a href="/about">About</a></li>
+       				<li class="hidden"><a href="/about">About</a></li>
 							<li class="dropdown megamenu"><a href="/courses">Courses</a>
-							<li class="dropdown megamenu"><a href="/contact">Contact</a></li>
+							<li class="hidden dropdown megamenu"><a href="/contact">Contact</a></li>
+            	<li class="dropdown" id="signout"><a><i style="font-size: 19px; cursor: pointer;" class="fa fa-power-off"></i></a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</nav><!-- end nav -->
@@ -259,7 +239,8 @@
 			</div>
 		</div>
 		<!-- Footer -->
-		<?php require_once("forms/footer/footer.php"); ?>
+		<?php require_once("/var/www/certrebel/forms/footer/footer.php"); ?>
+		<?php require_once("forms/login/log-out.php"); ?>
 		<!-- End Footer -->
 
 	</div><!-- end wrapper -->
@@ -315,7 +296,8 @@
 	<script type="text/javascript" src="/js/dist/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/dist/wow.min.js"></script>
 	<script type="text/javascript" src="https://checkout.stripe.com/checkout.js"></script>
-	<script type="text/javascript" src="/js/dist/maskedinput.min.js?ver=<?php echo $version;?>" type="text/javascript"></script>
+	<script type="text/javascript" src="/js/dist/maskedinput.min.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript" src="/js/dist/logout.min.js?ver=<?php echo $version;?>"></script>
 	<script type="text/javascript" src="/libraries/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 	<script type="text/javascript" src="/libraries/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
 	<script type="text/javascript" src="/js/dist/terms_of_service.min.js?ver=<?php echo $version;?>" type="text/javascript"></script>

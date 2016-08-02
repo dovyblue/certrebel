@@ -125,6 +125,7 @@
 
 		<!-- Footer -->
 		<?php require_once("forms/footer/footer.php"); ?>
+		<?php require_once("forms/login/log-out.php"); ?>
 		<!-- End Footer -->
 
 	</div><!-- end wrapper -->
@@ -132,6 +133,7 @@
 	<script type="text/javascript" src="/js/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/dist/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript" src="/js/dist/logout.min.js?ver=<?php echo $version;?>"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			loadStyleSheet('/css/dist/squares.min.css?ver=<?php echo $version;?>');

@@ -323,7 +323,7 @@
 		</section>
 
 		<!-- Footer -->
-		<?php require_once("footer.php"); ?>
+		<?php require_once("forms/footer/footer.php"); ?>
 		<!-- End Footer -->
 
 	</div><!-- end wrapper -->
