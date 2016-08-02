@@ -87,7 +87,7 @@
 				<div class="container">
 				<div class="row" style="margin-bottom: 5%;">
 					<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="col-md-3 col-md-offset-2 col-sm-12 col-xs-12">
+						<div class="col-md-3 col-md-offset-2 col-sm-12 col-xs-12" style="margin-bottom: 40px;">
 							<div style="width: 20%; float: left; height: 45px; line-height: 45px; font-size: 17px; font-weight: bold;">
 								<span>From</span>
 							</div>
@@ -99,7 +99,7 @@
 									</div>
 							</div>
 						</div>
-						<div class="col-md-3 col-sm-12 col-xs-12">
+						<div class="col-md-3 col-sm-12 col-xs-12" style="margin-bottom: 40px;">
 							<div style="width: 20%; float: left; height: 45px; line-height: 45px; font-size: 17px; font-weight: bold;">
 								<span>To</span>
 							</div>
@@ -111,7 +111,7 @@
 									</div>
 							</div>
 						</div>
-						<div class="col-md-2 col-sm-12 col-xs-12" style="padding-top: 8px; padding-bottom: 8px;">
+						<div class="col-md-2 col-sm-12 col-xs-12" style="padding-top: 8px; padding-bottom: 8px; margin-bottom: 40px;">
 							<button id="date-submit" class="btn btn-block btn-primary">Submit</button>
 						</div>
 					</div>
@@ -130,127 +130,89 @@
 					</div>
 				</div>
 				<div id="load-data" class="row">
-					<?php
-					$attendee_ids = get_attendees($date, $date);
-					$i = 0;
-					foreach ($attendee_ids as $attendee_id) {
-					if ($i++ == 5) break;
-					$attendee = new Attendees\Attendee($attendee_id);
-					?>
-					<div id="middle-box" class="hidden col-md-12 col-sm-12 col-xs-12">
-						<div class="row" style="margin-top:0%; padding-left:10%; padding-right:10%;">
-							<div class="col-md-4 col-sm-12 col-xs-12">
-									<div class="general-info col-md-2 col-sm-2 col-xs-2" style="padding-left:0; clear:both; margin-bottom:5%;">
-											Attendee
-									</div>
-									<div class="course-widget" style="clear:both;">
-										<ul>
-											<li>
-												<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Name: </div>
-												<div style="width: 70%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $attendee->getAttendeeFirstName(); ?></strong></a></div>
-												<div class="hidden" style="float: right; display: inline-block; margin-right: 5px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
-											</li>
-											<li>
-												<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Address: </div>
-												<div style="width: 70%; display: inline-block;"><a style="pointer-events:none" href="#"><strong></strong></a></div>
-												<div class="hidden" style="float: right; display: inline-block; margin-right: 5px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
-											</li>
-											<li>
-												<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">DOB: </div>
-												<div style="width: 70%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $attendee->getAttendeeDOB(); ?></strong></a></div>
-												<div class="hidden" style="float: right; display: inline-block; margin-right: 5px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
-											</li>
-											<li>
-												<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Email: </div>
-												<div style="width: 70%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $attendee->getAttendeeEmail(); ?></strong></a></div>
-												<div class="hidden" style="float: right; display: inline-block; margin-right: 5px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
-											</li>
-											<li>
-												<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Phone: </div>
-												<div style="width: 70%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $attendee->getAttendeePhone(); ?></strong></a></div>
-												<div class="hidden" style="float: right; display: inline-block; margin-right: 5px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
-											</li>
-										</ul>
-									</div>
-							</div>
-							<div class="col-md-4 col-sm-12 col-xs-12">
-									<div class="general-info col-md-2 col-sm-2 col-xs-2" style="padding-left:0; clear:both; margin-bottom:5%;">
-											Buyer
-									</div>
-									<div class="course-widget" style="clear:both;">
-										<ul>
-											<li>
-												<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Name: </div>
-												<div style="width: 70%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $attendee->getBuyerFirstName(); ?></strong></a></div>
-												<div class="hidden" style="float: right; display: inline-block; margin-right: 5px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
-											</li>
-											<li>
-												<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Company: </div>
-												<div style="width: 70%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $attendee->getBuyerCompany(); ?></strong></a></div>
-												<div class="hidden" style="float: right; display: inline-block; margin-right: 5px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
-											</li>
-											<li>
-												<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Address: </div>
-												<div style="width: 70%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $attendee->getBuyerAddress1(); ?></strong></a></div>
-												<div class="hidden" style="float: right; display: inline-block; margin-right: 5px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
-											</li>
-											<li>
-												<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Email: </div>
-												<div style="width: 70%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $attendee->getBuyerEmail(); ?></strong></a></div>
-												<div class="hidden" style="float: right; display: inline-block; margin-right: 5px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
-											</li>
-											<li>
-												<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Phone: </div>
-												<div style="width: 70%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $attendee->getBuyerPhone(); ?></strong></a></div>
-												<div class="hidden" style="float: right; display: inline-block; margin-right: 5px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
-											</li>
-										</ul>
-									</div>
-							</div>
-							<div class="col-md-4 col-sm-12 col-xs-12">
-									<div class="general-info col-md-2 col-sm-2 col-xs-2" style="padding-left:0; clear:both; margin-bottom:5%;">
-											Course
-									</div>
-									<div class="course-widget" style="clear:both;">
-										<ul>
-											<li>
-												<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Course: </div>
-												<div style="width: 70%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $attendee->getPurchasedCourse()->getLongTitle() ?></strong></a></div>
-												<div class="hidden" style="float: right; display: inline-block; margin-right: 5px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
-											</li>
-											<li>
-												<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Date: </div>
-												<div style="width: 70%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $attendee->getPurchasedCourse()->getMeetingDate() ?></strong></a></div>
-												<div class="hidden" style="float: right; display: inline-block; margin-right: 5px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
-											</li>
-											<li>
-												<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Time: </div>
-												<div style="width: 70%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $attendee->getPurchasedCourse()->getMeetingTime() ?></strong></a></div>
-												<div class="hidden" style="float: right; display: inline-block; margin-right: 5px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
-											</li>
-											<li>
-												<div style="width: 20%; float: left; display: inline-block; margin-right: 5px;">Address: </div>
-												<div style="width: 70%; display: inline-block;"><a style="pointer-events:none" href="#"><strong><?php echo $attendee->getPurchasedCourse()->getAddress() ?></strong></a></div>
-												<div class="hidden" style="float: right; display: inline-block; margin-right: 5px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
-											</li>
-										</ul>
-									</div>
-							</div>
-						</div><!-- end row -->
-					</div><!-- end middle-box -->
-					<?php
-					}
-					?>
 				</div><!-- end row -->
 			</div><!-- end container -->
 		</section><!-- end section-white -->
 
 		<!-- Footer -->
-		<?php require_once("footer.php"); ?>
-		<?php require_once("log-out.php"); ?>
+		<?php require_once("forms/footer/footer.php"); ?>
+		<?php require_once("forms/login/log-out.php"); ?>
 		<!-- End Footer -->
 
 	</div><!-- end wrapper -->
+
+<!-- UPDATE FORMS -->
+<div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+	<div class="cd-user-modal-container"> <!-- this is the container wrapper -->
+		<ul class="cd-switcher" style="padding-left: 0;">
+			<li style="width: 100%; /*background: #c2c3c7;*/"><img src="/images/small_logo.png"/></li>
+		</ul>
+
+		<div id="cd-DOB"> <!-- cd-DOB form -->
+			<form class="cd-form">
+				<div class="fieldset">
+					<label class="image-replace cd-email" for="reset-email">Company</label>
+					<input style="font-size: 15px;" class="full-width has-padding has-border" id="attendee-DOB" type="text" placeholder="mm/dd/yyyy" autofocus required>
+				</div>
+				<p>
+					<input style="color: white; font-size: 25px;" class="full-width has-padding" type="submit" value="Update">
+				</p>
+			</form>
+		</div> <!-- cd-DOB -->
+
+		<div id="cd-address"> <!-- address form -->
+			<form class="cd-form">
+				<div class="col-xs-12 col-md-6 col-sm-6 fieldset" style="padding-left: 0; margin-bottom: 0;">
+					<label class="image-replace cd-username" for="signup-username">ADDRESS 1</label>
+					<input style="font-size: 15px;" class="full-width has-padding has-border" id="attendee-address1" type="text" placeholder="ADDRESS 1*" required autofocus>
+				</div>
+				<div class="col-xs-12 col-md-6 col-sm-6 fieldset" style="margin-top: 0; padding-left: 0; margin-bottom: 0;">
+					<label class="image-replace cd-username" for="signup-username">ADDRESS 2</label>
+					<input style="font-size: 15px;" class="full-width has-padding has-border" id="attendee-address2" type="text" placeholder="ADDRESS 2">
+				</div>
+				<div class="col-xs-12 col-md-4 col-sm-4 fieldset" style="padding-left: 0;">
+					<label class="image-replace cd-email" for="signup-email">CITY</label>
+					<input style="font-size: 15px;" class="full-width has-padding has-border" id="attendee-city" type="text" placeholder="CITY*" required>
+				</div>
+				<div class="col-xs-12 col-md-4 col-sm-4 fieldset" style="padding-left: 0;">
+					<label class="image-replace cd-email" for="signup-email">STATE</label>
+					<input style="font-size: 15px;" class="full-width has-padding has-border" id="attendee-state_name" type="text" placeholder="STATE*" required>
+				</div>
+				<div class="col-xs-12 col-md-4 col-sm-4 fieldset" style="padding-left: 0;">
+					<label class="image-replace cd-password" for="signup-password">ZIP</label>
+					<input style="font-size: 15px;" class="full-width has-padding has-border" id="attendee-zip" type="text" placeholder="ZIP*" required>
+				</div>
+				<p>
+					<input style="color: white; font-size: 25px;" class="full-width has-padding" type="submit" value="Update">
+				</p>
+			</form>
+		</div> <!-- cd-address -->
+
+		<div id="cd-company"> <!-- cd-company form -->
+			<form class="cd-form">
+				<div class="fieldset">
+					<label class="image-replace cd-email" for="reset-email">Company</label>
+					<input style="font-size: 15px;" class="full-width has-padding has-border" id="buyer-company" type="text" placeholder="Company" required autofocus>
+				</div>
+				<p>
+					<input style="color: white; font-size: 25px;" class="full-width has-padding" type="submit" value="Update">
+				</p>
+			</form>
+		</div> <!-- cd-company -->
+		<div id="cd-phone"> <!-- cd-phone form -->
+			<form class="cd-form">
+				<div class="fieldset">
+					<label class="image-replace cd-email" for="reset-email">Phone</label>
+					<input style="font-size: 15px;" class="full-width has-padding has-border" id="attendee-phone" type="text" placeholder="(555) 555-5555" required autofocus>
+				</div>
+				<p>
+					<input style="color: white; font-size: 25px;" class="full-width has-padding" type="submit" value="Update">
+				</p>
+			</form>
+		</div> <!-- cd-phone -->
+	</div> <!-- cd-user-modal-container -->
+</div> <!-- cd-user-modal -->
+<!-- END ACTUAL LOGIN FORM -->
 
 	<script type="text/javascript" src="/js/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/dist/bootstrap.min.js"></script>
@@ -259,7 +221,9 @@
 	<script type="text/javascript" src="/libraries/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 	<script type="text/javascript" src="/libraries/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 	<script type="text/javascript" src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
-	<script type="text/javascript" src="/js/src/date-processing.js"></script>
+	<script type="text/javascript" src="/js/dist/date-processing.min.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript" src="/js/dist/main.min.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript" src="/js/dist/modernizr.min.js?ver=<?php echo $version;?>"></script>
 	<script>
 		$(document).ready(function(){
 			$("#signout").click(function(){
@@ -270,12 +234,14 @@
 					});
 			});
 			$('#data-loader').hide();
+			$('#date-submit').click();
 		});
 	</script>
 	<script>
 		$(document).ready(function() {
+			loadStyleSheet('/css/dist/login.min.css?ver=<?php echo $version;?>');
+			loadStyleSheet('/css/dist/reset.min.css?ver=<?php echo $version;?>');
 			loadStyleSheet('/css/dist/animate.min.css?ver=<?php echo $version;?>');
-			loadStyleSheet('/css/dist/terms_of_service.min.css?ver=<?php echo $version;?>');
 			loadStyleSheet('/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css');
 			loadStyleSheet('/libraries/bootstrap-datepicker/css/bootstrap-datepicker.min.css');
 			loadStyleSheet('/libraries/fonts/font-awesome-4.3.0/css/font-awesome.min.css');

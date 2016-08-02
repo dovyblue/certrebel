@@ -87,4 +87,5 @@ gulp.task('watch', function() {
 });
 
 // Default Task
-gulp.task('default', ['lint', 'scripts', 'watch', 'minify-css', 'minify-admin-css', 'minify-image', 'combine-css']);
+gulp.task('default', ['lint', 'scripts', 'watch', 'minify-css', 'minify-image', 'combine-css','combine-admin-css', 'minify-admin-css', 'admin-scripts']);
+gulp.task('admin', ['combine-admin-css', 'minify-admin-css', 'admin-scripts']);

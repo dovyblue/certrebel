@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	window.scrollTo(0,0);
+	$("html, body").stop().animate({ scrollTop: 0 }, 500);
 	$('.from-date').datepicker({
 		format: 'mm-dd-yyyy',
 		weekStart: 1,
@@ -6,7 +8,6 @@ $(document).ready(function(){
 		autoclose: true
 	}).on('changeDate', function (selected) {
 			var startDate = new Date(selected.date.valueOf());
-			console.log('startDate: '+startDate);
 			$('.to-date').datepicker('setStartDate', startDate);
 	}).on('clearDate', function (selected) {
 			$('.to-date').datepicker('setStartDate', null);
@@ -24,13 +25,15 @@ $(document).ready(function(){
 			$('.from-date').datepicker('setEndDate', null);
 	});
 
-	$('#date-submit').on('click', function(){
+	$('#date-submit').on('click', function(e){
+		e.preventDefault();
 		$('#load-data').html('');
 		$from = $('.from-date').val();
 		$to = $('.to-date').val();
+		$update = (localStorage.getItem("update") === null) ? "" : localStorage.getItem("update");
 		$('#data-loader').show();
 		$.ajax({
-			url: '/forms/attendees/get_attendees?from='+$from+'&to='+$to,
+			url: '/forms/attendees/get_attendees?from='+$from+'&to='+$to+'&update='+$update,
 			async: true,
 			type: 'GET',
 			dataType: 'html',

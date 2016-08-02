@@ -103,6 +103,14 @@ function get_orange_county_zip_codes() {
 
 	return $json_a;
 }
+function get_course_info($course_id, $course_index) {
+	$url = 'http://localhost/scripts/php/get_course_info.php?course_id='.$course_id.'&course_index='.$course_index;
+	
+	$file = file_get_contents($url);
+	$json_a = json_decode($file, true);
+
+	return $json_a;
+}
 function get_rand($pass) {
 	return sha1("aju^@".$pass."b*k#$");
 }
@@ -147,11 +155,17 @@ function set_session($pass) {
 	$pass = sha1($pass);
 	setcookie("xv",$pass, time()+60*60*24, '/');
 }
-function single_course_info() {
+function single_course_info($location = "fromCache", $index = "") {
 	$url = __DIR__.'/json_files/single_course_info.json';
 
 	if (!file_exists($url) || !filesize($url)) 
 		$url = 'http://localhost/scripts/php/single_course_info.php';
+	
+	if ($location == "fromDB")
+		$url = 'http://localhost/scripts/php/single_course_info.php?location=fromDB';
+
+	if ($index != "")
+		$url = 'http://localhost/scripts/php/single_course_info.php?index='.$index;
 	
 	$file = file_get_contents($url);
 	$json_a = json_decode($file, true);
