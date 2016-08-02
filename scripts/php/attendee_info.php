@@ -39,6 +39,11 @@ if ($data) {
 																										"attendee_email" 			=> $queryResult['attendee_email'],		
 																										"attendee_phone" 			=> $queryResult['attendee_phone'],		
 																										"attendee_DOB" 				=> $queryResult['attendee_DOB'],		
+																										"attendee_address1" 	=> $queryResult['attendee_address1'],		
+																										"attendee_address2" 	=> $queryResult['attendee_address2'],
+																										"attendee_city" 			=> $queryResult['attendee_city'],
+																										"attendee_state_name"	=> $queryResult['attendee_state_name'],		
+																										"attendee_zip" 				=> $queryResult['attendee_zip'],
 																										"course_id"						=> $queryResult['course_id'],
 																										"course_index"				=> $queryResult['index'],
 																										"quantity"						=> $queryResult['quantity'],
@@ -54,7 +59,7 @@ if ($data) {
 																										"buyer_country" 			=> $queryResult['buyer_country'],		
 																										"buyer_zip" 					=> $queryResult['buyer_zip']
 																								 );
-			$mem->set($queryResult['attendee_id'].$hash, $result[$queryResult['attendee_id']]) or die("Couldn't save anything to memcached...");
+			$mem->set($key, $result[$queryResult['attendee_id']]) or die("Couldn't save anything to memcached...");
 			echo json_encode($result[$queryResult['attendee_id']]);
 		}
 	}

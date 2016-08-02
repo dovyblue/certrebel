@@ -1265,6 +1265,37 @@
 	SERVICES	
 ------------------------------------------------------- */ 
 
+	.load-data-label {
+		width: 25%; 
+		float: left; 
+		display: inline-block; 
+		margin-right: 5px;
+	}
+
+	.load-data-info {
+		width: 65%; 
+		display: inline-block;
+	}
+
+	.load-data-edit {
+		float: right; 
+		display: inline-block; 
+		margin-right: 5px;
+		cursor: pointer;
+	}
+
+	.load-data-face {
+		text-align: center;
+		font-size: 150px;
+		margin-bottom: 15px;
+	}
+
+	.load-data-text {
+		text-align: center;
+		line-height: 150px;
+		font-size: 100px;
+	}
+
 	#data-loader {
 		overflow-x: hidden;
 		overflow-y: hidden;
@@ -2939,6 +2970,13 @@
 		border-style: double;
 	}
 
+	.middle-box li {
+		transition: all .3s ease-in-out;
+	}
+	.middle-box li:hover {
+		transform: scale(1.1);
+	}
+
 	.bs-style{
 		margin-bottom: 15px !important;
 		padding: 6px 12px !important;
@@ -2977,4 +3015,8 @@
 		margin-left: auto;
 		margin-right: auto;
 		height: 150px;
+	}
+	.light-bold {
+		font-weight: 400 !important;
+		color: #383c4b !important
 	}

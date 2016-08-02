@@ -60,20 +60,18 @@ class SingleCourse extends Courses\Course {
 		return $this->course_index;
 	}
 	public function setIndex($index) {
-		for ($i=0; $i < $this->length; ++$i) {
-			$single_details = single_course_info()[$this->course_id];
-			if ($single_details[$i]['index'] == $index) {
-				$this->course_address = $single_details[$i]['course_address'];
-				$this->course_location = $single_details[$i]['course_location'];
-				$this->course_meeting_date = $single_details[$i]['course_meeting_date'];
-				$this->course_meeting_time = $single_details[$i]['course_meeting_time'];
-				$this->course_price = $single_details[$i]['course_price'];
-				$this->course_index = $single_details[$i]['index'];
-				$this->position = $i;
-				return true;
-			}
-		}
-		return false;
+		$single_details = get_course_info($this->course_id, $index);;
+		if (empty($single_details))
+			return false;
+
+		$this->course_address = $single_details['course_address'];
+		$this->course_location = $single_details['course_location'];
+		$this->course_meeting_date = $single_details['course_meeting_date'];
+		$this->course_meeting_time = $single_details['course_meeting_time'];
+		$this->course_price = $single_details['course_price'];
+		$this->course_index = $index;
+		$this->position = 0;
+		return true;
 	}
 	public function isValidIndex($index) {
 		for ($i=0; $i < $this->length; ++$i) {

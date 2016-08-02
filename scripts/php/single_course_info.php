@@ -4,6 +4,14 @@ session_start();
 require_once('/var/www/certrebel/functions.php');
 date_default_timezone_set('America/New_york');
 
+$location = isset($_GET['location']) ? htmlentities($_GET['location']) : "";
+
+if ($location == "") {
+	$date = "DATE_FORMAT(STR_TO_DATE(course_meeting_date, '%W, %M %D, %Y'), '%y-%m-%d') > DATE_FORMAT(DATE(NOW()), '%y-%m-%d')
+					 OR ";
+} else {
+	$date = "1 OR ";
+}
 try
 {
 	$dbConnection = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser , $dbpass);
@@ -19,8 +27,7 @@ try
 												FROM
 														CertRebel.single_course_info
 												WHERE
-														DATE_FORMAT(STR_TO_DATE(course_meeting_date, '%W, %M %D, %Y'), '%y-%m-%d') > DATE_FORMAT(DATE(NOW()), '%y-%m-%d')
-																OR course_meeting_time = 'On Demand') AS NEW_DATE";
+														$date course_meeting_time = 'On Demand') AS NEW_DATE";
 	$checkUserStmt = $dbConnection->prepare($checkUserQuery);
 	$checkUserStmt->execute();
 	while ($queryResult = $checkUserStmt->fetch(PDO::FETCH_ASSOC)) {

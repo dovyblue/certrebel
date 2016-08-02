@@ -27,9 +27,24 @@ class Attendee {
 	private $attendee_email;
 	private $attendee_phone;
 	private $attendee_DOB;
+	private $attendee_address1;
+	private $attendee_address2;
+	private $attendee_city;
+	private $attendee_state_name;
+	private $attendee_zip;
 
-	function __construct($attendee_id) {
+	private $dbConnection;
+	private $memcached;
+	private $key;
+
+	public function __construct($attendee_id) {
+		global $dbhost, $dbname, $dbuser, $dbpass;
+		$this->memcached = new \Memcached();
+		$this->memcached->addServer("127.0.0.1", 11211);
+		$hash = md5('attendee_info.php');
+		$this->key = $attendee_id.$hash;
 		$attendee_info = attendee_info($attendee_id);
+		$this->dbConnection = new \PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser , $dbpass);
 
 		$this->buyer_first_name = $attendee_info['buyer_first_name'];
 		$this->buyer_last_name = $attendee_info['buyer_last_name'];
@@ -53,15 +68,38 @@ class Attendee {
 		$this->attendee_email = $attendee_info['attendee_email'];
 		$this->attendee_phone = $attendee_info['attendee_phone'];
 		$this->attendee_DOB = $attendee_info['attendee_DOB'];
+		$this->attendee_address1 = $attendee_info['attendee_address1'];
+		$this->attendee_address2 = $attendee_info['attendee_address2'];
+		$this->attendee_city = $attendee_info['attendee_city'];
+		$this->attendee_state_name = $attendee_info['attendee_state_name'];
+		$this->attendee_zip = $attendee_info['attendee_zip'];
 	}
+	public function getCourseId() {
+		return $this->course_id;
+	}
+	public function getIndex() {
+		return $this->course_index;
+	}
+	public function getCourseLongTitle() {
+	}
+	public function getCourseMeetingDate() {
+	}
+	public function getCourseMeetingTime() {
+	}
+	public function getCourseAddress() {
+	}
+
 	public function getBuyerFirstName() {
 		return $this->buyer_first_name;
 	}
 	public function getBuyerLastName() {
 		return $this->buyer_last_name;
 	} 
+	public function getBuyerName() {
+		return $this->buyer_first_name." ".$this->buyer_last_name;
+	}
 	public function getBuyerEmail() {
-		return $this->buyer_last_name;
+		return $this->buyer_email;
 	} 
 	public function getBuyerPhone() {
 		return $this->buyer_phone;
@@ -69,6 +107,12 @@ class Attendee {
 	public function getBuyerCompany() {
 		return $this->buyer_company;
 	} 
+	public function getBuyerAddress() {
+		$address2 = "";
+		if (!empty($this->buyer_address2))
+			$address2 = ", ".$this->buyer_address2;
+		return $this->buyer_address1.$address2.", ".$this->buyer_city.", ".$this->buyer_state_name." ".$this->buyer_zip;
+	}
 	public function getBuyerAddress1() {
 		return $this->buyer_address1;
 	} 
@@ -103,6 +147,9 @@ class Attendee {
 	public function getAttendeeLastName() {
 		return $this->attendee_last_name;
 	} 
+	public function getAttendeeName() {
+		return $this->attendee_first_name." ".$this->attendee_last_name;
+	} 
 	public function getAttendeeEmail() {
 		return $this->attendee_email;
 	} 
@@ -112,10 +159,117 @@ class Attendee {
 	public function getAttendeeDOB() {
 		return $this->attendee_DOB;
 	} 
+	public function getAttendeeAddress() {
+		$address2 = "";
+		if (!empty($this->attendee_address2))
+			$address2 = ", ".$this->attendee_address2;
+		if (empty($this->attendee_address1))
+			return "";
+		return $this->attendee_address1.$address2.", ".$this->attendee_city.", ".$this->attendee_state_name." ".$this->attendee_zip;
+	}
+	public function getAttendeeAddress1() {
+		return $this->attendee_address1;
+	} 
+	public function getAttendeeAddress2() {
+		return $this->attendee_address2;
+	} 
+	public function getAttendeeCity() {
+		return $this->attendee_city;
+	} 
+	public function getAttendeeStateName() {
+		return $this->attendee_state_name;
+	} 
+	public function getAttendeeZip() {
+		return $this->attendee_zip;
+	} 
 	public function getPurchasedCourse() {
 		$course = new SingleCourses\SingleCourse($this->course_id);
 		$course->setIndex($this->course_index);
 		return $course;
+	}
+	public function updateAddress($info) {
+		$addressQuery = "UPDATE `CertRebel`.`attendees`
+										 SET 
+												`attendee_address1` = ?,
+												`attendee_address2` = ?,
+												`attendee_city` = ?,
+												`attendee_state_name` = ?,
+												`attendee_zip` = ?
+										 WHERE
+												`id` = ?";
+		try {
+			$addressStatement = $this->dbConnection->prepare($addressQuery);
+			$values = array($info['attendee_address1'],                                                                                                                                        
+											$info['attendee_address2'],
+											$info['attendee_city'],
+											$info['attendee_state_name'],
+											$info['attendee_zip'],
+											$this->attendee_id
+										); 	
+			$addressStatement->execute($values);
+			$this->memcached->delete($this->key, 0);
+			return true;
+		} catch (PDOException $e) {
+			return false;
+			die("Error: Cannot satisfy your request at this time. Please try again later");
+		}
+	}
+	public function updateCompany($info) {
+		$addressQuery = "UPDATE `CertRebel`.`orders`
+										 SET 
+												`buyer_company` = ?
+										 WHERE
+												`order_number` = ?";
+		try {
+			$addressStatement = $this->dbConnection->prepare($addressQuery);
+			$values = array($info['buyer_company'],                                                                                                                                        
+											$info['order_number']
+										); 	
+			$addressStatement->execute($values);
+			$this->memcached->delete($this->key, 0);
+			return true;
+		} catch (PDOException $e) {
+			return false;
+			die("Error: Cannot satisfy your request at this time. Please try again later");
+		}
+	}
+	public function updateDOB($info) {
+		$addressQuery = "UPDATE `CertRebel`.`attendees`
+										 SET 
+												`attendee_DOB` = ?
+										 WHERE
+												`id` = ?";
+		try {
+			$addressStatement = $this->dbConnection->prepare($addressQuery);
+			$values = array($info['attendee_DOB'],                                                                                                                                        
+											$this->attendee_id
+										); 	
+			$addressStatement->execute($values);
+			$this->memcached->delete($this->key, 0);
+			return true;
+		} catch (PDOException $e) {
+			return false;
+			die("Error: Cannot satisfy your request at this time. Please try again later");
+		}
+	}
+	public function updatePhone($info) {
+		$addressQuery = "UPDATE `CertRebel`.`attendees`
+										 SET 
+												`attendee_phone` = ?
+										 WHERE
+												`id` = ?";
+		try {
+			$addressStatement = $this->dbConnection->prepare($addressQuery);
+			$values = array($info['attendee_phone'],                                                                                                                                        
+											$this->attendee_id
+										); 	
+			$addressStatement->execute($values);
+			$this->memcached->delete($this->key, 0);
+			return true;
+		} catch (PDOException $e) {
+			return false;
+			die("Error: Cannot satisfy your request at this time. Please try again later");
+		}
 	}
 }
 }
