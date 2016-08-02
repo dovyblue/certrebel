@@ -72,10 +72,10 @@
 					</div>
 					<div id="navbar" class="navbar-collapse collapse">
 			      <ul class="nav navbar-nav navbar-right">
-							<li class="dropdown megamenu"><a href="/">Home</a></li>
-       				<li><a href="/about">About</a></li>
+							<li class="active dropdown megamenu"><a href="/">Home</a></li>
+       				<li class="hidden"><a href="/about">About</a></li>
 							<li class="dropdown megamenu"><a href="/courses">Courses</a>
-							<li class="dropdown megamenu"><a href="/contact">Contact</a></li>
+							<li class="hidden dropdown megamenu"><a href="/contact">Contact</a></li>
             	<li class="dropdown" id="signout"><a><i style="font-size: 19px; cursor: pointer;" class="fa fa-power-off"></i></a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
@@ -135,7 +135,7 @@
 		</section><!-- end section-white -->
 
 		<!-- Footer -->
-		<?php require_once("forms/footer/footer.php"); ?>
+		<?php require_once("/var/www/certrebel/forms/footer/footer.php"); ?>
 		<?php require_once("forms/login/log-out.php"); ?>
 		<!-- End Footer -->
 
@@ -224,21 +224,35 @@
 	<script type="text/javascript" src="/js/dist/date-processing.min.js?ver=<?php echo $version;?>"></script>
 	<script type="text/javascript" src="/js/dist/main.min.js?ver=<?php echo $version;?>"></script>
 	<script type="text/javascript" src="/js/dist/modernizr.min.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript" src="/js/dist/logout.min.js?ver=<?php echo $version;?>"></script>
+	<script type="text/javascript" src="/libraries/swal/dist/sweetalert.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		<?php
+		if (isset($_SESSION['success'])) {
+		?>	
+			swal({
+				title: "Awesome!", 
+				text:  "<span style=\"font-size:19px;\">Student has been registered!.</span>", 
+				type:  "success",
+				html: 	true,
+				confirmButtonColor: "#A5DC86"
+			});
+		<?php
+			session_destroy();
+		}
+		?>
+	});
+	</script>
 	<script>
 		$(document).ready(function(){
-			$("#signout").click(function(){
-					$("#logout").modal({keyboard: true});
-					$('#quit').on('click',function() {
-						localStorage.clear();
-						window.location.href="logout.php";
-					});
-			});
 			$('#data-loader').hide();
 			$('#date-submit').click();
 		});
 	</script>
 	<script>
 		$(document).ready(function() {
+			loadStyleSheet('/libraries/swal/dist/sweetalert.min.css?ver=<?php echo $version;?>');
 			loadStyleSheet('/css/dist/login.min.css?ver=<?php echo $version;?>');
 			loadStyleSheet('/css/dist/reset.min.css?ver=<?php echo $version;?>');
 			loadStyleSheet('/css/dist/animate.min.css?ver=<?php echo $version;?>');

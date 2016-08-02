@@ -28,6 +28,15 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('js/dist'));
 });
 
+gulp.task('live-to-admin-scripts', function() {
+    return gulp.src('js/src/*.js')
+				.pipe(rename(function(path) {
+					path.basename += '.admin.min';
+				}))
+        .pipe(uglify())
+        .pipe(gulp.dest('admin/js/dist'));
+});
+
 //  Minify Admin JS
 gulp.task('admin-scripts', function() {
     return gulp.src('admin/js/src/*.js')
@@ -46,6 +55,13 @@ gulp.task('combine-css', function () {
     .pipe(gulp.dest('css/dist/'));
 });
 
+gulp.task('live-to-admin-combine-css', function () {
+  return gulp.src(['css/src/bootstrap.css','css/src/style.css'])
+		.pipe(minifyCSS())
+		.pipe(concat('bootstyle.admin.min.css'))
+    .pipe(gulp.dest('admin/css/dist/'));
+});
+
 //  Combine Admin CSS
 gulp.task('combine-admin-css', function () {
   return gulp.src(['admin/css/src/bootstrap.css','admin/css/src/style.css'])
@@ -62,6 +78,15 @@ gulp.task('minify-css', function() {
 			path.basename += '.min';
 		}))
     .pipe(gulp.dest('css/dist'));
+});
+
+gulp.task('live-to-admin-minify-css', function() {
+  return gulp.src('css/src/*.css')
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+		.pipe(rename(function(path) {
+			path.basename += '.admin.min';
+		}))
+    .pipe(gulp.dest('admin/css/dist'));
 });
 
 //  Minify Admin CSS
@@ -89,3 +114,4 @@ gulp.task('watch', function() {
 // Default Task
 gulp.task('default', ['lint', 'scripts', 'watch', 'minify-css', 'minify-image', 'combine-css','combine-admin-css', 'minify-admin-css', 'admin-scripts']);
 gulp.task('admin', ['combine-admin-css', 'minify-admin-css', 'admin-scripts']);
+gulp.task('live-to-admin', ['live-to-admin-combine-css', 'live-to-admin-minify-css', 'live-to-admin-scripts']);
