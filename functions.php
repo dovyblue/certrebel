@@ -17,6 +17,7 @@
  * function set_session()
  * function single_course_info()
  * function validate_orange_county_zip_code();
+ * function write_log_to_file(data, filename)
  */
 require_once("credentials.php");
 
@@ -184,5 +185,23 @@ function validate_orange_county_zip_code($zip) {
 		return true;
 	
 	return false;
+}
+function write_log_to_file($data, $user="ADMIN") {
+	$time_stamp = date("Y-m-d h:i A");
+	$ip	=	$_SERVER['REMOTE_ADDR'];
+	$dirname = '/var/www/logs/'.date("Y_m");
+	$file_name = $dirname.'/'.date("Y_m_d").'.inc';
+	$data = $user." ".$data;
+	
+	if (!is_dir($dirname))
+		mkdir($dirname, 0777, true);
+
+	$fh=fopen($file_name,'a');
+	$str_timestamp = "($time_stamp) ";
+	fwrite($fh,$str_timestamp);
+	fwrite($fh,$data);
+	fwrite($fh," with ip: \"$ip\"");
+	fwrite($fh,"\n");
+	fclose($fh);
 }
 ?>  
