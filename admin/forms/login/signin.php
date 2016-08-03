@@ -15,6 +15,8 @@ if(!isset($_POST['username']) ||
 
 	if ($user == USER_NAME && $password == PASSWORD) {
 			set_session($password);
+			$data = "logged in";
+			write_log_to_file($data);
 			header("Location: /dashboard");
 	} else {
 			$_SESSION['error'] = sha1(PASSWORD);
