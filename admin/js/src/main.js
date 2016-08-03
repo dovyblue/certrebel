@@ -119,7 +119,7 @@ jQuery(document).ready(function($){
 					$attendee_state_name = $('input[id=attendee-state_name]').val();
 					$attendee_zip = $('input[id=attendee-zip]').val();
 					$attendee_address = $attendee_address1 + $attendee_address2 + ', ' + $attendee_city + ', ' + $attendee_state_name + ', ' + $attendee_zip;
-					$address_field.html($attendee_address).css('textTransform', 'capitalize');;
+					$address_field.html($attendee_address).css('textTransform', 'capitalize');
 
 					formAddress.find('input[id=attendee-address1]').removeClass('has-error').next('span').removeClass('is-visible');
 					formAddress.find('input[id=attendee-city]').removeClass('has-error').next('span').removeClass('is-visible');

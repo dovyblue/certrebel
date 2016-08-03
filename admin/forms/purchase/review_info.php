@@ -330,15 +330,20 @@
 				type: 'POST',
 				dataType: 'json',
 				success: function(data) {
-					if (data.status == "success")
+					if (data.status == "success") {
 						window.location.replace('/');
+						if (localStorage.getItem("update") === null)
+							localStorage.setItem("update", 0);
+						else
+							localStorage.setItem("update", $update_val++);
 						//console.log('thank-you');
-					else if(data.status == "error" && data.error == "error")
+					} else if(data.status == "error" && data.error == "error") {
 						window.location.replace('/error');
 						//console.log('index');
-					else 
+					} else { 
 						window.location.replace('/error');
 						//console.log('error');
+					}
 				}
 			});
 		});

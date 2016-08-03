@@ -220,7 +220,6 @@
 	<script type="text/javascript" src="/js/dist/maskedinput.min.js?ver=<?php echo $version;?>" type="text/javascript"></script>
 	<script type="text/javascript" src="/libraries/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 	<script type="text/javascript" src="/libraries/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-	<script type="text/javascript" src="/js/dist/clear.min.js?ver=<?php echo $version;?>"></script>
 	<script type="text/javascript" src="/js/dist/date-processing.min.js?ver=<?php echo $version;?>"></script>
 	<script type="text/javascript" src="/js/dist/main.min.js?ver=<?php echo $version;?>"></script>
 	<script type="text/javascript" src="/js/dist/modernizr.min.js?ver=<?php echo $version;?>"></script>
@@ -249,6 +248,13 @@
 			$('#data-loader').hide();
 			$('#date-submit').click();
 		});
+		function loadStyleSheet(src) {                                                                                                                                                    
+			if (document.createStyleSheet){
+				document.createStyleSheet(src);
+			} else {
+				$("head").append($("<link rel='stylesheet' href='"+src+"' type='text/css' media='screen' />"));
+			}
+		};
 	</script>
 	<script>
 		$(document).ready(function() {
