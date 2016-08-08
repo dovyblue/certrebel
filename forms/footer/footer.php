@@ -81,7 +81,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-sm-12">
-				<p>All Rights Reserved © Rene Midouin 2016 | <a style="color:#cbcbcd !important;" href="/terms" target="_blank"> License </a> | <a style="color:#cbcbcd !important;" href="/terms" target="_blank">Privacy Policy</a></p>
+				<p>All Rights Reserved © Copyright 2016 by Rene Midouin | <a style="color:#cbcbcd !important;" href="/terms" target="_blank">Privacy Policy</a></p>
 			</div><!-- end col -->
 			<div class="col-md-6 col-sm-12" style="padding:0;">
 				<ul class="footer-menu list-inline text-right">

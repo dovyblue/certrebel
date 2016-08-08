@@ -2,6 +2,11 @@
 
 
 <?php
+/* Copyright (C) Rene Midouin - All Rights Reserved         
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential                             
+ * Written by Rene Midouin <renemidouin@gmail.com>, 2016                                                                                                                          
+ */   
 	session_start();
 	include_once('version_number.inc');
 ?>

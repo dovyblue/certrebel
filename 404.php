@@ -4,6 +4,11 @@
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 <?php
+/* Copyright (C) Rene Midouin - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ * Written by Rene Midouin <renemidouin@gmail.com>, 2016
+ */
 	include_once('version_number.inc');
 ?>
 <head>
